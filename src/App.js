@@ -8,8 +8,6 @@ import Contact from "./Contact/Contact";
 import Project from "./Project/Project";
 import ProjectDetails from "./Project/Details";
 import CareerDetails from "./Career/Details";
-
-
 import Services from "./Services/Services";
 import Estate from "./Estate/Estate";
 
