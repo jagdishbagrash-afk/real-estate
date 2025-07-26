@@ -22,27 +22,24 @@ const features = [
 
 export default function WhyChooseUs() {
   return (
-    <section className="bg-[#9aa396] py-16 px-4">
-      <div className="max-w-7xl mx-auto text-center">
-        <h2 className="text-3xl md:text-4xl font-light text-white mb-12">
+    <section className="bg-[#94A393] py-[40px] md:py-[50px] lg:py-[90px] px-4">
+      <div className="max-w-[1320px] mx-auto text-center">
+        <h2 className="fontspring text-[25px] md:text-[30px] lg:text-[50px] font-light text-white mb-[25px]">
           Why Choose Us?
         </h2>
 
         <div className="grid gap-6 md:grid-cols-3">
           {features.map((item, index) => (
-            <div
-              key={index}
-              className="bg-white p-8 rounded-lg shadow-md text-left hover:shadow-lg transition"
-            >
+            <div key={index} className="bg-white p-[20px] md:p-[20px] lg:p-[40px] shadow-md text-left hover:shadow-lg transition">
               {/* Replace with your own SVG or icon */}
               <div className="text-[#9aa396] mb-4 text-3xl">
               <img src={chooseicon} alt="Logo" className="" />
               
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">
+              <h3 className="fontspring text-[18px] md:text-[22px] lg:text-[26px] text-[#000112] mb-2">
                 {item.title}
               </h3>
-              <p className="text-gray-700 text-sm leading-relaxed">
+              <p className="text-[#000112ba] text-[16px] md:text-[16px] lg:text-[20px] leading-relaxed">
                 {item.description}
               </p>
             </div>
