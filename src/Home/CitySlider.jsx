@@ -3,7 +3,8 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
-import { Navigation } from "swiper/modules";
+import {Autoplay } from "swiper/modules";
+
 // Our Service Images
 import city1 from "../img/cityimg01.jpg";
 import city2 from "../img/cityimg02.jpg";
@@ -12,12 +13,12 @@ import city4 from "../img/cityimg04.jpg";
 import city5 from "../img/cityimg05.jpg";
 
 const cities = [
-    { name: "Bangalore", img: city1 },
-    { name: "Hyderabad", img: city2 },
-    { name: "Chennai", img: city3 },
-    { name: "Pune", img: city4 },
-    { name: "Mumbai", img: city5 },
-  ];
+  { name: "Bangalore", img: city1 },
+  { name: "Hyderabad", img: city2 },
+  { name: "Chennai", img: city3 },
+  { name: "Pune", img: city4 },
+  { name: "Mumbai", img: city5 },
+];
 
 const CitySlider = () => {
   return (
@@ -27,15 +28,16 @@ const CitySlider = () => {
       </h2>
 
       <Swiper
-        
-        modules={[]}
         spaceBetween={20}
         slidesPerView={3}
         breakpoints={{
+          400: { slidesPerView: 2 },
           640: { slidesPerView: 2 },
           768: { slidesPerView: 3 },
           1024: { slidesPerView: 4 },
         }}
+        modules={[Autoplay]}
+
         className="w-full"
       >
         {cities.map((city, idx) => (

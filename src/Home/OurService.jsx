@@ -1,8 +1,7 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Scrollbar } from "swiper/modules";
+import { Scrollbar ,Autoplay } from "swiper/modules";
 import "swiper/css";
-import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
 
@@ -37,13 +36,14 @@ export default function OurServices() {
         grabCursor={true}
         spaceBetween={30}
         slidesPerView={1}
+        autoplay={{ delay: 2500, disableOnInteraction: false }}
         scrollbar={{ draggable: true }}
         breakpoints={{
-            400: { slidesPerView: 2 },
-            768: { slidesPerView: 3 },
+            400: { slidesPerView: 1 },
+            768: { slidesPerView: 2 },
             1024: { slidesPerView: 4 },
         }}
-        modules={[ Scrollbar]}
+        modules={[ Scrollbar ,Autoplay]}
         className="!pb-8" // extra padding for scrollbar spacing
         >
         {services.map((service, idx) => (
