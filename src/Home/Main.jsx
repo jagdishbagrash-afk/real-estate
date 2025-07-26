@@ -5,9 +5,11 @@ import WhyChooseUs from './WhyChooseUs';
 import homebanner from '../img/homebanner.jpg';
 import homebanneroverlay from '../img/homebanneroverlay.png';
 import spacebanner from '../img/spacebanner.jpg';
-import ImageSlider from "./ImageSlider";
+import WorkSlider from "./WorkSlider";
 import CitySlider from "./CitySlider";
 import TestimonialSlider from "./TestimonialSlider";
+import Readybring from "./ReadyBring";
+import Footer from "../Footer";
 
 function Main() {
   return (
@@ -54,9 +56,13 @@ function Main() {
 
       <WhyChooseUs />
 
-      <ImageSlider />
+      <WorkSlider />
+      
       <CitySlider />
       <TestimonialSlider />
+      <Readybring />
+
+      <Footer />
     </div>
   );
 }

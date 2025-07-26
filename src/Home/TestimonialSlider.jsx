@@ -51,9 +51,9 @@ const TestimonialSlider = () => {
           <SwiperSlide key={index}>
             <div className="flex items-start justify-start flex-col fade-slide transition-all duration-500">
                 <div className="clientreview">
-              <p className="text-start fontspring text-[18px] md:text-[20px] lg:text-[22px] mb-[20px] text-[#000112]">{item.text}</p>
+              <p className="text-start fontspring text-[18px] md:text-[20px] lg:text-[22px] mb-[2px] text-[#000112]">{item.text}</p>
               </div>
-              <p className="title mt-6 text-[14px] font-semibold text-[#000112a3] uppercase tracking-wide">
+              <p className="title mt-2 text-[14px] font-[500] text-[#000112a3] uppercase tracking-wide">
                 — {item.name}
               </p>
             </div>

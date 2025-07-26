@@ -1,0 +1,28 @@
+import React from 'react';
+import readybringbg from '../img/readybringbg.jpg';
+
+
+
+
+export default function Readybring() {
+  return (
+    <section className="relative min-h-[450px] flex items-center justify-center">
+      {/* Overlay */}
+      <img src={readybringbg} alt="Interior" className=" w-full h-full object-cover" />
+      {/* <div className="absolute inset-0 bg-black bg-opacity-60"></div> */}
+
+      {/* Content */}
+      <div className="absolute left-[0] right-[0] bottto-[0] z-10 text-center px-4 md:px-8">
+        <h1 className="fontspring text-[20px] md:text-[35px] lg:text-[50px] text-white mb-[10px]">
+        Ready to Bring Your Dream Space to Life?
+        </h1>
+        <p className="text-[#ffffffc2] text-[18px] md:text-[20px] mb-6">
+        Let’s create an interior that’s beautiful, functional, and uniquely yours.
+        </p>
+        <button className="min-w-[220px] bg-[#94A393] text-white hover:bg-white hover:text-black text-[14px] font-[600] py-[14px] px-[10px]  transition text-center tracking-widest">
+          CONTACT US
+        </button>
+      </div>
+    </section>
+  );
+};
