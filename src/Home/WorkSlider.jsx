@@ -57,7 +57,7 @@ const SliderWithFade = () => {
         {slides.map((slide, index) => (
           <SwiperSlide key={index}>
             {/* Each slide needs to be fully contained for fade to apply */}
-            <div className="relative w-full h-[820px]">
+            <div className="relative w-full h-[400px] sm:h-[450px] md:h-[650px] lg:h-[750px] xl:h-[820px]">
               {/* BACK IMAGE */}
               <img
                 src={slide.back}
@@ -73,7 +73,7 @@ const SliderWithFade = () => {
               />
 
               {/* CENTERED CARD WITH FRONT IMAGE + TITLE */}
-              <div className="w-full max-w-[785px] m-auto absolute inset-0 flex items-center justify-center z-20">
+              <div className="w-[96%] max-w-[500px] md:max-w-[600px] lg:max-w-[700px] xl:max-w-[785px] m-auto absolute top-[50px]  inset-0 flex items-center justify-center z-20">
                 <div className="w-full bg-white shadow-lg p-[15px] w-[90%] max-w-3xl flex flex-col items-center">
                   <img
                     src={slide.front}
@@ -92,14 +92,14 @@ const SliderWithFade = () => {
 
         {/* Navigation Arrows */}
       
-      <div className="prev-btn  absolute left-4 top-1/2 transform -translate-y-1/2 z-10 w-[64px] h-[64px] flex items-center justify-center text-[#FF792D] rounded-full hover:bg-orange-500 hover:text-white transition-colors duration-300 cursor-pointer">
+      <div className="hidden md:flex prev-btn  absolute left-4 top-1/2 transform -translate-y-1/2 z-10 w-[64px] h-[64px] flex items-center justify-center text-[#FF792D] rounded-full hover:bg-orange-500 hover:text-white transition-colors duration-300 cursor-pointer">
         <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle cx="32" cy="32" r="31" transform="matrix(-1 0 0 1 64 0)" stroke="white" stroke-width="2"/>
         <path d="M35 38L29 32L35 26" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </div>
 
-        <div className="next-btn absolute right-4 top-1/2 transform -translate-y-1/2 z-10 w-[64px] h-[64px] flex items-center justify-center text-[#FF792D] rounded-full hover:bg-orange-500 hover:text-white transition-colors duration-300 cursor-pointer">
+        <div className="hidden md:flex next-btn absolute right-4 top-1/2 transform -translate-y-1/2 z-10 w-[64px] h-[64px] flex items-center justify-center text-[#FF792D] rounded-full hover:bg-orange-500 hover:text-white transition-colors duration-300 cursor-pointer">
         <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle cx="32" cy="32" r="31" stroke="white" stroke-width="2"/>
         <path d="M29 38L35 32L29 26" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>

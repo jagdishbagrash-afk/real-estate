@@ -30,7 +30,7 @@ export default function WhyChooseUs() {
 
         <div className="grid gap-6 md:grid-cols-3">
           {features.map((item, index) => (
-            <div key={index} className="bg-white p-[20px] md:p-[30px] lg:p-[40px] shadow-md text-left hover:shadow-lg transition">
+            <div key={index} className="bg-white p-[20px] md:p-[20px] lg:p-[40px] shadow-md text-left hover:shadow-lg transition">
               {/* Replace with your own SVG or icon */}
               <div className="text-[#9aa396] mb-4 text-3xl">
               <img src={chooseicon} alt="Logo" className="" />
@@ -39,7 +39,7 @@ export default function WhyChooseUs() {
               <h3 className="fontspring text-[18px] md:text-[22px] lg:text-[26px] text-[#000112] mb-2">
                 {item.title}
               </h3>
-              <p className="text-[#000112ba] text-[18px] md:text-[20px] leading-relaxed">
+              <p className="text-[#000112ba] text-[16px] md:text-[16px] lg:text-[20px] leading-relaxed">
                 {item.description}
               </p>
             </div>

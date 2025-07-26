@@ -37,3 +37,22 @@ nav ul li a{color:#fff;font-size:20px;font-weight:400;}
 
 
 .footNav a:hover { color: #94A393;}
+
+
+/* Responsive */
+@media(max-width:1023px){
+.mobileNav li { border-bottom: 1px solid #403f3f;}
+.mobileNav li:last-child { border-bottom:none ;}
+.mobileNav li button, .mobileNav li a { padding: 8px 5px;}
+.mobiledrop { padding: 0 0 0 10px;}
+.mobiledrop li { border-bottom: 1px solid #403f3f;}
+.mobiledrop li a {padding: 8px 5px; font-size: 14px;}
+}
+
+@media(max-width:767px){
+.testimonial-swiper .swiper-slide p { font-size: 12px; }
+.testimonial-swiper .swiper-slide.swiper-slide-active p { font-size: 15px;}
+.testimonial-swiper .swiper-slide.swiper-slide-active p.title { font-size: 12px;}
+.testimonial-swiper .swiper-slide { min-height: 250px;}
+.testimonial-swiper .swiper-slide-active {padding: 15px; min-height: 300px;}
+}

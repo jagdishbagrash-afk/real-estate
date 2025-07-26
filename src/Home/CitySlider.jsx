@@ -21,8 +21,8 @@ const cities = [
 
 const CitySlider = () => {
   return (
-    <div className="py-12 px-4">
-      <h2 className="fontspring text-[50px] text-center mb-[25px]">
+    <div className="py-8 md:py-12 px-4">
+      <h2 className="fontspring text-[25px] md:text-[35px] lg:text-[45px] xl:text-[50px] text-center mb-[25px]">
         Popular Cities We Serve
       </h2>
 
@@ -46,7 +46,7 @@ const CitySlider = () => {
                 alt={city.name}
                 className="w-full object-cover"
               />
-              <p className="text-start fontspring mt-4 text-[26px] text-[#000112]">{city.name}</p>
+              <p className="text-start fontspring mt-4 text-[15px] md:text-[20px] lg:text-[26px] text-[#000112]">{city.name}</p>
             </div>
           </SwiperSlide>
         ))}

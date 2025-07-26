@@ -6,14 +6,14 @@ import readybringbg from '../img/readybringbg.jpg';
 
 export default function Readybring() {
   return (
-    <section className="relative min-h-[450px] flex items-center justify-center">
+    <section className="relative h-[300px] md:h-[350px] lg:h-[450px] flex items-center justify-center">
       {/* Overlay */}
       <img src={readybringbg} alt="Interior" className=" w-full h-full object-cover" />
       {/* <div className="absolute inset-0 bg-black bg-opacity-60"></div> */}
 
       {/* Content */}
-      <div className="absolute left-[0] right-[0] bottto-[0] z-10 text-center px-4 md:px-8">
-        <h1 className="fontspring text-[20px] md:text-[35px] lg:text-[50px] text-white mb-[10px]">
+      <div className="h-full flex items-center justify-center flex-col absolute left-[0] right-[0] top-[0] bottto-[0] z-10 text-center px-4 md:px-8">
+        <h1 className="fontspring text-[20px] md:text-[35px] lg:text-[40px] xl:text-[50px] text-white mb-[10px]">
         Ready to Bring Your Dream Space to Life?
         </h1>
         <p className="text-[#ffffffc2] text-[18px] md:text-[20px] mb-6">

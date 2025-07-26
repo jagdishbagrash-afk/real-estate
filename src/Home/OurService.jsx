@@ -26,7 +26,7 @@ export default function OurServices() {
     <section className="bg-[#F8F6F2] py-[40px] md:py-[50px] lg:py-[77px]">
     <div className=" mx-auto px-4 text-center">
       <p className="text-[14px] font-[600] tracking-widest text-[#000112a6] uppercase mb-4">Our Service</p>
-      <h2 className="fontspring text-[22px] md:text-[22px] lg:text-[32px] leading-[33px] text-[#000112] mb-10 max-w-[1140px] mx-auto">
+      <h2 className="fontspring text-[18px] md:text-[20px] lg:text-[28px] xl:text-[32px] leading-[25px] lg:leading-[30px] xl:leading-[45px] text-[#000112] mb-10 max-w-[1140px] mx-auto">
         From elegant residential interiors to functional commercial spaces and bespoke modular
         solutions, our comprehensive interior design services are crafted to bring beauty,
         comfort, and purpose into every corner of your space.
@@ -39,7 +39,8 @@ export default function OurServices() {
         slidesPerView={1}
         scrollbar={{ draggable: true }}
         breakpoints={{
-            768: { slidesPerView: 2 },
+            400: { slidesPerView: 2 },
+            768: { slidesPerView: 3 },
             1024: { slidesPerView: 4 },
         }}
         modules={[ Scrollbar]}
@@ -47,7 +48,7 @@ export default function OurServices() {
         >
         {services.map((service, idx) => (
           <SwiperSlide key={idx}>
-            <div className="relative h-[520px] w-full overflow-hidden shadow-lg group cursor-grab">
+            <div className="relative h-[300px] md:h-[350px] lg:md:h-[420px] xl:md:h-[520px] w-full overflow-hidden shadow-lg group cursor-grab">
               <img
                 src={service.image}
                 alt={service.title}

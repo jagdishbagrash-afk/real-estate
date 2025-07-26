@@ -26,7 +26,7 @@ const Footer = () => {
 
         {/* Middle Nav Links */}
         <div className="border-t border-gray-700 mt-6 pt-6 ">
-          <div className="footNav flex flex-wrap justify-center gap-[20px] md:gap-[50px] lg:gap-[80px] text-sm md:text-base font-semibold tracking-wide text-[#ffffff9c] tracking-widest ">
+          <div className="footNav flex flex-wrap justify-center gap-[10px] md:gap-[15px] lg:gap-[40px] xl:gap-[80px] text-sm md:text-base font-semibold tracking-wide text-[#ffffff9c] tracking-widest ">
             <a href="#">Home</a>
             <a href="#">ABOUT US</a>
             <a href="#">SERVICES</a>
