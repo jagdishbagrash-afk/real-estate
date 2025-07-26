@@ -42,7 +42,8 @@ export default function Header() {
 
 
 
-          <li><Link to="/service" className="">Services</Link></li>
+          <li><Link to="/services" className="">Services</Link></li>
+          <li><Link to="/services" className="">Services</Link></li>
           <li><Link to="about" className="">Our Companies</Link></li>
           <li><Link to="/blog" className="">Blogs</Link></li>
           <li><Link to="/career" className="">Careers</Link></li>

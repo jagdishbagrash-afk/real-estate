@@ -31,7 +31,7 @@ const CitySlider = () => {
         spaceBetween={20}
         slidesPerView={3}
         breakpoints={{
-          400: { slidesPerView: 2 },
+          400: { slidesPerView: 1 },
           640: { slidesPerView: 2 },
           768: { slidesPerView: 3 },
           1024: { slidesPerView: 4 },
