@@ -17,7 +17,7 @@ export default function Header() {
 
                 {/* Desktop Menu */}
                 <ul className="hidden md:flex gap-6 items-center">
-                    <li><Link to="/" className="hover:text-blue-500">Home</Link></li>
+                    <li><Link to="/" className="text-white hover:text-blue-500">Home</Link></li>
                     <li><Link to="/about" className="hover:text-blue-500">About</Link></li>
 
                     <li className="relative group">
