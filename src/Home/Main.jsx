@@ -1,4 +1,4 @@
-import Header from '../Header';
+import Header from '../component/Header';
 import OurServices from './OurService';
 import WhyChooseUs from './WhyChooseUs';
 import homebanner from '../img/homebanner.jpg';
