@@ -21,7 +21,7 @@ function Main() {
           <img src={homebanneroverlay} alt="Logo" className="object-cover h-full w-full" />
         </div>
 
-        <div className='absolute left-[0] right-[0] bottom-[50px] w-full max-w-[1320px] m-auto'>
+        <div className='absolute left-[0] right-[0] bottom-[50px] w-full max-w-[1320px] m-auto px-[15px]'>
           <h1 className='mb-[15px] fontspring text-[80px] text-white leading-[85px] pe-[10px] md:pe-[100px] lg:pe-[160px] '>Transform Your Space Into a Work of Art</h1>
           <p className='text-[20px] text-[#ffffffd1] pe-[250px] md:pe-[150px] lg:pe-[300px]'>At Horizon Interiors, we craft timeless, functional, and inspiring spaces that reflect who you are. From elegant homes to modern offices, our award-winning interior designers bring your vision to life with creativity and precision.</p>
         </div>
@@ -55,10 +55,18 @@ function Main() {
       <OurServices />
 
       <WhyChooseUs />
-
-      <WorkSlider />
+      <div className="relative">
+        <h2 className='absolute top-[80px] left-[0] right-[0] z-[2] fontspring text-[50px] text-white text-center'>Our Work</h2>
+        <WorkSlider />
+      </div>
       
       <CitySlider />
+
+      <div className="relative">
+        <h2 className='absolute top-[80px] left-[0] right-[0] z-[2] fontspring text-[50px] text-white text-center'>Our Client and Partners</h2>
+        <WorkSlider />
+      </div>
+
       <TestimonialSlider />
       <Readybring />
 

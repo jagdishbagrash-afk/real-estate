@@ -39,7 +39,11 @@ const SliderWithFade = () => {
         fadeEffect={{ crossFade: true }}
         autoplay={{ delay: 3000 }}
         loop={true}
-        navigation={true}
+        navigation={{
+          nextEl: ".next-btn",
+          prevEl: ".prev-btn",
+        }}
+     
         slidesPerView={1}
         onInit={(swiper) => {
           // Bind navigation buttons after DOM has mounted
@@ -49,7 +53,7 @@ const SliderWithFade = () => {
           swiper.navigation.update();
         }}
       >
-        <h2 className='absolute top-[80px] left-[0] right-[0] z-[1] fontspring text-[50px] text-white text-center'>Our Work</h2>
+        
         {slides.map((slide, index) => (
           <SwiperSlide key={index}>
             {/* Each slide needs to be fully contained for fade to apply */}
@@ -87,31 +91,21 @@ const SliderWithFade = () => {
         ))}
 
         {/* Navigation Arrows */}
-        <div
-          ref={prevRef}
-          className="swiper-button-prev !text-white !left-2 z-30"
-        />
-        <div
-          ref={nextRef}
-          className="swiper-button-next !text-white !right-2 z-30"
-        />
-        
-        {/* <div className="swiper-button-prev !text-white !left-2" >
+      
+      <div className="prev-btn  absolute left-4 top-1/2 transform -translate-y-1/2 z-10 w-[64px] h-[64px] flex items-center justify-center text-[#FF792D] rounded-full hover:bg-orange-500 hover:text-white transition-colors duration-300 cursor-pointer">
         <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-<circle cx="32" cy="32" r="31" transform="matrix(-1 0 0 1 64 0)" stroke="white" stroke-width="2"/>
-<path d="M35 38L29 32L35 26" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-dfdsf
+        <circle cx="32" cy="32" r="31" transform="matrix(-1 0 0 1 64 0)" stroke="white" stroke-width="2"/>
+        <path d="M35 38L29 32L35 26" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
 
-
-        </div>
-        <div className="swiper-button-next !text-white !right-2" >
+        <div className="next-btn absolute right-4 top-1/2 transform -translate-y-1/2 z-10 w-[64px] h-[64px] flex items-center justify-center text-[#FF792D] rounded-full hover:bg-orange-500 hover:text-white transition-colors duration-300 cursor-pointer">
         <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle cx="32" cy="32" r="31" stroke="white" stroke-width="2"/>
         <path d="M29 38L35 32L29 26" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
 
-        </div> */}
+        </div>
       </Swiper>
     </div>
   );
