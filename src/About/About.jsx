@@ -1,14 +1,28 @@
 import "../App.css"
 import Header from '../component/Header';
 import Footer from "../component/Footer";
-import WhyChooseUs from '../Home/WhyChooseUs';
 import spacebanner from '../img/spacebanner.jpg';
 import companybg from '../img/companybg.jpg';
 import exploreservicebg from '../img/exploreservicebg.jpg';
 import TeamSlider from "./TeamSlider";
 import Readybring from "../Home/ReadyBring";
+import chooseicon from '../img/chooseicon.png';
+
 
 function About() {
+    const features = [
+        {
+            title: "End to End Expertise",
+            description:
+                "From the first mood board to the final handover, we take complete ownership of your project. Our multidisciplinary team handles design concepts, space planning, material selection, procurement, and execution—so you experience a smooth, hassle-free journey from start to finish.",
+        },
+        {
+            title: "Tailored Solutions",
+            description:
+                "No two spaces—or clients—are the same. We invest time to understand your lifestyle, aesthetic preferences, and functional needs, creating interiors that feel deeply personal. Every detail is thoughtfully curated to tell your story and support the way you live or work.",
+        },
+
+    ];
     return (<>
 
         <div className="min-h-screen ">
@@ -23,13 +37,13 @@ function About() {
             <div className="pt-[40px] md:pt-[50px] lg-[80px] pb-[90px] px-[15px]">
                 <h2 className="fontspring mb-[20px] text-[20px] md:text-[30px] lg:text-[40px] xl:text-[50px] text-[#000112] text-center">Company Profile</h2>
                 <div className="max-w-[1320px] m-auto">
-                <p className="px-[10px] mb-[20px] text-[14px] md:text-[18px] lg:text-[20px] text-[#00011299] text-center">Cadmax Projects Pvt. Ltd. is a leading urban planning, surveying, and engineering company dedicated to transforming the future of India’s cities and infrastructure.</p>
+                    <p className="px-[10px] mb-[20px] text-[14px] md:text-[18px] lg:text-[20px] text-[#00011299] text-center">Cadmax Projects Pvt. Ltd. is a leading urban planning, surveying, and engineering company dedicated to transforming the future of India’s cities and infrastructure.</p>
 
-                <p className="px-[10px] mb-[20px] text-[14px] md:text-[18px] lg:text-[20px] text-[#00011299] text-center">Founded with a vision to integrate cutting-edge technology and unmatched expertise, Cadmax has evolved from its origins as Pink City Survey Services into a trusted partner for governments, developers, and institutions across the country.</p>
+                    <p className="px-[10px] mb-[20px] text-[14px] md:text-[18px] lg:text-[20px] text-[#00011299] text-center">Founded with a vision to integrate cutting-edge technology and unmatched expertise, Cadmax has evolved from its origins as Pink City Survey Services into a trusted partner for governments, developers, and institutions across the country.</p>
 
-                <p className="px-[10px] mb-[20px] text-[14px] md:text-[18px] lg:text-[20px] text-[#00011299] text-center">Our work spans comprehensive urban master planning, detailed geospatial surveys, architectural design, infrastructure engineering, and real estate development support.</p>
+                    <p className="px-[10px] mb-[20px] text-[14px] md:text-[18px] lg:text-[20px] text-[#00011299] text-center">Our work spans comprehensive urban master planning, detailed geospatial surveys, architectural design, infrastructure engineering, and real estate development support.</p>
 
-                <p className="px-[10px] mb-[20px] text-[14px] md:text-[18px] lg:text-[20px] text-[#00011299] text-center">With over 15 years of proven experience, we have successfully delivered thousands of projects across Rajasthan, Haryana, Delhi, Gujarat, and beyond. Our focus remains unwavering: to build sustainable, smart, and inclusive spaces that empower communities and drive progress.</p>
+                    <p className="px-[10px] mb-[20px] text-[14px] md:text-[18px] lg:text-[20px] text-[#00011299] text-center">With over 15 years of proven experience, we have successfully delivered thousands of projects across Rajasthan, Haryana, Delhi, Gujarat, and beyond. Our focus remains unwavering: to build sustainable, smart, and inclusive spaces that empower communities and drive progress.</p>
                 </div>
 
 
@@ -43,7 +57,31 @@ function About() {
             </div>
 
 
-            <WhyChooseUs />
+            <section className="bg-[#94A393] py-[40px] md:py-[50px] lg:py-[90px] px-4">
+                <div className="max-w-[1320px] mx-auto text-center">
+                    <h2 className="fontspring text-[25px] md:text-[30px] lg:text-[50px] font-light text-white mb-[25px]">
+                        Why Choose Us?
+                    </h2>
+
+                    <div className="grid gap-6 md:grid-cols-2">
+                        {features.map((item, index) => (
+                            <div key={index} className="bg-white p-[20px] md:p-[20px] lg:p-[40px] shadow-md text-left hover:shadow-lg transition">
+                                {/* Replace with your own SVG or icon */}
+                                <div className="text-[#9aa396] mb-4 text-3xl">
+                                    <img src={chooseicon} alt="Logo" className="" />
+
+                                </div>
+                                <h3 className="fontspring text-[18px] md:text-[22px] lg:text-[26px] text-[#000112] mb-2">
+                                    {item.title}
+                                </h3>
+                                <p className="text-[#000112ba] text-[16px] md:text-[16px] lg:text-[20px] leading-relaxed">
+                                    {item.description}
+                                </p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
 
 
             <section className="bg-white py-[30px] md:py-[70px] lg:py-[80px] xl:py-[100px]">
@@ -86,17 +124,17 @@ function About() {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div className="bg-white p-6 md:p-8 ">
                         <h3 className="fontspring text-[18px] md:text-[22px] lg:text-[24px] xl:text-[26px]  leading-relaxed text-[#000112]">
-                        Integrity in our commitments and relationships.
+                            Integrity in our commitments and relationships.
                         </h3>
                     </div>
                     <div className="bg-white p-6 md:p-8 ">
                         <h3 className="fontspring text-[18px] md:text-[22px] lg:text-[24px] xl:text-[26px] leading-relaxed text-[#000112]">
-                        Innovation in technology and methodology.
+                            Innovation in technology and methodology.
                         </h3>
                     </div>
                     <div className="bg-white p-6 md:p-8 ">
                         <h3 className="fontspring text-[18px] md:text-[22px] lg:text-[24px] xl:text-[26px] leading-relaxed text-[#000112]">
-                        Impact through sustainable, community-focused solutions.
+                            Impact through sustainable, community-focused solutions.
                         </h3>
                     </div>
                 </div>

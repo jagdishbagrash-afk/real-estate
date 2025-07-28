@@ -10,7 +10,6 @@ import ProjectDetails from "./Project/Details";
 import CareerDetails from "./Career/Details";
 import Services from "./Services/Services";
 import Estate from "./Estate/Estate";
-
 function App() {
   return (
     <Router>

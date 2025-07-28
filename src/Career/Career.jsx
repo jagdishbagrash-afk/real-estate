@@ -4,6 +4,7 @@ import Footer from "../component/Footer";
 import WhyChooseUs from '../Home/WhyChooseUs';
 import builbanner from '../img/builbanner.jpg';
 import exploreservicebg from '../img/exploreservicebg.jpg';
+import { Link } from "react-router-dom";
 
 function Career() {
     return (<>
@@ -51,9 +52,9 @@ If you’re driven by purpose and eager to make a real impact on India’s urban
                         urban development projects.
                     </p>
                     </div>
-                    <button className="min-w-[150px] xl:min-w-[200px] px-[10px] py-3 border border-[94A393] text-[#94A393] text-[14px] font-[600] tracking-wide text-[#94A393] hover:bg-[#94A393] hover:text-[#fff] transition-all uppercase tracking-wider">
+                    <Link to="/career/details" className="min-w-[150px] xl:min-w-[200px] px-[10px] py-3 border border-[94A393] text-[#94A393] text-[14px] font-[600] tracking-wide text-[#94A393] hover:bg-[#94A393] hover:text-[#fff] transition-all uppercase tracking-wider">
                     View Details
-                    </button>
+                    </Link>
                 </div>
                 </section>
         </div>

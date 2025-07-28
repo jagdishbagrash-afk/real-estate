@@ -1,6 +1,6 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Scrollbar ,Autoplay } from "swiper/modules";
+import { Scrollbar, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/scrollbar";
 
@@ -23,45 +23,45 @@ const services = [
 export default function OurServices() {
   return (
     <section className="bg-[#F8F6F2] py-[40px] md:py-[50px] lg:py-[77px]">
-    <div className=" mx-auto px-4 text-center">
-      <p className="text-[14px] font-[600] tracking-widest text-[#000112a6] uppercase mb-4">Our Service</p>
-      <h2 className="fontspring text-[18px] md:text-[20px] lg:text-[28px] xl:text-[32px] leading-[25px] lg:leading-[30px] xl:leading-[45px] text-[#000112] mb-10 max-w-[1140px] mx-auto">
-        From elegant residential interiors to functional commercial spaces and bespoke modular
-        solutions, our comprehensive interior design services are crafted to bring beauty,
-        comfort, and purpose into every corner of your space.
-      </h2>
+      <div className=" mx-auto px-4 text-center">
+        <p className="text-[14px] font-[600] tracking-widest text-[#000112a6] uppercase mb-4">Our Service</p>
+        <h2 className="fontspring text-[18px] md:text-[20px] lg:text-[28px] xl:text-[32px] leading-[25px] lg:leading-[30px] xl:leading-[45px] text-[#000112] mb-10 max-w-[1140px] mx-auto">
+          From elegant residential interiors to functional commercial spaces and bespoke modular
+          solutions, our comprehensive interior design services are crafted to bring beauty,
+          comfort, and purpose into every corner of your space.
+        </h2>
 
-      {/* Swiper with drag + progress line */}
-      <Swiper
-        grabCursor={true}
-        spaceBetween={30}
-        slidesPerView={1}
-        autoplay={{ delay: 2500, disableOnInteraction: false }}
-        scrollbar={{ draggable: true }}
-        breakpoints={{
+        {/* Swiper with drag + progress line */}
+        <Swiper
+          grabCursor={true}
+          spaceBetween={30}
+          slidesPerView={1}
+          autoplay={{ delay: 2500, disableOnInteraction: false }}
+          scrollbar={{ draggable: true }}
+          breakpoints={{
             400: { slidesPerView: 1 },
             768: { slidesPerView: 2 },
             1024: { slidesPerView: 4 },
-        }}
-        modules={[ Scrollbar ,Autoplay]}
-        className="!pb-8" // extra padding for scrollbar spacing
+          }}
+          modules={[Scrollbar, Autoplay]}
+          className="!pb-8" // extra padding for scrollbar spacing
         >
-        {services.map((service, idx) => (
-          <SwiperSlide key={idx}>
-            <div className="relative h-[300px] md:h-[350px] lg:md:h-[420px] xl:md:h-[520px] w-full overflow-hidden shadow-lg group cursor-grab">
-              <img
-                src={service.image}
-                alt={service.title}
-                className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-black bg-opacity-[10%] flex items-center justify-center">
-                <h3 className="text-white text-lg font-semibold tracking-wider">{service.title}</h3>
+          {services.map((service, idx) => (
+            <SwiperSlide key={idx}>
+              <div className="relative h-[300px] md:h-[350px] lg:md:h-[420px] xl:md:h-[520px] w-full overflow-hidden shadow-lg group cursor-grab">
+                <img
+                  src={service.image}
+                  alt={service.title}
+                  className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-black bg-opacity-[10%] flex items-center justify-center">
+                  <h3 className="text-white text-lg font-semibold tracking-wider">{service.title}</h3>
+                </div>
               </div>
-            </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
-    </div>
-  </section>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+    </section>
   );
 }
