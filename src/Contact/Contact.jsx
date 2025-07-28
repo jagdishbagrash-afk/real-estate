@@ -19,8 +19,8 @@ function Contact() {
 
             <div className="bg-[#fff] px-[15px] py-[30px] md:py-[50px] lgpy-[70px] ">
                 {/* Top Contact Info */}
-                <div className="max-w-[1320px] mx-auto grid md:grid-cols-3 gap-6 text-center">
-                    <div className="flex gap-[10px] justify-start items-center">
+                <div className="max-w-[1320px] mx-auto flex flex-wrap md:flex-nowrap gap-6 text-center">
+                    <div className="flex w-full md:w-[32%] gap-[10px] justify-start items-center">
                         <div className="text-orange-600 text-2xl mb-2">
                             <svg width="54" height="55" viewBox="0 0 54 55" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <rect x="0.5" y="1" width="53" height="53" rx="26.5" stroke="#FF792D" />
@@ -31,14 +31,14 @@ function Contact() {
                         </div>
                         <div className="flex flex-col items-start justify-start">
                             <h3 className="fontspring text-[20px] md:text-[23px] lg:text-[26px] text-[#000112]">Address</h3>
-                            <p className="text-[16px] md:text-[18px] lg:text-[20px] font-[600] text-[#000112] mt-1 text-left">
-                                Société SL Services 30 avenue Foch <br />
+                            <p className="text-[16px] md:text-[16px] lg:text-[20px] font-[600] text-[#000112] mt-1 text-left">
+                                Société SL Services 30 avenue Foch 
                                 94100 Saint Maur des Fosses
                             </p>
                         </div>
                     </div>
 
-                    <div className="flex gap-[10px] justify-start items-center">
+                    <div className="flex  w-full md:w-[32%] gap-[10px] justify-start items-center">
                         <div className="text-orange-600 text-2xl mb-2">
                             <svg width="54" height="55" viewBox="0 0 54 55" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <rect x="0.5" y="1" width="53" height="53" rx="26.5" stroke="#FF792D" />
@@ -51,14 +51,14 @@ function Contact() {
                         </div>
                         <div className="flex flex-col items-start justify-start">
                             <h3 className="fontspring text-[20px] md:text-[23px] lg:text-[26px] text-[#000112]">Email</h3>
-                            <p className="text-[16px] md:text-[18px] lg:text-[20px] font-[600] text-[#000112] mt-1 text-left">
+                            <p className="whitespace-normal emailText break-words  text-[16px] md:text-[18px] lg:text-[20px] font-[600] text-[#000112] mt-1 text-left">
                                 contact@dga.com
                             </p>
                         </div>
                     </div>
 
 
-                    <div className="flex gap-[10px] justify-start items-center">
+                    <div className="flex  w-full md:w-[32%] gap-[10px] justify-start items-center">
                         <div className="text-orange-600 text-2xl mb-2">
                             <svg width="54" height="55" viewBox="0 0 54 55" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <rect x="0.5" y="1" width="53" height="53" rx="26.5" stroke="#FF792D" />
@@ -99,20 +99,20 @@ function Contact() {
 
 
                         {/* Right Form */}
-                        <form className="bg-[#f5f3ee]  rounded grid grid-cols-1 md:grid-cols-2 gap-[20px] md:gap-[30px] lg:gap-[50px] text-sm">
-                            <div className="flex flex-col w-full gap-[10px]">
+                        <form className="z-[2] flex flex-wrap gap-[20px] md:gap-[30px] lg:gap-[50px] text-sm">
+                            <div className="flex flex-col w-full md:w-[48%] lg:md:w-[42%] xl:md:w-[45%] gap-[10px]">
                                 <label className="mb-1 text-[12px] uppercase text-[#4D4D4D]">FULL NAME*</label>
                                 <input type="text" placeholder="your name" className="border-b border-gray-400 bg-transparent outline-none py-1 text-[16px] font-[500] text-[#999999]" />
                             </div>
-                            <div className="flex flex-col  w-full gap-[10px]">
+                            <div className="flex flex-col  w-full md:w-[48%] lg:md:w-[42%] xl:md:w-[45%] gap-[10px]">
                                 <label className="mb-1 text-[12px] uppercase text-[#4D4D4D]">EMAIL*</label>
                                 <input type="email" placeholder="your email" className="border-b border-gray-400 bg-transparent outline-none py-1 text-[16px] font-[500] text-[#999999]" />
                             </div>
-                            <div className="flex flex-col  w-full gap-[10px]">
+                            <div className="flex flex-col  w-full md:w-[48%] lg:md:w-[42%] xl:md:w-[45%] gap-[10px]">
                                 <label className="mb-1 text-[12px] uppercase text-[#4D4D4D]">PHONE (Optional)</label>
                                 <input type="tel" placeholder="your phone" className="border-b border-gray-400 bg-transparent outline-none py-1 text-[16px] font-[500] text-[#999999]" />
                             </div>
-                            <div className="flex flex-col  w-full gap-[10px]">
+                            <div className="flex flex-col  w-full md:w-[48%] lg:md:w-[42%] xl:md:w-[45%] gap-[10px]">
                                 <label className="mb-1 text-[12px] uppercase text-[#4D4D4D]">SERVICE*</label>
                                 <select className="border-b border-gray-400 bg-transparent outline-none py-1 text-[16px] font-[500] text-[#999999]">
                                     <option>--select service--</option>
@@ -121,11 +121,11 @@ function Contact() {
                                     <option>Commercial Design</option>
                                 </select>
                             </div>
-                            <div className="col-span-2 flex flex-col  w-full gap-[10px]">
+                            <div className="flex flex-col  w-full gap-[10px]">
                                 <label className="mb-1 text-[12px] uppercase text-[#4D4D4D]">MESSAGE*</label>
                                 <textarea rows="4" placeholder="Message" className="border-b border-gray-400 bg-transparent outline-none py-1 text-[16px] font-[500] text-[#999999]"></textarea>
                             </div>
-                            <div className="col-span-2 pt-4">
+                            <div className="w-full pt-4">
                                 <button type="submit" className="min-w-[200px] bg-[#94A393] text-white px-[10px] py-[15px]  hover:bg-[#000] hover:text-white text-[14px] font-[500]">
                                     GET A QUOTE
                                 </button>

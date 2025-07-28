@@ -43,7 +43,7 @@ function Main() {
               Whether it's a contemporary apartment, a luxury villa, or a commercial workspace, we approach every project with passion, transparency, and a deep respect for your story.
             </p>
 
-            <button className="min-w-[150px] xl:min-w-[250px] mt-8 px-6 py-3 border border-[94A393] text-[#94A393] text-[14px] font-[600] tracking-wide text-[#94A393] hover:bg-[#94A393] hover:text-[#fff] transition-all uppercase tracking-wider">
+            <button className="min-w-[160px] xl:min-w-[220px] mt-8 px-[10px] py-[13px] tracking-widest border border-[94A393] text-[#94A393] text-[14px] font-[600] tracking-wide text-[#94A393] hover:bg-[#94A393] hover:text-[#fff] transition-all uppercase tracking-wider">
               More About Us
             </button>
           </div>

@@ -1,8 +1,12 @@
 import "../App.css"
 import Header from '../component/Header';
 import Footer from "../component/Footer";
-import contactshap from '../img/contactshap.png';
+import WhyChooseUs from '../Home/WhyChooseUs';
+import spacebanner from '../img/spacebanner.jpg';
+import companybg from '../img/companybg.jpg';
 import exploreservicebg from '../img/exploreservicebg.jpg';
+import TeamSlider from "./TeamSlider";
+import Readybring from "../Home/ReadyBring";
 
 function About() {
     return (<>
@@ -16,143 +20,92 @@ function About() {
                 </div>
             </div>
 
-            <div className="pt-[40px] pb-[80px]">
+            <div className="pt-[40px] md:pt-[50px] lg-[80px] pb-[90px] px-[15px]">
                 <h2 className="fontspring mb-[20px] text-[20px] md:text-[30px] lg:text-[40px] xl:text-[50px] text-[#000112] text-center">Company Profile</h2>
-                <p className=" mb-[20px] text-[14px] md:text-[18px] lg:text-[20px] text-[#00011299] text-center">Cadmax Projects Pvt. Ltd. is a leading urban planning, surveying, and engineering company dedicated to transforming the future of India’s cities and infrastructure.</p>
-            </div>
+                <div className="max-w-[1320px] m-auto">
+                <p className="px-[10px] mb-[20px] text-[14px] md:text-[18px] lg:text-[20px] text-[#00011299] text-center">Cadmax Projects Pvt. Ltd. is a leading urban planning, surveying, and engineering company dedicated to transforming the future of India’s cities and infrastructure.</p>
 
+                <p className="px-[10px] mb-[20px] text-[14px] md:text-[18px] lg:text-[20px] text-[#00011299] text-center">Founded with a vision to integrate cutting-edge technology and unmatched expertise, Cadmax has evolved from its origins as Pink City Survey Services into a trusted partner for governments, developers, and institutions across the country.</p>
 
-            <div className="bg-[#fff] px-[15px] py-[30px] md:py-[50px] lgpy-[70px] ">
-                {/* Top Contact Info */}
-                <div className="max-w-[1320px] mx-auto grid md:grid-cols-3 gap-6 text-center">
-                    <div className="flex gap-[10px] justify-start items-center">
-                        <div className="text-orange-600 text-2xl mb-2">
-                            <svg width="54" height="55" viewBox="0 0 54 55" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect x="0.5" y="1" width="53" height="53" rx="26.5" stroke="#FF792D" />
-                                <path d="M35.3636 25.6818C35.3636 32.0455 27.1818 37.5 27.1818 37.5C27.1818 37.5 19 32.0455 19 25.6818C19 23.5119 19.862 21.4308 21.3964 19.8964C22.9308 18.362 25.0119 17.5 27.1818 17.5C29.3518 17.5 31.4328 18.362 32.9672 19.8964C34.5016 21.4308 35.3636 23.5119 35.3636 25.6818Z" stroke="#FF792D" stroke-width="1.81818" stroke-linecap="round" stroke-linejoin="round" />
-                                <path d="M27.1816 28.5C28.8385 28.5 30.1816 27.1569 30.1816 25.5C30.1816 23.8431 28.8385 22.5 27.1816 22.5C25.5248 22.5 24.1816 23.8431 24.1816 25.5C24.1816 27.1569 25.5248 28.5 27.1816 28.5Z" stroke="#FF792D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
+                <p className="px-[10px] mb-[20px] text-[14px] md:text-[18px] lg:text-[20px] text-[#00011299] text-center">Our work spans comprehensive urban master planning, detailed geospatial surveys, architectural design, infrastructure engineering, and real estate development support.</p>
 
-                        </div>
-                        <div className="flex flex-col items-start justify-start">
-                            <h3 className="fontspring text-[20px] md:text-[23px] lg:text-[26px] text-[#000112]">Address</h3>
-                            <p className="text-[16px] md:text-[18px] lg:text-[20px] font-[600] text-[#000112] mt-1 text-left">
-                                Société SL Services 30 avenue Foch <br />
-                                94100 Saint Maur des Fosses
-                            </p>
-                        </div>
-                    </div>
-
-                    <div className="flex gap-[10px] justify-start items-center">
-                        <div className="text-orange-600 text-2xl mb-2">
-                            <svg width="54" height="55" viewBox="0 0 54 55" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect x="0.5" y="1" width="53" height="53" rx="26.5" stroke="#FF792D" />
-                                <path d="M19 19.5H35C36.1 19.5 37 20.4 37 21.5V33.5C37 34.6 36.1 35.5 35 35.5H19C17.9 35.5 17 34.6 17 33.5V21.5C17 20.4 17.9 19.5 19 19.5Z" stroke="#FF792D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                <path d="M37 21.5L27 28.5L17 21.5" stroke="#FF792D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
+                <p className="px-[10px] mb-[20px] text-[14px] md:text-[18px] lg:text-[20px] text-[#00011299] text-center">With over 15 years of proven experience, we have successfully delivered thousands of projects across Rajasthan, Haryana, Delhi, Gujarat, and beyond. Our focus remains unwavering: to build sustainable, smart, and inclusive spaces that empower communities and drive progress.</p>
+                </div>
 
 
 
-                        </div>
-                        <div className="flex flex-col items-start justify-start">
-                            <h3 className="fontspring text-[20px] md:text-[23px] lg:text-[26px] text-[#000112]">Email</h3>
-                            <p className="text-[16px] md:text-[18px] lg:text-[20px] font-[600] text-[#000112] mt-1 text-left">
-                                contact@dga.com
-                            </p>
-                        </div>
-                    </div>
 
 
-                    <div className="flex gap-[10px] justify-start items-center">
-                        <div className="text-orange-600 text-2xl mb-2">
-                            <svg width="54" height="55" viewBox="0 0 54 55" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect x="0.5" y="1" width="53" height="53" rx="26.5" stroke="#FF792D" />
-                                <path d="M36.038 31.9403V34.6501C36.039 34.9016 35.9875 35.1506 35.8867 35.3811C35.7859 35.6116 35.6381 35.8185 35.4528 35.9885C35.2674 36.1586 35.0486 36.2881 34.8103 36.3687C34.572 36.4492 34.3195 36.4792 34.0689 36.4565C31.2895 36.1545 28.6197 35.2048 26.274 33.6836C24.0916 32.2968 22.2413 30.4465 20.8545 28.2641C19.328 25.9078 18.378 23.2249 18.0816 20.433C18.059 20.1832 18.0887 19.9315 18.1687 19.6938C18.2488 19.4562 18.3774 19.2378 18.5465 19.0525C18.7156 18.8673 18.9214 18.7193 19.1508 18.618C19.3802 18.5166 19.6282 18.4642 19.879 18.464H22.5887C23.0271 18.4596 23.452 18.6149 23.7844 18.9007C24.1168 19.1865 24.3339 19.5835 24.3952 20.0175C24.5096 20.8847 24.7217 21.7362 25.0275 22.5556C25.149 22.8789 25.1753 23.2303 25.1033 23.5681C25.0312 23.9058 24.8639 24.2159 24.621 24.4615L23.4739 25.6086C24.7597 27.8699 26.632 29.7422 28.8934 31.0281L30.0405 29.8809C30.2861 29.6381 30.5961 29.4707 30.9339 29.3987C31.2717 29.3266 31.623 29.3529 31.9463 29.4745C32.7658 29.7803 33.6173 29.9924 34.4844 30.1067C34.9232 30.1686 35.3239 30.3896 35.6103 30.7277C35.8968 31.0658 36.049 31.4974 36.038 31.9403Z" stroke="#FF792D" stroke-width="1.80648" stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
+                <div className="max-w-[1320px] m-auto mt-[30px] mb-[20px] md:mb-[10px]">
 
-
-                        </div>
-                        <div className="flex flex-col items-start justify-start">
-                            <h3 className="fontspring text-[20px] md:text-[23px] lg:text-[26px] text-[#000112]">Phone</h3>
-                            <p className="text-[16px] md:text-[18px] lg:text-[20px] font-[600] text-[#000112] mt-1 text-left">
-                                09 82 54 35 66
-                            </p>
-                        </div>
-                    </div>
-
-
-
+                    <img src={companybg} alt="Logo" className="object-cover min-h-[300px] md:min-h-[400px] lg:min-h-[480px] w-full" />
                 </div>
             </div>
 
-                {/* Form + Text */}
-                <div className="relative bg-[#F8F6F2] py-[30px] md:py-[50px] lg:py-[70px]">
-                    <div className="absolute left-[0] bottom-[0]">
-                        <img src={contactshap} alt="Interior" className=" w-full h-auto object-cover" />
+
+            <WhyChooseUs />
+
+
+            <section className="bg-white py-[30px] md:py-[70px] lg:py-[80px] xl:py-[100px]">
+                <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center gap-[60px]">
+                    <div className="w-full md:w-1/2">
+                        <img src={spacebanner} alt="Interior" className=" w-full h-auto object-cover" />
                     </div>
+                    <div className="w-full md:w-1/2 md:text-left">
+                        <h2 className="fontspring mb-[15px] text-[25px] text-[25px] md:text-[30px] lg:text-[40px] xl:text-[50px] leading-[30px] md:leading-[35px] lg:leading-[45px] xl:leading-[55px] text-[#000112]">
+                            About Us</h2>
+                        <p className=" mb-[20px] text-[14px] md:text-[18px] lg:text-[20px] text-[#00011299] ">At Cadmax Projects Pvt. Ltd., we believe that great design and engineering have the power to change lives.</p>
 
-                    <div className="max-w-[1320px] bg-[#F8F6F2] mx-auto px-4 grid lg:grid-cols-2 gap-10 items-start">
-                        {/* Left Text */}
-                        <div>
-                            <h2 className="fontspring text-[20px] md:text-[30px] lg:text-[50px] leading-[24px] md:leading-[35px] lg:leading-[55px] text-[#000112] mb-4">Let us help build your dream</h2>
-                            <p className="text-[#000112a6] text-[14px] md:text-[18px] lg:text-[20px]">
-                                Whether you're looking to renovate your home, office, or commercial space, our dedicated
-                                team is ready to assist you every step of the way. Contact us today to discuss your
-                                project and discover how we can create the perfect space tailored to your needs.
-                            </p>
-                        </div>
+                        <p className=" mb-[20px] text-[14px] md:text-[18px] lg:text-[20px] text-[#00011299] ">From the very first blueprint to the final survey, our work reflects a commitment to accuracy, innovation, and sustainability.</p>
 
+                        <p className=" mb-[20px] text-[14px] md:text-[18px] lg:text-[20px] text-[#00011299] ">What sets us apart?</p>
+                        <ul className="flex gap-[15px] flex-col text-[14px] md:text-[18px] lg:text-[20px] text-[#00011299]">
+                            <li className="flex gap-[5px]">✅ A multidisciplinary approach combining urban planning, architecture, surveying, and engineering under one roof</li>
+                            <li className="flex gap-[5px]">✅ Investment in the latest geospatial technology including DGPS, Total Stations, and Drone Surveying</li>
+                            <li className="flex gap-[5px]">✅ Deep knowledge of local regulations, approvals, and development standards</li>
+                            <li className="flex gap-[5px]">✅ An experienced team driven by integrity and a shared purpose</li>
 
-                        {/* Right Form */}
-                        <form className="bg-[#f5f3ee]  rounded grid grid-cols-1 md:grid-cols-2 gap-[20px] md:gap-[30px] lg:gap-[50px] text-sm">
-                            <div className="flex flex-col w-full gap-[10px]">
-                                <label className="mb-1 text-[12px] uppercase text-[#4D4D4D]">FULL NAME*</label>
-                                <input type="text" placeholder="your name" className="border-b border-gray-400 bg-transparent outline-none py-1 text-[16px] font-[500] text-[#999999]" />
-                            </div>
-                            <div className="flex flex-col  w-full gap-[10px]">
-                                <label className="mb-1 text-[12px] uppercase text-[#4D4D4D]">EMAIL*</label>
-                                <input type="email" placeholder="your email" className="border-b border-gray-400 bg-transparent outline-none py-1 text-[16px] font-[500] text-[#999999]" />
-                            </div>
-                            <div className="flex flex-col  w-full gap-[10px]">
-                                <label className="mb-1 text-[12px] uppercase text-[#4D4D4D]">PHONE (Optional)</label>
-                                <input type="tel" placeholder="your phone" className="border-b border-gray-400 bg-transparent outline-none py-1 text-[16px] font-[500] text-[#999999]" />
-                            </div>
-                            <div className="flex flex-col  w-full gap-[10px]">
-                                <label className="mb-1 text-[12px] uppercase text-[#4D4D4D]">SERVICE*</label>
-                                <select className="border-b border-gray-400 bg-transparent outline-none py-1 text-[16px] font-[500] text-[#999999]">
-                                    <option>--select service--</option>
-                                    <option>Home Renovation</option>
-                                    <option>Office Setup</option>
-                                    <option>Commercial Design</option>
-                                </select>
-                            </div>
-                            <div className="col-span-2 flex flex-col  w-full gap-[10px]">
-                                <label className="mb-1 text-[12px] uppercase text-[#4D4D4D]">MESSAGE*</label>
-                                <textarea rows="4" placeholder="Message" className="border-b border-gray-400 bg-transparent outline-none py-1 text-[16px] font-[500] text-[#999999]"></textarea>
-                            </div>
-                            <div className="col-span-2 pt-4">
-                                <button type="submit" className="min-w-[200px] bg-[#94A393] text-white px-[10px] py-[15px]  hover:bg-[#000] hover:text-white text-[14px] font-[500]">
-                                    GET A QUOTE
-                                </button>
-                            </div>
-                        </form>
+                        </ul>
                     </div>
-
                 </div>
+            </section>
 
-                {/* Embedded Map Placeholder */}
-                <div>
-                <div className="w-full h-[300px]">
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18..."
-                        className="w-full h-full border-0"
-                        allowFullScreen=""
-                        loading="lazy"
-                        title="Company Location"
-                    ></iframe>
-                </div>
+            <div className="clintSays bg-[#F8F6F2] py-[40px] md:py-[80px] lg:py-[100px] text-center px-4">
+                <h2 className="fontspring text-[25px] md:text-[40px] lg:text-[50px] text-[#000112]">
+                    Our Team Members
+                </h2>
+                <p className="mb-[20px] text-[14px] md:text-[18px] lg:text-[20px] text-[#00011299] text-center">At the heart of Cadmax is a dedicated team of professionals whose experience and passion fuel our success.</p>
 
+                <TeamSlider />
             </div>
+
+
+            <section class="bg-[#94A393] py-[40px] md:py-[50px] lg:py-[90px] px-4"><div class="max-w-[1320px] mx-auto "><h2 class="fontspring text-[25px] md:text-[30px] lg:text-[50px] font-light text-white mb-[5px] text-center">What We Stand For</h2>
+                <p className="mb-[40px] text-white text-[16px] md:text-[18px] lg:text-[20px] text-center">These values guide every decision we make and every project we undertake.</p>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div className="bg-white p-6 md:p-8 ">
+                        <h3 className="fontspring text-[18px] md:text-[22px] lg:text-[24px] xl:text-[26px]  leading-relaxed text-[#000112]">
+                        Integrity in our commitments and relationships.
+                        </h3>
+                    </div>
+                    <div className="bg-white p-6 md:p-8 ">
+                        <h3 className="fontspring text-[18px] md:text-[22px] lg:text-[24px] xl:text-[26px] leading-relaxed text-[#000112]">
+                        Innovation in technology and methodology.
+                        </h3>
+                    </div>
+                    <div className="bg-white p-6 md:p-8 ">
+                        <h3 className="fontspring text-[18px] md:text-[22px] lg:text-[24px] xl:text-[26px] leading-relaxed text-[#000112]">
+                        Impact through sustainable, community-focused solutions.
+                        </h3>
+                    </div>
+                </div>
+            </div>
+            </section>
+
+            <Readybring />
+
+
 
         </div>
         <Footer />

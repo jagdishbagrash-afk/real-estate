@@ -72,7 +72,7 @@ export default function Header() {
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className="lg:hidden px-4 pb-4 absolute top-[100px] right-[15px] bg-[#000] min-w-[200px]">
+        <div className="lg:hidden px-4 pb-4 absolute top-[85px] md:top-[100px] lg:top-[100px] right-[15px] bg-[#000] min-w-[200px]">
           <ul className="mobileNav">
             <li><Link to="/" className="block text-white">Home</Link></li>
             <li><Link to="/about" className="block text-white">About</Link></li>

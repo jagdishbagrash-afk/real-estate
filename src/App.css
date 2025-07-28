@@ -45,7 +45,7 @@ nav ul li a{color:#fff;font-size:20px;font-weight:400;}
 
 .overlaybx:hover:before { bottom: 0;}
 .overlaybx:hover:after { right: 0;}
-
+.emailText {word-break: break-word;;}
 
 /* Responsive */
 @media(max-width:1023px){
