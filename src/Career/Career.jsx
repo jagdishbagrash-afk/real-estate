@@ -57,6 +57,7 @@ If you’re driven by purpose and eager to make a real impact on India’s urban
                 </div>
                 </section>
         </div>
+        <Footer />
     </>);
 }
 
