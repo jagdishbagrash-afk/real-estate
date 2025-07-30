@@ -25,29 +25,29 @@ function Details() {
     return (<>
         <div className="min-h-screen ">
             <Header />
-            <div className="relative mt-[-150px] ">
-                <img src={blogdetailbg} alt="Logo" className="object-cover min-h-[350px] md:min-h-[400px] lg:min-h-[450px] w-full" />
-                <div className="max-w-[1320px] m-auto absolute left-[0] right-[0]  bottom-[30px] md:bottom-[50px] lg:bottom-[90px] z-[1] px-[15px]">
+            <div className=" blogDetailBaneer ">
+                <img src={blogdetailbg} alt="Logo" className="w-full" />
+                <div className="blogbannerCnt">
                     <h3 className="text-[18px] text-white mb-[15px]">Adam Sandler | 2min read</h3>
-                    <h2 className="fontspring text-[20px] md:text-[40px] lg:text-[60px] xl:text-[80px] text-white  leading-[25px] md:leading-[45px] lg:leading-[65px] xl:leading-[85px] ">How Modern Urban Planning is Reshaping Indian Cities</h2>
+                    <h2 className=" ">How Modern Urban Planning is Reshaping Indian Cities</h2>
                 </div>
             </div>
 
-            <div className="max-w-[1280px] mx-auto px-4 py-12 grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-8">
+            <div className="blogDetails ">
       
       {/* Left Main Blog Content */}
-      <div>
-        <p className="mb-[15px] mb-[15px] text-[14px] md:text-[18px] lg:text-[20px] text-[#000112ab] font-[400] mb-6 leading-relaxed">
+      <div className="blogleftpannel">
+        <p className="mb-[15px] ">
         As India steps boldly into the future, the landscape of its cities is transforming faster than ever before. From smart infrastructure and sustainable development to cutting-edge technology, urban planning has become the backbone of this evolution. <br /> <br />
         At Cadmax Projects Pvt. Ltd., we’ve witnessed firsthand how progressive planning strategies are redefining not only how cities look but also how they feel, function, and flourish.
         </p>
 
         <h2 className="fontspring mb-[20px] text-[22px] md:text-[25px] lg:text-[30px] text-[#000112] mb-4">The Need for a New Approach</h2>
 
-        <p className="mb-[15px] text-[14px] md:text-[18px] lg:text-[20px] text-[#000112ab] font-[400] mb-6 leading-relaxed">
+        <p className="">
           For decades, rapid urbanization in India has posed unique challenges: overcrowding, inefficient infrastructure...
         </p>
-        <ul className="list-disc list-inside mb-[15px] text-[14px] md:text-[18px] lg:text-[20px] text-[#000112ab] font-[400] mb-6 leading-relaxed space-y-1">
+        <ul className="list-disc ">
           <li>Smart technology</li>
           <li>Inclusive design principles</li>
           <li>Environmental stewardship</li>
@@ -58,15 +58,15 @@ function Details() {
         </p>
 
         <h2 className="fontspring mb-[20px] text-[22px] md:text-[25px] lg:text-[30px] text-[#000112] mb-4">Key Trends Transforming Indian Urban Spaces</h2>
-        <p className="mb-[15px] text-[14px] md:text-[18px] lg:text-[20px] text-[#000112ab] font-[400] mb-6 leading-relaxed">
+        <p className="">
           Here are some of the most significant trends we see driving change across the country:
         </p>
 
-        <h3 className="text-[20px] md:text-[22px] lg:text-[24px] font-bold text-[#000112] mb-2">1. Sustainable Development and Green Cities</h3>
-        <p className="mb-[15px] text-[14px] md:text-[18px] lg:text-[20px] text-[#000112ab] font-[400] mb-6 leading-relaxed">
+        <h3 className="">1. Sustainable Development and Green Cities</h3>
+        <p className="">
           Urban planning is no longer just about concrete and roads—it’s about balancing growth with ecological sensitivity...
         </p>
-        <ul className="list-disc list-inside mb-[15px] text-[14px] md:text-[18px] lg:text-[20px] text-[#000112ab] font-[400] mb-6 leading-relaxed space-y-1">
+        <ul className="">
           <li>Preserving green spaces and creating urban forests</li>
           <li>Rainwater harvesting and waste recycling</li>
           <li>Reducing energy footprints through smart building designs</li>
@@ -75,9 +75,9 @@ function Details() {
       </div>
 
       {/* Right Sticky Related Blogs */}
-      <aside className="lg:sticky lg:top-[0] h-fit bg-[#f9f6f2] p-4 rounded">
-        <h3 className="fontspring text-[20px] md:text-[25px] lg:text-[30px] font-semibold mb-6 text-[#000112]">Related Blogs</h3>
-        <div className="space-y-6">
+      <aside className="blogsidebar ">
+        <h3 className="fontspring ">Related Blogs</h3>
+        <div className="sidebarimgbx">
           {relatedBlogs.map((blog, idx) => (
             <div key={idx}>
               <img
