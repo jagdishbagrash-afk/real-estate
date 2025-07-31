@@ -6,18 +6,18 @@ import "swiper/css/scrollbar";
 
 
 // Our Service Images
-import img1 from "../img/archbanner.jpg";
+import img1 from "../img/HAMSA.jpg";
 import img2 from "../img/infrbanner.jpg";
-import img3 from "../img/interimg.jpg";
-import img4 from "../img/planningbanner.jpg";
-import img5 from "../img/realstateimg.jpg";
+import img3 from "../img/Infrastructure.jpg";
+import img4 from "../img/Acrchitecture.jpg";
+import img5 from "../img/Interior.png";
 
 const services = [
-  { title: "REAL STATE", image: img1 },
   { title: "URBAN PLANNING", image: img2 },
-  { title: "ARCHITECTURE", image: img3 },
-  { title: "INTERIOR", image: img4 },
-  { title: "INFRASTRUCTURE ENGINEERING", image: img5 },
+  { title: "REAL STATE", image: img1 },
+  { title: "INFRASTRUCTURE ", image: img3 },
+  { title: "ARCHITECTURE", image: img4 },
+  { title: "Interior Designing", image: img5 },
 ];
 
 export default function OurServices() {
@@ -26,9 +26,7 @@ export default function OurServices() {
       <div className=" mx-auto px-4 text-center">
         <p className="text-[14px] font-[600] tracking-widest text-[#000112a6] uppercase mb-4">Our Service</p>
         <h2 className="fontspring text-[18px] md:text-[20px] lg:text-[28px] xl:text-[32px] leading-[25px] lg:leading-[30px] xl:leading-[45px] text-[#000112] mb-10 max-w-[1140px] mx-auto">
-          From elegant residential interiors to functional commercial spaces and bespoke modular
-          solutions, our comprehensive interior design services are crafted to bring beauty,
-          comfort, and purpose into every corner of your space.
+        From planning porshe colonies to constructing stunning skyscrapers. We provide all infrastructural services such as 
         </h2>
 
         {/* Swiper with drag + progress line */}
@@ -55,7 +53,7 @@ export default function OurServices() {
                   className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-black bg-opacity-[10%] flex items-center justify-center">
-                  <h3 className="text-white text-lg font-semibold tracking-wider">{service.title}</h3>
+                  <h3 className="text-white text-lg font-semibold tracking-wider uppercase">{service.title}</h3>
                 </div>
               </div>
             </SwiperSlide>

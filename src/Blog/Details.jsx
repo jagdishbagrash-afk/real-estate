@@ -4,7 +4,7 @@ import Footer from "../component/Footer";
 import blogdetailbg from '../img/blogdetailbg.jpg';
 import blog1 from '../img/relateblog01.jpg';
 import blog2 from '../img/relateblog02.jpg';
-import blog3 from '../img/relateblog03.jpg';
+import blog3 from '../img/relateblog02.jpg';
 
 const relatedBlogs = [
     {

@@ -30,21 +30,21 @@ export default function Header() {
             </button>
             {dropdownOpen && (
               <ul className="dropdown absolute left-0 top-full mt-2 w-40 bg-black shadow-lg rounded-md z-10">
-                <li><Link to="/project" className="block">Our Projects</Link></li>
-                <li><Link to="/about" className="block">Why Us?</Link></li>
+                <li><Link to="/" className="block">Our Projects</Link></li>
+                <li><Link to="/" className="block">Why Us?</Link></li>
                 <li><Link to="#" className="block">Marketing</Link></li>
-                <li><Link to="/blog" className="block">Blogs</Link></li>
-                <li><Link to="/career" className="block">Career</Link></li>
-                <li><Link to="/contact" className="block">Contact Us</Link></li>
+                <li><Link to="/" className="block">Blogs</Link></li>
+                <li><Link to="/" className="block">Career</Link></li>
+                <li><Link to="/" className="block">Contact Us</Link></li>
               </ul>
             )}
           </li>
 
-          <li><Link to="/services" className="">Services</Link></li>
-          <li><Link to="/estate" className="">Our Companies</Link></li>
-          <li><Link to="/blog" className="">Blogs</Link></li>
-          <li><Link to="/career" className="">Careers</Link></li>
-          <li><Link to="/contact" className="">Contact</Link></li>
+          <li><Link to="/" className="">Services</Link></li>
+          <li><Link to="/" className="">Our Companies</Link></li>
+          <li><Link to="/" className="">Blogs</Link></li>
+          <li><Link to="/" className="">Careers</Link></li>
+          <li><Link to="/" className="">Contact</Link></li>
         </ul>
 
         <div className="music">
@@ -74,7 +74,7 @@ export default function Header() {
         <div className="lg:hidden px-4 pb-4 absolute top-[85px] md:top-[100px] lg:top-[100px] right-[15px] bg-[#000] min-w-[200px]">
           <ul className="mobileNav">
             <li><Link to="/" className="block text-white">Home</Link></li>
-            <li><Link to="/about" className="block text-white">About</Link></li>
+            <li><Link to="/" className="block text-white">About</Link></li>
             <li>
               <button
                 onClick={() => setDropdownOpen(!dropdownOpen)}
@@ -96,7 +96,7 @@ export default function Header() {
                 </ul>
               )}
             </li>
-            <li><Link to="/contact" className="block text-white">Contact</Link></li>
+            <li><Link to="/" className="block text-white">Contact</Link></li>
           </ul>
         </div>
       )}

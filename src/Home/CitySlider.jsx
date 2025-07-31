@@ -1,23 +1,28 @@
 // CitySlider.jsx
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/navigation";
-import {Autoplay } from "swiper/modules";
+import { Autoplay } from "swiper/modules"; // Make sure you're importing Autoplay from "swiper/modules"
+import "swiper/css"; // Required Swiper styles
+import "swiper/css/autoplay"; // Optional but helpful
 
 // Our Service Images
-import city1 from "../img/cityimg01.jpg";
-import city2 from "../img/cityimg02.jpg";
+import city1 from "../img/jaipur.avif";
+import city2 from "../img/haryana.jpeg";
 import city3 from "../img/cityimg03.jpg";
-import city4 from "../img/cityimg04.jpg";
-import city5 from "../img/cityimg05.jpg";
+import city6 from "../img/Telangana.jpg";
+import city7 from "../img/Statue-of-Unity-Legacy.jpg";
+
+
 
 const cities = [
-  { name: "Bangalore", img: city1 },
-  { name: "Hyderabad", img: city2 },
-  { name: "Chennai", img: city3 },
-  { name: "Pune", img: city4 },
-  { name: "Mumbai", img: city5 },
+  { name: "Rajasthan ", img: city1 },
+  { name: "Hariyana", img: city2 },
+  { name: "Uttrakhand", img: city1 },
+  { name: "Punjab", img: city1 },
+  { name: "Maharashtra", img: city2 },
+  { name: "Madhya Pradesh", img: city3 },
+  { name: "Telangana", img: city6 },
+  { name: "Gujrat", img: city7 },
 ];
 
 const CitySlider = () => {
@@ -29,7 +34,10 @@ const CitySlider = () => {
 
       <Swiper
         spaceBetween={20}
-        slidesPerView={3}
+        slidesPerView={4}
+        autoplay={{ delay: 2500, disableOnInteraction: false }}
+        loop={true} // Enable looping
+
         breakpoints={{
           400: { slidesPerView: 1 },
           640: { slidesPerView: 2 },
@@ -46,7 +54,7 @@ const CitySlider = () => {
               <img
                 src={city.img}
                 alt={city.name}
-                className="w-full object-cover"
+                className="w-full h-[300px] object-cover"
               />
               <p className="text-start fontspring mt-4 text-[15px] md:text-[20px] lg:text-[26px] text-[#000112]">{city.name}</p>
             </div>

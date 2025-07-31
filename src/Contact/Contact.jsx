@@ -3,8 +3,60 @@ import Header from '../component/Header';
 import Footer from "../component/Footer";
 import contactshap from '../img/contactshap.png';
 import exploreservicebg from '../img/exploreservicebg.jpg';
+import { useState } from "react";
+import toast from "react-hot-toast";
+import Listing from "../Admin/Apis/Listing";
 
 function Contact() {
+
+    const [Regs, setRegs] = useState({
+        name: "",
+        email: "",
+        message: "",
+        services: "",
+        phone_number: "",
+    });
+    const handleInputs = (e) => {
+        const { name, value } = e.target;
+        setRegs((prevState) => ({ ...prevState, [name]: value }));
+    };
+
+    const [loading, setLoading] = useState(false);
+
+    const handleForms = async (e) => {
+        setLoading(true);
+        e.preventDefault();
+        if (!Regs.name || !Regs.email || !Regs.phone_number || !Regs.services || !Regs.message) {
+            toast.error("Please fill out all fields.");
+            setLoading(false);
+            return;
+        }
+        const main = new Listing();
+        try {
+            const updatedRegs = {
+                ...Regs,
+            };
+            const response = await main.contact(updatedRegs);
+            console.log("response" ,response)
+            if (response?.data?.status) {
+                toast.success(response.data.message);
+                setRegs({
+                    name: "",
+                    email: "",
+                    message: "",
+                    subject: "",
+                    phone_number: "",
+                });
+            } else {
+                toast.error(response.data.message);
+            }
+        } catch (error) {
+            console.error("Error:", error); // Log the error for debugging
+            toast.error("Something went wrong, please try again.");
+        } finally {
+            setLoading(false);
+        }
+    };
     return (<>
 
         <div className="min-h-screen ">
@@ -32,7 +84,7 @@ function Contact() {
                         <div className="flex flex-col items-start justify-start">
                             <h3 className="fontspring text-[20px] md:text-[23px] lg:text-[26px] text-[#000112]">Address</h3>
                             <p className="text-[16px] md:text-[16px] lg:text-[20px] font-[600] text-[#000112] mt-1 text-left">
-                                Société SL Services 30 avenue Foch 
+                                Société SL Services 30 avenue Foch
                                 94100 Saint Maur des Fosses
                             </p>
                         </div>
@@ -80,63 +132,85 @@ function Contact() {
                 </div>
             </div>
 
-                {/* Form + Text */}
-                <div className="relative bg-[#F8F6F2] py-[30px] md:py-[50px] lg:py-[70px]">
-                    <div className="absolute left-[0] bottom-[0]">
-                        <img src={contactshap} alt="Interior" className=" w-full h-auto object-cover" />
-                    </div>
-
-                    <div className="max-w-[1320px] bg-[#F8F6F2] mx-auto px-4 grid lg:grid-cols-2 gap-10 items-start">
-                        {/* Left Text */}
-                        <div>
-                            <h2 className="fontspring text-[20px] md:text-[30px] lg:text-[50px] leading-[24px] md:leading-[35px] lg:leading-[55px] text-[#000112] mb-4">Let us help build your dream</h2>
-                            <p className="text-[#000112a6] text-[14px] md:text-[18px] lg:text-[20px]">
-                                Whether you're looking to renovate your home, office, or commercial space, our dedicated
-                                team is ready to assist you every step of the way. Contact us today to discuss your
-                                project and discover how we can create the perfect space tailored to your needs.
-                            </p>
-                        </div>
-
-
-                        {/* Right Form */}
-                        <form className="z-[2] flex flex-wrap gap-[20px] md:gap-[30px] lg:gap-[50px] text-sm">
-                            <div className="flex flex-col w-full md:w-[48%] lg:md:w-[42%] xl:md:w-[45%] gap-[10px]">
-                                <label className="mb-1 text-[12px] uppercase text-[#4D4D4D]">FULL NAME*</label>
-                                <input type="text" placeholder="your name" className="border-b border-gray-400 bg-transparent outline-none py-1 text-[16px] font-[500] text-[#999999]" />
-                            </div>
-                            <div className="flex flex-col  w-full md:w-[48%] lg:md:w-[42%] xl:md:w-[45%] gap-[10px]">
-                                <label className="mb-1 text-[12px] uppercase text-[#4D4D4D]">EMAIL*</label>
-                                <input type="email" placeholder="your email" className="border-b border-gray-400 bg-transparent outline-none py-1 text-[16px] font-[500] text-[#999999]" />
-                            </div>
-                            <div className="flex flex-col  w-full md:w-[48%] lg:md:w-[42%] xl:md:w-[45%] gap-[10px]">
-                                <label className="mb-1 text-[12px] uppercase text-[#4D4D4D]">PHONE (Optional)</label>
-                                <input type="tel" placeholder="your phone" className="border-b border-gray-400 bg-transparent outline-none py-1 text-[16px] font-[500] text-[#999999]" />
-                            </div>
-                            <div className="flex flex-col  w-full md:w-[48%] lg:md:w-[42%] xl:md:w-[45%] gap-[10px]">
-                                <label className="mb-1 text-[12px] uppercase text-[#4D4D4D]">SERVICE*</label>
-                                <select className="border-b border-gray-400 bg-transparent outline-none py-1 text-[16px] font-[500] text-[#999999]">
-                                    <option>--select service--</option>
-                                    <option>Home Renovation</option>
-                                    <option>Office Setup</option>
-                                    <option>Commercial Design</option>
-                                </select>
-                            </div>
-                            <div className="flex flex-col  w-full gap-[10px]">
-                                <label className="mb-1 text-[12px] uppercase text-[#4D4D4D]">MESSAGE*</label>
-                                <textarea rows="4" placeholder="Message" className="border-b border-gray-400 bg-transparent outline-none py-1 text-[16px] font-[500] text-[#999999]"></textarea>
-                            </div>
-                            <div className="w-full pt-4">
-                                <button type="submit" className="min-w-[200px] bg-[#94A393] text-white px-[10px] py-[15px]  hover:bg-[#000] hover:text-white text-[14px] font-[500]">
-                                    GET A QUOTE
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-
+            {/* Form + Text */}
+            <div className="relative bg-[#F8F6F2] py-[30px] md:py-[50px] lg:py-[70px]">
+                <div className="absolute left-[0] bottom-[0]">
+                    <img src={contactshap} alt="Interior" className=" w-full h-auto object-cover" />
                 </div>
 
-                {/* Embedded Map Placeholder */}
-                <div>
+                <div className="max-w-[1320px] bg-[#F8F6F2] mx-auto px-4 grid lg:grid-cols-2 gap-10 items-start">
+                    {/* Left Text */}
+                    <div>
+                        <h2 className="fontspring text-[20px] md:text-[30px] lg:text-[50px] leading-[24px] md:leading-[35px] lg:leading-[55px] text-[#000112] mb-4">Let us help build your dream</h2>
+                        <p className="text-[#000112a6] text-[14px] md:text-[18px] lg:text-[20px]">
+                            Whether you're looking to renovate your home, office, or commercial space, our dedicated
+                            team is ready to assist you every step of the way. Contact us today to discuss your
+                            project and discover how we can create the perfect space tailored to your needs.
+                        </p>
+                    </div>
+
+
+                    {/* Right Form */}
+                    <form  className="z-[2] flex flex-wrap gap-[20px] md:gap-[30px] lg:gap-[50px] text-sm">
+                        <div className="flex flex-col w-full md:w-[48%] lg:md:w-[42%] xl:md:w-[45%] gap-[10px]">
+                            <label className="mb-1 text-[12px] uppercase text-[#4D4D4D]">FULL NAME*</label>
+                            <input type="text" placeholder="your name"
+                                name="name"
+                                value={Regs.name}
+                                onChange={handleInputs}
+                                required
+                                className="border-b border-gray-400 bg-transparent outline-none py-1 text-[16px] font-[500] text-[#999999]" />
+                        </div>
+                        <div className="flex flex-col  w-full md:w-[48%] lg:md:w-[42%] xl:md:w-[45%] gap-[10px]">
+                            <label className="mb-1 text-[12px] uppercase text-[#4D4D4D]">EMAIL*</label>
+                            <input type="email"
+                                name="email"
+                                value={Regs.email}
+                                onChange={handleInputs}
+                                required
+                                placeholder="your email" className="border-b border-gray-400 bg-transparent outline-none py-1 text-[16px] font-[500] text-[#999999]" />
+                        </div>
+                        <div className="flex flex-col  w-full md:w-[48%] lg:md:w-[42%] xl:md:w-[45%] gap-[10px]">
+                            <label className="mb-1 text-[12px] uppercase text-[#4D4D4D]">PHONE (Optional)</label>
+                            <input type="tel"
+                                name="phone_number"
+                                value={Regs?.phone_number}
+                                onChange={handleInputs}
+                                placeholder="your phone" className="border-b border-gray-400 bg-transparent outline-none py-1 text-[16px] font-[500] text-[#999999]" />
+                        </div>
+                        <div className="flex flex-col  w-full md:w-[48%] lg:md:w-[42%] xl:md:w-[45%] gap-[10px]">
+                            <label className="mb-1 text-[12px] uppercase text-[#4D4D4D]">SERVICE*</label>
+                            <select
+                                onChange={handleInputs}
+                                value={Regs?.services}
+                                name="services"
+                                className="border-b border-gray-400 bg-transparent outline-none py-1 text-[16px] font-[500] text-[#999999]">
+                                <option>--select service--</option>
+                                <option value={"home"}>Home Renovation</option>
+                                <option value="Office">Office Setup</option>
+                                <option value="Commercial">Commercial Design</option>
+                            </select>
+                        </div>
+                        <div className="flex flex-col  w-full gap-[10px]">
+                            <label className="mb-1 text-[12px] uppercase text-[#4D4D4D]">MESSAGE*</label>
+                            <textarea rows="4"
+                                onChange={handleInputs}
+                                value={Regs?.message}
+                                name="message"
+                                placeholder="Message" className="border-b border-gray-400 bg-transparent outline-none py-1 text-[16px] font-[500] text-[#999999]"></textarea>
+                        </div>
+                        <div className="w-full pt-4">
+                            <button type="submit" onClick={handleForms}  className="min-w-[200px] bg-[#94A393] text-white px-[10px] py-[15px]  hover:bg-[#000] hover:text-white text-[14px] font-[500]">
+                                {loading ? "Processing.." : "GET A QUOTE"}
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+
+            {/* Embedded Map Placeholder */}
+            <div>
                 <div className="w-full h-[300px]">
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18..."

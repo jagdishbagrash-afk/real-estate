@@ -10,15 +10,23 @@ import ProjectDetails from "./Project/Details";
 import CareerDetails from "./Career/Details";
 import Services from "./Services/Services";
 import Estate from "./Estate/Estate";
+import BlogView from "./Admin/Blog/BlogView";
+import AddBlog from "./Admin/Blog/AddBlog";
+import { Toaster } from "react-hot-toast";
 function App() {
   return (
     <Router>
+      <Toaster/>
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/services" element={<Services />} />
         <Route path="/estate" element={<Estate />} />
         <Route path="/project" element={<Project />} />
         <Route path="/project/details" element={<ProjectDetails />} />
+        <Route path="/admin-blog/view" element={<BlogView />} />
+        {/* <Route path="/admin/blog-add" element={<AddBlog />} /> */}
+
+
 
         <Route path="/blog" element={<Blog />} />
 

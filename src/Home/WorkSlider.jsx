@@ -7,22 +7,39 @@ import 'swiper/css/navigation';
 
 import slideroverlay from '../img/slideroverlay.png';
 
-import imgfront1 from '../img/sliderfront01.jpg';
-import imgback1 from '../img/sliderimg01.jpg';
+import imgfront1 from '../img/RudraMahal.jpg';
+import imgback1 from '../img/RudraMahal.jpg';
 
-import imgfront2 from '../img/sliderfront02.jpg';
-import imgback2 from '../img/sliderimg02.jpg';
+import imgfront2 from '../img/Shivam.jpg';
+import imgback2 from '../img/Shivam.jpg';
+import imgfront3 from '../img/Cadmax.jpg';
+import imgback3 from '../img/Cadmax.jpg';
 
 const slides = [
   {
     front: imgfront1,
     back: imgback1,
-    title: "LUXURY VILLA INTERIORS – WHITEFIELD",
+    title: "Rudra Mahal – a luxury five star hotel,  Mundota,Rajasthan ",
   },
   {
     front: imgfront2,
     back: imgback2,
-    title: "MODERN APARTMENT – BANGALORE",
+    title: "Drayvavati river - a major South-flowing river in Rajasthan",
+  },
+   {
+    front: imgfront2,
+    back: imgback2,
+    title: "Shivam Magnus – a stunning skyscapper , Jaipur",
+  },
+   {
+    front: imgfront3,
+    back: imgback3,
+    title: "Cadmax Consultancy Pvt. Ltd. ; Jaipur",
+  },
+   {
+    front: imgfront2,
+    back: imgback2,
+    title: "Ravi Kiran Vihar – A porshe colony , Jaipur",
   },
 ];
 
