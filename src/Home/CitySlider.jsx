@@ -8,7 +8,12 @@ import "swiper/css/autoplay"; // Optional but helpful
 // Our Service Images
 import city1 from "../img/jaipur.avif";
 import city2 from "../img/haryana.jpeg";
-import city3 from "../img/cityimg03.jpg";
+import city3 from "../img/punjab.jpeg";
+import city8 from "../img/uttra.jpeg";
+
+import city4 from "../img/mp.jpeg";
+import city5 from "../img/mubmabi.jpeg";
+
 import city6 from "../img/Telangana.jpg";
 import city7 from "../img/Statue-of-Unity-Legacy.jpg";
 
@@ -17,10 +22,10 @@ import city7 from "../img/Statue-of-Unity-Legacy.jpg";
 const cities = [
   { name: "Rajasthan ", img: city1 },
   { name: "Hariyana", img: city2 },
-  { name: "Uttrakhand", img: city1 },
-  { name: "Punjab", img: city1 },
-  { name: "Maharashtra", img: city2 },
-  { name: "Madhya Pradesh", img: city3 },
+  { name: "Uttrakhand", img: city8 },
+  { name: "Punjab", img: city3 },
+  { name: "Maharashtra", img: city5 },
+  { name: "Madhya Pradesh", img: city4 },
   { name: "Telangana", img: city6 },
   { name: "Gujrat", img: city7 },
 ];
@@ -54,7 +59,7 @@ const CitySlider = () => {
               <img
                 src={city.img}
                 alt={city.name}
-                className="w-full h-[300px] object-cover"
+                className="w-full h-[350px] object-cover"
               />
               <p className="text-start fontspring mt-4 text-[15px] md:text-[20px] lg:text-[26px] text-[#000112]">{city.name}</p>
             </div>
