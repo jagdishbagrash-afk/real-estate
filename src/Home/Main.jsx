@@ -40,7 +40,7 @@ function Main() {
           <div className="relative w-full md:w-1/2 mb-[40px] lg:mb-[40px]">
             <img src={homebanner} alt="Interior" className=" w-full h-auto object-cover" />
             <div className="absolute  left-[25px] right-[0] m-auto md:left-[-90px] bottom-[-50px]">
-              <img src={spacebanner} alt="Interior" className=" w-full max-w-[300px] h-auto object-cover" />
+              <img src={homebanner} alt="Interior" className=" w-full max-w-[300px] h-auto object-cover" />
             </div>
           </div>
           <div className="w-full md:w-1/2 text-center md:text-left">
