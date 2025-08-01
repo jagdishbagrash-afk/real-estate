@@ -1,23 +1,20 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef} from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectFade, Autoplay, Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/effect-fade';
 import 'swiper/css/navigation';
-
 import slideroverlay from '../img/slideroverlay.png';
-
 import imgfront1 from '../img/RudraMahal.jpg';
 import imgback1 from '../img/RudraMahal.jpg';
-
 import imgfront2 from '../img/Shivam.jpg';
 import imgback2 from '../img/Shivam.jpg';
 import imgfront3 from '../img/Cadmax.jpg';
 import imgback3 from '../img/Cadmax.jpg';
-
 import imgfront4 from '../img/MAJARDAMECH-6_page-0001.jpg';
 import imgback4 from '../img/MAJARDAMECH-6_page-0001.jpg';
-
+import imgfront5 from '../img/ravi.jpg';
+import imgback5 from '../img/ravi.jpg';
 const slides = [
   {
     front: imgfront1,
@@ -40,8 +37,8 @@ const slides = [
     title: "Cadmax Consultancy Pvt. Ltd. ; Jaipur",
   },
    {
-    front: imgfront2,
-    back: imgback2,
+    front: imgfront5,
+    back: imgback5,
     title: "Ravi Kiran Vihar – A porshe colony , Jaipur",
   },
 ];
