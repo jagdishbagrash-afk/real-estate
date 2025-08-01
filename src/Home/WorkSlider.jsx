@@ -15,6 +15,9 @@ import imgback2 from '../img/Shivam.jpg';
 import imgfront3 from '../img/Cadmax.jpg';
 import imgback3 from '../img/Cadmax.jpg';
 
+import imgfront4 from '../img/MAJARDAMECH-6_page-0001.jpg';
+import imgback4 from '../img/MAJARDAMECH-6_page-0001.jpg';
+
 const slides = [
   {
     front: imgfront1,
@@ -22,8 +25,8 @@ const slides = [
     title: "Rudra Mahal – a luxury five star hotel,  Mundota,Rajasthan ",
   },
   {
-    front: imgfront2,
-    back: imgback2,
+    front: imgfront4,
+    back: imgback4,
     title: "Drayvavati river - a major South-flowing river in Rajasthan",
   },
    {

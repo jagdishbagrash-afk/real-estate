@@ -6,12 +6,11 @@ import "swiper/css/scrollbar";
 
 
 // Our Service Images
-import img1 from "../img/HAMSA.jpg";
-import img2 from "../img/infrbanner.jpg";
+import img1 from "../img/realestate.jpg";
+import img2 from "../img/FINALNADHALLAYOUT20_page-0001.jpg";
 import img3 from "../img/Infrastructure.jpg";
 import img4 from "../img/Acrchitecture.jpg";
 import img5 from "../img/Interior.png";
-
 const services = [
   { title: "URBAN PLANNING", image: img2 },
   { title: "REAL STATE", image: img1 },
