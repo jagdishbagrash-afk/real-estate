@@ -4,23 +4,17 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules"; // Make sure you're importing Autoplay from "swiper/modules"
 import "swiper/css"; // Required Swiper styles
 import "swiper/css/autoplay"; // Optional but helpful
-
 // Our Service Images
 import city1 from "../img/jaipur.avif";
 import city2 from "../img/panorama-science-centre.jpg";
 import city3 from "../img/punjab.jpeg";
 import city8 from "../img/utrakhad.jpg";
-
 import city4 from "../img/Narmada-River-Maheshwar-Madhya-Pradesh-India.webp";
 import city5 from "../img/pune.jpg";
-
 import city6 from "../img/Telangana.jpg";
 import city7 from "../img/Statue-of-Unity-Legacy.jpg";
 import city10 from "../img/banglore.jpg";
 import city9 from "../img/chennia.jpg";
-
-
-
 
 const cities = [
   { name: "Rajasthan ", img: city1 },
