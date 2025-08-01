@@ -1,24 +1,24 @@
+import { useEffect, useState } from "react";
 import AuthLayout from "../component/AuthLayout";
+import Listing from "../Apis/Listing";
 
 function ContactList() {
-    const submissions = [
-        {
-            id: 1,
-            name: "John Doe",
-            email: "john@example.com",
-            phone: "9876543210",
-            service: "Web Development",
-            message: "Hello World",
-        },
-        {
-            id: 2,
-            name: "Jane Smith",
-            email: "jane@example.com",
-            phone: "",
-            service: "App Development",
-            message: "Need a demo",
-        },
-    ];
+   const [team, setTeams] = useState([]);
+  
+      const fetchTeamList = async () => {
+          try {
+              const main = new Listing();
+              const response = await main.ContactGet();
+              console.log("response", response)
+              setTeams(response?.data?.data?.contactget || []);
+          } catch (error) {
+              console.error("Error fetching team list:", error);
+          }
+      };
+      useEffect(() => {
+  
+          fetchTeamList();
+      }, []);
 
     return (
         <AuthLayout>
@@ -37,15 +37,15 @@ function ContactList() {
                             </tr>
                         </thead>
                         <tbody>
-                            {submissions.map((item, index) => (
+                            {team && team?.map((item, index) => (
                                 <tr key={item.id} className="hover:bg-purple-50 transition duration-150">
                                     <td className="px-4 py-2 border-t">{index + 1}</td>
                                     <td className="px-4 py-2 border-t">{item.name}</td>
                                     <td className="px-4 py-2 border-t">{item.email}</td>
                                     <td className="px-4 py-2 border-t">
-                                        {item.phone || <span className="text-gray-400 italic">—</span>}
+                                        {item.phone_number || <span className="text-gray-400 italic">—</span>}
                                     </td>
-                                    <td className="px-4 py-2 border-t">{item.service}</td>
+                                    <td className="px-4 py-2 border-t">{item.services}</td>
                                     <td className="px-4 py-2 border-t">{item.message}</td>
                                 </tr>
                             ))}

@@ -6,7 +6,7 @@ function AuthLayout({ children }) {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
 
   return (
-    <div className=" flex flex-col md:flex-row bg-gray-100">
+    <div className=" flex flex-col md:flex-row bg-white">
       {/* Mobile Header */}
       <div className="md:hidden flex justify-between items-center p-4 bg-white shadow-sm border-b border-gray-200">
         <div className="text-xl font-semibold text-purple-700">Dashboard</div>
@@ -17,16 +17,15 @@ function AuthLayout({ children }) {
 
       {/* Sidebar */}
       <aside
-        className={`fixed top-0 left-0 h-full z-50 bg-white border-r border-gray-200 shadow-sm transform transition-transform duration-300 md:relative md:translate-x-0 md:w-1/4 w-64 ${
-          isSidebarOpen ? "translate-x-0" : "-translate-x-full"
-        }`}
+        className={`fixed top-0 left-0 h-full z-50 bg-white border-r border-gray-200 shadow-sm transform transition-transform duration-300 md:relative md:translate-x-0 md:w-1/4 w-64 ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"
+          }`}
       >
         <div className="p-6 text-xl font-semibold text-black border-b border-gray-200">
           Dashboard
         </div>
         <nav className="flex flex-col p-4 space-y-2">
           <NavLink
-            to="/contact-list"
+            to="/admin/contact-list"
             className="text-gray-600 hover:text-white hover:bg-[#94A393] px-3 py-2 rounded"
             onClick={() => setSidebarOpen(false)}
           >
@@ -38,6 +37,13 @@ function AuthLayout({ children }) {
             onClick={() => setSidebarOpen(false)}
           >
             Job List
+          </NavLink>
+          <NavLink
+            to="/admin/team"
+            className="text-gray-600 hover:text-white hover:bg-[#94A393] px-3 py-2 rounded"
+            onClick={() => setSidebarOpen(false)}
+          >
+            Team Memebers
           </NavLink>
           <NavLink
             to="/settings"
