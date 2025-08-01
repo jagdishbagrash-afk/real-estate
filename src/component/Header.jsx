@@ -7,8 +7,8 @@ export default function Header() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   return (
-    <nav className="relative z-[99] py-[15px] md:py-[30px]">
-      <div className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+    <nav className="sticky top-[0] bg-[#00000063] z-[99] py-[15px] md:py-[12px]">
+      <div className="max-w-7xl mx-auto px-4 flex justify-between items-center">
         <div className="text-xl font-bold">
             <Link>
                 <img src={logo} alt="Logo" className="h-10 w-auto" />

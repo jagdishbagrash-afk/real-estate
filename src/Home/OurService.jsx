@@ -49,9 +49,9 @@ export default function OurServices() {
                 <img
                   src={service.image}
                   alt={service.title}
-                  className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  className="h-[300px] md:h-[350px] lg:md:h-[420px] xl:md:h-[520px] w-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-black bg-opacity-[10%] flex items-center justify-center">
+                <div className="absolute inset-0 bg-[#0000007d] bg-opacity-[10%] flex items-center justify-center">
                   <h3 className="text-white text-lg font-semibold tracking-wider uppercase">{service.title}</h3>
                 </div>
               </div>
