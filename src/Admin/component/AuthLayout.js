@@ -32,7 +32,7 @@ function AuthLayout({ children }) {
             Contact List
           </NavLink>
           <NavLink
-            to="/job-list"
+            to="/admin/job-list"
             className="text-gray-600 hover:text-white hover:bg-[#94A393] px-3 py-2 rounded"
             onClick={() => setSidebarOpen(false)}
           >
@@ -45,6 +45,18 @@ function AuthLayout({ children }) {
           >
             Team Memebers
           </NavLink>
+
+
+
+          <NavLink
+            to="/admin/career-user-list"
+            className="text-gray-600 hover:text-white hover:bg-[#94A393] px-3 py-2 rounded"
+            onClick={() => setSidebarOpen(false)}
+          >
+            Career User List
+          </NavLink>
+
+
           <NavLink
             to="/settings"
             className="text-gray-600 hover:text-white hover:bg-[#94A393] px-3 py-2 rounded"

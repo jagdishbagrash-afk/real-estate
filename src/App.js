@@ -14,6 +14,8 @@ import BlogView from "./Admin/Blog/BlogView";
 import { Toaster } from "react-hot-toast";
 import ListTeam from "./Admin/Team/ListTeam";
 import ContactList from "./Admin/contactlist/ContactList";
+import CareerView from "./Admin/Career/CareerView";
+import JobList from "./Admin/JobList/JobList";
 function App() {
   return (
     <Router>
@@ -41,7 +43,12 @@ function App() {
 
         <Route path="/admin/team" element={<ListTeam />} />
 
+        <Route path="/admin/job-list" element={<JobList />} />
+
+
         <Route path="/admin/contact-list" element={<ContactList />} />
+        <Route path="/admin/career-user-list" element={<CareerView />} />
+
 
       </Routes>
     </Router>

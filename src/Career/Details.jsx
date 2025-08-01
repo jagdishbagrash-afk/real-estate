@@ -1,11 +1,67 @@
 import "../App.css"
 import Header from '../component/Header';
 import Footer from "../component/Footer";
-import WhyChooseUs from '../Home/WhyChooseUs';
-import builbanner from '../img/builbanner.jpg';
 import exploreservicebg from '../img/exploreservicebg.jpg';
+import { useState } from "react";
+import Listing from "../Admin/Apis/Listing";
+import toast from "react-hot-toast";
 
 function Details() {
+
+    const [Regs, setRegs] = useState({
+        name: "",
+        email: "",
+        position: "",
+        phone_number: "",
+        resume: "",
+        city: ""
+    });
+
+    console.log("Regs", Regs)
+
+    const handleInputs = (e) => {
+        const { name, value } = e.target;
+        setRegs((prevState) => ({ ...prevState, [name]: value }));
+    };
+
+    const [loading, setLoading] = useState(false);
+
+    const handleForms = async (e) => {
+        setLoading(true);
+        e.preventDefault();
+        if (!Regs.name || !Regs.email || !Regs.phone_number || !Regs.position || !Regs.city) {
+            toast.error("Please fill out all fields.");
+            setLoading(false);
+            return;
+        }
+        const main = new Listing();
+        try {
+            const updatedRegs = {
+                ...Regs,
+            };
+            const response = await main.JobOpening(updatedRegs);
+            console.log("response", response)
+            if (response?.data?.status) {
+                toast.success(response.data.message);
+                setRegs({
+                    name: "",
+                    email: "",
+                    message: "",
+                    subject: "",
+                    phone_number: "",
+                    city: ""
+                });
+            } else {
+                toast.error(response.data.message);
+            }
+        } catch (error) {
+            console.error("Error:", error); // Log the error for debugging
+            toast.error("Something went wrong, please try again.");
+        } finally {
+            setLoading(false);
+        }
+    };
+
     return (<>
 
         <div className="min-h-screen ">
@@ -78,47 +134,87 @@ function Details() {
                     {/* Right: Application Form */}
                     <div className="w-full md:w-[40%] bg-[#F8F6F2] pb-[20px] rounded shadow-md">
                         <h3 className="fontspring mb-[30px] text-[20px] md:text-[25px] lg:text-[30px] text-[#000112] border-b-[1px] border-b-[#0000002e] px-[15px] py-[15px]">Related Blogs</h3>
+
                         <form className="flex flex-col gap-[20px] px-[15px] md:px-[15px] lg:md:px-[25px]">
                             <div className="flex flex-col gap-[4px]">
                                 <label className="text-[12px] text-[#4D4D4D] font-[500]">FULL NAME*</label>
-                                <input type="text" placeholder="your name" className="bg-[#F8F6F2] w-full border-b-[1px] border-b-[#00000029]  py-[15px] pt-[2px] outline-none text-[16px] font-[500] text-[#999999]" />
+                                <input type="text"
+                                    name="name"
+                                    value={Regs.name}
+                                    onChange={handleInputs}
+                                    required
+                                    placeholder="your name" className="bg-[#F8F6F2] w-full border-b-[1px] border-b-[#00000029]  py-[15px] pt-[2px] outline-none text-[16px] font-[500] text-[#999999]" />
                             </div>
 
                             <div className="flex flex-col gap-[4px]">
                                 <label className="text-[12px] text-[#4D4D4D] font-[500]">EMAIL ADDRESS*</label>
-                                <input type="text" placeholder="your email" className="bg-[#F8F6F2] w-full border-b-[1px] border-b-[#00000029]  py-[15px] pt-[2px] outline-none text-[16px] font-[500] text-[#999999]" />
+                                <input type="email"
+                                    name="email"
+                                    value={Regs.email}
+                                    onChange={handleInputs}
+                                    required
+                                    placeholder="your email" className="bg-[#F8F6F2] w-full border-b-[1px] border-b-[#00000029]  py-[15px] pt-[2px] outline-none text-[16px] font-[500] text-[#999999]" />
                             </div>
 
 
                             <div className="flex flex-col gap-[4px]">
                                 <label className="text-[12px] text-[#4D4D4D] font-[500] uppercase">PHONE NUMBER*</label>
-                                <input type="text" placeholder="your phone number" className="bg-[#F8F6F2] w-full border-b-[1px] border-b-[#00000029]  py-[15px] pt-[2px] outline-none  text-[16px] font-[500] text-[#999999]" />
+                                <input type="tel"
+                                    name="phone_number"
+                                    onChange={(e) => {
+                                        const value = e.target.value;
+                                        // Allow only digits and max 10 characters
+                                        if (/^\d{0,10}$/.test(value)) {
+                                            handleInputs(e); // your existing handler
+                                        }
+                                    }}
+                                    placeholder="Enter 10-digit phone number"
+                                    required
+                                    className="bg-[#F8F6F2] w-full border-b-[1px] border-b-[#00000029]  py-[15px] pt-[2px] outline-none  text-[16px] font-[500] text-[#999999]" />
                             </div>
 
                             <div className="flex flex-col gap-[4px]">
                                 <label className="text-[12px] text-[#4D4D4D] font-[500] uppercase">Current City*</label>
-                                <input type="text" placeholder="your name" className="bg-[#F8F6F2] w-full border-b-[1px] border-b-[#00000029]  py-[15px] pt-[2px] outline-none  text-[16px] font-[500] text-[#999999]" />
+                                <input type="text"
+                                    name="city"
+                                    value={Regs.city}
+                                    onChange={handleInputs}
+                                    required
+                                    placeholder="your name" className="bg-[#F8F6F2] w-full border-b-[1px] border-b-[#00000029]  py-[15px] pt-[2px] outline-none  text-[16px] font-[500] text-[#999999]" />
                             </div>
 
                             <div className="flex flex-col gap-[4px]">
                                 <label className="text-[12px] text-[#4D4D4D] font-[500] uppercase">Position Applying For*</label>
-                                <select className="bg-[#F8F6F2] w-full border-b-[1px] border-b-[#00000029]  py-[15px] pt-[2px] outline-none  text-[16px] font-[500] text-[#999999]">
-                                    <option>--Select a position--</option>
-                                    <option>Survey Engineer</option>
-                                    <option>Site Supervisor</option>
+                                <select
+                                    name="position"
+                                    value={Regs.position}
+                                    onChange={handleInputs}
+                                    required
+                                    className="bg-[#F8F6F2] w-full border-b-[1px] border-b-[#00000029]  py-[15px] pt-[2px] outline-none  text-[16px] font-[500] text-[#999999]">
+                                    <option >--Select a position--</option>
+                                    <option value={"Survey Engineer"}>Survey Engineer</option>
+                                    <option value={"Site Supervisor"}>Site Supervisor</option>
                                 </select>
                             </div>
 
                             <div className="bg-[#F8F6F2] relative flex flex-col items-center justify-center w-full h-[130px] border border-[#00000029] p-4 text-center text-gray-600 text-sm cursor-pointer text-[16px] text-[#94A393] uppercase">
-                                <input type="file" className="absolute top-[0] left-[0] w-[100%] h-[100%] opacity-0" />
+                                <input type="file"
+                                    name="resume"
+                                    value={Regs.resume}
+                                    onChange={handleInputs}
+                                    className="absolute top-[0] left-[0] w-[100%] h-[100%] opacity-0" />
                                 <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M11.5 16V7.85L8.9 10.45L7.5 9L12.5 4L17.5 9L16.1 10.45L13.5 7.85V16H11.5ZM6.5 20C5.95 20 5.47933 19.8043 5.088 19.413C4.69667 19.0217 4.50067 18.5507 4.5 18V15H6.5V18H18.5V15H20.5V18C20.5 18.55 20.3043 19.021 19.913 19.413C19.5217 19.805 19.0507 20.0007 18.5 20H6.5Z" fill="#94A393" />
                                 </svg>
 
                                 Upload Resume
                             </div>
-                            <button type="submit" className="w-full bg-[#94A393] text-white text-[14px] py-[10px] py-[15px] hover:bg-black tracking-wider">
-                                APPLY NOW
+                            <button type="submit"
+                                disabled={loading}
+                                onClick={handleForms}
+                                className="w-full bg-[#94A393] text-white text-[14px] py-[10px] py-[15px] hover:bg-black tracking-wider">
+
+                                {loading ? "Processing.." : "APPLY NOW"}
                             </button>
                         </form>
                     </div>

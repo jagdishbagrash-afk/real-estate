@@ -57,6 +57,7 @@ function Contact() {
             setLoading(false);
         }
     };
+
     return (<>
 
         <div className="min-h-screen ">
@@ -200,7 +201,7 @@ function Contact() {
                                 placeholder="Message" className="border-b border-gray-400 bg-transparent outline-none py-1 text-[16px] font-[500] text-[#999999]"></textarea>
                         </div>
                         <div className="w-full pt-4">
-                            <button type="submit" onClick={handleForms}  className="min-w-[200px] bg-[#94A393] text-white px-[10px] py-[15px]  hover:bg-[#000] hover:text-white text-[14px] font-[500]">
+                            <button type="submit" onClick={handleForms}  className="min-w-[200px] bg-[#94A393] text-white px-[10px] py-[15px]  hover:bg-[#000] hover:text-white text-[14px] font-[500]" disabled={loading}>
                                 {loading ? "Processing.." : "GET A QUOTE"}
                             </button>
                         </div>

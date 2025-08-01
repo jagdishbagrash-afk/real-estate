@@ -10,9 +10,20 @@ class Listing extends Component {
         return Api.post("/contact-add", data)
     }
 
+     async JobOpening(data) {
+        return Api.post("/job-add", data)
+    }
+
      async ContactGet(data) {
         return Api.get("/contact-get", data)
     }
+
+     async CareeruserList(data) {
+        return Api.get("/job-get", data)
+    }
+
+
+  
 
     async subscribe(data) {
         return Api.post("/subscribe/subscribe-add", data)
