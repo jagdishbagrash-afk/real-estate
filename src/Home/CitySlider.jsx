@@ -44,8 +44,8 @@ const CitySlider = () => {
         loop={true} // Enable looping
 
         breakpoints={{
-          400: { slidesPerView: 1 },
-          640: { slidesPerView: 2 },
+          300: { slidesPerView: 1 },
+          480: { slidesPerView: 2 },
           768: { slidesPerView: 3 },
           1024: { slidesPerView: 4 },
         }}
@@ -59,7 +59,7 @@ const CitySlider = () => {
               <img
                 src={city.img}
                 alt={city.name}
-                className="w-full h-[350px] object-cover"
+                className="w-full h-[250px] md:h-[300px] lg:h-[350px] xl:h-[410px]  object-cover"
               />
               <p className="text-start fontspring mt-4 text-[15px] md:text-[20px] lg:text-[26px] text-[#000112]">{city.name}</p>
             </div>

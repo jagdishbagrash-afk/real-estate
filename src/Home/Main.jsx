@@ -4,6 +4,7 @@ import OurServices from './OurService';
 import WhyChooseUs from './WhyChooseUs';
 import homebanner from '../img/homebg.jpg';
 import homebanneroverlay from '../img/Cadmax.jpg';
+import homeblackbanner from '../img/homeblackbanner.png';
 import spacebanner from '../img/hom2.jpg';
 import WorkSlider from "./WorkSlider";
 import CitySlider from "./CitySlider";
@@ -19,8 +20,8 @@ function Main() {
       <Header />
       <div className="relative h-[500px] md:h-[560px] lg:h-[860px] mt-[-150px]">
         <img src={homebanner} alt="Logo" className="object-cover h-full w-full" />
-        <div className='absolute top-[0] bottom-[0] w-full'>
-          <img src={homebanneroverlay} alt="Logo" className="object-cover h-full w-full" />
+        <div className=' absolute top-[0] bottom-[0] w-full'>
+          <img src={homeblackbanner} alt="overlay" className="object-cover h-full w-full" />
         </div>
 
         <div className='absolute left-[0] right-[0] bottom-[50px] w-full max-w-[1320px] m-auto px-[15px]'>
@@ -36,7 +37,7 @@ function Main() {
 
       <section className="bg-white py-[30px] md:py-[70px] lg:py-[80px] xl:py-[100px]">
         <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center gap-10">
-          <div className="relative w-full md:w-1/2 mb-[40px] lg:mb-[0]">
+          <div className="relative w-full md:w-1/2 mb-[40px] lg:mb-[40px]">
             <img src={homebanner} alt="Interior" className=" w-full h-auto object-cover" />
             <div className="absolute  left-[25px] right-[0] m-auto md:left-[-90px] bottom-[-50px]">
               <img src={spacebanner} alt="Interior" className=" w-full max-w-[300px] h-auto object-cover" />

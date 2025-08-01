@@ -98,7 +98,7 @@ const SliderWithFade = () => {
                   <img
                     src={slide.front}
                     alt="Front"
-                    className="w-full h-auto object-cover mb-4"
+                    className="w-full max-w-[600px] h-[180px] sm:h-[280px] md:h-[300px] lg:h-[380px] object-content mb-4"
                   />
                   <p className="tracking-wider text-center text-[16px] font-[600] text-[#000112a1] uppercase">
                     {slide.title}
