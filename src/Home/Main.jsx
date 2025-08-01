@@ -38,7 +38,7 @@ function Main() {
       <section className="bg-white py-[30px] md:py-[70px] lg:py-[80px] xl:py-[100px]">
         <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center gap-10">
           <div className="relative w-full md:w-1/2 mb-[40px] lg:mb-[40px]">
-            <img src={homebanner} alt="Interior" className=" w-full h-auto object-cover" />
+            <img src={spacebanner} alt="Interior" className=" w-full h-auto object-cover" />
             <div className="absolute  left-[25px] right-[0] m-auto md:left-[-90px] bottom-[-50px]">
               <img src={homebanner} alt="Interior" className=" w-full max-w-[300px] h-auto object-cover" />
             </div>
