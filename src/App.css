@@ -104,3 +104,27 @@ nav ul li a{color:#fff;font-size:20px;font-weight:400;}
 
 
 }
+
+
+.slide-text{opacity:0;transform:translateX(-100px);transition:opacity 0.5s ease,transform 0.5s ease;}
+.slide-text.visible{opacity:1;transform:translateX(0);}
+
+
+.slide-texts{opacity:0;transform:translateX(-100px);transition:opacity 0.5s ease,transform 0.5s ease;}
+.slide-texts.visible{opacity:1;transform:translateX(0);}
+
+
+@keyframes slideInTopLeft {
+  0% {
+    opacity: 0;
+    transform: translate(-100%, -100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+
+.slide-in-top-left {
+  animation: slideInTopLeft 1.2s ease-out forwards;
+}

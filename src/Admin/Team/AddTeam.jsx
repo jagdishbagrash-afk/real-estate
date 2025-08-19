@@ -61,15 +61,12 @@ function AddTeam({ item, fetchTeamList }) {
 
     return (
         <>
-            <div className=" px-2 py-4 text-center">
                 <button
                     onClick={() => setShowModal(true)}
-                    className="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition"
+                    className="px-2 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition"
                 >
                     {item?._id ? <MdEdit /> : <MdAdd />}
                 </button>
-            </div>
-
             {/* MODAL */}
             {showModal && (
                 <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">

@@ -17,7 +17,7 @@ export default function Image({ alt, src, classes, style }) {
 
     return (
         <img
-            className={classes}
+            className={"w-full !h-[150px] object-cover"}
             onError={imageLoader} // Fallback on error
             src={imageSRC } // Show either valid src or fallback
             alt={alt || 'Image'}

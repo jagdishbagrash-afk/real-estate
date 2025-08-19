@@ -1,4 +1,3 @@
-import React from 'react';
 import logo from '../img/logo.png';
 import { FaFacebookF, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
@@ -10,7 +9,7 @@ const Footer = () => {
         {/* Top Row */}
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="text-3xl font-serif tracking-wider mb-4 md:mb-0">
-          <img src={logo} alt="Logo" className="h-10 w-auto" />
+            <img src={logo} alt="Logo" className="h-10 w-auto" />
           </div>
           <div className="flex gap-4 text-xl">
             <Link to="#" className="hover:text-gray-400">
@@ -28,13 +27,13 @@ const Footer = () => {
         {/* Middle Nav Links */}
         <div className="border-t border-gray-700 mt-6 pt-6 ">
           <div className="footNav flex flex-wrap justify-center gap-[10px] md:gap-[15px] lg:gap-[40px] xl:gap-[80px] text-sm md:text-base font-semibold tracking-wide text-[#ffffff9c] tracking-widest ">
-            <Link to="#">Home</Link>
-            <Link to="#">ABOUT US</Link>
-            <Link to="#">SERVICES</Link>
-            <Link to="#">OUR PROJECTS</Link>
-            <Link to="#">NEWS & ARTICLES</Link>
-            <Link to="#">CAREER</Link>
-            <Link to="#">CONTACT US</Link>
+            <Link to="/">Home</Link>
+            <Link to="/about">ABOUT US</Link>
+            <Link to="/services">SERVICES</Link>
+            <Link to="/project">OUR PROJECTS</Link>
+            <Link to="/blog">NEWS & ARTICLES</Link>
+            <Link to="/career">CAREER</Link>
+            <Link to="/contact">CONTACT US</Link>
           </div>
         </div>
 

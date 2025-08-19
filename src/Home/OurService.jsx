@@ -11,6 +11,7 @@ import img2 from "../img/FINALNADHALLAYOUT20_page-0001.jpg";
 import img3 from "../img/Infrastructure.jpg";
 import img4 from "../img/Acrchitecture.jpg";
 import img5 from "../img/Interior.png";
+import AnimatedHeading from "../Admin/component/AnimatedHeading";
 const services = [
   { title: "URBAN PLANNING", image: img2 },
   { title: "REAL STATE", image: img1 },
@@ -23,10 +24,13 @@ export default function OurServices() {
   return (
     <section className="bg-[#F8F6F2] py-[40px] md:py-[50px] lg:py-[77px]">
       <div className=" mx-auto px-4 text-center">
+        <AnimatedHeading>
+
         <p className="text-[14px] font-[600] tracking-widest text-[#000112a6] uppercase mb-4">Our Service</p>
         <h2 className="fontspring text-[18px] md:text-[20px] lg:text-[28px] xl:text-[32px] leading-[25px] lg:leading-[30px] xl:leading-[45px] text-[#000112] mb-10 max-w-[1140px] mx-auto">
         From planning porshe colonies to constructing stunning skyscrapers. We provide all infrastructural services such as 
         </h2>
+        </AnimatedHeading>
 
         {/* Swiper with drag + progress line */}
         <Swiper
@@ -52,8 +56,8 @@ export default function OurServices() {
                   className="h-[300px] md:h-[350px] lg:md:h-[420px] xl:md:h-[520px] w-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />
                 {/* bg-[#0000007d] */}
-                <div className="absolute inset-0 bg-[#000000b3]	 bg-opacity-[10%] flex items-center justify-center">
-                  <h3 className="text-white text-lg font-semibold tracking-wider uppercase">{service.title}</h3>
+                <div className="absolute inset-0 bg-[#000000b3]	 hover:bg-transparent bg-opacity-[10%] flex items-center justify-center">
+                  <h3 className="text-white  text-lg font-semibold tracking-wider uppercase">{service.title}</h3>
                 </div>
               </div>
             </SwiperSlide>

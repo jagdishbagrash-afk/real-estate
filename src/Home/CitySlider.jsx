@@ -15,6 +15,7 @@ import city6 from "../img/Telangana.jpg";
 import city7 from "../img/Statue-of-Unity-Legacy.jpg";
 import city10 from "../img/banglore.jpg";
 import city9 from "../img/chennia.jpg";
+import AnimatedHeading from "../Admin/component/AnimatedHeading";
 
 const cities = [
   { name: "Rajasthan ", img: city1 },
@@ -33,39 +34,48 @@ const cities = [
 const CitySlider = () => {
   return (
     <div className="py-8 md:py-12 px-4">
-      <h2 className="fontspring text-[25px] md:text-[35px] lg:text-[45px] xl:text-[50px] text-center mb-[25px]">
-        Popular Cities We Serve
-      </h2>
+      <AnimatedHeading>
+        <h2 className="fontspring text-[25px] md:text-[35px] lg:text-[45px] xl:text-[50px] text-center mb-[25px]">
+          Popular States We Serve
+        </h2>
+      </AnimatedHeading>
 
-      <Swiper
-        spaceBetween={20}
-        slidesPerView={4}
-        autoplay={{ delay: 2500, disableOnInteraction: false }}
-        loop={true} // Enable looping
+      <div className="">
 
-        breakpoints={{
-          300: { slidesPerView: 1 },
-          480: { slidesPerView: 2 },
-          768: { slidesPerView: 3 },
-          1024: { slidesPerView: 4 },
-        }}
-        modules={[Autoplay]}
+        <Swiper
+          spaceBetween={20}
+          slidesPerView={4}
+          autoplay={{ delay: 2500, disableOnInteraction: false }}
+          loop={true} // Enable looping
 
-        className="w-full"
-      >
-        {cities.map((city, idx) => (
-          <SwiperSlide key={idx}>
-            <div className="flex flex-col items-start justify-start">
-              <img
-                src={city.img}
-                alt={city.name}
-                className="w-full h-[250px] md:h-[300px] lg:h-[350px] xl:h-[410px]  object-cover"
-              />
-              <p className="text-start fontspring mt-4 text-[15px] md:text-[20px] lg:text-[26px] text-[#000112]">{city.name}</p>
-            </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+          breakpoints={{
+            300: { slidesPerView: 1 },
+            480: { slidesPerView: 2 },
+            768: { slidesPerView: 3 },
+            1024: { slidesPerView: 4 },
+          }}
+          modules={[Autoplay]}
+
+          className="w-full "
+        >
+          {cities.map((city, idx) => (
+            <SwiperSlide key={idx}>
+              <div className="group flex flex-col items-start justify-start transform transition-transform duration-500 hover:-translate-y-5 hover:shadow-xl">
+                <img
+                  src={city.img}
+                  alt={city.name}
+                  className="w-full h-[250px] md:h-[300px] lg:h-[350px] xl:h-[410px] object-cover transition-transform duration-500"
+                />
+                <p className="text-center fontspring mt-4 text-[15px] md:text-[20px] lg:text-[26px] text-[#000112] transition-opacity duration-500">
+                  {city.name}
+                </p>
+              </div>
+
+
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
     </div>
   );
 };

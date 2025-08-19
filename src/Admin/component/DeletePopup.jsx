@@ -3,55 +3,70 @@ import Listing from "../Apis/Listing";
 import toast from "react-hot-toast";
 import { MdDelete } from "react-icons/md";
 
-const DeletePopup = ({ item, fetchTeamList }) => {
+const DeletePopup = ({ item, fetchTeamList, step = 1 }) => {
     const [isOpen, setIsOpen] = useState(false);
-    const [selectedMember, setSelectedMember] = useState(null);
+    const [loading, setLoading] = useState(false);
 
-    // Show popup
-    const openModal = (member) => {
-        setSelectedMember(member);
+    // Open confirmation modal
+    const openModal = () => {
         setIsOpen(true);
     };
 
-    // Close popup
+    // Close modal
     const closeModal = () => {
         setIsOpen(false);
-        setSelectedMember(null);
     };
-    const [loading, setLoading] = useState(false);
 
-    // Confirm delete
+    // Unified delete handler based on step
     const handleSubmit = async (e) => {
         e.preventDefault();
         setLoading(true);
 
         try {
             const main = new Listing();
-            const response = await main.deleteteam({
-                _id: item._id,
-            });
-            console.log("Success:", response);
-            toast.success(response.data.message);
-            setIsOpen(false);
-            fetchTeamList();
+            let response;
+
+            if (step === 1) {
+                // Team deletion
+                response = await main.deleteteam({ _id: item._id });
+            } else if (step === 2) {
+                // Job deletion
+                response = await main.JobDelete({ _id: item._id });
+            } 
+             else if (step === 3) {
+                // Job deletion
+                response = await main.BlogDelete({ _id: item._id });
+            }
+             else if (step === 4) {
+                // Job deletion
+                response = await main.ProjectDelete({ _id: item._id });
+            }
+            else {
+                throw new Error("Unknown delete step provided");
+            }
+
+            toast.success(response?.data?.message || "Deleted successfully");
+            closeModal();
+            fetchTeamList(); // Refresh list
         } catch (error) {
-            console.error("Error:", error);
+            console.error("Delete Error:", error);
             toast.error("Something went wrong");
         } finally {
             setLoading(false);
         }
     };
+
     return (
         <div>
-            {/* Example Delete Trigger Button (simulate member) */}
+            {/* Trigger Button */}
             <button
-                onClick={() => openModal({ _id: "123", name: "John Doe" })}
-                className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700"
+                onClick={openModal}
+                className="bg-red-600 text-white px-2 py-2 rounded hover:bg-red-700"
             >
                 <MdDelete />
             </button>
 
-            {/* Modal */}
+            {/* Delete Confirmation Modal */}
             {isOpen && (
                 <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
                     <div className="bg-white rounded-xl shadow-lg w-full max-w-md p-6 relative">
@@ -61,11 +76,12 @@ const DeletePopup = ({ item, fetchTeamList }) => {
                         >
                             &times;
                         </button>
+
                         <h2 className="text-2xl font-semibold mb-4 text-center">Confirm Deletion</h2>
                         <p className="text-gray-700 text-center mb-6">
-                            Are you sure you want to delete{" "}
-                            <span className="font-bold">{selectedMember?.name}</span>?
+                            Are you sure you want to delete this item?
                         </p>
+
                         <div className="flex justify-center gap-4">
                             <button
                                 onClick={closeModal}
@@ -77,7 +93,7 @@ const DeletePopup = ({ item, fetchTeamList }) => {
                                 onClick={handleSubmit}
                                 className="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700"
                             >
-                                {loading ? "Processing.. " : "Yes, Delete"}
+                                {loading ? "Processing..." : "Yes, Delete"}
                             </button>
                         </div>
                     </div>
@@ -88,4 +104,3 @@ const DeletePopup = ({ item, fetchTeamList }) => {
 };
 
 export default DeletePopup;
-    

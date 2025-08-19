@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import logo from '../img/logo.png';
 import { Link } from "react-router-dom";
+import BackgroundMusic from "./BackgroundMusic";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -30,29 +31,30 @@ export default function Header() {
             </button>
             {dropdownOpen && (
               <ul className="dropdown absolute left-0 top-full mt-2 w-40 bg-black shadow-lg rounded-md z-10">
-                <li><Link to="/" className="block">Our Projects</Link></li>
-                <li><Link to="/" className="block">Why Us?</Link></li>
-                <li><Link to="#" className="block">Marketing</Link></li>
-                <li><Link to="/" className="block">Blogs</Link></li>
-                <li><Link to="/" className="block">Career</Link></li>
-                <li><Link to="/" className="block">Contact Us</Link></li>
+                <li><Link to="/project" className="block">Our Projects</Link></li>
+                <li><Link to="/about" className="block">Why Us?</Link></li>
+                <li><Link to="/blog" className="block">Marketing</Link></li>
+                <li><Link to="/blog" className="block">Blogs</Link></li>
+                <li><Link to="/career" className="block">Career</Link></li>
+                <li><Link to="/contact" className="block">Contact Us</Link></li>
               </ul>
             )}
           </li>
 
-          <li><Link to="/" className="">Services</Link></li>
-          <li><Link to="/" className="">Our Companies</Link></li>
-          <li><Link to="/" className="">Blogs</Link></li>
-          <li><Link to="/" className="">Careers</Link></li>
-          <li><Link to="/" className="">Contact</Link></li>
+          <li><Link to="/services" className="">Services</Link></li>
+          <li><Link to="/estate" className="">Our Companies</Link></li>
+          <li><Link to="/blog" className="">Blogs</Link></li>
+          <li><Link to="/career" className="">Careers</Link></li>
+          <li><Link to="/contact" className="">Contact</Link></li>
         </ul>
 
         <div className="music">
-          <button className="p-[0] bg-none border-none"><svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+         {/*  <button className="p-[0] bg-none border-none"><svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect x="0.5" y="0.5" width="51" height="51" stroke="white"/>
           <path d="M26 18C23.8783 18 21.8434 18.8429 20.3431 20.3431C18.8429 21.8434 18 23.8783 18 26H21C21.5304 26 22.0391 26.2107 22.4142 26.5858C22.7893 26.9609 23 27.4696 23 28V33C23 33.5304 22.7893 34.0391 22.4142 34.4142C22.0391 34.7893 21.5304 35 21 35H18C17.4696 35 16.9609 34.7893 16.5858 34.4142C16.2107 34.0391 16 33.5304 16 33V26C16 20.477 20.477 16 26 16C31.523 16 36 20.477 36 26V33C36 33.5304 35.7893 34.0391 35.4142 34.4142C35.0391 34.7893 34.5304 35 34 35H31C30.4696 35 29.9609 34.7893 29.5858 34.4142C29.2107 34.0391 29 33.5304 29 33V28C29 27.4696 29.2107 26.9609 29.5858 26.5858C29.9609 26.2107 30.4696 26 31 26H34C34 23.8783 33.1571 21.8434 31.6569 20.3431C30.1566 18.8429 28.1217 18 26 18ZM18 28V33H21V28H18ZM31 28V33H34V28H31Z" fill="white"/>
           </svg>
-          </button>
+          </button>  */}
+          <BackgroundMusic/>
         </div>
 
         {/* Hamburger */}
@@ -74,7 +76,7 @@ export default function Header() {
         <div className="lg:hidden px-4 pb-4 absolute top-[85px] md:top-[100px] lg:top-[100px] right-[15px] bg-[#000] min-w-[200px]">
           <ul className="mobileNav">
             <li><Link to="/" className="block text-white">Home</Link></li>
-            <li><Link to="/" className="block text-white">About</Link></li>
+            <li><Link to="/about" className="block text-white">About</Link></li>
             <li>
               <button
                 onClick={() => setDropdownOpen(!dropdownOpen)}
@@ -96,7 +98,7 @@ export default function Header() {
                 </ul>
               )}
             </li>
-            <li><Link to="/" className="block text-white">Contact</Link></li>
+            <li><Link to="/contact" className="block text-white">Contact</Link></li>
           </ul>
         </div>
       )}

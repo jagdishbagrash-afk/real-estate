@@ -23,17 +23,17 @@ function CareerView() {
     return (
         <AuthLayout>
             <div className="p-4">
-                <h2 className="text-2xl font-semibold mb-4 text-black">Career Userlist</h2>
+                <h2 className="text-2xl font-semibold mb-4 text-black">Career User List</h2>
                 <div className="overflow-x-auto">
                     <table className="min-w-full bg-white border border-gray-200 rounded-lg shadow-md">
                         <thead className="text-white bg-[#94A393]">
                             <tr>
-                                <th className="text-left px-4 py-2">#</th>
-                                <th className="text-left px-4 py-2">Name</th>
-                                <th className="text-left px-4 py-2">Email</th>
-                                <th className="text-left px-4 py-2">Phone</th>
-                                <th className="text-left px-4 py-2">Service</th>
-                                <th className="text-left px-4 py-2">Resume</th>
+                                <th className="px-4 py-2">#</th>
+                                <th className="px-4 py-2">Name</th>
+                                <th className="px-4 py-2">Email</th>
+                                <th className="px-4 py-2">Phone</th>
+                                <th className="px-4 py-2">Service</th>
+                                <th className="px-4 py-2">Resume</th>
                             </tr>
                         </thead>
                         <tbody>

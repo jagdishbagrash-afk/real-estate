@@ -3,30 +3,46 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
-import {Autoplay } from "swiper/modules";
-
+import { Autoplay } from "swiper/modules";
 // Our Service Images
-import team1 from "../img/team01.jpg";
-import team2 from "../img/team02.jpg";
-import team3 from "../img/team03.jpg";
-import team4 from "../img/team04.jpg";
-import team5 from "../img/team01.jpg";
+import about4 from "../img/about/about4.jpg"
+import about7 from "../img/about/about7.png";
+import about12 from "../img/about/about12.jpg";
+import about14 from "../img/about/about14.jpg";
+import about10 from "../img/about/about10.jpg";
+import about13 from "../img/about/about13.jpg";
+import about11 from "../img/about/about11.jpg";
+import about9 from "../img/about/about9.jpg";
+import about6 from "../img/about/about6.jpg"
+import about3 from "../img/about/about3.jpg"
+
+
+
+
 
 const teams = [
-  { name: "Mr. Ramesh Chand Sharma", desiganation: "Director", img: team1 },
-  { name: "Ms. Priya Mehta", desiganation: "Project Manager", img: team2 },
-  { name: "Mr. Anil Gupta", desiganation: "Product Owner", img: team3 },
-  { name: "Dr. Sneha Verma", desiganation: "Lead Developer", img: team4 },
-  { name: "Ms. Kavita Rao", desiganation: "UX Designer", img: team5 },
+  { name: "Mr. Ramesh Chand Sharma", desiganation: "Chairman", img: about3 },
+  { name: "Mr. Rakesh Sharma", desiganation: "Director", img: about4 },
+  { name: "Ms. Sunita Sharma", desiganation: "Proprietor – Cadmax Stupika", img: about6 },
+  { name: "Mr. Lokesh Sharma", desiganation: "Proprietor- Cadmax Archinterio", img: about7 },
+  { name: "Mr. Sunil Sharma ", desiganation: "(H.O.D. Of Planning 1st", img: about12 },
+  { name: "Mr. Shankar Sharma ", desiganation: "H.O.D. Of Planning 2nd", img: about11 },
+  { name: "Mr. Suresh Sharma ", desiganation: "H.O.D. Of Surveying", img: about9 },
+  { name: "Mr. Nanuram Kumawat", desiganation: "H.O.D. Of Accountants", img: about13 },
+  { name: "Mr. M.S. Bhati", desiganation: "H.O.D. Of Architecture", img: about10 },
+  { name: "Mr. Govind Kumar", desiganation: "H.O.D. Of Management", img: about14 },
+
+
 ];
 
 const TeamSlider = () => {
   return (
     <div className="">
-    
+
       <Swiper
         spaceBetween={20}
         slidesPerView={3}
+        autoplay={{ delay: 5000 }}
         breakpoints={{
           200: { slidesPerView: 1 },
           640: { slidesPerView: 2 },
@@ -37,11 +53,11 @@ const TeamSlider = () => {
 
         className="w-full"
       >
-        {teams.map((team, idx) => (
+        {teams && teams.map((team, idx) => (
           <SwiperSlide key={idx}>
             <div className="flex flex-col items-start justify-start">
               <img src={team.img} alt={team.name}
-                className="w-full object-cover" />
+                className="w-full h-[450px] object-cover" />
               <p className="text-start fontspring mt-4 text-[16px] md:text-[20px] lg:text-[24px] text-[#000112]">{team.name}</p>
               <p className="text-start  text-[14px] md:text-[18px] lg:text-[20px] text-[#94A393] font-[500] uppercase ">{team.desiganation}</p>
             </div>

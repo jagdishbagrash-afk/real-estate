@@ -4,6 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
+import AnimatedHeading from "../Admin/component/AnimatedHeading";
 
 const testimonials = [
   {
@@ -23,9 +24,12 @@ const testimonials = [
 const TestimonialSlider = () => {
   return (
     <div className="clintSays bg-[#F8F6F2] py-[40px] md:py-[80px] lg:py-[100px] text-center px-4">
+   <AnimatedHeading>
+
       <h2 className="fontspring text-[25px] md:text-[40px] lg:text-[50px] mb-[30px] md:mb-[45px] text-[#000112]">
         What our clients think about us
       </h2>
+   </AnimatedHeading>
 
       <Swiper
   modules={[Navigation]}

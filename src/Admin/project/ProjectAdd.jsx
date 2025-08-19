@@ -1,0 +1,257 @@
+import React, { useState, useEffect } from "react";
+import toast from "react-hot-toast";
+import { useNavigate, useParams } from "react-router-dom";
+import DashboardLayout from "../component/AuthLayout";
+import Listing from "../Apis/Listing";
+import ImageUploader from "./ImageUploader";
+
+const ProjectAdd = () => {
+    const { Id } = useParams();
+    console.log("Id", Id)
+    const navigate = useNavigate();
+    const [loading, setLoading] = useState(false);
+    const [images, setImages] = useState([]);
+    const [dragId, setDragId] = useState("");
+    const [instructorDetails, setInstructorDetails] = useState({
+        Image: "",
+        content: "",
+        title: "",
+        category: "",
+        client: "",
+        date: "",
+    });
+
+    const fetchInstructorData = async () => {
+        setLoading(true);
+        try {
+            const main = new Listing();
+            const response = await main.ProjectGetId(Id);
+            if (response?.data?.data) {
+                const data = response?.data?.data;
+                const formattedDate = data.date ? new Date(data.date).toISOString().split("T")[0] : "";
+                setInstructorDetails({
+                    ...data,
+                    date: formattedDate,
+                });
+            } else {
+                toast.error("Failed to fetch Project details.");
+            }
+        } catch (error) {
+            console.error("Error fetching blog data:", error);
+            toast.error("Unable to load blog data.");
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    useEffect(() => {
+        if (Id) fetchInstructorData();
+    }, [Id]);
+
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+
+
+        if (name === "content" && e.target.value > 300) {
+            toast.error("Please limit content to 300 words only.");
+            return;
+        }
+
+        if (name === "title" && e.target.value > 100) {
+            toast.error("Please limit title to 100 words only.");
+            return;
+        }
+
+        setInstructorDetails((prev) => ({
+            ...prev,
+            [name]: value,
+        }));
+    };
+
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        if (loading) return;
+        setLoading(true);
+        const main = new Listing();
+
+        try {
+            let response;
+            if (Id) {
+                response = await main.ProjectUpdate(instructorDetails);
+            } else {
+                response = await main.ProjectAdds(instructorDetails);
+            }
+
+            if (response?.data) {
+                toast.success(response.data.message || "Operation successful");
+                if (!Id) {
+                    setInstructorDetails({
+                        Image: "",
+                        content: "",
+                        title: "",
+                        content: "",
+                        meta_title: "",
+                        meta_description: "",
+                        meta_keyword: "",
+                    });
+                }
+                navigate("/admin/project-list");
+            } else {
+                toast.error(response?.data?.message || "Unexpected error occurred.");
+            }
+        } catch (error) {
+            console.error("Error submitting form:", error);
+            toast.error(error?.response?.data?.message || "Something went wrong.");
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    return (
+        <DashboardLayout>
+            <div className="bg-white p-6 rounded-lg shadow-md">
+                <h2 className="text-2xl font-semibold text-gray-700 mb-4">
+                    {Id ? "Edit Project" : "Add Project"}
+                </h2>
+
+                <hr className="mb-6" />
+
+                <form onSubmit={handleSubmit} className="space-y-5">
+
+                    {/* Title */}
+                    <div>
+                        <label className="block text-sm font-medium text-gray-700">Project Title</label>
+                        <input
+                            type="text"
+                            name="title"
+                            value={instructorDetails.title}
+
+                            onChange={(e) => {
+                                if (e.target.value.length > 100) {
+                                    return;
+                                }
+                                setInstructorDetails((prev) => ({
+                                    ...prev,
+                                    [e.target.name]: e.target.value,
+                                }));
+                            }}
+                            required
+                            className="border border-gray-300 p-2 rounded-md w-full"
+
+                        />
+
+                        <div className="flex flex-wrap justify-between">
+                            <label className="block text-sm mb-2 font-medium text-start text-gray-700 mt-3">
+                                {instructorDetails.title ? (
+                                    <span>{instructorDetails.title.length}/100 characters</span>
+                                ) : (
+                                    <span>0/100 characters</span>
+                                )}
+                            </label>
+                            <label className="block text-sm mb-2 font-medium text-end text-gray-700 mt-3">
+                                Minimum 100 words.
+                            </label>
+                        </div>
+                    </div>
+
+                    {/* Short Content */}
+                    <div>
+                        <label className="block text-sm font-medium text-gray-700">Project Content</label>
+                        <textarea
+                            type="text"
+                            name="content"
+                            value={instructorDetails.content}
+                            onChange={(e) => {
+                                if (e.target.value.length > 300) {
+                                    return;
+                                }
+                                setInstructorDetails((prev) => ({
+                                    ...prev,
+                                    [e.target.name]: e.target.value,
+                                }));
+                            }}
+                            required
+                            rows={6}
+                            className="border border-gray-300 p-2 rounded-md w-full"
+
+                        />
+
+                        <div className="flex flex-wrap justify-between">
+                            <label className="block text-sm mb-2 font-medium text-start text-gray-700 mt-3">
+                                {instructorDetails.content ? (
+                                    <span>{instructorDetails.content.length}/300 characters</span>
+                                ) : (
+                                    <span>0/300 characters</span>
+                                )}
+                            </label>
+                            <label className="block text-sm mb-2 font-medium text-end text-gray-700 mt-3">
+                                Minimum 300 words.
+                            </label>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label className="block text-sm font-medium text-gray-700">Project Client</label>
+                        <input
+                            type="text"
+                            name="client"
+                            value={instructorDetails.client}
+                            onChange={handleInputChange}
+                            required
+                            className="border border-gray-300 p-2 rounded-md w-full"
+
+                        />
+                    </div>
+
+                    <div>
+                        <label className="block text-sm font-medium text-gray-700">Project Category</label>
+                        <input
+                            type="text"
+                            name="category"
+                            value={instructorDetails.category}
+                            onChange={handleInputChange}
+                            required
+                            className="border border-gray-300 p-2 rounded-md w-full"
+
+                        />
+                    </div>
+
+                    <div>
+                        <label className="block text-sm font-medium text-gray-700">Project Date</label>
+                        <input
+                            type="date"
+                            name="date"
+                            value={instructorDetails.date}
+                            onChange={handleInputChange}
+                            required
+                            className="border border-gray-300 p-2 rounded-md w-full"
+
+                        />
+                    </div>
+
+                    <div
+                    >
+                        <label className="block text-sm font-medium text-gray-700">Project Image</label>
+
+                        <ImageUploader images={images} setImages={setImages} />
+
+                    </div>
+                    {/* Submit Button */}
+                    <div>
+                        <button
+                            type="submit"
+                            disabled={loading}
+                            className="inline-flex items-center px-6 py-2 bg-red-500 text-white font-semibold rounded-md shadow hover:bg-red-600 transition-all disabled:opacity-50"
+                        >
+                            {loading ? "Saving..." : Id ? "Update Project" : "Add Project"}
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </DashboardLayout>
+    );
+};
+
+export default ProjectAdd;

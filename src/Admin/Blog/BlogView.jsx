@@ -1,15 +1,15 @@
 import React, { useEffect, useState, useCallback } from "react";
 import { Link } from "react-router-dom";
-import { FaCalendarAlt, FaEye } from "react-icons/fa";
 // import Delete from "../component/Delete";
 import Pagination from "../component/Pagination";
 import DashboardLayout from "../component/AuthLayout";
 import debounce from "lodash.debounce";
 import NoDataPage from "../component/NoDataPage";
 import Image from "../component/Image";
-import DateFormate from "../component/DateFormate";
 import Listing from "../Apis/Listing";
-import { BiSearch } from "react-icons/bi";
+import BlogImage from "../../img/Interior.png"
+import DeletePopup from "../component/DeletePopup";
+import { MdAdd, MdEdit } from "react-icons/md";
 
 const BlogView = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -61,27 +61,16 @@ const BlogView = () => {
 
   return (
     <DashboardLayout>
-      <div className="bg-white rounded-lg shadow-md p-6">
+      <div className="bg-white rounded-lg  p-6">
         {/* Header */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-6">
           <h2 className="text-xl font-semibold text-gray-800">Blog History</h2>
-
-          <div className="relative w-full max-w-xs">
-            <BiSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-red-500" size={16} />
-            <input
-              type="text"
-              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-400"
-              placeholder="Search blog by name"
-              value={search}
-              onChange={handleSearchChange}
-            />
-          </div>
-
           <Link
             to="/admin/blog-add"
-            className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md shadow-md transition-all"
+            className="px-2 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition"
+
           >
-            Add Blog
+            <MdAdd />
           </Link>
         </div>
 
@@ -89,46 +78,36 @@ const BlogView = () => {
         {loading ? (
           <div className="text-center py-10">Loading...</div>
         ) : listing.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {listing.map((blog, index) => (
               <div className="bg-white border rounded-lg shadow-sm overflow-hidden" key={index}>
                 <Link to={`/blog-details/${blog._id}`}>
                   <Image
-                    className="w-full h-[200px] object-cover"
+                    className="w-full object-cover"
                     alt={blog.title || "Blog Image"}
-                    src={blog.Image }
+                    src={blog.Image || BlogImage}
                   />
                 </Link>
 
                 <div className="p-4">
-                  <div className="flex justify-between text-sm text-gray-500 mb-2">
-                    <div className="flex items-center gap-2">
-                      <FaCalendarAlt className="text-primary" />
-                      <DateFormate data={blog?.createdAt} />
-                    </div>
-                    <Link to={`/blog-details/${blog._id}`} className="flex items-center gap-2">
-                      <FaEye className="text-green-600" />
-                      {blog?.views || 0}
-                    </Link>
-                  </div>
-
                   <h3 className="text-lg font-semibold text-gray-800 mb-1">{blog.title || "Untitled Blog"}</h3>
                   <p className="text-gray-600 line-clamp-3 text-sm">{blog?.short_content || "No content available."}</p>
 
                   <div className="flex justify-between items-center mt-4 border-t pt-3">
                     <Link
                       to={`/admin/blog-update/${blog._id}`}
-                      className="text-blue-500 hover:text-blue-700 text-sm font-medium flex items-center gap-1"
+                      className="px-2 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition"
+
                     >
-                      <i className="bx bx-edit" />
-                      Edit
+                      <MdEdit />
                     </Link>
-                    {/* <Delete
-                      step={4}
-                      Id={blog?._id}
+
+                    <DeletePopup
+                      step={3}
+                      item={blog}
                       title="Delete Blog"
-                      fetchMarketLists={fetchMarketLists}
-                    /> */}
+                      fetchTeamList={fetchMarketLists}
+                    />
                   </div>
                 </div>
               </div>
