@@ -60,10 +60,17 @@ function AddJob({ item, fecthJobList }) {
             <div className="px-2 py-4 text-center">
                 <button
                     onClick={() => setShowModal(true)}
-                    className="px-2 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition"
+                    className="px-2 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition flex items-center gap-1"
                 >
-                    {item?._id ? <MdEdit /> : <MdAdd />}
+                    {item?._id ? (
+                        <MdEdit />
+                    ) : (
+                        <>
+                          + Add Job 
+                        </>
+                    )}
                 </button>
+
             </div>
 
             {showModal && (

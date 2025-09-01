@@ -19,10 +19,13 @@ export default function Header() {
         {/* Desktop Menu */}
         <ul className="hidden lg:flex gap-6 items-center">
           <li><Link to="/" className="">Home</Link></li>
+          <li><Link to="/about" className="">Why Us</Link></li>
+          <li><Link to="/services" className="">Services</Link></li>
+
           
-          <li className="relative group">
+          {/* <li className="relative group">
             <button onClick={() => setDropdownOpen(!dropdownOpen)} className="text-white text-[20px] flex items-center gap-[10px]" >
-            Why Us <span className="">
+            Services <span className="">
             <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M1 1.5L6 6.5L11 1.5" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
@@ -31,18 +34,17 @@ export default function Header() {
             </button>
             {dropdownOpen && (
               <ul className="dropdown absolute left-0 top-full mt-2 w-40 bg-black shadow-lg rounded-md z-10">
+                <li><Link to="/services" className="block">Services</Link></li>
                 <li><Link to="/project" className="block">Our Projects</Link></li>
-                <li><Link to="/about" className="block">Why Us?</Link></li>
                 <li><Link to="/blog" className="block">Marketing</Link></li>
                 <li><Link to="/blog" className="block">Blogs</Link></li>
                 <li><Link to="/career" className="block">Career</Link></li>
                 <li><Link to="/contact" className="block">Contact Us</Link></li>
               </ul>
             )}
-          </li>
+          </li> */}
 
-          <li><Link to="/services" className="">Services</Link></li>
-          <li><Link to="/estate" className="">Our Companies</Link></li>
+          <li><Link to="/project" className="">Our Project</Link></li>
           <li><Link to="/blog" className="">Blogs</Link></li>
           <li><Link to="/career" className="">Careers</Link></li>
           <li><Link to="/contact" className="">Contact</Link></li>
@@ -77,7 +79,12 @@ export default function Header() {
           <ul className="mobileNav">
             <li><Link to="/" className="block text-white">Home</Link></li>
             <li><Link to="/about" className="block text-white">About</Link></li>
-            <li>
+            <li><Link to="/services" className="block text-white">Services</Link></li>
+            <li><Link to="/career" className="block text-white">Career</Link></li>
+
+          <li><Link to="/project" className="block text-white">Our Project</Link></li>
+
+            {/* <li>
               <button
                 onClick={() => setDropdownOpen(!dropdownOpen)}
                 className="flex items-center justify-between gap-[8px] w-full text-left text-white"
@@ -91,13 +98,16 @@ export default function Header() {
             </span>
               </button>
               {dropdownOpen && (
-                <ul className="mobiledrop pl-4 mt-1">
-                  <li><Link to="#" className="block text-white">Web Design</Link></li>
-                  <li><Link to="#" className="block text-white">SEO</Link></li>
-                  <li><Link to="#" className="block text-white">Marketing</Link></li>
+                <ul className="mobiledrop pl-4 mt-1 text-white">
+               <li><Link to="/services" className="block">Services</Link></li>
+                <li><Link to="/project" className="block">Our Projects</Link></li>
+                <li><Link to="/blog" className="block">Marketing</Link></li>
+                <li><Link to="/blog" className="block">Blogs</Link></li>
+                <li><Link to="/career" className="block">Career</Link></li>
+                <li><Link to="/contact" className="block">Contact Us</Link></li>
                 </ul>
               )}
-            </li>
+            </li> */}
             <li><Link to="/contact" className="block text-white">Contact</Link></li>
           </ul>
         </div>

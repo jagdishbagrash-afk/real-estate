@@ -15,6 +15,7 @@ import blog7 from '../img/blogimg07.jpg';
 import blog8 from '../img/blogimg08.jpg';
 import blog9 from '../img/blogimg09.jpg';
 import { Link } from "react-router-dom";
+import AnimatedHeading from "../component/AnimatedHeading";
 
 const blogs = [
   {
@@ -65,18 +66,26 @@ function Blog() {
       <Header />
       <div className="relative mt-[-150px] ">
         <img src={exploreservicebg} alt="Logo" className="object-cover min-h-[350px] md:min-h-[400px] lg:min-h-[450px] w-full" />
-        <div className="max-w-[1320px] m-auto absolute left-[0] right-[0]  bottom-[30px] md:bottom-[50px] lg:bottom-[90px] z-[1] px-[15px]">
-          <h2 className="fontspring text-[20px] md:text-[40px] lg:text-[60px] xl:text-[80px] text-white  ">Blogs and Upcoming Project</h2>
-        </div>
+        <AnimatedHeading>
+          <div className="max-w-[1320px] m-auto absolute left-[0] right-[0]  bottom-[30px] md:bottom-[50px] lg:bottom-[90px] z-[1] px-[15px]">
+            <h2 className="fontspring text-[20px] md:text-[40px] lg:text-[60px] xl:text-[80px] text-white  ">Blogs and Upcoming Project</h2>
+          </div>
+        </AnimatedHeading>
       </div>
       <div className="bg-[#F8F6F2] py-[40px] md:py-[50px] lg:py-[80px] xl:py-[100px]">
-        <h2 className="fontspring text-[25px] text-[25px] md:text-[30px] lg:text-[40px] xl:text-[50px] leading-[30px] md:leading-[35px] lg:leading-[45px] xl:leading-[55px] mb-[40px] text-[#000112] text-center">What We Offer</h2>
+        <AnimatedHeading>
+
+          <h2 className="fontspring text-[25px] text-[25px] md:text-[30px] lg:text-[40px] xl:text-[50px] leading-[30px] md:leading-[35px] lg:leading-[45px] xl:leading-[55px] mb-[40px] text-[#000112] text-center">What We Offer</h2>
+        </AnimatedHeading>
         <TownshipSlider />
       </div>
 
 
       <section className="py-12 px-4 md:px-8 lg:px-16 bg-white">
-        <h2 className="mb-[25px] text-center fontspring text-[20px] md:text-[30px] lg:text-[40px] xl:text-[50px] text-[#000112]  ">Latest Blogs</h2>
+        <AnimatedHeading>
+
+          <h2 className="mb-[25px] text-center fontspring text-[20px] md:text-[30px] lg:text-[40px] xl:text-[50px] text-[#000112]  ">Latest Blogs</h2>
+        </AnimatedHeading>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full md:max-w-[1320px] m-auto">
           {blogs.map((blog, index) => (
             <Link to="/blog/details" key={index} className="flex flex-col">

@@ -1,8 +1,8 @@
 import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Toaster, toast } from "react-hot-toast";
-import Story from "../Apis/Story";
 import image from "../../img/homebanner.jpg";
+import Listing from "../Apis/Listing";
 
 function Login() {
     const navigate = useNavigate();
@@ -24,9 +24,9 @@ function Login() {
         if (loading) return;
         setLoading(true);
 
-        const main = new Story();
+        const main = new Listing();
         try {
-            const response = await main.Login(Regs);
+            const response = await main.adminlogin(Regs);
             if (response?.data?.status === true) {
                 localStorage.setItem("token", response.data.token);
                 navigate("/admin/dashboard");

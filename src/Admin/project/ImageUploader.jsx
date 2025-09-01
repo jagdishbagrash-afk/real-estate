@@ -35,12 +35,12 @@ const ImageUploader = ({ images, setImages }) => {
     };
 
     return (
-         <>
+        <>
             <div className="mb-4">
-                
+
                 <label
                     htmlFor="image-upload"
-                    className="flex flex-col items-center justify-center w-full h-48 border-2 border-dashed rounded-md cursor-pointer bg-gray-50 hover:bg-gray-100"
+                    className="flex flex-col items-center justify-center w-full h-48 border-2 border-dashed rounded-md cursor-pointer bg-white hover:bg-white"
                 >
                     <MdAdd size={48} className="text-gray-400" />
                     <p className="text-sm text-gray-500 mt-2">Click or drag files to upload</p>
@@ -98,7 +98,7 @@ const ImageUploader = ({ images, setImages }) => {
                     </div>
                 ))}
             </div>
-         </>
+        </>
     );
 };
 

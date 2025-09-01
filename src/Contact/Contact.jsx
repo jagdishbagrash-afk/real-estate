@@ -6,6 +6,7 @@ import exploreservicebg from '../img/exploreservicebg.jpg';
 import { useState } from "react";
 import toast from "react-hot-toast";
 import Listing from "../Admin/Apis/Listing";
+import AnimatedHeading from "../component/AnimatedHeading";
 
 function Contact() {
 
@@ -37,7 +38,7 @@ function Contact() {
                 ...Regs,
             };
             const response = await main.contact(updatedRegs);
-            console.log("response" ,response)
+            console.log("response", response)
             if (response?.data?.status) {
                 toast.success(response.data.message);
                 setRegs({
@@ -62,14 +63,20 @@ function Contact() {
 
         <div className="min-h-screen ">
             <Header />
-            <div className="relative mt-[-150px] ">
-                <img src={exploreservicebg} alt="Logo" className="object-cover min-h-[350px] md:min-h-[400px] lg:min-h-[450px] w-full" />
-                <div className="max-w-[1320px] m-auto absolute left-[0] right-[0]  bottom-[30px] md:bottom-[50px] lg:bottom-[90px] z-[1] px-[15px]">
-                    <h2 className="fontspring text-[20px] md:text-[40px] lg:text-[60px] xl:text-[80px] text-white  ">Contact us</h2>
+            <div className="relative mt-[-150px]">
+                <img
+                    src={"/project/DSC00509[1].JPG"}
+                    alt="Logo"
+                    className="w-full h-[500px] md:h-[600px] xl:h-[650px] md:h-[900px] object-cover object-top"
+                />
+                <div className="max-w-[1320px] m-auto absolute left-0 right-0 bottom-[30px] md:bottom-[50px] lg:bottom-[90px] z-[1] px-[15px]">
+                    <AnimatedHeading>
+                        <h2 className="fontspring text-[20px] md:text-[40px] lg:text-[60px] xl:text-[80px] text-white">
+                            Contact us
+                        </h2>
+                    </AnimatedHeading>
                 </div>
             </div>
-
-
             <div className="bg-[#fff] px-[15px] py-[30px] md:py-[50px] lgpy-[70px] ">
                 {/* Top Contact Info */}
                 <div className="max-w-[1320px] mx-auto flex flex-wrap md:flex-nowrap gap-6 text-center">
@@ -85,8 +92,8 @@ function Contact() {
                         <div className="flex flex-col items-start justify-start">
                             <h3 className="fontspring text-[20px] md:text-[23px] lg:text-[26px] text-[#000112]">Address</h3>
                             <p className="text-[16px] md:text-[16px] lg:text-[20px] font-[600] text-[#000112] mt-1 text-left">
-                                Société SL Services 30 avenue Foch
-                                94100 Saint Maur des Fosses
+                                Office No. 101,102,301, Prism Tower , Lal Kothi Scheme, Tonk Road, Gandhi Nagar, Opp. PHQ, Jaipur
+
                             </p>
                         </div>
                     </div>
@@ -105,7 +112,7 @@ function Contact() {
                         <div className="flex flex-col items-start justify-start">
                             <h3 className="fontspring text-[20px] md:text-[23px] lg:text-[26px] text-[#000112]">Email</h3>
                             <p className="whitespace-normal emailText break-words  text-[16px] md:text-[18px] lg:text-[20px] font-[600] text-[#000112] mt-1 text-left">
-                                contact@dga.com
+                                Info@cadmaxpro.com
                             </p>
                         </div>
                     </div>
@@ -123,7 +130,7 @@ function Contact() {
                         <div className="flex flex-col items-start justify-start">
                             <h3 className="fontspring text-[20px] md:text-[23px] lg:text-[26px] text-[#000112]">Phone</h3>
                             <p className="text-[16px] md:text-[18px] lg:text-[20px] font-[600] text-[#000112] mt-1 text-left">
-                                09 82 54 35 66
+                                9829045031
                             </p>
                         </div>
                     </div>
@@ -141,18 +148,19 @@ function Contact() {
 
                 <div className="max-w-[1320px] bg-[#F8F6F2] mx-auto px-4 grid lg:grid-cols-2 gap-10 items-start">
                     {/* Left Text */}
-                    <div>
-                        <h2 className="fontspring text-[20px] md:text-[30px] lg:text-[50px] leading-[24px] md:leading-[35px] lg:leading-[55px] text-[#000112] mb-4">Let us help build your dream</h2>
-                        <p className="text-[#000112a6] text-[14px] md:text-[18px] lg:text-[20px]">
-                            Whether you're looking to renovate your home, office, or commercial space, our dedicated
-                            team is ready to assist you every step of the way. Contact us today to discuss your
-                            project and discover how we can create the perfect space tailored to your needs.
-                        </p>
-                    </div>
+                    <AnimatedHeading>
+                        <div>
+                            <h2 className="fontspring text-[20px] md:text-[30px] lg:text-[50px] leading-[24px] md:leading-[35px] lg:leading-[55px] text-[#000112] mb-4">Let us help build your dream</h2>
+                            <p className="text-[#000112a6] text-[14px] md:text-[18px] lg:text-[20px]">
+                                Weather looking for developing your land or designing your residential or commercial spaces, Our dedicated an experienced team is ready to the best for you, Contact us today to discuss your project and discover how we can create the perfect space tailored to your needs.
+
+                            </p>
+                        </div>
+                    </AnimatedHeading>
 
 
                     {/* Right Form */}
-                    <form  className="z-[2] flex flex-wrap gap-[20px] md:gap-[30px] lg:gap-[50px] text-sm">
+                    <form className="z-[2] flex flex-wrap gap-[20px] md:gap-[30px] lg:gap-[50px] text-sm">
                         <div className="flex flex-col w-full md:w-[48%] lg:md:w-[42%] xl:md:w-[45%] gap-[10px]">
                             <label className="mb-1 text-[12px] uppercase text-[#4D4D4D]">FULL NAME*</label>
                             <input type="text" placeholder="your name"
@@ -201,7 +209,7 @@ function Contact() {
                                 placeholder="Message" className="border-b border-gray-400 bg-transparent outline-none py-1 text-[16px] font-[500] text-[#999999]"></textarea>
                         </div>
                         <div className="w-full pt-4">
-                            <button type="submit" onClick={handleForms}  className="min-w-[200px] bg-[#94A393] text-white px-[10px] py-[15px]  hover:bg-[#000] hover:text-white text-[14px] font-[500]" disabled={loading}>
+                            <button type="submit" onClick={handleForms} className="min-w-[200px] bg-[#94A393] text-white px-[10px] py-[15px]  hover:bg-[#000] hover:text-white text-[14px] font-[500]" disabled={loading}>
                                 {loading ? "Processing.." : "GET A QUOTE"}
                             </button>
                         </div>
@@ -210,15 +218,15 @@ function Contact() {
 
             </div>
 
-            {/* Embedded Map Placeholder */}
             <div>
                 <div className="w-full h-[300px]">
                     <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18..."
-                        className="w-full h-full border-0"
-                        allowFullScreen=""
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3562.169941188254!2d75.79705307537076!3d26.83308127670687!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396db3b25d2a3a41%3A0x2dc19e9a7e949dd5!2sPrism%20Tower%2C%20Lal%20Kothi%20Scheme%2C%20Tonk%20Rd%2C%20Gandhi%20Nagar%2C%20Jaipur%2C%20Rajasthan%20302015!5e0!3m2!1sen!2sin!4v1693395287562!5m2!1sen!2sin"
+                        width="100%"
+                        height="100%"
+                        allowfullscreen=""
                         loading="lazy"
-                        title="Company Location"
+                        referrerpolicy="no-referrer-when-downgrade"
                     ></iframe>
                 </div>
 

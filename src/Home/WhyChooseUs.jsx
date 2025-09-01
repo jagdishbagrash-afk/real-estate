@@ -1,10 +1,5 @@
-import React from "react";
 import chooseicon from '../img/chooseicon.png';
-import { FaUserCog } from "react-icons/fa"; // You can use any icons you like
-import AnimatedHeading from "../Admin/component/AnimatedHeading";
-import FadeInDown from "../Admin/component/FadeInDown";
-
-
+import AnimatedHeading from "../component/AnimatedHeading";
 
 export default function WhyChooseUs({ home }) {
   console.log("home", home)
@@ -18,7 +13,7 @@ export default function WhyChooseUs({ home }) {
         </AnimatedHeading>
 
         <div className="grid gap-6 md:grid-cols-3">
-          {home && home?.home?.map((item, index) => (
+          {home && home?.map((item, index) => (
             <div
               key={index}
               className="group bg-white p-[20px] md:p-[20px] lg:p-[40px] shadow-md text-left transition-all duration-500 ease-in-out transform hover:-translate-y-5 hover:shadow-xl"

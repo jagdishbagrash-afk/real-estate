@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react";
-import ReactQuill from 'react-quill-new';
 import 'react-quill-new/dist/quill.snow.css';
 import toast from "react-hot-toast";
 import { useNavigate, useParams } from "react-router-dom";
-// import ImageUpload from "../component/ImageUpload";
 import ReactQuillEditor from "../component/ReactQuillEditor";
-import DashboardLayout from "../component/AuthLayout";
 import Listing from "../Apis/Listing";
+import SideBarAdmin from "../common/SideBarAdmin";
 
 const AddBlog = () => {
     const { Id } = useParams();
@@ -100,16 +98,19 @@ const AddBlog = () => {
     };
 
     return (
-        <DashboardLayout>
-            <div className="bg-white p-6 rounded-lg shadow-md">
-                <h2 className="text-2xl font-semibold text-gray-700 mb-4">
-                    {Id ? "Edit Blog" : "Add Blog"}
-                </h2>
+        <div className="md:flex flex-wrap bg-[#F5F6FB]">
+            <SideBarAdmin />
+            <div className="w-full lg:w-[calc(100%-304px)] ">
+                <div className="px-4 py-2 lg:px-10 lg:py-2.5  ">
 
-                <hr className="mb-6" />
+                    <h2 className="text-2xl font-semibold text-gray-700 mb-4">
+                        {Id ? "Edit Blog" : "Add Blog"}
+                    </h2>
 
-                <form onSubmit={handleSubmit} className="space-y-5">
-                    {/* Meta Title
+                    <hr className="mb-6" />
+
+                    <form onSubmit={handleSubmit} className="space-y-5">
+                        {/* Meta Title
                     <div>
                         <label className="block text-sm font-medium text-gray-700">Meta Title</label>
                         <input
@@ -148,113 +149,114 @@ const AddBlog = () => {
                         />
                     </div> */}
 
-                    {/* Image Upload */}
-                    <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Blog Image</label>
-                        <input
-                            type="file"
-                            name="imageUrl"
-                            placeholder="Image URL"
-                            value={instructorDetails.imageUrl}
-                            onChange={handleInputChange}
-                            className="border border-gray-300 p-2 rounded-md w-full"
-                        />
-                    </div>
-
-                    {/* Title */}
-                    <div>
-                        <label className="block text-sm font-medium text-gray-700">Blog Title</label>
-                        <input
-                            type="text"
-                            name="title"
-                            value={instructorDetails.title}
-
-                            onChange={(e) => {
-                                if (e.target.value.length > 100) {
-                                    return;
-                                }
-                                setInstructorDetails((prev) => ({
-                                    ...prev,
-                                    [e.target.name]: e.target.value,
-                                }));
-                            }}
-                            required
-                            className="border border-gray-300 p-2 rounded-md w-full"
-
-                        />
-
-                        <div className="flex flex-wrap justify-between">
-                            <label className="block text-sm mb-2 font-medium text-start text-gray-700 mt-3">
-                                {instructorDetails.title ? (
-                                    <span>{instructorDetails.title.length}/100 characters</span>
-                                ) : (
-                                    <span>0/100 characters</span>
-                                )}
-                            </label>
-                            <label className="block text-sm mb-2 font-medium text-end text-gray-700 mt-3">
-                                Minimum 100 words.
-                            </label>
+                        {/* Image Upload */}
+                        <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-1">Blog Image</label>
+                            <input
+                                type="file"
+                                name="imageUrl"
+                                placeholder="Image URL"
+                                value={instructorDetails.imageUrl}
+                                onChange={handleInputChange}
+                                className="border border-gray-300 p-2 rounded-md w-full"
+                            />
                         </div>
-                    </div>
 
-                    {/* Short Content */}
-                    <div>
-                        <label className="block text-sm font-medium text-gray-700">Blog Content</label>
-                        <textarea
-                            type="text"
-                            name="short_content"
-                            value={instructorDetails.short_content}
-                            onChange={(e) => {
-                                if (e.target.value.length > 300) {
-                                    return;
-                                }
-                                setInstructorDetails((prev) => ({
-                                    ...prev,
-                                    [e.target.name]: e.target.value,
-                                }));
-                            }}
-                            required
-                            rows={6}
-                            className="border border-gray-300 p-2 rounded-md w-full"
+                        {/* Title */}
+                        <div>
+                            <label className="block text-sm font-medium text-gray-700">Blog Title</label>
+                            <input
+                                type="text"
+                                name="title"
+                                value={instructorDetails.title}
 
-                        />
+                                onChange={(e) => {
+                                    if (e.target.value.length > 100) {
+                                        return;
+                                    }
+                                    setInstructorDetails((prev) => ({
+                                        ...prev,
+                                        [e.target.name]: e.target.value,
+                                    }));
+                                }}
+                                required
+                                className="border border-gray-300 p-2 rounded-md w-full"
 
-                        <div className="flex flex-wrap justify-between">
-                            <label className="block text-sm mb-2 font-medium text-start text-gray-700 mt-3">
-                                {instructorDetails.short_content ? (
-                                    <span>{instructorDetails.short_content.length}/300 characters</span>
-                                ) : (
-                                    <span>0/300 characters</span>
-                                )}
-                            </label>
-                            <label className="block text-sm mb-2 font-medium text-end text-gray-700 mt-3">
-                                Minimum 300 words.
-                            </label>
+                            />
+
+                            <div className="flex flex-wrap justify-between">
+                                <label className="block text-sm mb-2 font-medium text-start text-gray-700 mt-3">
+                                    {instructorDetails.title ? (
+                                        <span>{instructorDetails.title.length}/100 characters</span>
+                                    ) : (
+                                        <span>0/100 characters</span>
+                                    )}
+                                </label>
+                                <label className="block text-sm mb-2 font-medium text-end text-gray-700 mt-3">
+                                    Minimum 100 words.
+                                </label>
+                            </div>
                         </div>
-                    </div>
 
-                    {/* Rich Text Editor */}
-                    <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Full Blog Content</label>
-                        <ReactQuillEditor
-                            desc={instructorDetails.content}
-                            handleBioChange={handleBioChange}
-                        />
-                    </div>
+                        {/* Short Content */}
+                        <div>
+                            <label className="block text-sm font-medium text-gray-700">Blog Content</label>
+                            <textarea
+                                type="text"
+                                name="short_content"
+                                value={instructorDetails.short_content}
+                                onChange={(e) => {
+                                    if (e.target.value.length > 300) {
+                                        return;
+                                    }
+                                    setInstructorDetails((prev) => ({
+                                        ...prev,
+                                        [e.target.name]: e.target.value,
+                                    }));
+                                }}
+                                required
+                                rows={6}
+                                className="border border-gray-300 p-2 rounded-md w-full"
 
-                    {/* Submit Button */}
-                    <div>
-                        <button
-                            type="submit"
-                            disabled={loading}
-                            className="inline-flex items-center px-6 py-2 bg-red-500 text-white font-semibold rounded-md shadow hover:bg-red-600 transition-all disabled:opacity-50"
-                        >
-                            {loading ? "Saving..." : Id ? "Update Blog" : "Add Blog"}
-                        </button>
-                    </div>
-                </form>
+                            />
+
+                            <div className="flex flex-wrap justify-between">
+                                <label className="block text-sm mb-2 font-medium text-start text-gray-700 mt-3">
+                                    {instructorDetails.short_content ? (
+                                        <span>{instructorDetails.short_content.length}/300 characters</span>
+                                    ) : (
+                                        <span>0/300 characters</span>
+                                    )}
+                                </label>
+                                <label className="block text-sm mb-2 font-medium text-end text-gray-700 mt-3">
+                                    Minimum 300 words.
+                                </label>
+                            </div>
+                        </div>
+
+                        {/* Rich Text Editor */}
+                        <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-1">Full Blog Content</label>
+                            <ReactQuillEditor
+                                desc={instructorDetails.content}
+                                handleBioChange={handleBioChange}
+                            />
+                        </div>
+
+                        {/* Submit Button */}
+                        <div>
+                            <button
+                                type="submit"
+                                disabled={loading}
+                                className="inline-flex items-center px-6 py-2 bg-red-500 text-white font-semibold rounded-md shadow hover:bg-red-600 transition-all disabled:opacity-50"
+                            >
+                                {loading ? "Saving..." : Id ? "Update Blog" : "Add Blog"}
+                            </button>
+                        </div>
+                    </form>
+                </div>
             </div>
-        </DashboardLayout>
+        </div>
     );
 };
 

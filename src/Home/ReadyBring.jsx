@@ -1,5 +1,6 @@
 import React from 'react';
 import readybringbg from '../img/readybringbg.jpg';
+import { Link } from 'react-router-dom';
 
 
 
@@ -19,9 +20,9 @@ export default function Readybring() {
         <p className="text-[#ffffffc2] text-[18px] md:text-[20px] mb-6">
         Let’s create an interior that’s beautiful, functional, and uniquely yours.
         </p>
-        <button className="min-w-[220px] bg-[#94A393] text-white hover:bg-white hover:text-black text-[14px] font-[600] py-[14px] px-[10px]  transition text-center tracking-widest">
+        <Link to="/contact" className="min-w-[220px] bg-[#94A393] text-white hover:bg-white hover:text-black text-[14px] font-[600] py-[14px] px-[10px]  transition text-center tracking-widest">
           CONTACT US
-        </button>
+        </Link>
       </div>
     </section>
   );

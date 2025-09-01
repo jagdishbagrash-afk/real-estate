@@ -1,73 +1,92 @@
 import { useEffect, useState } from "react";
-import AuthLayout from "../component/AuthLayout";
-import AddTeam from "./AddTeam";
 import Listing from "../Apis/Listing";
-import DeletePopup from "../component/DeletePopup";
-import userimage from "../../img/RudraMahal.jpg"
+import LoadingSpinner from "../common/LoadingSpinner";
+import Nodata from "../common/Nodata";
+import SideBarAdmin from "../common/SideBarAdmin";
+import HeaderAdmin from "../common/HeaderAdmin";
+import AddTeam from "./AddTeam"
 
 function ListTeam() {
     const [team, setTeams] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     const fetchTeamList = async () => {
         try {
+            setLoading(true);
             const main = new Listing();
             const response = await main.teamlist();
-            console.log("response", response)
+            console.log("response", response);
             setTeams(response?.data?.data || []);
         } catch (error) {
             console.error("Error fetching team list:", error);
+        } finally {
+            setLoading(false);
         }
     };
-    useEffect(() => {
 
+    useEffect(() => {
         fetchTeamList();
     }, []);
 
+    console.log("team", team)
     return (
-        <AuthLayout>
-            <div className="bg-white rounded-lg  p-6">
-                <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-6">
-                    <h2 className="text-2xl font-semibold mb-1 text-black">Team Member List</h2>
-                    <AddTeam />
-                </div>
-                <div className="overflow-x-auto">
-                    <table className="min-w-full bg-white text-center border border-gray-200 rounded-lg shadow-md">
-                        <thead className="text-white bg-[#94A393]">
-                            <tr>
-                                <th className="px-4 py-2">#</th>
-                                <th className="px-4 py-2">Image</th>
-                                <th className="px-4 py-2">Name</th>
-                                <th className="px-4 py-2">Position </th>
-                                <th className="px-4 py-2">Edit </th>
-                                <th className="px-4 py-2">Delete </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {team && team?.map((item, index) => (
-                                <tr key={item.id} className="hover:bg-purple-50 transition duration-150">
-                                    <td className="px-4 py-2 border-t">{index + 1}</td>
-                                    <td className="px-4 py-2 border-t">
-                                        <img src={item.imageUrl || userimage} alt="Item" className="h-16 w-16 object-cover rounded" />
-                                    </td>
-                                    <td className="px-4 py-2 border-t">{item.name}</td>
-                                    <td className="px-4 py-2 border-t">{item.position}</td>
+        <div className="md:flex flex-wrap bg-[#F5F6FB]">
+            <SideBarAdmin />
+            <div className="w-full lg:w-[calc(100%-304px)]">
+                <HeaderAdmin title={"Team Listing"} />
 
-                                    <td className=" border-t">
+                <div className="px-4 py-2 lg:px-10 lg:py-2.5">
+                    <div className="bg-white rounded-[20px] mb-[30px]">
+                        <div className="py-4 px-4 md:px-6 lg:px-10 flex justify-between items-center border-b border-black border-opacity-10">
+                            <h3 className="text-base lg:text-lg font-semibold text-[#1E1E1E] tracking-[-0.03em]">
+                                Team Members
+                            </h3>
+                            <AddTeam />
+                        </div>
 
-                                        <AddTeam item={item} fetchTeamList={fetchTeamList} />
-                                    </td>
-
-                                    <td className=" border-t">
-
-                                        <DeletePopup step={1} item={item} fetchTeamList={fetchTeamList} />
-                                    </td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
+                        <div className="overflow-x-auto">
+                            {loading ? (
+                                <LoadingSpinner />
+                            ) : team.length === 0 ? (
+                                <Nodata />
+                            ) : (
+                                <table className="min-w-full">
+                                    <thead>
+                                        <tr>
+                                            <th className="px-3 py-3 text-sm font-medium text-[#8D929A] text-left uppercase">#</th>
+                                            <th className="px-3 py-3 text-sm font-medium text-[#8D929A] text-left uppercase">Image</th>
+                                            <th className="px-3 py-3 text-sm font-medium text-[#8D929A] text-left uppercase">Name</th>
+                                            <th className="px-3 py-3 text-sm font-medium text-[#8D929A] text-left uppercase">Role</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {team.map((member, index) => (
+                                            <tr
+                                                key={member.id || index}
+                                                className="bg-white border-t hover:bg-gray-100"
+                                            >
+                                                <td className="px-3 py-4 text-[15px] font-medium text-[#46494D]">
+                                                    {index + 1}
+                                                </td>
+                                                <td className="px-3 py-4 text-[15px] font-medium text-[#46494D]">
+                                                    {member.name}
+                                                </td>
+                                                <td className="px-3 py-4 text-[15px] font-medium text-[#46494D]">
+                                                    {member.name}
+                                                </td>
+                                                <td className="px-3 py-4 text-[15px] font-medium text-[#46494D]">
+                                                    {member.position}
+                                                </td>
+                                            </tr>
+                                        ))}
+                                    </tbody>
+                                </table>
+                            )}
+                        </div>
+                    </div>
                 </div>
             </div>
-        </AuthLayout>
+        </div>
     );
 }
 

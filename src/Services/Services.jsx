@@ -1,58 +1,113 @@
-import "../App.css"
-import Header from '../component/Header';
-import exploreservicebg from '../img/exploreservicebg.jpg';
+import "../App.css";
+import Header from "../component/Header";
+import exploreservicebg from "../img/exploreservicebg.jpg";
 import img1 from "../img/realestate.jpg";
 import img2 from "../img/FINALNADHALLAYOUT20_page-0001.jpg";
 import img3 from "../img/Infrastructure.jpg";
 import img4 from "../img/Acrchitecture.jpg";
 import img5 from "../img/Interior.png";
-import img6 from '../img/serviceimg06.jpg';
-
-
-
 import Footer from "../component/Footer";
+import AnimatedHeading from "../component/AnimatedHeading";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
-
-const services = [
-      { title: "URBAN PLANNING", image: img2 },
-  { title: "REAL STATE", image: img1 },
-  { title: "INFRASTRUCTURE ", image: img3 },
-  { title: "ARCHITECTURE", image: img4 },
-  { title: "Interior Designing", image: img5 },
-    { title: 'SURVEYING', image: img6 },
-  ];
-
+// Swiper imports
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/autoplay";
+import { Autoplay } from "swiper/modules";
 
 function Services() {
-    return ( <>
-    <div className="min-h-screen ">
-      <Header />
-        <div className="relative mt-[-150px] ">
-            <img src={exploreservicebg} alt="Logo" className="object-cover min-h-[350px] md:min-h-[400px] lg:min-h-[450px] w-full" />
-            <div className="max-w-[1320px] m-auto absolute left-[0] right-[0]  bottom-[30px] md:bottom-[50px] lg:bottom-[90px] z-[1] px-[15px]">
-                <h2 className="fontspring text-[20px] md:text-[40px] lg:text-[60px] xl:text-[80px] text-white  ">Explore our services</h2>
-            </div>
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+
+  const services = [
+    { title: "URBAN PLANNING", image: img2, slug: "urban-planning" },
+    { title: "REAL STATE", image: img1, slug: "real-state" },
+    { title: "INFRASTRUCTURE", image: img3, slug: "infrastructure" },
+    { title: "ARCHITECTURE", image: img4, slug: "architecture" },
+    { title: "INTERIOR DESIGNING", image: img5, slug: "interior-designing" },
+  ];
+
+  return (
+    <>
+      <div className="min-h-screen">
+        <Header />
+
+        {/* Hero section */}
+        <div className="relative mt-[-150px]">
+          <img
+            src={exploreservicebg}
+            alt="Logo"
+            className="object-cover min-h-[350px] md:min-h-[400px] lg:min-h-[450px] w-full"
+          />
+          <div className="max-w-[1320px] m-auto absolute left-0 right-0 bottom-[30px] md:bottom-[50px] lg:bottom-[90px] z-[1] px-[15px]">
+            <AnimatedHeading>
+              <h2 className="fontspring text-[20px] md:text-[40px] lg:text-[60px] xl:text-[80px] text-white">
+                Explore our services
+              </h2>
+            </AnimatedHeading>
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 px-[15px] py-[40px] md:py-[60px] lg:py-[100px] max-w-7xl mx-auto">
+        {/* Swiper Slider */}
+        <div className="w-full py-[40px] md:py-[60px] lg:py-[100px] px-[15px]">
+          <Swiper
+            modules={[Autoplay]}
+            autoplay={{
+              delay: 3000,
+              disableOnInteraction: false,
+            }}
+            loop={true}
+            spaceBetween={20}
+            slidesPerView={1}
+            breakpoints={{
+              320: { slidesPerView: 1 },   // mobile
+              768: { slidesPerView: 2 },   // tablet
+              1024: { slidesPerView: 3 },  // desktop
+            }}
+            className="h-[500px]"
+          >
             {services.map((service, index) => (
-                 <div key={index} className="relative h-[300px] md:h-[350px] lg:md:h-[420px] xl:md:h-[520px] w-full overflow-hidden shadow-lg group cursor-grab">
-                <img
-                  src={service.image}
-                  alt={service.title}
-                  className="h-[300px] md:h-[350px] lg:md:h-[420px] xl:md:h-[520px] w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                />
-                {/* bg-[#0000007d] */}
-                <div className="absolute inset-0 bg-[#000000b3]	 hover:bg-transparent bg-opacity-[10%] flex items-center justify-center">
-                  <h3 className="text-white  text-lg font-semibold tracking-wider uppercase">{service.title}</h3>
-                </div>
-              </div>
+              <SwiperSlide
+                key={index}
+                style={{
+                  flexBasis:
+                    window.innerWidth >= 1024
+                      ? hoveredIndex === index
+                        ? "40%"
+                        : hoveredIndex !== null
+                          ? "25%"
+                          : "33.33%"
+                      : "100%", // ✅ mobile & tablet में हमेशा full width
+                  transition: "all 0.5s ease-in-out",
+                  height: "100%",
+                }}
+              >
+                <Link
+                  to={`/services/${service?.slug}`}
+                  className="relative group cursor-pointer overflow-hidden w-full h-full"
+                  onMouseEnter={() => setHoveredIndex(index)}
+                  onMouseLeave={() => setHoveredIndex(null)}
+                >
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 brightness-75"
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <h3 className="text-white text-[16px] uppercase font-semibold tracking-wide text-center">
+                      {service.title}
+                    </h3>
+                  </div>
+                </Link>
+              </SwiperSlide>
             ))}
-            </div>
-    </div>
-    <Footer />
+          </Swiper>
+        </div>
+      </div>
+      <Footer />
     </>
-     );
+  );
 }
 
 export default Services;

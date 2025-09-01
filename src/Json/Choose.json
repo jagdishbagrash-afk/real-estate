@@ -12,5 +12,19 @@
             "title": "Client Satisfaction",
             "description": "Almost all the clients that joined hands with us in our beginning, are still working happily with us till the present time. Their smile and satisfaction is the actual success for us."
         }
+    ],
+    "management": [
+        {
+            "title": "Ranked No.1",
+            "description": "Our firm got the best urban planning firm of India award in the Gaba Awards held at Delhi in 2025. We are consistently dedicated to making it at international level in all aspects of our services."
+        },
+        {
+            "title": "Work Ethics",
+            "description": "We are always dedicated to provide best work at accurate time. This is the biggest mantra of our glory."
+        },
+        {
+            "title": "Client Satisfaction",
+            "description": "Almost all the clients that joined hands with us in our beginning, are still working happily with us till the present time. Their smile and satisfaction is the actual success for us."
+        }
     ]
 }

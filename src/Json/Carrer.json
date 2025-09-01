@@ -1,0 +1,44 @@
+{
+    "Architect": {
+        "role": "Architect",
+        "quote": "An architect doesn’t just build walls—they craft the future in lines and light.",
+        "requiredSkillsAndQualifications": [
+            "Should be well qualified and well experienced",
+            "Should handle office as well as onsite work",
+            "Should design 3d elevations",
+            "Should have building structural knowledge"
+        ],
+        "image": "/project/RENDE0022(4).jpg"
+    },
+    "Interior": {
+        "role": "Interior Designer",
+        "quote": "The best rooms have something to say about the people who live in them.",
+        "requiredSkillsAndQualifications": [
+            "Should be well qualified and well experienced",
+            "Should handle office as well as onsite work",
+            "Should design 3d interior models",
+            "Should do commercial and residential planning according to vastu"
+        ],
+        "image": "/project/livingroomrender01.jpg"
+    },
+    "Surveying": {
+        "role": "Surveying Engineer",
+        "quote": "Survey engineers don’t just measure land—they lay the foundation for everything that follows.",
+        "requiredSkillsAndQualifications": [
+            "Should be well qualified and well experienced",
+            "Should operate D.G.P.S., total station, Auto level",
+            "Should prepare survey drawing"
+        ],
+        "image": "/project/istockphoto-92191492-612x612[1].jpg"
+    },
+    "Urban": {
+        "role": "Urban Planner",
+        "quote": "Great urban planning turns space into community, and concrete into culture.",
+        "requiredSkillsAndQualifications": [
+            "Should be well qualified and well experienced",
+            "Can do Urban township planning with accurate JDA norms",
+            "Should have knowledge about latest JDA township policies"
+        ],
+        "image": "/project/urban-planner.png"
+    }
+}

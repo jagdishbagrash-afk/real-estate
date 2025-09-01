@@ -2,12 +2,13 @@ import "../App.css"
 import Header from '../component/Header';
 import Footer from "../component/Footer";
 import spacebanner from '../img/about/about1.jpg';
-import companybg from '../img/about/about2.jpg';
-import exploreservicebg from '../img/about/aboutbanner.jpg';
+import companybg from '../img/about/a1bout2.jpg';
+import exploreservicebg from '../img/about/Updated.png';
 import TeamSlider from "./TeamSlider";
 import Readybring from "../Home/ReadyBring";
 import chooseicon from '../img/chooseicon.png';
-
+import Achivement from "./Achivement"
+import AnimatedHeading from "../component/AnimatedHeading";
 
 function About() {
     const features = [
@@ -23,19 +24,34 @@ function About() {
         },
 
     ];
-    return (<>
 
+    const values = [
+        { title: "Integrity in our commitments and relationship." },
+        { title: "Innovation in technology and methodology." },
+        { title: "Impact through sustainable community and focus solutions." },
+    ];
+
+    return (<>
         <div className="min-h-screen ">
             <Header />
-            <div className="relative mt-[-150px] ">
-                <img src={exploreservicebg} alt="Logo" className="object-cover min-h-[350px] md:min-h-[400px] lg:min-h-[450px] w-full" />
+            <div className="relative mt-[-100px] ">
+                <img
+                    src={exploreservicebg}
+                    alt="Logo"
+                    className="w-full "
+                />
                 <div className="max-w-[1320px] m-auto absolute left-[0] right-[0]  bottom-[30px] md:bottom-[50px] lg:bottom-[90px] z-[1] px-[15px]">
-                    <h2 className="fontspring text-[20px] md:text-[40px] lg:text-[60px] xl:text-[80px] text-white  ">Why us</h2>
+                    <AnimatedHeading>
+                        <h2 className="fontspring text-[20px] md:text-[40px] lg:text-[60px] xl:text-[80px] text-white  ">Why us</h2>
+                    </AnimatedHeading>
                 </div>
             </div>
 
             <div className="pt-[40px] md:pt-[50px] lg-[80px] pb-[90px] px-[15px]">
-                <h2 className="fontspring mb-[20px] text-[20px] md:text-[30px] lg:text-[40px] xl:text-[50px] text-[#000112] text-center">Company Profile</h2>
+                <AnimatedHeading>
+
+                    <h2 className="fontspring mb-[20px] text-[20px] md:text-[30px] lg:text-[40px] xl:text-[50px] text-[#000112] text-center">Company Profile</h2>
+                </AnimatedHeading>
                 <div className="max-w-[1320px] m-auto">
                     <p className="px-[10px] mb-[20px] text-[14px] md:text-[18px] lg:text-[20px] text-[#00011299] text-center">
                         Cadmax Projects is the leading urban planning and infrastructure company dedicated to transform the future of India.
@@ -57,28 +73,36 @@ function About() {
                     </p>
                 </div>
 
-                <div className="max-w-[1320px] m-auto mt-[30px] mb-[20px] md:mb-[10px]">
-                    <img src={companybg} alt="Logo" className="object-cover min-h-[300px] md:min-h-[400px] lg:min-h-[480px] w-full" />
+                <div className="max-w-[2000px] m-auto mt-[30px] mb-[20px] md:mb-[10px]">
+                    <img
+                        src={companybg}
+                        alt="Logo"
+                        className="max-w-[1200px] w-full object-contain mx-auto"
+                    />
+                    {/* <img src={companybg} alt="Logo" class="w-full object-cover" /> */}
+
                 </div>
+
             </div>
             <section className="bg-[#94A393] py-[40px] md:py-[50px] lg:py-[90px] px-4">
                 <div className="max-w-[1320px] mx-auto text-center">
-                    <h2 className="fontspring text-[25px] md:text-[30px] lg:text-[50px] font-light text-white mb-[25px]">
-                        Why Choose Us?
-                    </h2>
+                    <AnimatedHeading>
+                        <h2 className="fontspring text-[25px] md:text-[30px] lg:text-[50px] font-light text-white mb-[25px]">
+                            Why Choose Us?
+                        </h2>
+                    </AnimatedHeading>
 
                     <div className="grid gap-6 md:grid-cols-2">
                         {features && features.map((item, index) => (
-                            <div key={index} className="bg-white p-[20px] md:p-[20px] lg:p-[40px] shadow-md text-left hover:shadow-lg transition">
+                            <div key={index} className="bg-white p-[20px] md:p-[20px] lg:p-[40px] shadow-md text-left hover:shadow-lg transition transition-all duration-500 ease-in-out transform hover:-translate-y-5 hover:shadow-xl">
                                 {/* Replace with your own SVG or icon */}
-                                <div className="text-[#9aa396] mb-4 text-3xl">
+                                <div className="text-[#9aa396] mb-4 text-3xl transition-transform duration-500 ease-in-out group-hover:-translate-y-1">
                                     <img src={chooseicon} alt="Logo" className="" />
-
                                 </div>
-                                <h3 className="fontspring text-[18px] md:text-[22px] lg:text-[26px] text-[#000112] mb-2">
+                                <h3 className="fontspring text-[18px] md:text-[22px] lg:text-[26px] text-[#000112] mb-2 transition duration-500 ease-in-out">
                                     {item.title}
                                 </h3>
-                                <p className="text-[#000112ba] text-[16px] md:text-[16px] lg:text-[20px] leading-relaxed">
+                                <p className="text-[#000112ba] text-[16px] md:text-[16px] lg:text-[20px] leading-relaxed transition duration-500 ease-in-out">
                                     {item.description}
                                 </p>
                             </div>
@@ -87,6 +111,7 @@ function About() {
                 </div>
             </section>
 
+            <Achivement />
 
             <section className="bg-white py-[30px] md:py-[70px] lg:py-[80px] xl:py-[100px]">
                 <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center gap-[60px]">
@@ -94,69 +119,87 @@ function About() {
                         <img src={spacebanner} alt="Interior" className=" w-full h-auto object-cover" />
                     </div>
                     <div className="w-full md:w-1/2 md:text-left">
-                        <h2 className="fontspring mb-[15px] text-[25px] text-[25px] md:text-[30px] lg:text-[40px] xl:text-[50px] leading-[30px] md:leading-[35px] lg:leading-[45px] xl:leading-[55px] text-[#000112]">
-                            About Us</h2>
-                        <p className=" mb-[20px] text-[14px] md:text-[18px] lg:text-[20px] text-[#00011299] ">
-                            At Cadmax projects, we believe that great designs and engineering have the power to change lives
+                        <AnimatedHeading>
 
-                        </p>
+                            <h2 className="fontspring mb-[15px] text-[25px] text-[25px] md:text-[30px] lg:text-[40px] xl:text-[50px] leading-[30px] md:leading-[35px] lg:leading-[45px] xl:leading-[55px] text-[#000112]">
+                                About Us</h2>
+                            <p className=" mb-[20px] text-[14px] md:text-[18px] lg:text-[20px] text-[#00011299] ">
+                                At Cadmax projects, we believe that great designs and engineering have the power to change lives
 
-                        <p className=" mb-[20px] text-[14px] md:text-[18px] lg:text-[20px] text-[#00011299] ">From first blueprint to the final design, our work reflects a commitment to accuracy, innovation, and sustainability.</p>
+                            </p>
 
-                        <p className=" mb-[20px] text-[14px] md:text-[18px] lg:text-[20px] text-[#00011299] ">What sets us apart?</p>
-                        <ul className="flex gap-[15px] flex-col text-[14px] md:text-[18px] lg:text-[20px] text-[#00011299]">
-                            <li className="flex gap-[5px]"> ✅A multi disciplinary approach, combining urban planning, real estate ,infrastructure, architecture, and interior design services under one roof.
-                            </li>
-                            <li className="flex gap-[5px]">✅ Investment in the latest geospatial technology, including DGPS, total stations and drown surveying.
-                            </li>
-                            <li className="flex gap-[5px]">✅ Deep knowledge of local regulations, approvals, and development standards.</li>
-                            <li className="flex gap-[5px]">✅ An experience team driven by integrity and a shared purpose.
-                            </li>
+                            <p className=" mb-[20px] text-[14px] md:text-[18px] lg:text-[20px] text-[#00011299] ">From first blueprint to the final design, our work reflects a commitment to accuracy, innovation, and sustainability.</p>
 
-                        </ul>
+                            <p className=" mb-[20px] text-[14px] md:text-[18px] lg:text-[20px] text-[#00011299] ">What sets us apart?</p>
+                            <ul className="flex gap-[15px] flex-col text-[14px] md:text-[18px] lg:text-[20px] text-[#00011299]">
+                                <li className="flex gap-[5px]"> ✅A multi disciplinary approach, combining urban planning, real estate ,infrastructure, architecture, and interior design services under one roof.
+                                </li>
+                                <li className="flex gap-[5px]">✅ Investment in the latest geospatial technology, including DGPS, total stations and drown surveying.
+                                </li>
+                                <li className="flex gap-[5px]">✅ Deep knowledge of local regulations, approvals, and development standards.</li>
+                                <li className="flex gap-[5px]">✅ An experience team driven by integrity and a shared purpose.
+                                </li>
+
+                            </ul>
+                        </AnimatedHeading>
                     </div>
                 </div>
             </section>
 
             <div className="clintSays bg-[#F8F6F2] py-[40px] md:py-[80px] lg:py-[100px] text-center px-4">
-                <h2 className="fontspring text-[25px] md:text-[40px] lg:text-[50px] text-[#000112]">
-                    Our Team Members
-                </h2>
-                <p className="mb-[20px] text-[14px] md:text-[18px] lg:text-[20px] text-[#00011299] text-center">At the heart of cadmax is dedicated team of professionals whose experience and passion fuel our success.</p>
+                <AnimatedHeading>
+
+                    <h2 className="fontspring text-[25px] md:text-[40px] lg:text-[50px] text-[#000112]">
+                        Our Team Members
+                    </h2>
+                    <p className="mb-[20px] text-[14px] md:text-[18px] lg:text-[20px] text-[#00011299] text-center">At the heart of cadmax is dedicated team of professionals whose experience and passion fuel our success.</p>
+                </AnimatedHeading>
 
                 <TeamSlider />
             </div>
+            <section class="bg-[#94A393] py-[40px] md:py-[50px] lg:py-[90px] px-4">
+                <div class="max-w-[1320px] mx-auto ">
+                    <AnimatedHeading>
 
+                        <h2 class="fontspring text-[25px] md:text-[30px] lg:text-[50px] font-light text-white mb-[5px] text-center">What We Stand For</h2>
+                        <p className="mb-[40px] text-white text-[16px] md:text-[18px] lg:text-[20px] text-center">These values guides every decision we make and every project we undertake
+                        </p>
+                    </AnimatedHeading>
 
-            <section class="bg-[#94A393] py-[40px] md:py-[50px] lg:py-[90px] px-4"><div class="max-w-[1320px] mx-auto "><h2 class="fontspring text-[25px] md:text-[30px] lg:text-[50px] font-light text-white mb-[5px] text-center">What We Stand For</h2>
-                <p className="mb-[40px] text-white text-[16px] md:text-[18px] lg:text-[20px] text-center">These values guides every decision we make and every project we undertake
-                </p>
-
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div className="bg-white p-6 md:p-8 ">
-                        <h3 className="fontspring text-[18px] md:text-[22px] lg:text-[24px] xl:text-[26px]  leading-relaxed text-[#000112]">
-                            Integrity in our commitments and relationship.
-
-                        </h3>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
+                        {values && values?.map((item, i) => (
+                            <div
+                                key={i}
+                                className="bg-white p-6 md:p-8 hover:shadow-lg transition transition-all duration-500 ease-in-out transform hover:-translate-y-5 hover:shadow-xl"
+                            >
+                                <h3 className="fontspring text-[18px] md:text-[22px] lg:text-[24px] xl:text-[26px] leading-relaxed text-[#000112] ease-in-out group-hover:-translate-y-1">
+                                    {item.title}
+                                </h3>
+                            </div>
+                        ))}
                     </div>
-                    <div className="bg-white p-6 md:p-8 ">
-                        <h3 className="fontspring text-[18px] md:text-[22px] lg:text-[24px] xl:text-[26px] leading-relaxed text-[#000112]">
-                            Innovation in technology and methodology.
-                        </h3>
-                    </div>
-                    <div className="bg-white p-6 md:p-8 ">
-                        <h3 className="fontspring text-[18px] md:text-[22px] lg:text-[24px] xl:text-[26px] leading-relaxed text-[#000112]">
-                            Impact through sustainable community and focus solutions.
-                        </h3>
-                    </div>
+
+                    {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div className="bg-white p-6 md:p-8 ">
+                            <h3 className="fontspring text-[18px] md:text-[22px] lg:text-[24px] xl:text-[26px]  leading-relaxed text-[#000112]">
+                                Integrity in our commitments and relationship.
+
+                            </h3>
+                        </div>
+                        <div className="bg-white p-6 md:p-8 ">
+                            <h3 className="fontspring text-[18px] md:text-[22px] lg:text-[24px] xl:text-[26px] leading-relaxed text-[#000112]">
+                                Innovation in technology and methodology.
+                            </h3>
+                        </div>
+                        <div className="bg-white p-6 md:p-8 ">
+                            <h3 className="fontspring text-[18px] md:text-[22px] lg:text-[24px] xl:text-[26px] leading-relaxed text-[#000112]">
+                                Impact through sustainable community and focus solutions.
+                            </h3>
+                        </div>
+                    </div> */}
                 </div>
-            </div>
             </section>
-
             <Readybring />
-
-
-
         </div>
         <Footer />
     </>);

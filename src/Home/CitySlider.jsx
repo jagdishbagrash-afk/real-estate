@@ -15,7 +15,7 @@ import city6 from "../img/Telangana.jpg";
 import city7 from "../img/Statue-of-Unity-Legacy.jpg";
 import city10 from "../img/banglore.jpg";
 import city9 from "../img/chennia.jpg";
-import AnimatedHeading from "../Admin/component/AnimatedHeading";
+import AnimatedHeading from "../component/AnimatedHeading";
 
 const cities = [
   { name: "Rajasthan ", img: city1 },
@@ -55,7 +55,6 @@ const CitySlider = () => {
             1024: { slidesPerView: 4 },
           }}
           modules={[Autoplay]}
-
           className="w-full "
         >
           {cities.map((city, idx) => (

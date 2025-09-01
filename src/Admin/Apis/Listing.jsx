@@ -3,9 +3,17 @@ import Api from './Api';
 class Listing extends Component {
 
     async adminlogin(data) {
-        return Api.post("/admin/login", data)
+        return Api.post("/login", data)
     }
 
+    async profileVerify(){
+        return Api.get("/profile-token")
+    }
+
+    async resetpassword(data) {
+        return Api.post("/reset-password", data)
+    }
+    
     async contact(data) {
         return Api.post("/contact-add", data)
     }
@@ -102,6 +110,11 @@ class Listing extends Component {
 
     async JobDelete(data) {
         return Api.post("/jobdelete", data)
+    }
+    
+
+    async ProfileUpdate(data) {
+        return Api.post("/profile-update", data)
     }
 
     render() {

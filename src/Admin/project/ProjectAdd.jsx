@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import toast from "react-hot-toast";
 import { useNavigate, useParams } from "react-router-dom";
-import DashboardLayout from "../component/AuthLayout";
 import Listing from "../Apis/Listing";
 import ImageUploader from "./ImageUploader";
+import SideBarAdmin from "../common/SideBarAdmin";
+import HeaderAdmin from "../common/HeaderAdmin";
 
 const ProjectAdd = () => {
     const { Id } = useParams();
@@ -110,147 +111,151 @@ const ProjectAdd = () => {
     };
 
     return (
-        <DashboardLayout>
-            <div className="bg-white p-6 rounded-lg shadow-md">
-                <h2 className="text-2xl font-semibold text-gray-700 mb-4">
-                    {Id ? "Edit Project" : "Add Project"}
-                </h2>
+        <div className="md:flex flex-wrap bg-[#F5F6FB]">
+            <SideBarAdmin />
+            <div className="w-full lg:w-[calc(100%-304px)] ">
+                <div className="px-4 py-2 lg:px-10 lg:py-2.5  ">
+                    <h2 className="text-2xl font-semibold text-gray-700 mb-4">
+                        {Id ? "Edit Project" : "Add Project"}
+                    </h2>
 
-                <hr className="mb-6" />
+                    <hr className="mb-6" />
 
-                <form onSubmit={handleSubmit} className="space-y-5">
+                    <form onSubmit={handleSubmit} className="space-y-5">
 
-                    {/* Title */}
-                    <div>
-                        <label className="block text-sm font-medium text-gray-700">Project Title</label>
-                        <input
-                            type="text"
-                            name="title"
-                            value={instructorDetails.title}
+                        {/* Title */}
+                        <div>
+                            <label className="block text-sm font-medium text-gray-700">Project Title</label>
+                            <input
+                                type="text"
+                                name="title"
+                                value={instructorDetails.title}
 
-                            onChange={(e) => {
-                                if (e.target.value.length > 100) {
-                                    return;
-                                }
-                                setInstructorDetails((prev) => ({
-                                    ...prev,
-                                    [e.target.name]: e.target.value,
-                                }));
-                            }}
-                            required
-                            className="border border-gray-300 p-2 rounded-md w-full"
+                                onChange={(e) => {
+                                    if (e.target.value.length > 100) {
+                                        return;
+                                    }
+                                    setInstructorDetails((prev) => ({
+                                        ...prev,
+                                        [e.target.name]: e.target.value,
+                                    }));
+                                }}
+                                required
+                                className="border border-gray-300 p-2 rounded-md w-full"
 
-                        />
+                            />
 
-                        <div className="flex flex-wrap justify-between">
-                            <label className="block text-sm mb-2 font-medium text-start text-gray-700 mt-3">
-                                {instructorDetails.title ? (
-                                    <span>{instructorDetails.title.length}/100 characters</span>
-                                ) : (
-                                    <span>0/100 characters</span>
-                                )}
-                            </label>
-                            <label className="block text-sm mb-2 font-medium text-end text-gray-700 mt-3">
-                                Minimum 100 words.
-                            </label>
+                            <div className="flex flex-wrap justify-between">
+                                <label className="block text-sm mb-2 font-medium text-start text-gray-700 mt-3">
+                                    {instructorDetails.title ? (
+                                        <span>{instructorDetails.title.length}/100 characters</span>
+                                    ) : (
+                                        <span>0/100 characters</span>
+                                    )}
+                                </label>
+                                <label className="block text-sm mb-2 font-medium text-end text-gray-700 mt-3">
+                                    Minimum 100 words.
+                                </label>
+                            </div>
                         </div>
-                    </div>
 
-                    {/* Short Content */}
-                    <div>
-                        <label className="block text-sm font-medium text-gray-700">Project Content</label>
-                        <textarea
-                            type="text"
-                            name="content"
-                            value={instructorDetails.content}
-                            onChange={(e) => {
-                                if (e.target.value.length > 300) {
-                                    return;
-                                }
-                                setInstructorDetails((prev) => ({
-                                    ...prev,
-                                    [e.target.name]: e.target.value,
-                                }));
-                            }}
-                            required
-                            rows={6}
-                            className="border border-gray-300 p-2 rounded-md w-full"
+                        {/* Short Content */}
+                        <div>
+                            <label className="block text-sm font-medium text-gray-700">Project Content</label>
+                            <textarea
+                                type="text"
+                                name="content"
+                                value={instructorDetails.content}
+                                onChange={(e) => {
+                                    if (e.target.value.length > 300) {
+                                        return;
+                                    }
+                                    setInstructorDetails((prev) => ({
+                                        ...prev,
+                                        [e.target.name]: e.target.value,
+                                    }));
+                                }}
+                                required
+                                rows={6}
+                                className="border border-gray-300 p-2 rounded-md w-full"
 
-                        />
+                            />
 
-                        <div className="flex flex-wrap justify-between">
-                            <label className="block text-sm mb-2 font-medium text-start text-gray-700 mt-3">
-                                {instructorDetails.content ? (
-                                    <span>{instructorDetails.content.length}/300 characters</span>
-                                ) : (
-                                    <span>0/300 characters</span>
-                                )}
-                            </label>
-                            <label className="block text-sm mb-2 font-medium text-end text-gray-700 mt-3">
-                                Minimum 300 words.
-                            </label>
+                            <div className="flex flex-wrap justify-between">
+                                <label className="block text-sm mb-2 font-medium text-start text-gray-700 mt-3">
+                                    {instructorDetails.content ? (
+                                        <span>{instructorDetails.content.length}/300 characters</span>
+                                    ) : (
+                                        <span>0/300 characters</span>
+                                    )}
+                                </label>
+                                <label className="block text-sm mb-2 font-medium text-end text-gray-700 mt-3">
+                                    Minimum 300 words.
+                                </label>
+                            </div>
                         </div>
-                    </div>
 
-                    <div>
-                        <label className="block text-sm font-medium text-gray-700">Project Client</label>
-                        <input
-                            type="text"
-                            name="client"
-                            value={instructorDetails.client}
-                            onChange={handleInputChange}
-                            required
-                            className="border border-gray-300 p-2 rounded-md w-full"
+                        <div>
+                            <label className="block text-sm font-medium text-gray-700">Project Client</label>
+                            <input
+                                type="text"
+                                name="client"
+                                value={instructorDetails.client}
+                                onChange={handleInputChange}
+                                required
+                                className="border border-gray-300 p-2 rounded-md w-full"
 
-                        />
-                    </div>
+                            />
+                        </div>
 
-                    <div>
-                        <label className="block text-sm font-medium text-gray-700">Project Category</label>
-                        <input
-                            type="text"
-                            name="category"
-                            value={instructorDetails.category}
-                            onChange={handleInputChange}
-                            required
-                            className="border border-gray-300 p-2 rounded-md w-full"
+                        <div>
+                            <label className="block text-sm font-medium text-gray-700">Project Category</label>
+                            <input
+                                type="text"
+                                name="category"
+                                value={instructorDetails.category}
+                                onChange={handleInputChange}
+                                required
+                                className="border border-gray-300 p-2 rounded-md w-full"
 
-                        />
-                    </div>
+                            />
+                        </div>
 
-                    <div>
-                        <label className="block text-sm font-medium text-gray-700">Project Date</label>
-                        <input
-                            type="date"
-                            name="date"
-                            value={instructorDetails.date}
-                            onChange={handleInputChange}
-                            required
-                            className="border border-gray-300 p-2 rounded-md w-full"
+                        <div>
+                            <label className="block text-sm font-medium text-gray-700">Project Date</label>
+                            <input
+                                type="date"
+                                name="date"
+                                value={instructorDetails.date}
+                                onChange={handleInputChange}
+                                required
+                                className="border border-gray-300 p-2 rounded-md w-full"
 
-                        />
-                    </div>
+                            />
+                        </div>
 
-                    <div
-                    >
-                        <label className="block text-sm font-medium text-gray-700">Project Image</label>
-
-                        <ImageUploader images={images} setImages={setImages} />
-
-                    </div>
-                    {/* Submit Button */}
-                    <div>
-                        <button
-                            type="submit"
-                            disabled={loading}
-                            className="inline-flex items-center px-6 py-2 bg-red-500 text-white font-semibold rounded-md shadow hover:bg-red-600 transition-all disabled:opacity-50"
+                        <div
                         >
-                            {loading ? "Saving..." : Id ? "Update Project" : "Add Project"}
-                        </button>
-                    </div>
-                </form>
+                            <label className="block text-sm font-medium text-gray-700">Project Image</label>
+
+                            <ImageUploader images={images} setImages={setImages} />
+
+                        </div>
+                        {/* Submit Button */}
+                        <div>
+                            <button
+                                type="submit"
+                                disabled={loading}
+                                className="inline-flex items-center px-6 py-2 bg-red-500 text-white font-semibold rounded-md shadow hover:bg-red-600 transition-all disabled:opacity-50"
+                            >
+                                {loading ? "Saving..." : Id ? "Update Project" : "Add Project"}
+                            </button>
+                        </div>
+                    </form>
+                </div>
             </div>
-        </DashboardLayout>
+        </div>
+
     );
 };
 

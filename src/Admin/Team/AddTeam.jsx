@@ -6,12 +6,20 @@ import { MdAdd, MdEdit } from "react-icons/md";
 function AddTeam({ item, fetchTeamList }) {
     const [loading, setLoading] = useState(false);
     const [showModal, setShowModal] = useState(false);
+
+    // In AddTeam.jsx
+    // Close modal
+    const closeModal = () => {
+        setShowModal(false);
+    };
+
     const [formData, setFormData] = useState({
         name: item?.name || "",
         position: item?.position || "",
         imageUrl: "",
         _id: item?._id
     });
+
 
     // Handle input change
     const handleChange = (e) => {
@@ -38,18 +46,17 @@ function AddTeam({ item, fetchTeamList }) {
                 });
             } else {
                 // Add new team member
-                response = await main.Addteam({
+                response = await main.AddTeam({
                     name: formData.name,
                     position: formData.position,
                     imageUrl: formData.imageUrl,
                 });
             }
-
             console.log("Success:", response);
             toast.success(response.data.message);
-            setShowModal(false); // Close modal after submit
+            fetchTeamList(); // Refresh list // Close modal after submit
+            closeModal();
             setFormData({ name: "", position: "", imageUrl: "" });
-            fetchTeamList();
         } catch (error) {
             console.error("Error:", error);
             toast.error("Something went wrong");
@@ -57,16 +64,14 @@ function AddTeam({ item, fetchTeamList }) {
             setLoading(false);
         }
     };
-
-
     return (
         <>
-                <button
-                    onClick={() => setShowModal(true)}
-                    className="px-2 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition"
-                >
-                    {item?._id ? <MdEdit /> : <MdAdd />}
-                </button>
+            <button
+                onClick={() => setShowModal(true)}
+                className="px-2 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition"
+            >
+                {item?._id ? <MdEdit /> : <MdAdd />}
+            </button>
             {/* MODAL */}
             {showModal && (
                 <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">

@@ -12,7 +12,7 @@ import Readybring from "./ReadyBring";
 import Footer from "../component/Footer";
 import home from "../Json/Choose.json"
 import ClientSlider from "./ClientSlider";
-import AnimatedHeading from "../Admin/component/AnimatedHeading";
+import AnimatedHeading from "../component/AnimatedHeading";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from "react";
@@ -99,7 +99,7 @@ function Main() {
 
       <OurServices />
 
-      <WhyChooseUs home={home} />
+      <WhyChooseUs home={home?.home} />
 
       <div className="relative">
         <h2 className='absolute  top-[20px] md:top-[30px] lg:top-[50px] xl:top-[80px] left-[0] right-[0] z-[2] fontspring text-[30px] md:text-[40px] xl:text-[50px] text-white text-center'>Our Work</h2>

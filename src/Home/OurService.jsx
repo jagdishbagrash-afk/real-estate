@@ -11,7 +11,7 @@ import img2 from "../img/FINALNADHALLAYOUT20_page-0001.jpg";
 import img3 from "../img/Infrastructure.jpg";
 import img4 from "../img/Acrchitecture.jpg";
 import img5 from "../img/Interior.png";
-import AnimatedHeading from "../Admin/component/AnimatedHeading";
+import AnimatedHeading from "../component/AnimatedHeading";
 const services = [
   { title: "URBAN PLANNING", image: img2 },
   { title: "REAL STATE", image: img1 },
