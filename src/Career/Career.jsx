@@ -58,7 +58,7 @@ function Career() {
             <Header />
             <div className="relative mt-[-150px]">
                 <img
-                    src={"/project/IMG_7219.JPG"}
+                    src={"/project/11.jpg"}
                     alt="Logo"
                     className="w-full h-[500px] md:h-[600px] xl:h-[700px] md:max-h-[900px] object-cover object-center"
                 />

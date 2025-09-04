@@ -74,7 +74,7 @@ function Details() {
                 <img
                     src={Carrer?.image}
                     alt="Logo"
-                    className="w-full h-[500px] md:h-[600px] xl:h-[650px] md:max-h-[900px] object-cover"
+                    className="w-full h-[500px] md:h-[600px] xl:h-[650px] object-cover"
                 />
                 <div className="max-w-[1320px] m-auto absolute left-0 right-0 bottom-[30px] md:bottom-[50px] lg:bottom-[90px] z-[1] px-[15px]">
                     <AnimatedHeading>
