@@ -7,7 +7,6 @@ import toast from "react-hot-toast";
 import CareerDetails from "../Json/Carrer.json";
 import { useParams } from "react-router-dom";
 import AnimatedHeading from "../component/AnimatedHeading";
-
 function Details() {
     const { slug } = useParams();
     const Carrer = CareerDetails[slug];
