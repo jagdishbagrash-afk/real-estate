@@ -16,7 +16,7 @@ const BackgroundMusic = () => {
 
     // Keyboard mute toggle
     const handleKeyPress = (e) => {
-      if (e.key.toLowerCase() === 'm') {
+      if (e?.key?.toLowerCase() === 'm') {
         handleToggle();
       }
     };

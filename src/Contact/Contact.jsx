@@ -2,7 +2,6 @@ import "../App.css"
 import Header from '../component/Header';
 import Footer from "../component/Footer";
 import contactshap from '../img/contactshap.png';
-import exploreservicebg from '../img/exploreservicebg.jpg';
 import { useState } from "react";
 import toast from "react-hot-toast";
 import Listing from "../Admin/Apis/Listing";

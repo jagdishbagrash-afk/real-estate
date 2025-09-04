@@ -17,16 +17,9 @@ import city10 from "../img/achivemnts3.jpeg";
 import AnimatedHeading from "../component/AnimatedHeading";
 
 const cities = [
-    { name: "Rajasthan ", img: city1 },
-    { name: "Hariyana", img: city2 },
-    { name: "Uttrakhand", img: city8 },
-    { name: "Punjab", img: city3 },
-    { name: "Maharashtra", img: city5 },
-    { name: "Madhya Pradesh", img: city4 },
-    { name: "Telangana", img: city6 },
-    { name: "Gujrat", img: city7 },
-    { name: "Chennai", img: city9 },
-    { name: "Bangalore", img: city10 },
+    { name: "Rajasthan ", img: "/project/IMG_0541.jpg" },
+    { name: "Chennai", img: "/project/IMG_0546.jpg"  },
+    { name: "Bangalore", img: "/project/IMG_0550.jpg"  },
 
 ];
 
