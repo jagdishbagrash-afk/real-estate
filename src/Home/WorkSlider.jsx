@@ -15,44 +15,49 @@ import imgfront4 from '../img/MAJARDAMECH-6_page-0001.jpg';
 import imgback4 from '../img/MAJARDAMECH-6_page-0001.jpg';
 import imgfront5 from '../img/ravi.jpg';
 import imgback5 from '../img/ravi.jpg';
+import { useNavigate } from 'react-router-dom';
 const slides = [
   {
     front: imgfront1,
     back: imgback1,
     title: "Rudra Mahal – a luxury five star hotel,  Mundota,Rajasthan ",
+    slug :"rudra-mahal"
   },
   {
     front: imgfront4,
     back: imgback4,
     title: "Drayvavati river - a major South-flowing river in Rajasthan",
+    slug:"dravyawati-river"
   },
   {
     front: imgfront2,
     back: imgback2,
     title: "Shivam Magnus – a stunning skyscapper , Jaipur",
+    slug:"shivam-magnus"
   },
   {
     front: imgfront3,
     back: imgback3,
+    slug :"cadmax-group-headoffice",
     title: "Cadmax Consultancy Pvt. Ltd. ; Jaipur",
   },
   {
     front: imgfront5,
     back: imgback5,
     title: "Ravi Kiran Vihar – A porshe colony , Jaipur",
+    slug:"ravi-kiran-vihar"
   },
 ];
 
 const SliderWithFade = () => {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
+  const navigate = useNavigate();
 
   return (
     <div className="w-full mx-auto relative">
 
       <Swiper
-
-
         slidesPerView={1}
         autoplay={{ delay: 2500, disableOnInteraction: false }}
         loop={true} // Enable looping
@@ -85,10 +90,10 @@ const SliderWithFade = () => {
       // }}
       >
 
-        {slides.map((slide, index) => (
-          <SwiperSlide key={index}>
+        {slides?.map((slide, index) => (
+          <SwiperSlide key={index} >
             {/* Each slide needs to be fully contained for fade to apply */}
-            <div className="relative w-full h-[400px] sm:h-[450px] md:h-[650px] lg:h-[750px] xl:h-[820px]">
+            <div onClick={() => navigate(`/project/${slide?.slug}`)} className="relative w-full h-[400px] sm:h-[450px] md:h-[650px] lg:h-[750px] xl:h-[820px]">
               {/* BACK IMAGE */}
               <img
                 src={slide.back}

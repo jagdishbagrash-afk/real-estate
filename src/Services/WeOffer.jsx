@@ -26,7 +26,7 @@ export default function WeOffer({ services }) {
           modules={[Autoplay]}
           className="w-full "
         >
-          {services.map((service, idx) => (
+          {services && services?.map((service, idx) => (
             <SwiperSlide key={idx}>
               <div className="relative h-[300px] md:h-[350px] lg:md:h-[420px] xl:md:h-[480px] w-full overflow-hidden shadow-lg group cursor-grab">
                 <img

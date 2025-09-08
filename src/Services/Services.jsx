@@ -54,7 +54,7 @@ function Services() {
           <Swiper
             modules={[Autoplay]}
             autoplay={{
-              delay: 3000,
+              delay: 1500,
               disableOnInteraction: false,
             }}
             loop={true}
@@ -67,7 +67,7 @@ function Services() {
             }}
             className="h-[500px]"
           >
-            {services.map((service, index) => (
+            {services && services.map((service, index) => (
               <SwiperSlide
                 key={index}
                 style={{

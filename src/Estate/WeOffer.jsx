@@ -41,7 +41,7 @@ export default function WeOffer() {
         modules={[ Scrollbar ,Autoplay]}
         className="!pb-8" // extra padding for scrollbar spacing
         >
-        {services.map((service, idx) => (
+        {services?.map((service, idx) => (
           <SwiperSlide key={idx}>
             <div className="relative h-[300px] md:h-[350px] lg:md:h-[420px] xl:md:h-[520px] w-full overflow-hidden shadow-lg group cursor-grab">
               <img
