@@ -12,7 +12,7 @@ export default function Header() {
     ${isActive ? "text-white md:text-yellow-400 font-semibold" : "text-white"}`;
 
   return (
-    <nav className="sticky top-0 bg-black/20 md:bg-[#00000063] z-[99] py-2 md:py-[15px] md:py-[12px]">
+    <nav className="sticky top-0 bg-black/20 md:bg-[#00000063] z-[99] py-2 md:py-[12px]">
       <div className="max-w-7xl mx-auto px-4 flex justify-between items-center">
         <div className="text-xl font-bold">
           <NavLink to="/">
