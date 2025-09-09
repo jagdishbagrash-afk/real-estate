@@ -6,6 +6,7 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 import Listing from "../Admin/Apis/Listing";
 import AnimatedHeading from "../component/AnimatedHeading";
+import Banner from "../component/Banner";
 
 function Contact() {
 
@@ -59,23 +60,9 @@ function Contact() {
     };
 
     return (<>
-
         <div className="min-h-screen ">
             <Header />
-            <div className="relative mt-[-150px]">
-                <img
-                    src={"/project/DSC00509[1].JPG"}
-                    alt="Logo"
-                    className="w-full h-[500px] md:h-[600px] xl:h-[650px] md:h-[900px] object-cover object-top"
-                />
-                <div className="max-w-[1320px] m-auto absolute left-0 right-0 bottom-[30px] md:bottom-[50px] lg:bottom-[90px] z-[1] px-[15px]">
-                    <AnimatedHeading>
-                        <h2 className="fontspring text-[20px] md:text-[40px] lg:text-[60px] xl:text-[80px] text-white">
-                            Contact us
-                        </h2>
-                    </AnimatedHeading>
-                </div>
-            </div>
+            <Banner image={"/project/DSC00509[1].JPG"} title={"Contact us"} />
             <div className="bg-[#fff] px-[15px] py-[30px] md:py-[50px] lgpy-[70px] ">
                 {/* Top Contact Info */}
                 <div className="max-w-[1320px] mx-auto flex flex-wrap md:flex-nowrap gap-6 text-center">

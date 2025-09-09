@@ -9,6 +9,7 @@ import Readybring from "../Home/ReadyBring";
 import chooseicon from '../img/chooseicon.png';
 import Achivement from "./Achivement"
 import AnimatedHeading from "../component/AnimatedHeading";
+import Banner from "../component/Banner";
 
 function About() {
     const features = [
@@ -34,19 +35,8 @@ function About() {
     return (<>
         <div className="min-h-screen ">
             <Header />
-            <div className="relative mt-[-100px] ">
-                <img
-                    src={exploreservicebg}
-                    alt="Logo"
-                    className="w-full "
-                />
-                <div className="max-w-[1320px] m-auto absolute left-[0] right-[0]  bottom-[30px] md:bottom-[50px] lg:bottom-[90px] z-[1] px-[15px]">
-                    <AnimatedHeading>
-                        <h2 className="fontspring text-[20px] md:text-[40px] lg:text-[60px] xl:text-[80px] text-white  ">Why us</h2>
-                    </AnimatedHeading>
-                </div>
-            </div>
 
+            <Banner image={exploreservicebg} title={"Why Us"} css={"md:mt-[-100px] "} />
             <div className="pt-[40px] md:pt-[50px] lg-[80px] pb-[90px] px-[15px]">
                 <AnimatedHeading>
 

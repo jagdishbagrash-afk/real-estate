@@ -1,14 +1,28 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import logo from '../img/logo.png';
 import { Link } from "react-router-dom";
 import BackgroundMusic from "./BackgroundMusic";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+
+   const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <nav className="sticky top-[0] bg-[#00000063] z-[99] py-[15px] md:py-[12px]">
+    <nav className={`sticky top-[0] bg-black/65 md:bg-[#00000063]  z-[99] py-[15px] md:py-[12px] `}>
       <div className="max-w-7xl mx-auto px-4 flex justify-between items-center">
         <div className="text-xl font-bold">
           <Link>

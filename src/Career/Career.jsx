@@ -5,6 +5,7 @@ import WhyChooseUs from '../Home/WhyChooseUs';
 import home from "../Json/Choose.json"
 import { Link } from "react-router-dom";
 import AnimatedHeading from "../component/AnimatedHeading";
+import Banner from "../component/Banner";
 
 function Career() {
 
@@ -56,30 +57,9 @@ function Career() {
     return (<>
         <div className="min-h-screen ">
             <Header />
-            <div className="relative mt-[-150px]">
-                {/* Background Image */}
-                <img
-                    src={"/project/11.jpg"}
-                    alt="Logo"
-                    className="w-full h-[500px] md:h-[600px] xl:h-[700px] md:max-h-[900px] object-cover object-center"
-                />
 
-                {/* Overlay */}
-                <div className="absolute inset-0 bg-black/50"></div>
-
-                {/* Text Content */}
-                <div className="max-w-[1320px] m-auto absolute left-0 right-0 bottom-[30px] md:bottom-[50px] lg:bottom-[90px] z-[10] px-[15px]">
-                    <AnimatedHeading>
-                        <h2 className="fontspring text-[20px] md:text-[40px] lg:text-[60px] xl:text-[80px] text-white">
-                            Careers at Cadmax
-                        </h2>
-                    </AnimatedHeading>
-                </div>
-            </div>
-
-
+            <Banner image={"/project/11.jpg"} title={"Careers at Cadmax"} />
             <section className="bg-white py-[30px] md:py-[70px] lg:py-[80px] xl:py-[100px]">
-
                 <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center gap-10">
                     <div className="w-full md:w-1/2">
                         <img src={"/project/DSC00825.JPG"} alt="Interior" className=" w-full h-auto object-cover" />

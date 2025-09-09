@@ -16,6 +16,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/autoplay";
 import { Autoplay } from "swiper/modules";
+import Banner from "../component/Banner";
 
 function Services() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
@@ -32,17 +33,17 @@ function Services() {
     <>
       <div className="min-h-screen">
         <Header />
-
         {/* Hero section */}
-        <div className="relative mt-[-150px]">
+         <div className="relative md:mt-[-150px]">
           <img
             src={exploreservicebg}
             alt="Logo"
             className="object-cover min-h-[350px] md:min-h-[400px] lg:min-h-[450px] w-full"
           />
+            <div className="absolute inset-0 bg-black/50"></div>
           <div className="max-w-[1320px] m-auto absolute left-0 right-0 bottom-[30px] md:bottom-[50px] lg:bottom-[90px] z-[1] px-[15px]">
             <AnimatedHeading>
-              <h2 className="fontspring text-[20px] md:text-[40px] lg:text-[60px] xl:text-[80px] text-white">
+              <h2 className="fontspring text-[24px] md:text-[40px] lg:text-[60px] xl:text-[80px] text-white">
                 Explore our services
               </h2>
             </AnimatedHeading>

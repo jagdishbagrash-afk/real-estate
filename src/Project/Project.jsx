@@ -4,6 +4,7 @@ import AnimatedHeading from "../component/AnimatedHeading";
 import Footer from "../component/Footer";
 import { Link } from "react-router-dom";
 import exploreservicebg from "../img/projectbanner.jpg";
+import Banner from "../component/Banner";
 
 function Project() {
 
@@ -73,21 +74,7 @@ function Project() {
     return (<>
         <div className="min-h-screen ">
             <Header />
-            <div className="relative mt-[-150px]">
-                <img
-                    src={exploreservicebg}
-                    alt="Logo"
-                    className="w-full h-[500px] md:h-[600px] xl:h-[650px] md:max-h-[900px] object-cover"
-                />
-                <div className="max-w-[1320px] m-auto absolute left-0 right-0 bottom-[30px] md:bottom-[50px] lg:bottom-[90px] z-[1] px-[15px]">
-                    <AnimatedHeading>
-                        <h2 className="fontspring text-[20px] md:text-[40px] lg:text-[60px] xl:text-[80px] text-white">
-                            Our Projects
-                        </h2>
-                    </AnimatedHeading>
-                </div>
-            </div>
-
+            <Banner image={exploreservicebg} title={"Our Projects"} />
             <div className="flex flex-wrap sm:flex-nowrap  gap-[20px] py-[30px] md:py-[60px] px-[15px] w-full max-w-[1300px] m-auto">
                 <div className="flex flex-col gap-[20px] w-full md:w-[48%]">
                     <div className="relative">
@@ -211,13 +198,13 @@ function Project() {
                         <Link to="/project/shivam-magnus" className="overlaybx">
                             <div className="blackOverlay"></div>
                             <img src={"/project/mahakal001.jpg"} alt="Logo" className="object-cover min-h-[300px] md:min-h-[350px] lg:min-h-[400px] xl:min-h-[450px] w-full" />
-                          <div className="absolute top-4 left-4 bg-yellow-500 text-white text-sm md:text-base font-semibold px-3 py-1 rounded-lg shadow-lg">
+                            <div className="absolute top-4 left-4 bg-yellow-500 text-white text-sm md:text-base font-semibold px-3 py-1 rounded-lg shadow-lg">
                                 Upcoming Project
                             </div>
                         </Link>
                         <div className="bg-white px-[10px] py-[10px] text-[16px] uppercase text-[#000112]">  shivam magnus</div>
                     </div>
-{/* 
+                    {/* 
                     <div className="relative">
                         <Link to="#" className="overlaybx">
                             <div className="blackOverlay"></div>

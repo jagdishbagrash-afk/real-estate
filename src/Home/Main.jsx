@@ -26,7 +26,7 @@ function Main() {
     <div className="min-h-screen ">
       <Header />
       <div
-        className="relative h-[500px] md:h-[560px] lg:h-[860px] mt-[-150px]"
+        className="relative h-[425px] md:h-[560px] lg:h-[860px] md:mt-[-150px]"
       >
         <img
           src={homebanner}
