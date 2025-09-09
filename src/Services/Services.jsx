@@ -96,7 +96,7 @@ function Services() {
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 brightness-75"
                   />
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <h3 className="text-white text-[16px] uppercase font-semibold tracking-wide text-center">
+                    <h3 className="hover:text-yellow-400 text-white text-[16px] uppercase font-semibold tracking-wide text-center">
                       {service.title}
                     </h3>
                   </div>
