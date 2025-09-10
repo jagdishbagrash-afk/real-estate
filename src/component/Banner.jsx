@@ -1,6 +1,6 @@
 import AnimatedHeading from "./AnimatedHeading";
 
-function Banner({ image, title ,css}) {
+function Banner({ image, title ,css ,overlay}) {
     return (
         <div className={`relative ${css ? css : "md:mt-[-150px]"}`}>
             {/* Background Image */}
@@ -11,7 +11,10 @@ function Banner({ image, title ,css}) {
             />
 
             {/* Overlay */}
+            {overlay && (
+
             <div className="absolute inset-0 bg-black/50"></div>
+            )}
 
             {/* Content */}
             <div className="max-w-[1320px] m-auto absolute left-0 right-0 bottom-4 sm:bottom-6 md:bottom-[50px] lg:bottom-[90px] z-[10] px-4">

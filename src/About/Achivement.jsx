@@ -4,22 +4,12 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules"; // Make sure you're importing Autoplay from "swiper/modules"
 import "swiper/css"; // Required Swiper styles
 import "swiper/css/autoplay"; 
-import city1 from "../img/achivement1.jpeg";
-import city2 from "../img/achivewment1.jpeg";
-import city3 from "../img/achivemnts3.jpeg";
-import city8 from "../img/achivement1.jpeg";
-import city4 from "../img/achivewment1.jpeg";
-import city5 from "../img/achivemnts3.jpeg";
-import city6 from "../img/achivewment1.jpeg";
-import city7 from "../img/achivemnts3.jpeg";
-import city9 from "../img/achivewment1.jpeg";
-import city10 from "../img/achivemnts3.jpeg";
 import AnimatedHeading from "../component/AnimatedHeading";
 
 const cities = [
     { name: "Rajasthan ", img: "/project/IMG_0541.jpg" },
-    { name: "Chennai", img: "/project/IMG_0546.jpg"  },
-    { name: "Bangalore", img: "/project/IMG_0550.jpg"  },
+    { name: "Chennai", img: "/project/Pinku.png"  },
+    { name: "Bangalore", img: "/project/P_2.png"  },
 
 ];
 
@@ -56,7 +46,7 @@ const Achivement = () => {
                                 <img
                                     src={city.img}
                                     alt={city.name}
-                                    className="w-full h-[250px] md:h-[300px] lg:h-[350px] xl:h-[410px] object-cover transition-transform duration-500"
+                                    className="w-full h-[250px] md:h-[300px] lg:h-[350px] xl:h-[450px] object-cover transition-transform duration-500"
                                 />
                                 {/* <p className="text-center fontspring mt-4 text-[15px] md:text-[20px] lg:text-[26px] text-[#000112] transition-opacity duration-500">
                   {city.name}

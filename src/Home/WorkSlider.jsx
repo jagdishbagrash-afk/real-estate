@@ -59,7 +59,8 @@ const SliderWithFade = () => {
 
       <Swiper
         slidesPerView={1}
-        autoplay={{ delay: 2500, disableOnInteraction: false }}
+          autoplay={{ delay: 2500, disableOnInteraction: false }}
+
         loop={true} // Enable looping
 
         breakpoints={{

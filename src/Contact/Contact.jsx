@@ -62,7 +62,7 @@ function Contact() {
     return (<>
         <div className="min-h-screen ">
             <Header />
-            <Banner image={"/project/DSC00509[1].JPG"} title={"Contact us"} />
+            <Banner image={"/project/DSC00509[1].JPG"} title={"Contact us"} overlay={true}  />
             <div className="bg-[#fff] px-[15px] py-[30px] md:py-[50px] lgpy-[70px] ">
                 {/* Top Contact Info */}
                 <div className="max-w-[1320px] mx-auto flex flex-wrap md:flex-nowrap gap-6 text-center">

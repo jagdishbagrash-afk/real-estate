@@ -58,7 +58,7 @@ function Career() {
         <div className="min-h-screen ">
             <Header />
 
-            <Banner image={"/project/11.jpg"} title={"Careers at Cadmax"} />
+            <Banner image={"/project/11.jpg"} title={"Careers at Cadmax"} overlay={true} />
             <section className="bg-white py-[30px] md:py-[70px] lg:py-[80px] xl:py-[100px]">
                 <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center gap-10">
                     <div className="w-full md:w-1/2">

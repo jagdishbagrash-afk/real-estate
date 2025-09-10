@@ -16,7 +16,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/autoplay";
 import { Autoplay } from "swiper/modules";
-import Banner from "../component/Banner";
 
 function Services() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
@@ -79,7 +78,7 @@ function Services() {
                         : hoveredIndex !== null
                           ? "25%"
                           : "33.33%"
-                      : "100%", // ✅ mobile & tablet में हमेशा full width
+                      : "100%", 
                   transition: "all 0.5s ease-in-out",
                   height: "100%",
                 }}
