@@ -7,9 +7,9 @@ import "swiper/css/autoplay";
 import AnimatedHeading from "../component/AnimatedHeading";
 
 const cities = [
-    { name: "Rajasthan ", img: "/project/IMG_0541.jpg" },
-    { name: "Chennai", img: "/project/Pinku.png"  },
-    { name: "Bangalore", img: "/project/P_2.png"  },
+    { name: "Rajasthan ", img: "/project/image17.png" },
+    { name: "Chennai", img: "/project/image18.png"  },
+    { name: "Bangalore", img: "/project/image19.png"  },
 
 ];
 
