@@ -29,10 +29,9 @@ const Achivement = () => {
                     slidesPerView={4}
                     autoplay={{ delay: 2500, disableOnInteraction: false }}
                     loop={true} // Enable looping
-
                     breakpoints={{
                         300: { slidesPerView: 1 },
-                        480: { slidesPerView: 2 },
+                        480: { slidesPerView: 1 },
                         768: { slidesPerView: 3 },
                         1024: { slidesPerView: 4 },
                     }}
@@ -46,7 +45,7 @@ const Achivement = () => {
                                 <img
                                     src={city.img}
                                     alt={city.name}
-                                    className="w-full h-[250px] md:h-[300px] lg:h-[350px] xl:h-[450px] object-cover transition-transform duration-500"
+                                    className="w-full h-[350px] md:h-[400px] xl:h-[450px] object-cover transition-transform duration-500"
                                 />
                                 {/* <p className="text-center fontspring mt-4 text-[15px] md:text-[20px] lg:text-[26px] text-[#000112] transition-opacity duration-500">
                   {city.name}

@@ -48,7 +48,6 @@ function Services() {
             </AnimatedHeading>
           </div>
         </div>
-
         {/* Swiper Slider */}
         <div className="w-full py-[40px] md:py-[60px] lg:py-[100px] px-[15px]">
           <Swiper
