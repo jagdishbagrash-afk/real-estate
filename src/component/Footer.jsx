@@ -1,4 +1,3 @@
-import logo from '../img/logo.png';
 import { FaFacebookF, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
@@ -9,7 +8,7 @@ const Footer = () => {
         {/* Top Row */}
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="text-3xl font-serif tracking-wider mb-4 md:mb-0">
-            <img src={logo} alt="Logo" className="h-10 w-auto" />
+            <img src={"/logo.png"} alt="Logo" className="h-10 w-auto" />
           </div>
           <div className="flex gap-4 text-xl">
             <Link to="#" className="hover:text-gray-400">

@@ -4,62 +4,24 @@ import { Autoplay, Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 
-import slideroverlay from '../img/slideroverlay.png';
-
-import imgfront1 from '../img/logo/ASHIYANA.png';
-import imgback1 from '../img/logo/ASHIYANA.png';
-import imgfront2 from '../img/logo/KEDIABUILDERS.jpg';
-import imgback2 from '../img/logo/KEDIABUILDERS.jpg';
-import imgfront3 from '../img/logo/MAHIMA.png';
-import imgback3 from '../img/logo/MAHIMA.png';
-import imgfront4 from '../img/logo/MAHINDRAW.png';
-import imgback4 from '../img/logo/MAHINDRAW.png';
-import imgfront5 from '../img/logo/MANGLAMGROUP.png';
-import imgback5 from '../img/logo/MANGLAMGROUP.png';
-import imgfront6 from '../img/logo/goorej.png';
-import imgback6 from '../img/logo/goorej.png';
-import imgfront7 from '../img/logo/riyasat.jpg';
-import imgback7 from '../img/logo/riyasat.jpg';
-import imgfront8 from '../img/logo/tvtv.jpg';
-import imgback8 from '../img/logo/tvtv.jpg';
-import imgfront9 from '../img/logo/ultratech.jpg';
-import imgback9 from '../img/logo/ultratech.jpg';
-
-const slides = [
-    { front: imgfront1, back: imgback1, title: 'Ashiana Housing Ltd' },
-    { front: imgfront2, back: imgback2, title: 'Kedia Builders & Colonizers' },
-    { front: imgfront3, back: imgback3, title: 'Manglam Group' },
-    { front: imgfront4, back: imgback4, title: 'Mahindra World City, Jaipur' },
-    { front: imgfront5, back: imgback5, title: 'Mahima Group' },
-    { front: imgfront6, back: imgback6, title: 'GODREJ GROUP, Jaipur' },
-    { front: imgfront7, back: imgback7, title: 'Riyasat GROUP, Jaipur' },
-    { front: imgfront8, back: imgback8, title: 'TATA Projects Enterprise' },
-    { front: imgfront9, back: imgback9, title: 'UltraTech Cement Ltd' },
-];
 
 const ClientSlider = () => {
-    const prevRef = useRef(null);
-    const nextRef = useRef(null);
+
+    const slides = [
+    { front: "/logo/ASHIYANA.png", back: "/logo/ASHIYANA.png", title: 'Ashiana Housing Ltd' },
+    { front: "/logo/KEDIABUILDERS.jpg", back: "/logo/KEDIABUILDERS.jpg", title: 'Kedia Builders & Colonizers' },
+    { front: "/logo/MAHIMA.png", back: "/logo/MAHIMA.png", title: 'Manglam Group' },
+    { front: '/logo/MAHINDRAW.png', back: "/logo/MAHINDRAW.png", title: 'Mahindra World City, Jaipur' },
+    { front: "/logo/MANGLAMGROUP.png", back: "/logo/MANGLAMGROUP.png", title: 'Mahima Group' },
+    { front: "/logo/goorej.png", back: "/logo/goorej.png", title: 'GODREJ GROUP, Jaipur' },
+    { front: "/logo/riyasat.jpg", back: "/logo/riyasat.jpg", title: 'Riyasat GROUP, Jaipur' },
+    { front: "/logo/tvtv.jpg", back: "/logo/tvtv.jpg", title: 'TATA Projects Enterprise' },
+    { front: "/logo/ultratech.jpg", back: "/logo/ultratech.jpg", title: 'UltraTech Cement Ltd' },
+];
 
     return (
         <div className="relative w-full mx-auto">
             <Swiper
-                // modules={[Autoplay, Navigation]}
-                // spaceBetween={20}
-                // slidesPerView={1}
-                // autoplay={{ delay: 2500, disableOnInteraction: false }}
-                // loop={true}
-                // navigation={{
-                //     nextEl: '.next-btn',
-                //     prevEl: '.prev-btn',
-                // }}
-                // onInit={(swiper) => {
-                //     swiper.params.navigation.prevEl = prevRef.current;
-                //     swiper.params.navigation.nextEl = nextRef.current;
-                //     swiper.navigation.init();
-                //     swiper.navigation.update();
-                // }}
-
                 slidesPerView={1}
                 autoplay={{ delay: 2500, disableOnInteraction: false }}
                 loop={true} // Enable looping
@@ -86,7 +48,7 @@ const ClientSlider = () => {
 
                             {/* Optional overlay */}
                             <img
-                                src={slideroverlay}
+                                src={"/home/slideroverlay.png"}
                                 alt="Overlay"
                                 className="absolute inset-0 w-full h-full object-cover z-10"
                             />

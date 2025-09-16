@@ -1,15 +1,11 @@
 import React from 'react';
-import readybringbg from '../img/readybringbg.jpg';
 import { Link } from 'react-router-dom';
-
-
-
 
 export default function Readybring() {
   return (
     <section className="relative h-[300px] md:h-[350px] lg:h-[450px] flex items-center justify-center">
       {/* Overlay */}
-      <img src={readybringbg} alt="Interior" className=" w-full h-full object-cover" />
+      <img src={"/home/readybringbg.jpg"} alt="Interior" className=" w-full h-full object-cover" />
       {/* <div className="absolute inset-0 bg-black bg-opacity-60"></div> */}
 
       {/* Content */}

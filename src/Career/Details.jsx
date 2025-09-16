@@ -20,7 +20,6 @@ function Details() {
         city: ""
     });
 
-    console.log("Regs", Regs)
 
     const handleInputs = (e) => {
         const { name, value } = e.target;
@@ -98,27 +97,6 @@ function Details() {
                                 <span className="ml-2">Experience: 2–5 Years</span>
                             </div>
                         </div>
-
-                        {/* <div className="mb-6">
-                            <h3 className="fontspring text-[20px] md:text-[25px] lg:text-[30px] text-[#000112] mb-2">About the Role</h3>
-                            <p className="text-[16px] md:text-[18px] lg:text-[20px] text-[#0001129e]">
-                           {Carrer?.quote}
-                            </p>
-                        </div> */}
-
-                        {/* <div className="mb-6">
-                            <h3 className="fontspring text-[20px] md:text-[25px] lg:text-[30px] text-[#000112] mb-2">Key Responsibilities</h3>
-                            <ul className="list-disc list-inside space-y-1 text-[16px] md:text-[18px] lg:text-[20px] text-[#0001129e]">
-                                <li>Conduct topographical, cadastral, and engineering surveys for various projects.</li>
-                                <li>Operate DGPS, Total Stations, drones, and other surveying equipment with accuracy.</li>
-                                <li>Process survey data and prepare detailed reports, plans, and CAD drawings.</li>
-                                <li>Establish control points, benchmarks, and traverse networks as per project requirements.</li>
-                                <li>Collaborate with project managers, planners, and design teams to ensure data integrity.</li>
-                                <li>Ensure compliance with all relevant standards, safety protocols, and quality procedures.</li>
-                                <li>Support site supervision and verification surveys during construction phases.</li>
-                            </ul>
-                        </div> */}
-
                         <div className="mb-6">
                             <h3 className="fontspring text-[20px] md:text-[25px] lg:text-[30px] text-[#000112] mb-2">Required Skills & Qualifications</h3>
                             <ul className="list-disc list-inside space-y-1 text-[16px] md:text-[18px] lg:text-[20px] text-[#0001129e]">
@@ -127,17 +105,6 @@ function Details() {
                              })}
                             </ul>
                         </div>
-{/* 
-                        <div>
-                            <h3 className="fontspring text-[20px] md:text-[25px] lg:text-[30px] text-[#000112] mb-2">What We Offer</h3>
-                            <ul className="list-disc list-inside space-y-1 text-[16px] md:text-[18px] lg:text-[20px] text-[#0001129e]">
-                                <li>Competitive salary and benefits.</li>
-                                <li>Access to the latest surveying technologies and tools.</li>
-                                <li>Training and professional development programs.</li>
-                                <li>Opportunities to work on large-scale, impactful projects across India.</li>
-                                <li>A supportive work culture focused on growth and collaboration.</li>
-                            </ul>
-                        </div> */}
                     </div>
 
                     {/* Right: Application Form */}

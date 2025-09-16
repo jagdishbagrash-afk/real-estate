@@ -1,9 +1,7 @@
 import "../App.css"
 import Header from '../component/Header';
-import AnimatedHeading from "../component/AnimatedHeading";
 import Footer from "../component/Footer";
 import { Link } from "react-router-dom";
-import exploreservicebg from "../img/projectbanner.jpg";
 import Banner from "../component/Banner";
 
 function Project() {
@@ -74,7 +72,7 @@ function Project() {
     return (<>
         <div className="min-h-screen ">
             <Header />
-            <Banner image={exploreservicebg} title={"Our Projects"} overlay={true}  />
+            <Banner image={"/home/projectbanner.jpg"} title={"Our Projects"} overlay={true}  />
             <div className="flex flex-wrap sm:flex-nowrap  gap-[20px] py-[30px] md:py-[60px] px-[15px] w-full max-w-[1300px] m-auto">
                 <div className="flex flex-col gap-[20px] w-full md:w-[48%]">
                     <div className="relative">

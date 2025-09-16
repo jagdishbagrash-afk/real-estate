@@ -1,5 +1,4 @@
 import { CiViewList } from "react-icons/ci";
-import LOGO from "../../img/logo.png";
 import { MdContacts, MdLogout, MdSettings, MdSupervisedUserCircle } from "react-icons/md";
 import { SiBloglovin } from "react-icons/si";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -33,7 +32,7 @@ function PhoneSideBar({ sideOpen, toggleSidebar }) {
                 <div className="mb-5 md:mb-10 lg:mb-[53px] text-center">
                     <img
                         className="max-w-[190px] lg:max-w-full block lg:m-auto"
-                        src={LOGO}
+                        src={"/logo.png"}
                         alt="img"
                         width="208"
                     />

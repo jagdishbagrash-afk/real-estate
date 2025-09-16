@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import logo from '../img/logo.png';
 import { NavLink } from "react-router-dom";
 import BackgroundMusic from "./BackgroundMusic";
 
@@ -16,7 +15,7 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 flex justify-between items-center">
         <div className="text-xl font-bold">
           <NavLink to="/">
-            <img src={logo} alt="Logo" className="h-10 w-auto" />
+            <img src={"/logo.png"} alt="Logo" className="h-10 w-auto" />
           </NavLink>
         </div>
 

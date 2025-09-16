@@ -1,0 +1,15 @@
+{
+  "cities": [
+    { "name": "Rajasthan", "img": "/city/jaipur.avif" },
+    { "name": "Hariyana", "img": "/city/panorama-science-centre.jpg" },
+    { "name": "Uttrakhand", "img": "/city/utrakhad.jpg" },
+    { "name": "Punjab", "img": "/city/punjab.jpeg" },
+    { "name": "Maharashtra", "img": "/city/pune.jpg" },
+    { "name": "Madhya Pradesh", "img": "/city/Narmada-River-Maheshwar-Madhya-Pradesh-India.webp" },
+    { "name": "Telangana", "img": "/city/Telangana.jpg" },
+    { "name": "Gujrat", "img": "/city/Statue-of-Unity-Legacy.jpg" },
+    { "name": "Chennai", "img": "/city/chennia.jpg" },
+    { "name": "Bangalore", "img": "/city/banglore.jpg" }
+  ] 
+}
+

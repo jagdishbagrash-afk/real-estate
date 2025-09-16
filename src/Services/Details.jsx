@@ -1,8 +1,6 @@
 import "../App.css"
 import Header from '../component/Header';
 import WeOffer from './WeOffer';
-import WhyChooseUs from '../Home/WhyChooseUs';
-import home from "../Json/Choose.json"
 import Readybring from '../Home/ReadyBring';
 import Footer from "../component/Footer";
 import AnimatedHeading from "../component/AnimatedHeading";
@@ -77,7 +75,6 @@ function Estate() {
 
             </section>
             <WeOffer services={service?.features} />
-            {/* <WhyChooseUs home={home?.management} /> */}
             <Readybring />
             <Footer />
         </div>

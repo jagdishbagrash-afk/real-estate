@@ -2,9 +2,6 @@ import "../App.css"
 import Header from '../component/Header';
 import OurServices from './OurService';
 import WhyChooseUs from './WhyChooseUs';
-import homebanner from '../img/homebg.jpg';
-import homebanneroverlay from '../img/Cadmax.jpg';
-import spacebanner from '../img/hom2.jpg';
 import WorkSlider from "./WorkSlider";
 import CitySlider from "./CitySlider";
 import TestimonialSlider from "./TestimonialSlider";
@@ -29,13 +26,13 @@ function Main() {
         className="relative h-[425px] md:h-[560px] lg:h-[860px] md:mt-[-150px]"
       >
         <img
-          src={homebanner}
+          src={"/home/homebg.jpg"}
           alt="Logo"
           className="object-cover h-full w-full"
         />
         <div className="absolute top-0 bottom-0 w-full">
           <img
-            src={homebanneroverlay}
+            src={"/work/Cadmax.jpg"}
             alt="overlay"
             className="object-cover h-full w-full"
           />
@@ -55,7 +52,7 @@ function Main() {
       <section className="bg-white py-[30px] md:py-[70px] lg:py-[80px] xl:py-[100px]">
         <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center gap-10">
           <div className="relative w-full md:w-1/2 mb-[40px] lg:mb-[40px]">
-            <img src={spacebanner} alt="Interior" className=" w-full h-auto object-cover"
+            <img src={"/home/hom2.jpg"} alt="Interior" className=" w-full h-auto object-cover"
               data-aos="fade-down"
               data-aos-duration="2000"
               data-aos-easing="ease-out-cubic"
@@ -69,7 +66,7 @@ function Main() {
               data-aos-once="true"
               className="absolute left-[25px] right-[0] m-auto md:left-[-90px] bottom-[-50px]"
             >
-              <img src={homebanner} alt="Interior" className=" w-full max-w-[300px] h-auto object-cover" />
+              <img src={"/home/homebg.jpg"} alt="Interior" className=" w-full max-w-[300px] h-auto object-cover" />
             </div>
           </div>
           <div className="w-full md:w-1/2 text-center md:text-left">

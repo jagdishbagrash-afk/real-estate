@@ -1,7 +1,6 @@
 import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Toaster, toast } from "react-hot-toast";
-import image from "../../img/homebanner.jpg";
 import Listing from "../Apis/Listing";
 
 function Login() {
@@ -48,7 +47,7 @@ function Login() {
                 {/* Left Image */}
                 <div className="hidden md:block w-full md:w-1/2">
                     <img
-                        src={image}
+                        src={"/home/homebg.jpg"}
                         alt="Login"
                         className="object-cover w-full h-full"
                     />

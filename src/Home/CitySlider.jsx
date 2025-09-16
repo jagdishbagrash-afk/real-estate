@@ -5,31 +5,8 @@ import { Autoplay } from "swiper/modules"; // Make sure you're importing Autopla
 import "swiper/css"; // Required Swiper styles
 import "swiper/css/autoplay"; // Optional but helpful
 // Our Service Images
-import city1 from "../img/jaipur.avif";
-import city2 from "../img/panorama-science-centre.jpg";
-import city3 from "../img/punjab.jpeg";
-import city8 from "../img/utrakhad.jpg";
-import city4 from "../img/Narmada-River-Maheshwar-Madhya-Pradesh-India.webp";
-import city5 from "../img/pune.jpg";
-import city6 from "../img/Telangana.jpg";
-import city7 from "../img/Statue-of-Unity-Legacy.jpg";
-import city10 from "../img/banglore.jpg";
-import city9 from "../img/chennia.jpg";
 import AnimatedHeading from "../component/AnimatedHeading";
-
-const cities = [
-  { name: "Rajasthan ", img: city1 },
-  { name: "Hariyana", img: city2 },
-  { name: "Uttrakhand", img: city8 },
-  { name: "Punjab", img: city3 },
-  { name: "Maharashtra", img: city5 },
-  { name: "Madhya Pradesh", img: city4 },
-  { name: "Telangana", img: city6 },
-  { name: "Gujrat", img: city7 },
-  { name: "Chennai", img: city9 },
-  { name: "Bangalore", img: city10 },
-
-];
+import City from "../Json/city.json"
 
 const CitySlider = () => {
   return (
@@ -57,7 +34,7 @@ const CitySlider = () => {
           modules={[Autoplay]}
           className="w-full "
         >
-          {cities.map((city, idx) => (
+          {City?.cities.map((city, idx) => (
             <SwiperSlide key={idx}>
               <div className="group flex flex-col items-start justify-start transform transition-transform duration-500 hover:-translate-y-5 hover:shadow-xl">
                 <img

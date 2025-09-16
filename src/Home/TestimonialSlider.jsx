@@ -6,7 +6,6 @@ import "swiper/css";
 import "swiper/css/navigation";
 import AnimatedHeading from "../component/AnimatedHeading";
 
-
 const TestimonialSlider = () => {
 
   const testimonials = [

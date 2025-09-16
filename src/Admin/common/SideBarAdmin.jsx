@@ -1,4 +1,3 @@
-import LOGO from "../../img/logo.png";
 import React, { useState, useEffect } from "react";
 import { MdDashboard, MdSupervisedUserCircle, MdContacts, MdLogout, MdSettings } from "react-icons/md";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -57,7 +56,7 @@ function SideBarAdmin() {
                 <div className="mb-5 md:mb-10 lg:mb-[53px] text-center">
                     <img
                         className="max-w-full block m-auto"
-                        src={LOGO}
+                        src={"/logo.png"}
                         alt="logo"
                         width="208"
                     />

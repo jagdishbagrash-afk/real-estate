@@ -1,61 +1,57 @@
 import "../App.css"
 import Header from '../component/Header';
-import exploreservicebg from '../img/exploreservicebg.jpg';
-
 import Footer from "../component/Footer";
 import TownshipSlider from "./TownshipSlider";
-
-import blog1 from '../img/blogimg01.jpg';
-import blog2 from '../img/blogimg02.jpg';
-import blog3 from '../img/blogimg03.jpg';
-import blog4 from '../img/blogimg04.jpg';
-import blog5 from '../img/blogimg05.jpg';
-import blog6 from '../img/blogimg06.jpg';
-import blog7 from '../img/blogimg07.jpg';
-import blog8 from '../img/blogimg08.jpg';
-import blog9 from '../img/blogimg09.jpg';
 import { Link } from "react-router-dom";
 import AnimatedHeading from "../component/AnimatedHeading";
 
 const blogs = [
   {
     title: 'How Modern Urban Planning Is Reshaping Indian Cities',
-    image: blog1,
+    image: "/blog/blogimg01.jpg",
   },
   {
     title: 'The Role of Technology in Sustainable Urban Development',
-    image: blog2,
+    image: "/blog/blogimg02.jpg",
+
   },
   {
     title: 'Public Transportation: A Key to Smart City Success',
-    image: blog3,
+    image: "/blog/blogimg03.jpg",
+
   },
   {
     title: 'Green Spaces and Their Impact on Urban Life',
-    image: blog4,
+    image: "/blog/blogimg04.jpg",
+
   },
   {
     title: 'Affordable Housing Solutions for Growing Urban Populations',
-    image: blog5,
+    image: "/blog/blogimg05.jpg",
+
   },
   {
     title: 'Community Engagement in Urban Design Processes',
-    image: blog6,
+    image: "/blog/blogimg06.jpg",
+
   },
 
   {
     title: 'Community Engagement in Urban Design Processes',
-    image: blog7,
+    image: "/blog/blogimg07.jpg",
+
   },
 
   {
     title: 'Community Engagement in Urban Design Processes',
-    image: blog8,
+    image: "/blog/blogimg08.jpg",
+
   },
 
   {
     title: 'Community Engagement in Urban Design Processes',
-    image: blog9,
+    image: "/blog/blogimg09.jpg",
+
   },
 ];
 
@@ -65,7 +61,7 @@ function Blog() {
     <div className="min-h-screen ">
       <Header />
       <div className="relative mt-[-150px] ">
-        <img src={exploreservicebg} alt="Logo" className="object-cover min-h-[350px] md:min-h-[400px] lg:min-h-[450px] w-full" />
+        <img src={"/home/exploreservicebg.jpg"} alt="Logo" className="object-cover min-h-[350px] md:min-h-[400px] lg:min-h-[450px] w-full" />
         <AnimatedHeading>
           <div className="max-w-[1320px] m-auto absolute left-[0] right-[0]  bottom-[30px] md:bottom-[50px] lg:bottom-[90px] z-[1] px-[15px]">
             <h2 className="fontspring text-[20px] md:text-[40px] lg:text-[60px] xl:text-[80px] text-white  ">Blogs and Upcoming Project</h2>

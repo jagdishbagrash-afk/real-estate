@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import dataimage from "../../img/archbanner.jpg";
 
 export default function Image({ alt, src, classes, style }) {
     const [imageSRC, setImageSRC] = useState(src);
 
     // Handle broken image
     const imageLoader = () => {
-        setImageSRC(dataimage);
+        setImageSRC("/home/archbanner.jpg");
     };
 
     // Update image when src changes
@@ -36,7 +35,7 @@ Image.propTypes = {
 
 Image.defaultProps = {
     alt: 'Image',
-    src: dataimage,
+    src: "/home/archbanner.jpg",
     classes: '',
     style: {}
 };

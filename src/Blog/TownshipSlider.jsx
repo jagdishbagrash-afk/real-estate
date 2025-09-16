@@ -6,13 +6,13 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/effect-fade";
 
-import slide1 from "../img/upcomingpro01.jpg"; 
-import slide2 from "../img/projectdetailimg01.jpg"; 
-import slide3 from "../img/projectdetailimg02.jpg"; 
 
-const slides = [
+
+
+export default function TownshipSlider() {
+  const slides = [
   {
-    image: slide1,
+    image: "/home/projectdetailimg02.jpg",
     title: "Green Crest Smart Township",
     type: "Integrated Residential Township",
     location: "Ajmer Road, Jaipur",
@@ -21,7 +21,7 @@ const slides = [
   },
 
   {
-    image: slide2,
+      image: "/home/projectdetailimg01.jpg",
     title: "Sustainable Development and Green Cities",
     type: "Integrated Residential Township",
     location: "Ajmer Road, Jaipur",
@@ -30,7 +30,7 @@ const slides = [
   },
 
   {
-    image: slide3,
+    image: "/home//projectdetailimg02.jpg",
     title: "The Rise of Smart Homes",
     type: "Integrated Residential Township",
     location: "Ajmer Road, Jaipur",
@@ -39,8 +39,6 @@ const slides = [
   },
   // Add more slides if needed
 ];
-
-export default function TownshipSlider() {
   return (
     <div className="relative w-full max-w-[1320px] h-[350px] md:h-[450px] lg:h-[550px] xl:h-[620px] m-auto overflow-hidden">
       <Swiper

@@ -6,7 +6,6 @@ import debounce from "lodash.debounce";
 import NoDataPage from "../component/NoDataPage";
 import Image from "../component/Image";
 import Listing from "../Apis/Listing";
-import BlogImage from "../../img/Interior.png"
 import DeletePopup from "../component/DeletePopup";
 import { MdAdd, MdEdit } from "react-icons/md";
 import SideBarAdmin from "../common/SideBarAdmin";
@@ -91,7 +90,7 @@ const BlogView = () => {
                         <Image
                           className="w-full object-cover"
                           alt={blog.title || "Blog Image"}
-                          src={blog.Image || BlogImage}
+                          src={blog.Image || "/work/Interior.png"}
                         />
                       </Link>
 

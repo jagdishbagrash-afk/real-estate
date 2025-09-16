@@ -6,7 +6,6 @@ import Pagination from "../component/Pagination";
 import NoDataPage from "../component/NoDataPage";
 import DeletePopup from "../component/DeletePopup";
 import Listing from "../Apis/Listing";
-import BlogImage from "../../img/Interior.png";
 import Image from "../component/Image";
 import SideBarAdmin from "../common/SideBarAdmin";
 import HeaderAdmin from "../common/HeaderAdmin";
@@ -94,7 +93,7 @@ const ProjectList = () => {
                         <Image
                           className="w-full h-[200px] object-cover"
                           alt={blog.title || "Blog Image"}
-                          src={blog?.Image?.[0] || BlogImage}
+                          src={blog?.Image?.[0] || "/work/Interior.png"}
                         />
                       </Link>
 

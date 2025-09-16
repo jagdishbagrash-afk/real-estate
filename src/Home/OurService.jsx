@@ -4,23 +4,20 @@ import { Scrollbar, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/scrollbar";
 // Our Service Images
-import img1 from "../img/realestate.jpg";
-import img2 from "../img/FINALNADHALLAYOUT20_page-0001.jpg";
-import img3 from "../img/Infrastructure.jpg";
-import img4 from "../img/Acrchitecture.jpg";
-import img5 from "../img/Interior.png";
 import AnimatedHeading from "../component/AnimatedHeading";
-import { Link, useNavigate } from "react-router-dom";
-const services = [
-  { title: "URBAN PLANNING", image: img2, slug: "urban-planning" },
-  { title: "REAL STATE", image: img1, slug: "real-state" },
-  { title: "INFRASTRUCTURE ", image: img3, slug: "infrastructure" },
-  { title: "ARCHITECTURE", image: img4, slug: "architecture" },
-  { title: "Interior Designing", image: img5, slug: "interior-designing" },
-];
+import { useNavigate } from "react-router-dom";
+
 
 export default function OurServices() {
   const navigate = useNavigate();
+
+  const services = [
+  { title: "URBAN PLANNING", image: "/work/FINALNADHALLAYOUT20_page-0001.jpg", slug: "urban-planning" },
+  { title: "REAL STATE", image: "/work/realestate.jpg", slug: "real-state" },
+  { title: "INFRASTRUCTURE ", image: "/work/Infrastructure.jpg", slug: "infrastructure" },
+  { title: "ARCHITECTURE", image: "/work/Acrchitecture.jpg", slug: "architecture" },
+  { title: "Interior Designing", image: "/work/Interior.png", slug: "interior-designing" },
+];
 
   return (
     <section className="bg-[#F8F6F2] py-[40px] md:py-[50px] lg:py-[77px]">

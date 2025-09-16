@@ -7,9 +7,9 @@ import "swiper/css/autoplay";
 import AnimatedHeading from "../component/AnimatedHeading";
 
 const cities = [
-    { name: "Rajasthan ", img: "/project/image17.png" },
-    { name: "Chennai", img: "/project/image18.png"  },
-    { name: "Bangalore", img: "/project/image19.png"  },
+    { name: "Rajasthan ", img: "/about/image17.png" },
+    { name: "Chennai", img: "/about/image18.png"  },
+    { name: "Bangalore", img: "/about/image19.png"  },
 
 ];
 
@@ -47,12 +47,7 @@ const Achivement = () => {
                                     alt={city.name}
                                     className="w-full h-[350px] md:h-[400px] xl:h-[450px] object-cover transition-transform duration-500"
                                 />
-                                {/* <p className="text-center fontspring mt-4 text-[15px] md:text-[20px] lg:text-[26px] text-[#000112] transition-opacity duration-500">
-                  {city.name}
-                </p> */}
                             </div>
-
-
                         </SwiperSlide>
                     ))}
                 </Swiper>

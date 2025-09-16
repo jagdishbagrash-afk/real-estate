@@ -1,7 +1,6 @@
 import "../App.css"
 import Header from '../component/Header';
 import Footer from "../component/Footer";
-import contactshap from '../img/contactshap.png';
 import { useState } from "react";
 import toast from "react-hot-toast";
 import Listing from "../Admin/Apis/Listing";
@@ -129,7 +128,7 @@ function Contact() {
             {/* Form + Text */}
             <div className="relative bg-[#F8F6F2] py-[30px] md:py-[50px] lg:py-[70px]">
                 <div className="absolute left-[0] bottom-[0]">
-                    <img src={contactshap} alt="Interior" className=" w-full h-auto object-cover" />
+                    <img src={"/home/contactshap.png"} alt="Interior" className=" w-full h-auto object-cover" />
                 </div>
 
                 <div className="max-w-[1320px] bg-[#F8F6F2] mx-auto px-4 grid lg:grid-cols-2 gap-10 items-start">

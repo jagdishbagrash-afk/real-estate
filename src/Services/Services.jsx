@@ -1,11 +1,5 @@
 import "../App.css";
 import Header from "../component/Header";
-import exploreservicebg from "../img/exploreservicebg.jpg";
-import img1 from "../img/realestate.jpg";
-import img2 from "../img/FINALNADHALLAYOUT20_page-0001.jpg";
-import img3 from "../img/Infrastructure.jpg";
-import img4 from "../img/Acrchitecture.jpg";
-import img5 from "../img/Interior.png";
 import Footer from "../component/Footer";
 import AnimatedHeading from "../component/AnimatedHeading";
 import { useState } from "react";
@@ -21,11 +15,11 @@ function Services() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
   const services = [
-    { title: "URBAN PLANNING", image: img2, slug: "urban-planning" },
-    { title: "REAL STATE", image: img1, slug: "real-state" },
-    { title: "INFRASTRUCTURE", image: img3, slug: "infrastructure" },
-    { title: "ARCHITECTURE", image: img4, slug: "architecture" },
-    { title: "INTERIOR DESIGNING", image: img5, slug: "interior-designing" },
+    { title: "URBAN PLANNING", image: "/work/FINALNADHALLAYOUT20_page-0001.jpg", slug: "urban-planning" },
+    { title: "REAL STATE", image: "/work/realestate.jpg", slug: "real-state" },
+    { title: "INFRASTRUCTURE ", image: "/work/Infrastructure.jpg", slug: "infrastructure" },
+    { title: "ARCHITECTURE", image: "/work/Acrchitecture.jpg", slug: "architecture" },
+    { title: "INTERIOR DESIGNING", image: "/work/Interior.png", slug: "interior-designing" },
   ];
 
   return (
@@ -33,13 +27,13 @@ function Services() {
       <div className="min-h-screen">
         <Header />
         {/* Hero section */}
-         <div className="relative md:mt-[-150px]">
+        <div className="relative md:mt-[-150px]">
           <img
-            src={exploreservicebg}
+            src={"/home/exploreservicebg.jpg"}
             alt="Logo"
             className="object-cover min-h-[350px] md:min-h-[400px] lg:min-h-[450px] w-full"
           />
-            <div className="absolute inset-0 bg-black/50"></div>
+          <div className="absolute inset-0 bg-black/50"></div>
           <div className="max-w-[1320px] m-auto absolute left-0 right-0 bottom-[30px] md:bottom-[50px] lg:bottom-[90px] z-[1] px-[15px]">
             <AnimatedHeading>
               <h2 className="fontspring text-[24px] md:text-[40px] lg:text-[60px] xl:text-[80px] text-white">
@@ -77,7 +71,7 @@ function Services() {
                         : hoveredIndex !== null
                           ? "25%"
                           : "33.33%"
-                      : "100%", 
+                      : "100%",
                   transition: "all 0.5s ease-in-out",
                   height: "100%",
                 }}
