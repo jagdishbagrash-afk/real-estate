@@ -46,6 +46,7 @@ function Contact() {
                     message: "",
                     subject: "",
                     phone_number: "",
+                    services:""
                 });
             } else {
                 toast.error(response.data.message);
