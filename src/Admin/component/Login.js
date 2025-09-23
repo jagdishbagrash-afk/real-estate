@@ -125,7 +125,7 @@ function Login() {
                             <button
                                 disabled={loading}
                                 onClick={handleForms}
-                                className="w-full py-2 px-4 bg-[#94A393] hover:bg-[#94A393] text-white font-semibold rounded-lg transition duration-200"
+                                className="w-full py-2 px-4 bg-[#000000] hover:bg-[#94A393] text-white font-semibold rounded-lg transition duration-200"
                             >
                                 {loading ? "Please wait..." : "Login"}
                             </button>
