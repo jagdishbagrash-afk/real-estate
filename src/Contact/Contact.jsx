@@ -31,6 +31,20 @@ function Contact() {
             setLoading(false);
             return;
         }
+          const phoneRegex = /^[0-9]{10}$/;
+    if (!phoneRegex.test(Regs.phone_number)) {
+        toast.error("Phone number must be exactly 10 digits.");
+        setLoading(false);
+        return;
+    }
+
+    // 3️⃣ Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(Regs.email)) {
+        toast.error("Please enter a valid email address.");
+        setLoading(false);
+        return;
+    }
         const main = new Listing();
         try {
             const updatedRegs = {
