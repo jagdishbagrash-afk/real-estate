@@ -39,13 +39,13 @@ const Achivement = () => {
 
                     className="w-full "
                 >
-                    {cities.map((city, idx) => (
+                    {cities?.map((city, idx) => (
                         <SwiperSlide key={idx}>
                             <div className="group flex flex-col items-start justify-start transform transition-transform duration-500 hover:-translate-y-5 hover:shadow-xl">
                                 <img
                                     src={city.img}
                                     alt={city.name}
-                                    className="w-full h-[350px] md:h-[400px] xl:h-[450px] object-cover transition-transform duration-500"
+                                    className="w-full h-[420px] md:h-[480px] xl:h-[500px] object-cover transition-transform duration-500"
                                 />
                             </div>
                         </SwiperSlide>

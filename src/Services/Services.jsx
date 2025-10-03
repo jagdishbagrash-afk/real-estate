@@ -42,7 +42,6 @@ function Services() {
             </AnimatedHeading>
           </div>
         </div>
-        {/* Swiper Slider */}
         <div className="w-full py-[40px] md:py-[60px] lg:py-[100px] px-[15px]">
           <Swiper
             modules={[Autoplay]}
@@ -55,10 +54,10 @@ function Services() {
             slidesPerView={1}
             breakpoints={{
               320: { slidesPerView: 1 },   // mobile
-              768: { slidesPerView: 2 },   // tablet
-              1024: { slidesPerView: 3 },  // desktop
+              768: { slidesPerView: 1.5 },   // tablet
+              1024: { slidesPerView: 2.5 },  // desktop
             }}
-            className="h-[500px]"
+            className="w-full h-[400px] md:h-[500px] lg:h-[600px] "
           >
             {services && services.map((service, index) => (
               <SwiperSlide
@@ -78,7 +77,7 @@ function Services() {
               >
                 <Link
                   to={`/services/${service?.slug}`}
-                  className="relative group cursor-pointer overflow-hidden w-full h-full"
+                  className="relative group cursor-pointer overflow-hidden w-full h-full "
                   onMouseEnter={() => setHoveredIndex(index)}
                   onMouseLeave={() => setHoveredIndex(null)}
                 >
