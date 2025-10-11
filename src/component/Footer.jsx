@@ -11,16 +11,17 @@ const Footer = () => {
             <img src={"/logo.png"} alt="Logo" className="h-10 w-auto" />
           </div>
           <div className="flex gap-4 text-xl">
-            <Link to="#" className="hover:text-gray-400">
+            <Link to="https://www.facebook.com/CadMaxProjectsJPR" className="hover:text-gray-400" target="_blank" rel="noopener noreferrer">
               <FaFacebookF />
             </Link>
-            <Link to="#" className="hover:text-gray-400">
+            <Link to="https://www.instagram.com/cadmaxconsultancy/" className="hover:text-gray-400" target="_blank" rel="noopener noreferrer">
               <FaInstagram />
             </Link>
-            <Link to="#" className="hover:text-gray-400">
+            <Link to="https://www.linkedin.com/company/cadmax-projects-pvt-ltd/" className="hover:text-gray-400" target="_blank" rel="noopener noreferrer">
               <FaLinkedinIn />
             </Link>
           </div>
+
         </div>
 
         {/* Middle Nav Links */}

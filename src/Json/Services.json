@@ -2,6 +2,7 @@
     "urban-planning": {
         "title": "Urban Planning",
         "logo": "/services/cadmaxprojectscopy.png",
+        "para": "The best urban planning is invisible; it quietly supports life, movement, and interaction.",
         "description": "Our company is recognised as India’s best urban planning and land surveying company as we have planned more than 10,000 hactares of land in past 20 years and have proudly satisfied more than 1000 clients with our planning skills and accuracy.",
         "description2": "Almost all the townships and colonies of the topmost colonisers and builders such as Mangalam builders, Kedia builders, Riyasat infra developers, Gokul Kripa , Ashiana builders, and Vatika group and many more are designed by Cadmax Private Ltd",
         "image": "/services/SWARNABHOOMIAJMERModel_page-0001.jpg",
@@ -31,8 +32,9 @@
     },
     "real-state": {
         "title": "Real State",
+        "para": "Owning a home is a keystone of wealth... both financial affluence and emotional security.",
         "logo": "/services/CadMaxHomesLogoFinalCTC.png",
-        "description": "Cadmax Homes is constantly setting milestones in real estate services. We have successfully developed and constructed more than 10 Porsche colonies with residential villas and elegant buildings such as Prithvi enclave, Aayam,Universal city, Shivam majestic, Shivam Magnus, Cadmax Valley, Ravi Kiran Vihar and many More.",
+        "description": "Cadmax Homes is constantly setting milestones in real estate services. We have successfully developed and constructed more than 10 posh colonies with residential villas and elegant buildings such as Prithvi enclave, Aayam,Universal city, Shivam majestic, Shivam Magnus, Cadmax Valley, Ravi Kiran Vihar and many More.",
         "description2": "We have group ventures with established developers and builders such as:\n Cadmax Reality, \n Govind Kripa Cadmax Developers ,\n Cadmax and Mahakal Builders.",
         "image": "/services/AYAM.jpg",
         "image2": "/services/eastfacingplotrender0011.jpg",
@@ -52,6 +54,7 @@
         ]
     },
     "infrastructure": {
+        "para": "Infrastructure is much more than bricks and mortar. It’s the backbone of a thriving society.",
         "title": "Infrastructure",
         "logo": "/services/CadMaxHomesLogoFinalCTC.png",
         "description": "We provide best infrastructural services in townships like road network, sewer network, water supply, rain water harvesting,electricity etc",
@@ -78,6 +81,7 @@
         ]
     },
     "architecture": {
+        "para": "Architecture should speak of its time and place, but yearn for timelessness.",
         "title": "Architecture",
         "logo": "/services/ArchinterioLogo.png",
         "description": "Archinterio has became a well recognised architectural and interior design firm In past five years.\n We have successfully completed more than 30 residential and commercial projects, comprising modern, traditional, Roman and neo classical themes.",
@@ -104,6 +108,7 @@
         ]
     },
     "interior-designing": {
+        "para": "Design is not just what it looks like and feels like. Design is how it works.",
         "title": "Interior Designing",
         "logo": "/services/ArchinterioLogo.png",
         "content": "Archinterio has became a well recognised architectural and interior design firm In past five years.      ",

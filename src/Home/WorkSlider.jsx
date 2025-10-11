@@ -25,7 +25,7 @@ const SliderWithFade = () => {
     {
       front: "/work/Shivam.jpg",
       back: "/work/Shivam.jpg",
-      title: "Shivam Magnus – a stunning skyscapper , Jaipur",
+      title: "SHIVAM MAJESTIC – A STUNNING SKYSCRAPER,JAIPUR",
       slug: "shivam-magnus"
     },
     {
@@ -37,7 +37,7 @@ const SliderWithFade = () => {
     {
       front: "/work/ravi.jpg",
       back: "/work/ravi.jpg",
-      title: "Ravi Kiran Vihar – A porshe colony , Jaipur",
+      title: "CADMAX VELLEY – A POSH COLONY,JAIPUR",
       slug: "ravi-kiran-vihar"
     },
   ];

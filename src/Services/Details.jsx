@@ -43,7 +43,7 @@ function Estate() {
             <section className="bg-white py-[30px] md:py-[70px] lg:py-[80px] xl:py-[100px]">
                 <div className=" mb-[15px] text-center">
                     <AnimatedHeading>
-                        <p className="text-[14px] font-[600] tracking-widest text-[#000112a6] uppercase mb-4">Shaping Land into Landmarks</p>
+                        <p className="text-[14px] font-[600] tracking-widest text-[#000112a6] uppercase mb-4">{service?.para}</p>
                         <h2 className="fontspring text-[18px] md:text-[20px] lg:text-[28px] xl:text-[32px] whitespace-pre-line leading-[25px] lg:leading-[30px] xl:leading-[45px] text-[#000112] mb-10 max-w-[1140px] mx-auto">
                             {service?.description}
                         </h2>

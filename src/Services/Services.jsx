@@ -42,6 +42,26 @@ function Services() {
             </AnimatedHeading>
           </div>
         </div>
+
+          {services && services.map((service, index) => (
+                <Link
+                  to={`/services/${service?.slug}`}
+                  className="relative group cursor-pointer overflow-hidden w-full h-full "
+                  onMouseEnter={() => setHoveredIndex(index)}
+                  onMouseLeave={() => setHoveredIndex(null)}
+                >
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 brightness-75"
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <h3 className="hover:text-yellow-400 text-white text-[16px] uppercase font-semibold tracking-wide text-center">
+                      {service.title}
+                    </h3>
+                  </div>
+                </Link>
+            ))}
         <div className="w-full py-[40px] md:py-[60px] lg:py-[100px] px-[15px]">
           <Swiper
             modules={[Autoplay]}

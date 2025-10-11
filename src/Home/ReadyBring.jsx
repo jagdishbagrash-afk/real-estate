@@ -11,10 +11,10 @@ export default function Readybring() {
       {/* Content */}
       <div className="h-full flex items-center justify-center flex-col absolute left-[0] right-[0] top-[0] bottto-[0] z-10 text-center px-4 md:px-8">
         <h1 className="fontspring text-[20px] md:text-[35px] lg:text-[40px] xl:text-[50px] text-white mb-[10px]">
-        Ready to Bring Your Dream Space to Life?
+          Ready to Bring Your Dream Space to Life?
         </h1>
         <p className="text-[#ffffffc2] text-[18px] md:text-[20px] mb-6">
-        Let’s create an interior that’s beautiful, functional, and uniquely yours.
+          Lets create an space that’s beautiful, functional and uniquely yours
         </p>
         <Link to="/contact" className="min-w-[220px] bg-[#94A393] text-white hover:bg-white hover:text-black text-[14px] font-[600] py-[14px] px-[10px]  transition text-center tracking-widest">
           CONTACT US

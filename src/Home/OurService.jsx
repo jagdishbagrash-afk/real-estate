@@ -26,7 +26,7 @@ export default function OurServices() {
 
           <p className="text-[14px] font-[600] tracking-widest text-[#000112a6] uppercase mb-4">Our Service</p>
           <h2 className="fontspring text-[18px] md:text-[20px] lg:text-[28px] xl:text-[32px] leading-[25px] lg:leading-[30px] xl:leading-[45px] text-[#000112] mb-10 max-w-[1140px] mx-auto">
-            From planning porshe colonies to constructing stunning skyscrapers. We provide all infrastructural services such as
+            From planning posh colonies to constructing stunning skyscrapers. We provide all infrastructural services such as
           </h2>
         </AnimatedHeading>
 
