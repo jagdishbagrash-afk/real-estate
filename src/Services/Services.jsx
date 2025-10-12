@@ -43,7 +43,7 @@ function Services() {
           </div>
         </div>
 
-          {services && services.map((service, index) => (
+          {/* {services && services.map((service, index) => (
                 <Link
                   to={`/services/${service?.slug}`}
                   className="relative group cursor-pointer overflow-hidden w-full h-full "
@@ -61,7 +61,7 @@ function Services() {
                     </h3>
                   </div>
                 </Link>
-            ))}
+            ))} */}
         <div className="w-full py-[40px] md:py-[60px] lg:py-[100px] px-[15px]">
           <Swiper
             modules={[Autoplay]}
