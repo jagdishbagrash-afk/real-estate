@@ -12,7 +12,7 @@ function AddJob({ item, fecthJobList }) {
         employment_type: item?.employment_type || "",
         experience: item?.experience || "",
         content: item?.content || "",
-        Skills: item?.Skills || "",
+        Skills: item?.Skills || [],
         _id: item?._id
     });
 

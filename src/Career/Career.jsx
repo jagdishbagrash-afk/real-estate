@@ -6,6 +6,8 @@ import home from "../Json/Choose.json"
 import { Link } from "react-router-dom";
 import AnimatedHeading from "../component/AnimatedHeading";
 import Banner from "../component/Banner";
+import { useEffect, useState } from "react";
+import Listing from "../Admin/Apis/Listing";
 
 function Career() {
 
@@ -54,6 +56,31 @@ function Career() {
         }
     ]
 
+     const [jobs, setJobs] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  const fetchJobList = async () => {
+    try {
+      setLoading(true);
+      const api = new Listing();
+      const response = await api.JobGet();
+      console.log("API response:", response);
+      // Adjust according to your API structure
+      setJobs(response?.data?.data || []); 
+    } catch (error) {
+      console.error("Error fetching job list:", error);
+      setJobs([]);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchJobList();
+  }, []);
+
+
+
     return (<>
         <div className="min-h-screen ">
             <Header />
@@ -87,15 +114,15 @@ function Career() {
                         </p>
                     </AnimatedHeading>
                 </div>
-                {Careerdata && Careerdata.map((item, index) => (
+                {jobs && jobs.map((item, index) => (
                     <div className="border border-[#999999] p-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-[10px] md:gap-[20px] max-w-7xl mx-auto">
                         <div>
                             <h3 className="fontspring text-[18px] md:text-[22px] lg:text-[26px] font-medium text-[#000112] mb-2">{item?.title}</h3>
                             <p className="max-w-full md:max-w-[70%] lg:max-w-[80%] text-[14px] md:text-[18px] lg:text-[20px] text-[#000112a6]">
-                                {item?.quote}
+                                {item?.content}
                             </p>
                         </div>
-                        <Link to={`/career/${item?.role}`} className="min-w-[150px] xl:min-w-[200px] px-[10px] py-3 border border-[94A393] text-[#94A393] text-[14px] font-[600] tracking-wide text-[#94A393] hover:bg-[#94A393] hover:text-[#fff] transition-all uppercase tracking-wider">
+                        <Link to={`/career/${item?.slug}`} className="min-w-[150px] xl:min-w-[200px] px-[10px] py-3 border border-[94A393] text-[#94A393] text-[14px] font-[600] tracking-wide text-[#94A393] hover:bg-[#94A393] hover:text-[#fff] transition-all uppercase tracking-wider">
                             View Details
                         </Link>
                     </div>

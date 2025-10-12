@@ -104,6 +104,10 @@ class Listing extends Component {
     async JobGet() {
         return Api.get("/jobget")
     }
+
+     async JobGets(slug) {
+        return Api.get(`/jobget/${slug}`)
+    }
     async AddJob(data) {
         return Api.post("/jobadd", data)
     }

@@ -1,7 +1,7 @@
 import "../App.css"
 import Header from '../component/Header';
 import Footer from "../component/Footer";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Listing from "../Admin/Apis/Listing";
 import toast from "react-hot-toast";
 import CareerDetails from "../Json/Carrer.json";
@@ -9,8 +9,33 @@ import { useParams } from "react-router-dom";
 import AnimatedHeading from "../component/AnimatedHeading";
 function Details() {
     const { slug } = useParams();
-    const Carrer = CareerDetails[slug];
-    console.log(Carrer)
+
+    // const Carrer = CareerDetails[slug];
+
+    
+         const [jobs, setJobs] = useState([]);
+      const [loadings, setLoadings] = useState(false);
+    
+      const fetchJobList = async () => {
+        try {
+          setLoading(true);
+          const api = new Listing();
+          const response = await api.JobGets(slug);
+          console.log("API response:", response);
+          // Adjust according to your API structure
+          setJobs(response?.data?.data || []); 
+        } catch (error) {
+          console.error("Error fetching job list:", error);
+          setJobs([]);
+        } finally {
+          setLoading(false);
+        }
+      };
+    
+      useEffect(() => {
+        fetchJobList(slug);
+      }, [slug]);
+    // console.log(Carrer)
     const [Regs, setRegs] = useState({
         name: "",
         email: "",
@@ -86,14 +111,14 @@ function Details() {
             <Header />
             <div className="relative mt-[-150px]">
                 <img
-                    src={Carrer?.image}
+                    src={jobs?.image}
                     alt="Logo"
                     className="w-full h-[500px] md:h-[600px] xl:h-[650px] object-cover"
                 />
                 <div className="max-w-[1320px] m-auto absolute left-0 right-0 bottom-[30px] md:bottom-[50px] lg:bottom-[90px] z-[1] px-[15px]">
                     <AnimatedHeading>
                         <h2 className="fontspring text-[20px] md:text-[40px] lg:text-[60px] xl:text-[80px] text-white">
-                            {Carrer?.role}
+                            {jobs?.title}
                         </h2>
                     </AnimatedHeading>
                 </div>
@@ -105,20 +130,18 @@ function Details() {
                     <div className="w-full md:w-60%">
                         <div className="border border-[#999999] p-4 md:p-6 mb-[30px]">
                             <h2 className="fontspring text-[20px] md:text-[22px] lg:text-[24px] lg:text-[26px] text-[#000112] mb-2">
-                                {Carrer?.role}
+                                {jobs?.title}
                             </h2>
                             <div className="text-[14px] md:text-[17px] lg:text-[18px] xl:text-[20px] text-[#0001129e]">
-                                <span>Location: Jaipur, Rajasthan</span> |
-                                <span className="ml-2">Employment Type: Full-Time</span> |
-                                <span className="ml-2">Experience: 2–5 Years</span>
+                                <span>Location: {jobs?.location}</span> |
+                                <span className="ml-2">Employment Type: {jobs?.employment_type}</span> |
+                                <span className="ml-2">Experience: {jobs?.experience}</span>
                             </div>
                         </div>
                         <div className="mb-6">
                             <h3 className="fontspring text-[20px] md:text-[25px] lg:text-[30px] text-[#000112] mb-2">Required Skills & Qualifications</h3>
                             <ul className="list-disc list-inside space-y-1 text-[16px] md:text-[18px] lg:text-[20px] text-[#0001129e]">
-                                {Carrer?.requiredSkillsAndQualifications?.map((item) => {
-                                    return <li>{item}</li>
-                                })}
+                             {jobs?.Skills ? jobs.Skills?.split(",").map((skill, index) => <li key={index}>{skill.trim()}</li>): null}
                             </ul>
                         </div>
                     </div>
