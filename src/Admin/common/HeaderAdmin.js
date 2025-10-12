@@ -29,21 +29,21 @@ const navigate = useNavigate();
     };
       const [listing, setListing] = useState("");
 
-      const fetchData = async (signal) => {
-        try {
-          const main = new Listing();
-          const response = await main.profileVerify({ signal });
-          setListing(response?.data?.data)
-          console.log("response", response)
-        } catch (error) {
-          localStorage && localStorage.removeItem("AdminToken");
-          toast.error("Please log in first.");
-        }
-      }
+    //   const fetchData = async (signal) => {
+    //     try {
+    //       const main = new Listing();
+    //       const response = await main.profileVerify({ signal });
+    //       setListing(response?.data?.data)
+    //       console.log("response", response)
+    //     } catch (error) {
+    //       localStorage && localStorage.removeItem("AdminToken");
+    //       toast.error("Please log in first.");
+    //     }
+    //   }
     
-      useEffect(() => {
-        fetchData();
-      }, []);
+    //   useEffect(() => {
+    //     fetchData();
+    //   }, []);
     return (
         <>
             <div className=" px-4 py-2 lg:px-10 lg:py-2.5">

@@ -4,7 +4,6 @@ import { useNavigate, useParams } from "react-router-dom";
 import Listing from "../Apis/Listing";
 import ImageUploader from "./ImageUploader";
 import SideBarAdmin from "../common/SideBarAdmin";
-import HeaderAdmin from "../common/HeaderAdmin";
 
 const ProjectAdd = () => {
     const { Id } = useParams();
@@ -12,16 +11,18 @@ const ProjectAdd = () => {
     const navigate = useNavigate();
     const [loading, setLoading] = useState(false);
     const [images, setImages] = useState([]);
-    const [dragId, setDragId] = useState("");
     const [instructorDetails, setInstructorDetails] = useState({
-        Image: "",
         content: "",
         title: "",
         category: "",
         client: "",
         date: "",
+        client_review: "",
+        client_name: ""
     });
+    console.log("images", images)
 
+    console.log("instructorDetails", instructorDetails)
     const fetchInstructorData = async () => {
         setLoading(true);
         try {
@@ -79,12 +80,7 @@ const ProjectAdd = () => {
 
         try {
             let response;
-            if (Id) {
-                response = await main.ProjectUpdate(instructorDetails);
-            } else {
-                response = await main.ProjectAdds(instructorDetails);
-            }
-
+            response = await main.ProjectAdds(instructorDetails);
             if (response?.data) {
                 toast.success(response.data.message || "Operation successful");
                 if (!Id) {
@@ -195,6 +191,42 @@ const ProjectAdd = () => {
                             </div>
                         </div>
 
+                        {/* Short Content */}
+                        <div>
+                            <label className="block text-sm font-medium text-gray-700">Client Review</label>
+                            <textarea
+                                type="text"
+                                name="client_review"
+                                value={instructorDetails.client_review}
+                                onChange={(e) => {
+                                    if (e.target.value.length > 300) {
+                                        return;
+                                    }
+                                    setInstructorDetails((prev) => ({
+                                        ...prev,
+                                        [e.target.name]: e.target.value,
+                                    }));
+                                }}
+                                required
+                                rows={6}
+                                className="border border-gray-300 p-2 rounded-md w-full"
+
+                            />
+
+                            <div className="flex flex-wrap justify-between">
+                                <label className="block text-sm mb-2 font-medium text-start text-gray-700 mt-3">
+                                    {instructorDetails.client_review ? (
+                                        <span>{instructorDetails.client_review.length}/300 characters</span>
+                                    ) : (
+                                        <span>0/300 characters</span>
+                                    )}
+                                </label>
+                                <label className="block text-sm mb-2 font-medium text-end text-gray-700 mt-3">
+                                    Minimum 300 words.
+                                </label>
+                            </div>
+                        </div>
+
                         <div>
                             <label className="block text-sm font-medium text-gray-700">Project Client</label>
                             <input
@@ -238,7 +270,7 @@ const ProjectAdd = () => {
                         >
                             <label className="block text-sm font-medium text-gray-700">Project Image</label>
 
-                            <ImageUploader images={images} setImages={setImages} />
+                            <ImageUploader images={images} setImages={setImages} setInstructorDetails={setInstructorDetails} />
 
                         </div>
                         {/* Submit Button */}

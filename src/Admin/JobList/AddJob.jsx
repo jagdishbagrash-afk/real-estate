@@ -9,14 +9,36 @@ function AddJob({ item, fetchTeamList }) {
     const [formData, setFormData] = useState({
         name: item?.name || "",
         position: item?.position || "",
-        imageUrl: "",
+        imageUrl: item?.imageUrl || "",
         _id: item?._id
     });
+    const [preview, setPreview] = useState(item?.imageUrl || "");
 
     // Handle input change
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData((prev) => ({ ...prev, [name]: value }));
+    };
+
+    // Handle image file select
+    const handleImageChange = (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            // Preview image
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setPreview(reader.result);
+                setFormData((prev) => ({ ...prev, imageUrl: reader.result }));
+            };
+            reader.readAsDataURL(file);
+
+            // Here, you can also call an API to upload the image and get URL
+            // Example:
+            // const form = new FormData();
+            // form.append("file", file);
+            // const uploadResponse = await uploadImageAPI(form);
+            // setFormData(prev => ({ ...prev, imageUrl: uploadResponse.url }));
+        }
     };
 
     // Handle form submit
@@ -31,7 +53,7 @@ function AddJob({ item, fetchTeamList }) {
             if (item?._id) {
                 // Edit existing team member
                 response = await main.Editeam({
-                    _id: item._id, // Make sure you pass ID
+                    _id: item._id,
                     name: formData.name,
                     position: formData.position,
                     imageUrl: formData.imageUrl,
@@ -45,10 +67,10 @@ function AddJob({ item, fetchTeamList }) {
                 });
             }
 
-            console.log("Success:", response);
             toast.success(response.data.message);
-            setShowModal(false); // Close modal after submit
+            setShowModal(false);
             setFormData({ name: "", position: "", imageUrl: "" });
+            setPreview("");
             fetchTeamList();
         } catch (error) {
             console.error("Error:", error);
@@ -58,10 +80,9 @@ function AddJob({ item, fetchTeamList }) {
         }
     };
 
-
     return (
         <>
-            <div className=" px-2 py-4 text-center">
+            <div className="px-2 py-4 text-center">
                 <button
                     onClick={() => setShowModal(true)}
                     className="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition"
@@ -84,7 +105,7 @@ function AddJob({ item, fetchTeamList }) {
                         <h2 className="text-2xl font-semibold mb-4">Add Team Member</h2>
 
                         <form onSubmit={handleSubmit} className="space-y-4">
-                            <div className="grid grid-cols-1  gap-4">
+                            <div className="grid grid-cols-1 gap-4">
                                 <input
                                     type="text"
                                     name="name"
@@ -104,13 +125,18 @@ function AddJob({ item, fetchTeamList }) {
                                     required
                                 />
                                 <input
-                                    type="text"
-                                    name="imageUrl"
-                                    placeholder="Image URL"
-                                    value={formData.imageUrl}
-                                    onChange={handleChange}
+                                    type="file"
+                                    accept="image/*"
+                                    onChange={handleImageChange}
                                     className="border border-gray-300 p-2 rounded-md w-full"
                                 />
+                                {preview && (
+                                    <img
+                                        src={preview}
+                                        alt="Preview"
+                                        className="h-32 w-32 object-cover rounded-md mt-2"
+                                    />
+                                )}
                             </div>
 
                             <button
@@ -118,7 +144,7 @@ function AddJob({ item, fetchTeamList }) {
                                 disabled={loading}
                                 className="mt-4 px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
                             >
-                                {loading ? "Processing..." : "Team Member"}
+                                {loading ? "Processing..." : item?._id ? "Update Team Member" : "Add Team Member"}
                             </button>
                         </form>
                     </div>

@@ -1,5 +1,6 @@
 import { Component } from 'react';
-import Api from './Api';
+import { Api, ApiallowFile } from "./Api";
+
 class Listing extends Component {
 
     async adminlogin(data) {
@@ -7,7 +8,7 @@ class Listing extends Component {
     }
 
     async profileVerify(){
-        return Api.get("/profile-token")
+        return Api.get("/profile")
     }
 
     async resetpassword(data) {
@@ -33,7 +34,7 @@ class Listing extends Component {
 
 
     async ProjectAdds(data) {
-        return Api.post("/project-add", data)
+        return ApiallowFile.post("/project-add", data)
     }
 
     async subscribe(data) {
@@ -45,10 +46,13 @@ class Listing extends Component {
     }
 
     async AddTeam(data) {
-        return Api.post("/teams", data)
+        return ApiallowFile.post("/teams", data)
     }
 
 
+  async DeleteTeam(data) {
+        return Api.post("/teams-delete", data)
+    }
 
     async BlogAdd(data) {
         return Api.post("/blog/create", data)

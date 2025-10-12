@@ -1,29 +1,60 @@
 import axios from 'axios';
-const APP_URL = process.env.REACT_APP_URL || "https://real-state-backend-ecru.vercel.app/api/"
+
+const API_URL = "http://localhost:5000/api/";
+
+
 function getToken() {
-  const data = localStorage && localStorage.getItem('token');
-  return data; 
+  if (typeof window !== 'undefined') {
+    const data = localStorage.getItem('token');
+    return data;
+  }
+  return null;
 }
 
+
+
 let Api = axios.create({
-  baseURL: APP_URL,
+  baseURL: API_URL,
   headers: {
     'Accept': 'application/json',
-    'Authorization': `Bearer ${getToken()}`
+    'Access-Control-Allow-Origin': '*',
+    // "Content-Type": "multipart/form-data",
   }
 });
 
 Api.interceptors.request.use(
   async (config) => {
-      const token = getToken();
-      if (token !== null) {
-          config.headers.Authorization = `Bearer ${token}`;
-      }
-      return config; 
+    const token = getToken();
+    if (token !== null) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
   },
   (error) => {
-      return Promise.reject(error);
+    return Promise.reject(error);
   }
 );
 
-export default Api;
+let ApiallowFile = axios.create({
+  baseURL: API_URL,
+  headers: {
+    'Accept': 'application/json',
+    'Access-Control-Allow-Origin': '*',
+    "Content-Type": "multipart/form-data",
+  }
+});
+
+ApiallowFile.interceptors.request.use(
+  async (config) => {
+    const token = getToken();
+    if (token !== null) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  }
+);
+
+export {Api, ApiallowFile};

@@ -87,39 +87,7 @@ const Profileupdate = () => {
   return (
     <div className="w-full ">
       {/* Heading */}
-      <div className="mb-6 ">
-        <h3 className="text-2xl font-semibold text-gray-800">Update Profile</h3>
-        <p className="text-gray-500 text-sm">
-          Manage your personal information
-        </p>
-      </div>
-
-      {/* Form */}
       <form onSubmit={handleForms} className="space-y-6">
-        {/* Profile Image Upload */}
-        <div className="flex flex-col items-left space-y-3">
-          <div className="relative w-28 h-28">
-            <img
-              src={
-                uploadedImageUrl ||
-                "https://via.placeholder.com/150?text=Profile"
-              }
-              alt="Profile Preview"
-              className="w-28 h-28 rounded-full object-cover border border-gray-300"
-            />
-            <label className="absolute bottom-0 right-0 bg-blue-600 text-white rounded-full p-2 cursor-pointer shadow-md hover:bg-blue-700 transition">
-              <input
-                type="file"
-                onChange={handleFileInput}
-                className="hidden"
-                accept="image/*"
-              />
-              <span className="text-xs">✎</span>
-            </label>
-          </div>
-          <p className="text-sm text-gray-500">Upload Profile Picture</p>
-        </div>
-
         {/* Name */}
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">

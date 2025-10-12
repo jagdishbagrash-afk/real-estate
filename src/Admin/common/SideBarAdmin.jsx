@@ -68,15 +68,6 @@ function SideBarAdmin() {
                 <ul className="space-y-3">
                     <li>
                         <Link
-                            to="/admin/dashboard"
-                            className={linkClasses("/admin/dashboard")}
-                        >
-                            <MdDashboard size={24} />
-                            Dashboard
-                        </Link>
-                    </li>
-                    <li>
-                        <Link
                             to="/admin/team"
                             className={linkClasses("/admin/team")}
                         >
@@ -93,16 +84,6 @@ function SideBarAdmin() {
                             Contact List
                         </Link>
                     </li>
-                    <li>
-                        <Link
-                            to="/admin/blog-list"
-                            className={linkClasses("/admin/blog-list")}
-                        >
-                            <SiBloglovin size={24} />
-                            Blog List
-                        </Link>
-                    </li>
-
                     <li>
                         <Link
                             to="/admin/job-list"

@@ -1,18 +1,28 @@
 import React, { useState } from "react";
 import { MdAdd } from "react-icons/md";
 
-const ImageUploader = ({ images, setImages }) => {
+const ImageUploader = ({ images, setImages, setInstructorDetails }) => {
     const [dragIndex, setDragIndex] = useState(null);
 
     const handleFileChange = (e) => {
         const selectedFiles = Array.from(e.target.files);
         setImages([...images, ...selectedFiles]);
+        setInstructorDetails((prev) => ({
+            ...prev,
+            images: selectedFiles,
+        }));
     };
 
     const removeImage = (index) => {
         const newImages = [...images];
         newImages.splice(index, 1);
         setImages(newImages);
+
+        // ✅ instructorDetails से भी remove करें
+        setInstructorDetails((prev) => ({
+            ...prev,
+            images: newImages,
+        }));
     };
 
     const handleDragStart = (index) => {
@@ -25,7 +35,14 @@ const ImageUploader = ({ images, setImages }) => {
         updatedImages.splice(index, 0, draggedImage);
         setImages(updatedImages);
         setDragIndex(null);
+
+        // Sync with instructorDetails
+        setInstructorDetails((prev) => ({
+            ...prev,
+            images: updatedImages,
+        }));
     };
+
 
     const makeCoverImage = (index) => {
         const newImages = [...images];

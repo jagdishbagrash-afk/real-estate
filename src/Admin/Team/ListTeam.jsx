@@ -5,6 +5,7 @@ import Nodata from "../common/Nodata";
 import SideBarAdmin from "../common/SideBarAdmin";
 import HeaderAdmin from "../common/HeaderAdmin";
 import AddTeam from "./AddTeam"
+import toast from "react-hot-toast";
 
 function ListTeam() {
     const [team, setTeams] = useState([]);
@@ -29,6 +30,30 @@ function ListTeam() {
     }, []);
 
     console.log("team", team)
+
+    async function DeleteFile(Id) {
+        if (loading) return;
+        setLoading(true);
+
+        const main = new Listing();
+        try {
+            let response;
+            if (Id) {
+                response = await main.DeleteTeam({_id :Id});
+            }
+            if (response?.data) {
+                toast.success(response.data.message);
+                fetchTeamList();
+            } else {
+                toast.error(response?.data?.message || "Unexpected error occurred.");
+            }
+        } catch (error) {
+            console.error("error", error);
+            toast.error(error?.response?.data?.message || "Something went wrong.");
+        } finally {
+            setLoading(false);
+        }
+    }
     return (
         <div className="md:flex flex-wrap bg-[#F5F6FB]">
             <SideBarAdmin />
@@ -41,7 +66,7 @@ function ListTeam() {
                             <h3 className="text-base lg:text-lg font-semibold text-[#1E1E1E] tracking-[-0.03em]">
                                 Team Members
                             </h3>
-                            <AddTeam />
+                            <AddTeam fetchTeamList={fetchTeamList} />
                         </div>
 
                         <div className="overflow-x-auto">
@@ -57,6 +82,8 @@ function ListTeam() {
                                             <th className="px-3 py-3 text-sm font-medium text-[#8D929A] text-left uppercase">Image</th>
                                             <th className="px-3 py-3 text-sm font-medium text-[#8D929A] text-left uppercase">Name</th>
                                             <th className="px-3 py-3 text-sm font-medium text-[#8D929A] text-left uppercase">Role</th>
+                                            <th className="px-3 py-3 text-sm font-medium text-[#8D929A] text-left uppercase">Delete</th>
+
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -69,13 +96,23 @@ function ListTeam() {
                                                     {index + 1}
                                                 </td>
                                                 <td className="px-3 py-4 text-[15px] font-medium text-[#46494D]">
-                                                    {member.name}
+                                                    <div className="w-20 h-20 md:w-32 md:h-32 flex items-center justify-center overflow-hidden rounded-full border border-gray-200">
+                                                        <img
+                                                            src={member.imageUrl}
+                                                            alt={member.name}
+                                                            className="w-full h-full object-cover"
+                                                        />
+                                                    </div>
                                                 </td>
+
                                                 <td className="px-3 py-4 text-[15px] font-medium text-[#46494D]">
                                                     {member.name}
                                                 </td>
                                                 <td className="px-3 py-4 text-[15px] font-medium text-[#46494D]">
                                                     {member.position}
+                                                </td>
+                                                <td className="px-3 py-4 text-[15px] font-medium text-[#46494D]" onClick={() => { DeleteFile(member._id) }}>
+                                                    Delete
                                                 </td>
                                             </tr>
                                         ))}

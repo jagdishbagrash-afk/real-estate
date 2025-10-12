@@ -2,21 +2,29 @@ import { useState } from "react";
 import Listing from "../Apis/Listing";
 import toast from "react-hot-toast";
 import { MdAdd, MdEdit } from "react-icons/md";
-
 function AddJob({ item, fecthJobList }) {
+    const [preview, setPreview] = useState(item?.imageUrl || "");
     const [loading, setLoading] = useState(false);
     const [showModal, setShowModal] = useState(false);
     const [formData, setFormData] = useState({
         title: item?.title || "",
         location: item?.location || "",
-        job_type: item?.job_type || "",
+        employment_type: item?.employment_type || "",
         experience: item?.experience || "",
-        about: item?.about || "",
-        responsibilities: item?.responsibilities || "",
-        qualifications: item?.qualifications || "",
-        offers: item?.offers || "",
+        content: item?.content || "",
+        Skills: item?.Skills || "",
         _id: item?._id
     });
+
+    const handleUpload = (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            setFormData((prev) => ({ ...prev, file }));
+            setPreview(URL.createObjectURL(file)); // show preview
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+    };
+
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -28,22 +36,27 @@ function AddJob({ item, fecthJobList }) {
         setLoading(true);
         try {
             const main = new Listing();
-            let response;
-            if (item?._id) {
-                response = await main.EditJob(formData);
-            } else {
-                response = await main.AddJob(formData);
+            const data = new FormData();
+            data.append("title", formData.title);
+            data.append("location", formData.location);
+            data.append("employment_type", formData.employment_type);
+            data.append("experience", formData.experience);
+            data.append("content", formData.content);
+            data.append("Skills", formData.Skills);
+            if (formData.file) {
+                data.append("file", formData.file); // append file
             }
+            const response = await main.AddJob(data);
             toast.success(response.data.message);
             fecthJobList();
             setShowModal(false);
             setFormData({
                 title: "",
                 location: "",
-                job_type: "",
+                employment_type: "",
                 experience: "",
-                about: "",
-                responsibilities: "",
+                content: "",
+                Skills: "",
                 qualifications: "",
                 offers: ""
             });
@@ -66,7 +79,7 @@ function AddJob({ item, fecthJobList }) {
                         <MdEdit />
                     ) : (
                         <>
-                          + Add Job 
+                          <MdAdd/> Add Job
                         </>
                     )}
                 </button>
@@ -117,9 +130,9 @@ function AddJob({ item, fecthJobList }) {
                                     <label className="block text-gray-700">Job Type</label>
                                     <input
                                         type="text"
-                                        name="job_type"
+                                        name="employment_type"
                                         placeholder="e.g. Full-time, Part-time"
-                                        value={formData.job_type}
+                                        value={formData.employment_type}
                                         onChange={handleChange}
                                         className="border border-gray-300 p-2 rounded-md w-full"
                                     />
@@ -138,11 +151,11 @@ function AddJob({ item, fecthJobList }) {
                                 </div>
 
                                 <div>
-                                    <label className="block text-sm font-medium text-gray-700">About the Job</label>
+                                    <label className="block text-sm font-medium text-gray-700">content the Job</label>
                                     <textarea
                                         type="text"
-                                        name="about"
-                                        value={formData.about}
+                                        name="content"
+                                        value={formData.content}
                                         onChange={(e) => {
                                             if (e.target.value.length > 300) {
                                                 return;
@@ -160,8 +173,8 @@ function AddJob({ item, fecthJobList }) {
 
                                     <div className="flex flex-wrap justify-between">
                                         <label className="block text-sm mb-2 font-medium text-start text-gray-700 mt-3">
-                                            {formData.about ? (
-                                                <span>{formData.about.length}/300 characters</span>
+                                            {formData.content ? (
+                                                <span>{formData.content.length}/300 characters</span>
                                             ) : (
                                                 <span>0/300 characters</span>
                                             )}
@@ -172,40 +185,34 @@ function AddJob({ item, fecthJobList }) {
                                     </div>
                                 </div>
                                 <div>
-                                    <label className="block text-gray-700">Responsibilities</label>
+                                    <label className="block text-gray-700">Skills</label>
                                     <textarea
-                                        name="responsibilities"
-                                        placeholder="List responsibilities"
-                                        value={formData.responsibilities}
+                                        name="Skills"
+                                        placeholder="List Skills"
+                                        value={formData.Skills}
                                         onChange={handleChange}
                                         className="border border-gray-300 p-2 rounded-md w-full"
                                         rows={3}
                                     />
                                 </div>
+                            </div>
 
-                                <div>
-                                    <label className="block text-gray-700">Qualifications</label>
-                                    <textarea
-                                        name="qualifications"
-                                        placeholder="Required qualifications"
-                                        value={formData.qualifications}
-                                        onChange={handleChange}
-                                        className="border border-gray-300 p-2 rounded-md w-full"
-                                        rows={3}
-                                    />
-                                </div>
+                            <div>
+                                <label className="block text-sm font-medium text-gray-700">content Image</label>
 
-                                <div>
-                                    <label className="block text-gray-700">Offers/Benefits</label>
-                                    <textarea
-                                        name="offers"
-                                        placeholder="Salary, perks, etc."
-                                        value={formData.offers}
-                                        onChange={handleChange}
-                                        className="border border-gray-300 p-2 rounded-md w-full"
-                                        rows={2}
+                                <input
+                                    type="file"
+                                    accept="image/*"
+                                    onChange={handleUpload}
+                                    className="border border-gray-300 p-2 rounded-md w-full"
+                                />
+                                {preview && (
+                                    <img
+                                        src={preview}
+                                        alt="Preview"
+                                        className="h-32 w-32 object-cover rounded-md mt-2"
                                     />
-                                </div>
+                                )}
                             </div>
 
                             <button
