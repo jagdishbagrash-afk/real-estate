@@ -11,32 +11,32 @@ const SliderWithFade = () => {
 
   const slides = [
     {
-      front: "/work/RudraMahal.jpg",
-      back: "/work/RudraMahal.jpg",
+      front: "https://cadmaxpro-buket.s3.ap-south-1.amazonaws.com/assets/work/RudraMahal.jpg",
+      back: "https://cadmaxpro-buket.s3.ap-south-1.amazonaws.com/assets/work/RudraMahal.jpg",
       title: "Rudra Mahal – a luxury five star hotel,  Mundota,Rajasthan ",
       slug: "rudra-mahal"
     },
     {
-      front: "/work/MAJARDAMECH-6_page-0001.jpg",
-      back: "/work/MAJARDAMECH-6_page-0001.jpg",
+      front: "https://cadmaxpro-buket.s3.ap-south-1.amazonaws.com/assets/work/MAJARDAMECH-6_page-0001.jpg",
+      back: "https://cadmaxpro-buket.s3.ap-south-1.amazonaws.com/assets/work/MAJARDAMECH-6_page-0001.jpg",
       title: "Drayvavati river - a major South-flowing river in Rajasthan",
       slug: "dravyawati-river"
     },
     {
-      front: "/work/Shivam.jpg",
-      back: "/work/Shivam.jpg",
+      front: "https://cadmaxpro-buket.s3.ap-south-1.amazonaws.com/assets/work/Shivam.jpg",
+      back: "https://cadmaxpro-buket.s3.ap-south-1.amazonaws.com/assets/work/Shivam.jpg",
       title: "SHIVAM MAJESTIC – A STUNNING SKYSCRAPER,JAIPUR",
       slug: "shivam-magnus"
     },
     {
-      front: "/work/Cadmax.jpg",
-      back: "/work/Cadmax.jpg",
+      front: "https://cadmaxpro-buket.s3.ap-south-1.amazonaws.com/assets/work/Cadmax.jpg",
+      back: "https://cadmaxpro-buket.s3.ap-south-1.amazonaws.com/assets/work/Cadmax.jpg",
       slug: "cadmax-group-headoffice",
       title: "Cadmax Consultancy Pvt. Ltd. ; Jaipur",
     },
     {
-      front: "/work/ravi.jpg",
-      back: "/work/ravi.jpg",
+      front: "https://cadmaxpro-buket.s3.ap-south-1.amazonaws.com/assets/work/ravi.jpg",
+      back: "https://cadmaxpro-buket.s3.ap-south-1.amazonaws.com/assets/work/ravi.jpg",
       title: "CADMAX VELLEY – A POSH COLONY,JAIPUR",
       slug: "ravi-kiran-vihar"
     },

@@ -1,15 +1,15 @@
 {
   "cities": [
-    { "name": "Rajasthan", "img": "/city/jaipur.avif" },
-    { "name": "Hariyana", "img": "/city/panorama-science-centre.jpg" },
-    { "name": "Uttrakhand", "img": "/city/utrakhad.jpg" },
-    { "name": "Punjab", "img": "/city/punjab.jpeg" },
-    { "name": "Maharashtra", "img": "/city/pune.jpg" },
-    { "name": "Madhya Pradesh", "img": "/city/Narmada-River-Maheshwar-Madhya-Pradesh-India.webp" },
-    { "name": "Telangana", "img": "/city/Telangana.jpg" },
-    { "name": "Gujrat", "img": "/city/Statue-of-Unity-Legacy.jpg" },
-    { "name": "Tamil Nadu", "img": "/city/chennia.jpg" },
-    { "name": "Karnataka", "img": "/city/banglore.jpg" }
+    { "name": "Rajasthan", "img": "https://cadmaxpro-buket.s3.ap-south-1.amazonaws.com/assets/city/jaipur.avif" },
+    { "name": "Hariyana", "img": "https://cadmaxpro-buket.s3.ap-south-1.amazonaws.com/assets/city/panorama-science-centre.jpg" },
+    { "name": "Uttrakhand", "img": "https://cadmaxpro-buket.s3.ap-south-1.amazonaws.com/assets/city/utrakhad.jpg" },
+    { "name": "Punjab", "img": "https://cadmaxpro-buket.s3.ap-south-1.amazonaws.com/assets/city/punjab.jpeg" },
+    { "name": "Maharashtra", "img": "https://cadmaxpro-buket.s3.ap-south-1.amazonaws.com/assets/city/pune.jpg" },
+    { "name": "Madhya Pradesh", "img": "https://cadmaxpro-buket.s3.ap-south-1.amazonaws.com/assets/city/Narmada-River-Maheshwar-Madhya-Pradesh-India.webp" },
+    { "name": "Telangana", "img": "https://cadmaxpro-buket.s3.ap-south-1.amazonaws.com/assets/city/Telangana.jpg" },
+    { "name": "Gujrat", "img": "https://cadmaxpro-buket.s3.ap-south-1.amazonaws.com/assets/city/Statue-of-Unity-Legacy.jpg" },
+    { "name": "Tamil Nadu", "img": "https://cadmaxpro-buket.s3.ap-south-1.amazonaws.com/assets/city/chennia.jpg" },
+    { "name": "Karnataka", "img": "https://cadmaxpro-buket.s3.ap-south-1.amazonaws.com/assets/city/banglore.jpg" }
   ] 
 }
 

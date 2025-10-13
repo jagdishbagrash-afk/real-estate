@@ -12,11 +12,11 @@ export default function OurServices() {
   const navigate = useNavigate();
 
   const services = [
-  { title: "URBAN PLANNING", image: "/work/FINALNADHALLAYOUT20_page-0001.jpg", slug: "urban-planning" },
-  { title: "REAL STATE", image: "/work/realestate.jpg", slug: "real-state" },
-  { title: "INFRASTRUCTURE ", image: "/work/Infrastructure.jpg", slug: "infrastructure" },
-  { title: "ARCHITECTURE", image: "/work/Acrchitecture.jpg", slug: "architecture" },
-  { title: "Interior Designing", image: "/work/Interior.png", slug: "interior-designing" },
+  { title: "URBAN PLANNING", image: "https://cadmaxpro-buket.s3.ap-south-1.amazonaws.com/assets/work/FINALNADHALLAYOUT20_page-0001.jpg", slug: "urban-planning" },
+  { title: "REAL STATE", image: "https://cadmaxpro-buket.s3.ap-south-1.amazonaws.com/assets/work/realestate.jpg", slug: "real-state" },
+  { title: "INFRASTRUCTURE ", image: "https://cadmaxpro-buket.s3.ap-south-1.amazonaws.com/assets/work/Infrastructure.jpg", slug: "infrastructure" },
+  { title: "ARCHITECTURE", image: "https://cadmaxpro-buket.s3.ap-south-1.amazonaws.com/assets/work/Acrchitecture.jpg", slug: "architecture" },
+  { title: "Interior Designing", image: "https://cadmaxpro-buket.s3.ap-south-1.amazonaws.com/assets/work/Interior.png", slug: "interior-designing" },
 ];
 
   return (

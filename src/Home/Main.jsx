@@ -23,13 +23,13 @@ function Main() {
 
   const slides = [
     {
-      front: "/services/LANDMARK-001.jpg",
+      front: "https://cadmaxpro-buket.s3.ap-south-1.amazonaws.com/assets/services/LANDMARK-001.jpg",
     },
     {
-      front: "/services/banner.jpg",
+      front: "https://cadmaxpro-buket.s3.ap-south-1.amazonaws.com/assets/services/banner.jpg",
     },
     {
-      front: "/services/ServicesPhoto.jpg",
+      front: "https://cadmaxpro-buket.s3.ap-south-1.amazonaws.com/assets/services/ServicesPhoto.jpg",
     }
   ]
   useEffect(() => {

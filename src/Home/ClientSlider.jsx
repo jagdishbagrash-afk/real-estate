@@ -8,15 +8,15 @@ import 'swiper/css/navigation';
 const ClientSlider = () => {
 
     const slides = [
-    { front: "/logo/ASHIYANA.png", back: "/logo/ASHIYANA.png", title: 'Ashiana Housing Ltd' },
-    { front: "/logo/KEDIABUILDERS.jpg", back: "/logo/KEDIABUILDERS.jpg", title: 'Kedia Builders & Colonizers' },
-    { front: "/logo/MAHIMA.png", back: "/logo/MAHIMA.png", title: 'Manglam Group' },
-    { front: '/logo/MAHINDRAW.png', back: "/logo/MAHINDRAW.png", title: 'Mahindra World City, Jaipur' },
-    { front: "/logo/MANGLAMGROUP.png", back: "/logo/MANGLAMGROUP.png", title: 'Mahima Group' },
-    { front: "/logo/goorej.png", back: "/logo/goorej.png", title: 'GODREJ GROUP, Jaipur' },
-    { front: "/logo/riyasat.jpg", back: "/logo/riyasat.jpg", title: 'Riyasat GROUP, Jaipur' },
-    { front: "/logo/tvtv.jpg", back: "/logo/tvtv.jpg", title: 'TATA Projects Enterprise' },
-    { front: "/logo/ultratech.jpg", back: "/logo/ultratech.jpg", title: 'UltraTech Cement Ltd' },
+    { front: "https://cadmaxpro-buket.s3.ap-south-1.amazonaws.com/assets/logo/ASHIYANA.png", back: "https://cadmaxpro-buket.s3.ap-south-1.amazonaws.com/assets/logo/ASHIYANA.png", title: 'Ashiana Housing Ltd' },
+    { front: "https://cadmaxpro-buket.s3.ap-south-1.amazonaws.com/assets/logo/KEDIABUILDERS.jpg", back: "https://cadmaxpro-buket.s3.ap-south-1.amazonaws.com/assets/logo/KEDIABUILDERS.jpg", title: 'Kedia Builders & Colonizers' },
+    { front: "https://cadmaxpro-buket.s3.ap-south-1.amazonaws.com/assets/logo/MAHIMA.png", back: "https://cadmaxpro-buket.s3.ap-south-1.amazonaws.com/assets/logo/MAHIMA.png", title: 'Manglam Group' },
+    { front: 'https://cadmaxpro-buket.s3.ap-south-1.amazonaws.com/assets/logo/MAHINDRAW.png', back: "https://cadmaxpro-buket.s3.ap-south-1.amazonaws.com/assets/logo/MAHINDRAW.png", title: 'Mahindra World City, Jaipur' },
+    { front: "https://cadmaxpro-buket.s3.ap-south-1.amazonaws.com/assets/logo/MANGLAMGROUP.png", back: "https://cadmaxpro-buket.s3.ap-south-1.amazonaws.com/assets/logo/MANGLAMGROUP.png", title: 'Mahima Group' },
+    { front: "https://cadmaxpro-buket.s3.ap-south-1.amazonaws.com/assets/logo/goorej.png", back: "https://cadmaxpro-buket.s3.ap-south-1.amazonaws.com/assets/logo/goorej.png", title: 'GODREJ GROUP, Jaipur' },
+    { front: "https://cadmaxpro-buket.s3.ap-south-1.amazonaws.com/assets/logo/riyasat.jpg", back: "https://cadmaxpro-buket.s3.ap-south-1.amazonaws.com/assets/logo/riyasat.jpg", title: 'Riyasat GROUP, Jaipur' },
+    { front: "https://cadmaxpro-buket.s3.ap-south-1.amazonaws.com/assets/logo/tvtv.jpg", back: "https://cadmaxpro-buket.s3.ap-south-1.amazonaws.com/assets/logo/tvtv.jpg", title: 'TATA Projects Enterprise' },
+    { front: "https://cadmaxpro-buket.s3.ap-south-1.amazonaws.com/assets/logo/ultratech.jpg", back: "https://cadmaxpro-buket.s3.ap-south-1.amazonaws.com/assets/logo/ultratech.jpg", title: 'UltraTech Cement Ltd' },
 ];
 
     return (

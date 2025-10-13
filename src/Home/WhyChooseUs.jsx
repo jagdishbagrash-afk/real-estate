@@ -1,7 +1,6 @@
 import AnimatedHeading from "../component/AnimatedHeading";
 
 export default function WhyChooseUs({ home }) {
-  console.log("home", home)
   return (
     <section className="bg-[#94A393] py-[40px] md:py-[50px] lg:py-[90px] px-4">
       <div className="max-w-[1320px] mx-auto text-center">
