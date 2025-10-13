@@ -23,13 +23,13 @@ function Main() {
 
   const slides = [
     {
-      front: "/home/homebg.jpg",
+      front: "/services/LANDMARK-001.jpg",
     },
     {
-      front: "/home/homebg.jpg",
+      front: "/services/banner.jpg",
     },
     {
-      front: "/home/homebg.jpg",
+      front: "/services/ServicesPhoto.jpg",
     }
   ]
   useEffect(() => {

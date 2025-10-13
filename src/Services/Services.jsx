@@ -15,11 +15,11 @@ function Services() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
   const services = [
-    { title: "URBAN PLANNING", image: "/work/FINALNADHALLAYOUT20_page-0001.jpg", slug: "urban-planning" },
-    { title: "REAL STATE", image: "/work/realestate.jpg", slug: "real-state" },
+    { title: "URBAN PLANNING", image: "/services/service22.jpg", slug: "urban-planning" },
+    { title: "REAL STATE", image: "/services/services11.jpg", slug: "real-state" },
     { title: "INFRASTRUCTURE ", image: "/work/Infrastructure.jpg", slug: "infrastructure" },
-    { title: "ARCHITECTURE", image: "/work/Acrchitecture.jpg", slug: "architecture" },
-    { title: "INTERIOR DESIGNING", image: "/work/Interior.png", slug: "interior-designing" },
+    { title: "ARCHITECTURE", image: "/services/services44.jpg", slug: "architecture" },
+    { title: "INTERIOR DESIGNING", image: "/services/service33.jpg", slug: "interior-designing" },
   ];
 
   return (
@@ -43,7 +43,7 @@ function Services() {
           </div>
         </div>
 
-          {/* {services && services.map((service, index) => (
+        {/* {services && services.map((service, index) => (
                 <Link
                   to={`/services/${service?.slug}`}
                   className="relative group cursor-pointer overflow-hidden w-full h-full "
