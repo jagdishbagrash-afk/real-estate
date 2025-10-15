@@ -113,7 +113,7 @@ const ProjectList = () => {
                           {blog?.short_content || blog?.content?.slice(0, 100) || "No content available."}
                         </p>
 
-                        <div className="flex justify-between items-center mt-4 border-t pt-3">
+                        {/* <div className="flex justify-between items-center mt-4 border-t pt-3">
                           <Link
                             to={`/admin/project-update/${blog._id}`}
                             className="p-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
@@ -127,7 +127,7 @@ const ProjectList = () => {
                             step={4}
                             fetchTeamList={fetchMarketLists}
                           />
-                        </div>
+                        </div> */}
                       </div>
                     </div>
                   ))}

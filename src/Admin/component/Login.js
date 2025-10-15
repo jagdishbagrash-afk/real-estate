@@ -28,7 +28,7 @@ function Login() {
             const response = await main.adminlogin(Regs);
             if (response?.data?.status === true) {
                 localStorage.setItem("token", response.data.token);
-                navigate("/admin/dashboard");
+                navigate("/admin/project-list");
                 toast.success(response.data.message);
             } else {
                 toast.error("Invalid email/password");
