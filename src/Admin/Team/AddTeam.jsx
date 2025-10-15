@@ -39,14 +39,11 @@ function AddTeam({ item, fetchTeamList }) {
     try {
       const main = new Listing();
       const data = new FormData();
-
       data.append("name", formData.name);
       data.append("position", formData.position);
-
       if (formData.file) {
         data.append("file", formData.file); // append file
       }
-
       let response;
 
       if (item?._id) {

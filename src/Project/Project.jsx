@@ -6,69 +6,6 @@ import Banner from "../component/Banner";
 
 function Project() {
 
-    const projects = [
-        {
-            title: "Cadmax Group Headoffice",
-            link: "/project/cadmax-group-headoffice",
-            image: "/project/RK_02188.jpg",
-            minHeight: { base: "350px", md: "400px", lg: "600px", xl: "730px" },
-        },
-        {
-            title: "Ravi Kiran Vihar",
-            link: "/project/ravi-kiran-vihar",
-            image: "/project/Ravi.jpg",
-            minHeight: { base: "300px", md: "350px", lg: "400px", xl: "450px" },
-        },
-        {
-            title: "Shivam Majestic",
-            link: "/project/shivam-majestic",
-            image: "/services/HAMSAfinaloct01(1).jpg",
-            minHeight: { base: "350px", md: "400px", lg: "600px", xl: "730px" },
-        },
-        {
-            title: "Sukoon Farms",
-            link: "/project/sukoon-farms",
-            image: "/project/SUKOON.jpg",
-            minHeight: { base: "300px", md: "350px", lg: "400px", xl: "450px" },
-        },
-        {
-            title: "Cadmax Valley",
-            link: "/project/cadmax-valley",
-            image: "/project/renderA01.jpg",
-            minHeight: { base: "350px", md: "400px", lg: "600px", xl: "730px" },
-            upcoming: true, // special badge
-        },
-        {
-            title: "Dravyawati River",
-            link: "/project/dravyawati-river",
-            image: "/project/FrbWZYLWYAInZAr.jpg",
-            minHeight: { base: "300px", md: "350px", lg: "400px", xl: "450px" },
-        },
-        {
-            title: "Mangalam Vishwakarma Industrial Park",
-            link: "/project/mangalam-vishwakarma-industrial-park",
-            image: "/project/data.webp",
-            minHeight: { base: "350px", md: "400px", lg: "600px", xl: "730px" },
-        },
-        {
-            title: "Govind Bagh",
-            link: "/project/govind-bagh",
-            image: "/project/image-1.webp",
-            minHeight: { base: "300px", md: "350px", lg: "400px", xl: "450px" },
-        },
-        {
-            title: "Kedia’s Landmark",
-            link: "/project/kedia-landmark",
-            image: "/project/LANDMARK-003.jpg",
-            minHeight: { base: "350px", md: "400px", lg: "600px", xl: "730px" },
-        },
-        {
-            title: "Topographical Survey, Kumbhalgarh",
-            link: "/project/topographical-survey",
-            image: "/project/6-1519215128.jpg",
-            minHeight: { base: "300px", md: "350px", lg: "400px", xl: "450px" },
-        },
-    ];
     return (<>
         <div className="min-h-screen ">
             <Header />

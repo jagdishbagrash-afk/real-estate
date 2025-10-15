@@ -34,7 +34,7 @@ function CareerView() {
         <div className="md:flex flex-wrap bg-[#F5F6FB]">
             <SideBarAdmin />
             <div className="w-full lg:w-[calc(100%-304px)]">
-                <HeaderAdmin title={"Team Listing"} />
+                <HeaderAdmin title={"Carrer Listing"} />
 
                 <div className="px-4 py-2 lg:px-10 lg:py-2.5">
                     <div className="bg-white rounded-[20px] mb-[30px]">
@@ -80,9 +80,22 @@ function CareerView() {
                                                     {item.phone_number}
                                                 </td>  <td className="px-3 py-4 text-[15px] font-medium text-[#46494D]">
                                                     {item.position}
-                                                </td>  <td className="px-3 py-4 text-[15px] font-medium text-[#46494D]">
-                                                    {item.resume}
                                                 </td>
+                                                <td className="px-3 py-4 text-[15px] font-medium text-[#46494D]">
+                                                    {item.resume ? (
+                                                        <a
+                                                            href={item.resume}
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                            className="text-blue-600 hover:text-blue-800 underline"
+                                                        >
+                                                            View Resume
+                                                        </a>
+                                                    ) : (
+                                                        "No Resume"
+                                                    )}
+                                                </td>
+
                                             </tr>
                                         ))}
                                     </tbody>

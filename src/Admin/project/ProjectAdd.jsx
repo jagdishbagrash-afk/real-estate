@@ -18,9 +18,35 @@ const ProjectAdd = () => {
         client: "",
         date: "",
         client_review: "",
-        client_name: ""
+        client_name: "",
+        location: "",
+        banner_image: "",
+        list_image: "",
     });
     console.log("images", images)
+
+    // Handle file selection
+    const handleUpload = (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            setInstructorDetails((prev) => ({
+                ...prev,
+                banner_image: file,
+            }));
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+    };
+
+    const handleUploads = (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            setInstructorDetails((prev) => ({
+                ...prev,
+                list_image: file,
+            }));
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+    };
 
     console.log("instructorDetails", instructorDetails)
     const fetchInstructorData = async () => {
@@ -71,13 +97,25 @@ const ProjectAdd = () => {
         }));
     };
 
-
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (loading) return;
         setLoading(true);
         const main = new Listing();
-
+        const formData = new FormData();
+        console.log("formData" ,formData)
+formData.append("title", instructorDetails.title);
+formData.append("content", instructorDetails.content);
+formData.append("category", instructorDetails.category);
+formData.append("client", instructorDetails.client);
+formData.append("client_review", instructorDetails.client_review);
+formData.append("client_name", instructorDetails.client_name);
+formData.append("location", instructorDetails.location);
+formData.append("banner_image", instructorDetails.banner_image);
+formData.append("list_image", instructorDetails.list_image);
+images.forEach((img) => {
+  formData.append("images[]", img); // remove [] — most servers expect 'images' multiple times
+});
         try {
             let response;
             response = await main.ProjectAdds(instructorDetails);
@@ -163,9 +201,6 @@ const ProjectAdd = () => {
                                 name="content"
                                 value={instructorDetails.content}
                                 onChange={(e) => {
-                                    if (e.target.value.length > 300) {
-                                        return;
-                                    }
                                     setInstructorDetails((prev) => ({
                                         ...prev,
                                         [e.target.name]: e.target.value,
@@ -173,7 +208,7 @@ const ProjectAdd = () => {
                                 }}
                                 required
                                 rows={6}
-                                className="border border-gray-300 p-2 rounded-md w-full"
+                                className="border border-gray-300 p-2 rounded-md w-full text-black"
 
                             />
 
@@ -192,39 +227,21 @@ const ProjectAdd = () => {
                         </div>
 
                         {/* Short Content */}
+
+
+
+
                         <div>
-                            <label className="block text-sm font-medium text-gray-700">Client Review</label>
-                            <textarea
+                            <label className="block text-sm font-medium text-gray-700">Project Category</label>
+                            <input
                                 type="text"
-                                name="client_review"
-                                value={instructorDetails.client_review}
-                                onChange={(e) => {
-                                    if (e.target.value.length > 300) {
-                                        return;
-                                    }
-                                    setInstructorDetails((prev) => ({
-                                        ...prev,
-                                        [e.target.name]: e.target.value,
-                                    }));
-                                }}
+                                name="category"
+                                value={instructorDetails.category}
+                                onChange={handleInputChange}
                                 required
-                                rows={6}
                                 className="border border-gray-300 p-2 rounded-md w-full"
 
                             />
-
-                            <div className="flex flex-wrap justify-between">
-                                <label className="block text-sm mb-2 font-medium text-start text-gray-700 mt-3">
-                                    {instructorDetails.client_review ? (
-                                        <span>{instructorDetails.client_review.length}/300 characters</span>
-                                    ) : (
-                                        <span>0/300 characters</span>
-                                    )}
-                                </label>
-                                <label className="block text-sm mb-2 font-medium text-end text-gray-700 mt-3">
-                                    Minimum 300 words.
-                                </label>
-                            </div>
                         </div>
 
                         <div>
@@ -241,30 +258,72 @@ const ProjectAdd = () => {
                         </div>
 
                         <div>
-                            <label className="block text-sm font-medium text-gray-700">Project Category</label>
-                            <input
-                                type="text"
-                                name="category"
-                                value={instructorDetails.category}
-                                onChange={handleInputChange}
-                                required
-                                className="border border-gray-300 p-2 rounded-md w-full"
+                            <label className="block text-sm font-medium text-gray-700">Project List Image </label>
 
+                            <input
+                                type="file"
+                                accept="image/*"
+                                onChange={handleUploads}
+                                className="border border-gray-300 p-2 rounded-md w-full"
                             />
                         </div>
 
                         <div>
-                            <label className="block text-sm font-medium text-gray-700">Project Date</label>
+                            <label className="block text-sm font-medium text-gray-700">Project Banner Image </label>
+
                             <input
-                                type="date"
-                                name="date"
-                                value={instructorDetails.date}
-                                onChange={handleInputChange}
+                                type="file"
+                                accept="image/*"
+                                onChange={handleUpload}
+                                className="border border-gray-300 p-2 rounded-md w-full"
+                            />
+                        </div>
+
+                        <div>
+                            <label className="block text-sm font-medium text-gray-700">Client Review</label>
+                            <textarea
+                                type="text"
+                                name="client_review"
+                                value={instructorDetails.client_review}
+                                onChange={(e) => {
+                                    setInstructorDetails((prev) => ({
+                                        ...prev,
+                                        [e.target.name]: e.target.value,
+                                    }));
+                                }}
                                 required
+                                rows={6}
                                 className="border border-gray-300 p-2 rounded-md w-full"
 
                             />
+
+                            <div>
+                                <label className="block text-sm font-medium text-gray-700">Project Location</label>
+                                <input
+                                    type="text"
+                                    name="location"
+                                    value={instructorDetails.location}
+                                    onChange={handleInputChange}
+                                    required
+                                    className="border border-gray-300 p-2 rounded-md w-full"
+
+                                />
+                            </div>
+
+                            <div className="flex flex-wrap justify-between">
+                                <label className="block text-sm mb-2 font-medium text-start text-gray-700 mt-3">
+                                    {instructorDetails.client_review ? (
+                                        <span>{instructorDetails.client_review.length}/300 characters</span>
+                                    ) : (
+                                        <span>0/300 characters</span>
+                                    )}
+                                </label>
+                                <label className="block text-sm mb-2 font-medium text-end text-gray-700 mt-3">
+                                    Minimum 300 words.
+                                </label>
+                            </div>
                         </div>
+
 
                         <div
                         >

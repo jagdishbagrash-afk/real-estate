@@ -39,7 +39,7 @@ function ListTeam() {
         try {
             let response;
             if (Id) {
-                response = await main.DeleteTeam({_id :Id});
+                response = await main.DeleteTeam({ _id: Id });
             }
             if (response?.data) {
                 toast.success(response.data.message);
@@ -75,49 +75,32 @@ function ListTeam() {
                             ) : team.length === 0 ? (
                                 <Nodata />
                             ) : (
-                                <table className="min-w-full">
-                                    <thead>
-                                        <tr>
-                                            <th className="px-3 py-3 text-sm font-medium text-[#8D929A] text-left uppercase">#</th>
-                                            <th className="px-3 py-3 text-sm font-medium text-[#8D929A] text-left uppercase">Image</th>
-                                            <th className="px-3 py-3 text-sm font-medium text-[#8D929A] text-left uppercase">Name</th>
-                                            <th className="px-3 py-3 text-sm font-medium text-[#8D929A] text-left uppercase">Role</th>
-                                            <th className="px-3 py-3 text-sm font-medium text-[#8D929A] text-left uppercase">Delete</th>
+                                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 p-6">
+                                    {team.map((member, index) => (
+                                        <div
+                                            key={index}
+                                            className="flex flex-col items-start justify-start transform transition-transform duration-500 hover:-translate-y-4 min-h-[600px] bg-white shadow-md rounded-2xl p-4"
+                                        >
+                                            {/* Image Box */}
+                                            <div className="w-full h-[420px] flex items-center justify-center overflow-hidden bg-gray-50 rounded-xl">
+                                                <img
+                                                    src={member.imageUrl}
+                                                    alt={member.name}
+                                                    className="h-[380px] object-contain"
+                                                />
+                                            </div>
 
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {team.map((member, index) => (
-                                            <tr
-                                                key={member.id || index}
-                                                className="bg-white border-t hover:bg-gray-100"
-                                            >
-                                                <td className="px-3 py-4 text-[15px] font-medium text-[#46494D]">
-                                                    {index + 1}
-                                                </td>
-                                                <td className="px-3 py-4 text-[15px] font-medium text-[#46494D]">
-                                                    <div className="w-20 h-20 md:w-32 md:h-32 flex items-center justify-center overflow-hidden rounded-full border border-gray-200">
-                                                        <img
-                                                            src={member.imageUrl}
-                                                            alt={member.name}
-                                                            className="w-full h-full object-cover"
-                                                        />
-                                                    </div>
-                                                </td>
+                                            {/* Text */}
+                                            <p className="text-start font-semibold mt-3 text-[18px] md:text-[20px] lg:text-[22px] text-[#000112]">
+                                                {member.name}
+                                            </p>
+                                            <p className="text-start text-[14px] md:text-[16px] lg:text-[18px] text-[#94A393] font-medium uppercase">
+                                                {member.position}
+                                            </p>
+                                        </div>
+                                    ))}
+                                </div>
 
-                                                <td className="px-3 py-4 text-[15px] font-medium text-[#46494D]">
-                                                    {member.name}
-                                                </td>
-                                                <td className="px-3 py-4 text-[15px] font-medium text-[#46494D]">
-                                                    {member.position}
-                                                </td>
-                                                <td className="px-3 py-4 text-[15px] font-medium text-[#46494D]" onClick={() => { DeleteFile(member._id) }}>
-                                                    Delete
-                                                </td>
-                                            </tr>
-                                        ))}
-                                    </tbody>
-                                </table>
                             )}
                         </div>
                     </div>

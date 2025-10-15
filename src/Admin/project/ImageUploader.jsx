@@ -18,7 +18,6 @@ const ImageUploader = ({ images, setImages, setInstructorDetails }) => {
         newImages.splice(index, 1);
         setImages(newImages);
 
-        // ✅ instructorDetails से भी remove करें
         setInstructorDetails((prev) => ({
             ...prev,
             images: newImages,
