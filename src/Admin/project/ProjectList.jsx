@@ -83,17 +83,17 @@ const ProjectList = () => {
               {loading ? (
                 <div className="text-center py-10">Loading...</div>
               ) : listing.length > 0 ? (
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 p-3">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-3">
                   {listing.map((blog, index) => (
-                    <div
+                    <Link to={`/admin/project-details/${blog.slug}`}
                       key={index}
                       className="bg-white border rounded-lg shadow-sm overflow-hidden hover:shadow-md transition duration-300"
                     >
-                      <Link to={`/blog-details/${blog._id}`}>
+                      <Link to={`/admin/project-details/${blog.slug}`}>
                         <Image
                           className="w-full h-[200px] object-cover"
                           alt={blog.title || "Blog Image"}
-                          src={blog?.Image?.[0] || "/work/Interior.png"}
+                          src={blog?.list_image || "/work/Interior.png"}
                         />
                       </Link>
 
@@ -129,7 +129,7 @@ const ProjectList = () => {
                           />
                         </div> */}
                       </div>
-                    </div>
+                    </Link>
                   ))}
                 </div>
               ) : (

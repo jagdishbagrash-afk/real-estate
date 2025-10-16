@@ -30,7 +30,6 @@ function About() {
     return (<>
         <div className="min-h-screen ">
             <Header />
-
             <Banner image={"/home/Updated.png"} title={"Why Us"} css={"md:mt-[-100px] "} overlay={false} />
             <div className="pt-[40px] md:pt-[50px] lg-[80px] pb-[90px] px-[15px]">
                 <AnimatedHeading>

@@ -8,6 +8,7 @@ import Contact from "./Contact/Contact";
 import Project from "./Project/Project";
 import ProjectDetails from "./Project/Details";
 import CareerDetails from "./Career/Details";
+
 import Services from "./Services/Services";
 import BlogView from "./Admin/Blog/BlogView";
 import { Toaster } from "react-hot-toast";
@@ -18,6 +19,8 @@ import JobList from "./Admin/Job/JobList";
 import AddBlog from "./Admin/Blog/AddBlog";
 import ProjectAdd from "./Admin/project/ProjectAdd";
 import ProjectList from "./Admin/project/ProjectList"
+import AdminProjectDetail from "./Admin/project/Details"
+
 import Login from "./Admin/component/Login";
 import Dashboard from "./Admin/Dashboard/Dashboard";
 import Setting from "./Admin/setting/Setting";
@@ -54,6 +57,8 @@ function App() {
         <Route path="/admin/career-user-list" element={<CareerView />} />
         <Route path="/admin/project-add" element={<ProjectAdd />} />
         <Route path="/admin/project-list" element={<ProjectList />} />
+        <Route path="/admin/project-details/:slug" element={<AdminProjectDetail />} />
+
         <Route path="/admin/project-update/:Id" element={<ProjectAdd />} />
         <Route path="/admin/settings" element={<Setting />} />
       </Routes>

@@ -7,7 +7,7 @@ function Banner({ image, title ,css ,overlay}) {
             <img
                 src={image}
                 alt="Logo"
-                className="w-full h-[300px] sm:h-[400px] md:h-[600px] xl:h-[700px] object-cover object-center"
+                className="w-full h-[300px] sm:h-[400px] md:h-[600px] xl:h-[800px] object-cover object-center"
             />
 
             {/* Overlay */}

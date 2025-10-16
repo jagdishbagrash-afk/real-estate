@@ -125,6 +125,9 @@ class Listing extends Component {
         return Api.post("/profile-update", data)
     }
 
+     async ProjectGetDetails(slug) {
+        return Api.get(`/project-details/${slug}`)
+    }
     render() {
         return (
             <div>

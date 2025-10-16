@@ -1,13 +1,16 @@
-import "../App.css"
-import Header from '../component/Header';
-import Footer from "../component/Footer";
-import { useParams } from "react-router-dom";
-import jobsDetails from '../Json/Project.json';
-import AnimatedHeading from "../component/AnimatedHeading";
+import { useNavigate, useParams } from "react-router-dom";
+import SideBarAdmin from "../common/SideBarAdmin";
+import HeaderAdmin from "../common/HeaderAdmin";
 import { useEffect, useState } from "react";
-import Listing from "../Admin/Apis/Listing";
+import Listing from "../Apis/Listing";
+import AnimatedHeading from "../../component/AnimatedHeading";
+
 function Details() {
-    const { slug } = useParams();
+    const slug = useParams();
+    console.log("slug",);
+
+
+    const record = slug?.slug
     const [jobs, setJobs] = useState([]);
     const [loadings, setLoading] = useState(false);
 
@@ -15,7 +18,8 @@ function Details() {
         try {
             setLoading(true);
             const api = new Listing();
-            const response = await api.ProjectGetDetails(slug);
+            const response = await api.ProjectGetDetails(record);
+            console.log("API response:", response);
             // Adjust according to your API structure
             setJobs(response?.data?.data || []);
         } catch (error) {
@@ -27,26 +31,30 @@ function Details() {
     };
 
     useEffect(() => {
-        fetchJobList(slug);
-    }, [slug]);
+        fetchJobList(record);
+    }, [record]);
+
+    const navigate = useNavigate()
     return (<>
-        <div className="min-h-screen ">
-            <Header />
-            <div className="relative mt-[-100px]">
+        <div className="">
+            <div className="bg-white rounded-[20px] mb-[30px]">
                 {/* Background Image */}
                 <img
                     src={jobs?.banner_image}
                     alt="Logo"
                     className="w-full h-[500px] md:h-[600px] xl:h-[650px]  md:max-h-[900px] object-cover"
                 />
-                {/* Dark Overlay */}
-                <div className="absolute inset-0 bg-black/50"></div>
                 {/* Content */}
                 <div className="max-w-[1320px] m-auto absolute left-0 right-0 bottom-[30px] md:bottom-[50px] lg:bottom-[90px] z-[10] px-[15px]">
                     <AnimatedHeading>
                         <div className="flex flex-col items-left">
                             <h2 className="fontspring text-[20px] md:text-[40px] lg:text-[60px] xl:text-[80px] text-white">
-                                {jobs?.title}
+                                <span
+                                    onClick={() => navigate(-1)}
+                                    className="text-[16px] md:text-[18px] lg:text-[20px] text-blue-600 hover:underline cursor-pointer transition"
+                                >
+                                    ← Back
+                                </span>   {jobs?.title}
                             </h2>
                         </div>
                     </AnimatedHeading>
@@ -56,7 +64,18 @@ function Details() {
             <div className="flex flex-wrap md:flex-nowrap gap-[15px] md:gap-[30px] lg:gap-[45px] xl:gap-[55px] w-full max-w-[1330px] m-auto py-[10px] md:py-[45px] lg-[65px] px-[15px]">
                 <div className="bg-white p-[10px] w-full md:w-[38%] ">
                     <div className="sticky top-[15px]">
-                        <h2 className="fontspring text-[20px] md:text-[25px] lg:text-[40px] lg:leading-[24px] md:leading-[32px] lg:leading-[42px] text-[#000112] mb-[5px] md:mb-[15px]">{jobs?.title}</h2>
+                        <h2 className="fontspring flex items-center justify-between flex-wrap gap-2 text-[#000112] text-[20px] md:text-[25px] lg:text-[40px] mb-[5px] md:mb-[15px] leading-tight">
+                            <span
+                                onClick={() => navigate(-1)}
+                                className="text-[16px] md:text-[18px] lg:text-[20px] text-blue-600 hover:underline cursor-pointer transition"
+                            >
+                                ← Back
+                            </span>
+                            <span className="font-semibold text-[#000112]">
+                                {jobs?.title}
+                            </span>
+                        </h2>
+
                         <p className="text-[#000112] text-[12px] md:text-[14px] lg:text-[16px]">
                             {jobs?.content}
                         </p>
@@ -99,8 +118,14 @@ function Details() {
                 </div>
                 <div className="flex w-full md-w-[67%] flex-col gap-[20px]">
                     {jobs?.Image?.map((feature, index) => (
-                        <img src={feature} alt="Logo" className="object-cover min-h-[250px] md:min-h-[300px] lg:min-h-[450px] w-full" />
+                        <img
+                            key={index}
+                            src={feature} // ✅ no .image
+                            alt={`Project image ${index + 1}`}
+                            className="object-cover min-h-[250px] md:min-h-[300px] lg:min-h-[450px] w-full"
+                        />
                     ))}
+
 
                 </div>
             </div>
@@ -114,8 +139,6 @@ function Details() {
                     <h2 className="text-[#000112a1] text-[14px] font-[600] uppercase">— {jobs?.client_name ? jobs?.client_name : jobs.client} </h2>
                 </div>
             </div>
-
-            <Footer />
         </div>
 
     </>);

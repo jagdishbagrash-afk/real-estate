@@ -43,39 +43,22 @@ function Services() {
           </div>
         </div>
 
-        {/* {services && services.map((service, index) => (
-                <Link
-                  to={`/services/${service?.slug}`}
-                  className="relative group cursor-pointer overflow-hidden w-full h-full "
-                  onMouseEnter={() => setHoveredIndex(index)}
-                  onMouseLeave={() => setHoveredIndex(null)}
-                >
-                  <img
-                    src={service.image}
-                    alt={service.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 brightness-75"
-                  />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <h3 className="hover:text-yellow-400 text-white text-[16px] uppercase font-semibold tracking-wide text-center">
-                      {service.title}
-                    </h3>
-                  </div>
-                </Link>
-            ))} */}
+
         <div className="w-full py-[40px] md:py-[60px] lg:py-[100px] px-[15px]">
           <Swiper
             modules={[Autoplay]}
             autoplay={{
               delay: 1500,
               disableOnInteraction: false,
+              reverseDirection: false, // change to true if you want left-to-right
             }}
             loop={true}
             spaceBetween={20}
             slidesPerView={1}
             breakpoints={{
               320: { slidesPerView: 1 },   // mobile
-              768: { slidesPerView: 1.5 },   // tablet
-              1024: { slidesPerView: 2.5 },  // desktop
+              768: { slidesPerView: 2 },   // tablet
+              1024: { slidesPerView: 3 },  // desktop
             }}
             className="w-full h-[400px] md:h-[500px] lg:h-[600px] "
           >
@@ -91,8 +74,6 @@ function Services() {
                           ? "25%"
                           : "33.33%"
                       : "100%",
-                  transition: "all 0.5s ease-in-out",
-                  height: "100%",
                 }}
               >
                 <Link
