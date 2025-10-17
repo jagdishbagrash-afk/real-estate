@@ -67,7 +67,6 @@ const TeamSlider = () => {
                 {team.position}
               </p>
             </div>
-
           </SwiperSlide>
 
         ))}
