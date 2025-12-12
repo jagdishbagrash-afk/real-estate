@@ -76,16 +76,9 @@ function Services() {
             {services && services?.map((service, index) => (
               <SwiperSlide
                 key={index}
-                style={{
-                  flexBasis:
-                    window.innerWidth >= 1024
-                      ? hoveredIndex === index
-                        ? "50%"
-                        : hoveredIndex !== null
-                          ? "30%"
-                          : "33.33%"
-                      : "100%",
-                }}
+                className={`swiper-slide-custom ${hoveredIndex === index ? 'hovered' :
+                    hoveredIndex !== null ? 'not-hovered' : ''
+                  }`}
               >
                 <Link
                   to={`/services/${service?.slug}`}
@@ -97,15 +90,18 @@ function Services() {
                     src={service.image}
                     loading="lazy"
                     alt={service.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 brightness-75"
+                    className="w-full h-full object-cover transition-transform 
+        duration-500 group-hover:scale-105 brightness-75"
                   />
 
-                  {/* FIXED TEXT WRAPPER */}
-                  <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
-                text-center pointer-events-none px-3 w-full">
-                    <h3 className="text-white text-[18px] md:text-[22px] uppercase font-semibold tracking-wide">
-                      {service.title}
-                    </h3>
+                  {/* FIXED TEXT WRAPPER - FIXED FOR SAFARI */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="text-center pointer-events-none px-3 w-full">
+                      <h3 className="text-white text-[18px] md:text-[22px] uppercase 
+          font-semibold tracking-wide">
+                        {service.title}
+                      </h3>
+                    </div>
                   </div>
                 </Link>
               </SwiperSlide>
@@ -120,3 +116,16 @@ function Services() {
 }
 
 export default Services;
+
+
+
+// style={{
+//                 flexBasis:
+//                   window.innerWidth >= 1024
+//                     ? hoveredIndex === index
+//                       ? "50%"
+//                       : hoveredIndex !== null
+//                         ? "30%"
+//                         : "33.33%"
+//                     : "100%",
+//               }}
