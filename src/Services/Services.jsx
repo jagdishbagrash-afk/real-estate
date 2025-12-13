@@ -87,31 +87,31 @@ function Services() {
                 }}
               >
                 <Link
-                  to={/services/${service?.slug}}
-                className="relative w-full h-full overflow-hidden group flex items-center justify-center"
-                onMouseEnter={() => setHoveredIndex(index)}
-                onMouseLeave={() => setHoveredIndex(null)}
-                    >
-                {/* IMAGE */}
-                <img
-                  src={service.image}
-                  alt={service.title}
-                  loading="lazy"
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 brightness-75"
-                />
+                  to={`/services/${service?.slug}`}
+                  className="relative w-full h-full overflow-hidden group flex items-center justify-center"
+                  onMouseEnter={() => setHoveredIndex(index)}
+                  onMouseLeave={() => setHoveredIndex(null)}
+                >
+                  {/* IMAGE */}
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    loading="lazy"
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 brightness-75"
+                  />
 
-                {/* CENTER TEXT (Safari SAFE) */}
-                <div className="relative z-10 text-center px-3 pointer-events-none">
-                  <h3 className="text-white text-[18px] md:text-[22px] uppercase font-semibold tracking-wide">
-                    {service.title}
-                  </h3>
-                </div>
-              </Link>
-                  </SwiperSlide>
-                ))}
-        </Swiper>
+                  {/* CENTER TEXT (Safari SAFE) */}
+                  <div className="relative z-10 text-center px-3 pointer-events-none">
+                    <h3 className="text-white text-[18px] md:text-[22px] uppercase font-semibold tracking-wide">
+                      {service.title}
+                    </h3>
+                  </div>
+                </Link>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
       </div>
-    </div >
       <Footer />
     </>
   );
