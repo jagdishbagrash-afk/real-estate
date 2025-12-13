@@ -60,56 +60,58 @@ function Services() {
             autoplay={{
               delay: 1500,
               disableOnInteraction: false,
-              reverseDirection: false,
             }}
             loop={true}
             spaceBetween={15}
-            centeredSlides={false}
             slidesPerView={1}
             breakpoints={{
               320: { slidesPerView: 1 },
               768: { slidesPerView: 2 },
               1024: { slidesPerView: 3 },
             }}
-            className="w-full h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden"
+            className="w-full h-[400px] md:h-[500px] lg:h-[600px]"
           >
-            {services && services?.map((service, index) => (
+            {services?.map((service, index) => (
               <SwiperSlide
                 key={index}
-                className={`swiper-slide-custom ${hoveredIndex === index ? 'hovered' :
-                    hoveredIndex !== null ? 'not-hovered' : ''
-                  }`}
+                className="h-full"
+                style={{
+                  flexBasis:
+                    window.innerWidth >= 1024
+                      ? hoveredIndex === index
+                        ? "50%"
+                        : hoveredIndex !== null
+                          ? "30%"
+                          : "33.33%"
+                      : "100%",
+                }}
               >
                 <Link
-                  to={`/services/${service?.slug}`}
-                  className="relative group cursor-pointer overflow-hidden w-full h-full"
-                  onMouseEnter={() => setHoveredIndex(index)}
-                  onMouseLeave={() => setHoveredIndex(null)}
-                >
-                  <img
-                    src={service.image}
-                    loading="lazy"
-                    alt={service.title}
-                    className="w-full h-full object-cover transition-transform 
-        duration-500 group-hover:scale-105 brightness-75"
-                  />
+                  to={/services/${service?.slug}}
+                className="relative w-full h-full overflow-hidden group flex items-center justify-center"
+                onMouseEnter={() => setHoveredIndex(index)}
+                onMouseLeave={() => setHoveredIndex(null)}
+                    >
+                {/* IMAGE */}
+                <img
+                  src={service.image}
+                  alt={service.title}
+                  loading="lazy"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 brightness-75"
+                />
 
-                  {/* FIXED TEXT WRAPPER - FIXED FOR SAFARI */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-center pointer-events-none px-3 w-full">
-                      <h3 className="text-white text-[18px] md:text-[22px] uppercase 
-          font-semibold tracking-wide">
-                        {service.title}
-                      </h3>
-                    </div>
-                  </div>
-                </Link>
-              </SwiperSlide>
-            ))}
-
-          </Swiper>
-        </div>
+                {/* CENTER TEXT (Safari SAFE) */}
+                <div className="relative z-10 text-center px-3 pointer-events-none">
+                  <h3 className="text-white text-[18px] md:text-[22px] uppercase font-semibold tracking-wide">
+                    {service.title}
+                  </h3>
+                </div>
+              </Link>
+                  </SwiperSlide>
+                ))}
+        </Swiper>
       </div>
+    </div >
       <Footer />
     </>
   );
