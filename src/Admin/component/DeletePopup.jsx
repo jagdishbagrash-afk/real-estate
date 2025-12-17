@@ -3,7 +3,7 @@ import Listing from "../Apis/Listing";
 import toast from "react-hot-toast";
 import { MdDelete } from "react-icons/md";
 
-const DeletePopup = ({ item, fetchTeamList, step = 1 }) => {
+const DeletePopup = ({ item, fetchTeamList, step = 1, type = "" }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [loading, setLoading] = useState(false);
 
@@ -30,31 +30,35 @@ const DeletePopup = ({ item, fetchTeamList, step = 1 }) => {
                 // Team deletion
                 response = await main.deleteteam({ _id: item._id });
             } else if (step === 2) {
-                // Job deletion
-                response = await main.JobDelete({ _id: item._id });
-            } 
-             else if (step === 3) {
-                // Job deletion
+                // Category deletion
+                if (item.id) {
+                    response = await main.DeleteCategory(item.id);
+                } else if (item._id) {
+                    response = await main.DeleteCategory(item._id);
+                } else {
+                    throw new Error("Category ID not found");
+                }
+            } else if (step === 3) {
+                // Blog deletion
                 response = await main.BlogDelete({ _id: item._id });
-            }
-             else if (step === 4) {
-                // Job deletion
+            } else if (step === 4) {
+                // Project deletion
                 response = await main.ProjectDelete({ _id: item._id });
-            }
-             else if (step === 5) {
-                // Job deletion
+            } else if (step === 5) {
+                // Team deletion
                 response = await main.TeamDelete({ _id: item._id });
-            }
-            else {
+            } else {
                 throw new Error("Unknown delete step provided");
             }
 
-            toast.success(response?.data?.message || "Deleted successfully");
+            toast.success(response?.message || response?.data?.message || "Deleted successfully");
             closeModal();
-            fetchTeamList(); // Refresh list
+            if (fetchTeamList) {
+                fetchTeamList(); // Refresh list
+            }
         } catch (error) {
             console.error("Delete Error:", error);
-            toast.error("Something went wrong");
+            toast.error(error.message || "Something went wrong");
         } finally {
             setLoading(false);
         }
@@ -83,7 +87,10 @@ const DeletePopup = ({ item, fetchTeamList, step = 1 }) => {
 
                         <h2 className="text-2xl font-semibold mb-4 text-center">Confirm Deletion</h2>
                         <p className="text-gray-700 text-center mb-6">
-                            Are you sure you want to delete this item?
+                            Are you sure you want to delete <strong>"{item.title || item.name || 'this item'}"</strong>?
+                        </p>
+                        <p className="text-red-600 text-sm text-center mb-6">
+                            This action cannot be undone.
                         </p>
 
                         <div className="flex justify-center gap-4">
@@ -95,9 +102,10 @@ const DeletePopup = ({ item, fetchTeamList, step = 1 }) => {
                             </button>
                             <button
                                 onClick={handleSubmit}
-                                className="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700"
+                                disabled={loading}
+                                className="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 disabled:bg-red-400"
                             >
-                                {loading ? "Processing..." : "Yes, Delete"}
+                                {loading ? "Deleting..." : "Yes, Delete"}
                             </button>
                         </div>
                     </div>
