@@ -11,6 +11,7 @@ import CareerDetails from "./Career/Details";
 
 import Services from "./Services/Services";
 import BlogView from "./Admin/Blog/BlogView";
+import CategoryList from "./Admin/Category/CategoryList"
 import { Toaster } from "react-hot-toast";
 import ListTeam from "./Admin/Team/ListTeam";
 import ContactList from "./Admin/contact/ContactList";
@@ -20,7 +21,6 @@ import AddBlog from "./Admin/Blog/AddBlog";
 import ProjectAdd from "./Admin/project/ProjectAdd";
 import ProjectList from "./Admin/project/ProjectList"
 import AdminProjectDetail from "./Admin/project/Details"
-
 import Login from "./Admin/component/Login";
 import Dashboard from "./Admin/Dashboard/Dashboard";
 import Setting from "./Admin/setting/Setting";
@@ -52,6 +52,7 @@ function App() {
         <Route path="/admin/team" element={<ListTeam />} />
         <Route path="/admin/dashboard" element={<Dashboard />} />
         <Route path="/admin/contact-list" element={<ContactList />} />
+                <Route path="/admin/categories" element={<CategoryList />} />
         <Route path="/admin/blog-list" element={<BlogView />} />
         <Route path="/admin/blog-add" element={<AddBlog />} />
         <Route path="/admin/blog-update/:Id" element={<AddBlog />} />

@@ -8,7 +8,6 @@ import Pagination from "../component/Pagination";
 import NoDataPage from "../component/NoDataPage";
 import DeletePopup from "../component/DeletePopup";
 import Listing from "../Apis/Listing";
-
 import BlogImage from "../../img/Interior.png";
 import Image from "../component/Image";
 

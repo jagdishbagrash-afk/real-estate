@@ -187,3 +187,26 @@ nav ul li a{color:#fff;font-size:20px;font-weight:400;}
   height: 100%;
   object-fit: cover;
 } */
+
+
+
+/* Safari-specific styles में */
+
+/* App.css में जोड़ें */
+@supports (-webkit-touch-callout: none) {
+  /* Safari-specific styles */
+  .swiper-slide {
+    -webkit-backface-visibility: hidden;
+  }
+}
+@media (min-width: 1024px) {
+  .swiper-slide-custom {
+    flex-basis: 33.33%;
+  }
+  .swiper-slide-custom.hovered {
+    flex-basis: 50%;
+  }
+  .swiper-slide-custom.not-hovered {
+    flex-basis: 30%;
+  }
+}

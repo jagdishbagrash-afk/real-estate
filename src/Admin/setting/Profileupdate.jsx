@@ -63,8 +63,8 @@ const Profileupdate = () => {
       setListing(response?.data?.data)
       console.log("response", response)
     } catch (error) {
-      localStorage && localStorage.removeItem("AdminToken");
-      toast.error("Please log in first.");
+      // localStorage && localStorage.removeItem("AdminToken");
+      // toast.error("Please log in first.");
     }
   }
 

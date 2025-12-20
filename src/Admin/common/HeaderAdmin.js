@@ -5,7 +5,7 @@ import { MdLogout, MdSettings } from "react-icons/md";
 import Heading from "./Heading";
 import toast from "react-hot-toast";
 import Listing from "../Apis/Listing";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 
 function HeaderAdmin({ title, back }) {
@@ -19,14 +19,14 @@ function HeaderAdmin({ title, back }) {
         setMenuOpen(!menuOpen);
     };
    
-const navigate = useNavigate();
-    const handleclick = () => {
-        localStorage
-            && localStorage
-                .removeItem("token")
-        toast.success("Logout successfully!");
-        navigate("/admin/login")
-    };
+// const navigate = useNavigate();
+//     const handleclick = () => {
+//         localStorage
+//             && localStorage
+//                 .removeItem("token")
+//         toast.success("Logout successfully!");
+//         navigate("/admin/login")
+//     };
       const [listing, setListing] = useState("");
 
     //   const fetchData = async (signal) => {
@@ -104,13 +104,13 @@ const navigate = useNavigate();
                                         <MdSettings size={22} />
                                         Profile Settings</a>
                                 </div>
-                                <div className="py-1" role="none">
+                                {/* <div className="py-1" role="none">
                                     <button onClick={handleclick}
                                      className="flex gap-2 px-4 py-2 text-sm text-[#FF1B1B] hover:text-[#0367F7]"
                                       role="menuitem" tabindex="-1" id="menu-item-6">
                                         <MdLogout size={22} />
                                         Logout</button>
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                     </div>
