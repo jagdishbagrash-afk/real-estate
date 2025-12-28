@@ -10,7 +10,6 @@ import { useNavigate } from "react-router-dom";
 
 export default function OurServices() {
   const navigate = useNavigate();
-
   const services = [
   { title: "URBAN PLANNING", image: "https://cadmaxpro-buket.s3.ap-south-1.amazonaws.com/assets/about/SANGAMCITY.jpg", slug: "urban-planning" },
   { title: "REAL STATE", image: "https://cadmaxpro-buket.s3.ap-south-1.amazonaws.com/assets/work/realestate.jpg", slug: "real-estate" },
