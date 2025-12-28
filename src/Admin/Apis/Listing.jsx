@@ -93,12 +93,11 @@ class Listing extends Component {
     async ProjectGet(data) {
         return Api.get("/project-get", data)
     }
-    async Editeam(data) {
-        return Api.post("/teams-edit", data)
-    }
-
     async deleteteam(data) {
         return Api.post("/teams-delete", data)
+    }
+    async deleteimages(id,images) {
+        return Api.get(`/project/images/delete/${id}/${images}`, )
     }
 
     async teamlist() {

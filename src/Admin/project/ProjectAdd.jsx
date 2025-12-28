@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import Listing from "../Apis/Listing";
 import ImageUploader from "./ImageUploader";
 import SideBarAdmin from "../common/SideBarAdmin";
+import { MdDelete } from "react-icons/md";
 
 const ProjectAdd = () => {
     const { id } = useParams();
@@ -41,7 +42,7 @@ const ProjectAdd = () => {
             window.scrollTo({ top: 0, behavior: "smooth" });
         }
     };
-      const [previewBanner, setPreviewBanner] = useState(null);
+    const [previewBanner, setPreviewBanner] = useState(null);
 
 
     const handleUploads = (e) => {
@@ -125,7 +126,6 @@ const ProjectAdd = () => {
         formData.append("content", instructorDetails.content);
         formData.append("id", instructorDetails._id);
         formData.append("category", instructorDetails.category);
-
         formData.append("client", instructorDetails.client);
         formData.append("client_review", instructorDetails.client_review);
         formData.append("client_name", instructorDetails.client_name);
@@ -166,6 +166,27 @@ const ProjectAdd = () => {
             setLoading(false);
         }
     };
+
+    
+   const HandleDeleteImages = async (image) => {
+  const Ids = instructorDetails?._id;
+  try {
+    setLoading(true);
+
+    const main = new Listing();
+    const response = await main.deleteimages(Ids, encodeURIComponent(image));
+
+    if (response) {
+      toast.success(response.data.message);
+      fetchInstructorData();
+    }
+  } catch (error) {
+    console.log("Delete Error:", error);
+    toast.error(error?.response?.data?.message || "Something went wrong");
+  } finally {
+    setLoading(false);
+  }
+};
 
     return (
         <div className="md:flex flex-wrap bg-[#F5F6FB]">
@@ -291,23 +312,33 @@ const ProjectAdd = () => {
                             />
                         </div>
                         {previewBanner ? (
-                                <div className="mt-4">
-                            <img
-                                src={previewBanner }
-                                alt="Banner Preview"
-                                className="w-full h-48 object-cover rounded-md border"
-                            />
-                        </div>
+                            <div className="mt-4">
+                                <img
+                                    src={previewBanner}
+                                    alt="Banner Preview"
+                                    className="w-full h-48 object-cover rounded-md border"
+                                />
+                            </div>
                         ) : (
-                                <div className="mt-4">
-                            <img
-                                src={ instructorDetails?.list_image}
-                                alt="Banner Preview"
-                                className="w-full h-48 object-cover rounded-md border"
-                            />
-                        </div>
+                           <div className="mt-4 relative group w-full">
+  <img
+    src={instructorDetails?.list_image}
+    alt="Banner Preview"
+    className="w-full h-48 object-cover rounded-md border"
+  />
+
+  <button
+    type="button"
+    onClick={() => HandleDeleteImages(instructorDetails?.list_image)}
+    className="absolute top-2 right-2 bg-red-500 text-white p-1 rounded-full 
+               opacity-0 group-hover:opacity-100 transition"
+  >
+    {loading ? "Loading..." : <MdDelete size={20} />}
+  </button>
+</div>
+
                         )}
-                    
+
                         <div>
                             <label className="block text-sm font-medium text-gray-700">Project Banner Image </label>
 
@@ -318,21 +349,32 @@ const ProjectAdd = () => {
                                 className="border border-gray-300 p-2 rounded-md w-full"
                             />
                         </div>
-                        <div className="mt-4">
+                       <div className="mt-4 relative group w-full">
                             {preview ? (
-                                   <img
-                                src={preview }
-                                alt="Banner Preview"
-                                className="w-full h-48 object-cover rounded-md border"
-                            />
+                                <img
+                                    src={preview}
+                                    alt="Banner Preview"
+                                    className="w-full h-48 object-cover rounded-md border"
+                                />
                             ) : (
-                                   <img
-                                src={ instructorDetails?.banner_image}
-                                alt="Banner Preview"
-                                className="w-full h-48 object-cover rounded-md border"
-                            />
+                           <>
+                                <img
+                                    src={instructorDetails?.banner_image}
+                                    alt="Banner Preview"
+                                    className="w-full h-48 object-cover rounded-md border "
+                                />
+                                  <button
+                                    type="button"
+                                    onClick={() => HandleDeleteImages(instructorDetails?.list_image)}
+                                     className="absolute top-2 right-2 bg-red-500 text-white p-1 rounded-full 
+               opacity-0 group-hover:opacity-100 transition"
+                                >
+                                    {loading ? "Loading..." : <MdDelete size={20} />}
+
+                                </button>
+                           </>
                             )}
-                         
+
                         </div>
 
 
@@ -386,7 +428,7 @@ const ProjectAdd = () => {
                         >
                             <label className="block text-sm font-medium text-gray-700">Project Image</label>
 
-                            <ImageUploader images={images} setImages={setImages} setInstructorDetails={setInstructorDetails} instructorDetails={instructorDetails} />
+                            <ImageUploader fetchInstructorData={fetchInstructorData} images={images} setImages={setImages} setInstructorDetails={setInstructorDetails} instructorDetails={instructorDetails} id={id} />
 
                         </div>
                         {/* Submit Button */}

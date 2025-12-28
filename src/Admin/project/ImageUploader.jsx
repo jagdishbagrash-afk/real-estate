@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import { MdAdd } from "react-icons/md";
+import { MdAdd, MdDelete } from "react-icons/md";
+import Listing from "../Apis/Listing";
+import toast from "react-hot-toast";
 
-const ImageUploader = ({ images, setImages, setInstructorDetails, instructorDetails }) => {
+const ImageUploader = ({ images, setImages, setInstructorDetails, instructorDetails, id, fetchInstructorData }) => {
     const [dragIndex, setDragIndex] = useState(null);
 
     const handleFileChange = (e) => {
@@ -23,6 +25,29 @@ const ImageUploader = ({ images, setImages, setInstructorDetails, instructorDeta
             images: newImages,
         }));
     };
+
+    const [Loading, setLoading] = useState(false);
+
+   const HandleDeleteImages = async (image) => {
+  const Ids = instructorDetails?._id;
+  try {
+    setLoading(true);
+
+    const main = new Listing();
+    const response = await main.deleteimages(Ids, encodeURIComponent(image));
+
+    if (response) {
+      toast.success(response.data.message);
+      fetchInstructorData();
+    }
+  } catch (error) {
+    console.log("Delete Error:", error);
+    toast.error(error?.response?.data?.message || "Something went wrong");
+  } finally {
+    setLoading(false);
+  }
+};
+
 
     const handleDragStart = (index) => {
         setDragIndex(index);
@@ -118,7 +143,6 @@ const ImageUploader = ({ images, setImages, setInstructorDetails, instructorDeta
                     // Check if image is a File or a string URL
                     const imageUrl =
                         typeof image === "string" ? image : URL.createObjectURL(image);
-
                     return (
                         <div
                             key={index}
@@ -134,8 +158,18 @@ const ImageUploader = ({ images, setImages, setInstructorDetails, instructorDeta
                                 className="w-full h-40 object-cover"
                             />
 
+                            {id && (
+                                <button
+                                    type="button"
+                                    onClick={() => HandleDeleteImages(imageUrl)}
+                                    className="absolute top-2 right-2 bg-red-500 text-white p-1 rounded-full opacity-0 group-hover:opacity-100 transition"
+                                >
+                                    {Loading ? "Loading..." : <MdDelete size={20} />}
 
+                                </button>
+                            )}
                         </div>
+
                     );
                 })}
 
