@@ -327,14 +327,14 @@ const ProjectAdd = () => {
     className="w-full h-48 object-cover rounded-md border"
   />
 
-  <button
+  {/* <button
     type="button"
     onClick={() => HandleDeleteImages(instructorDetails?.list_image)}
     className="absolute top-2 right-2 bg-red-500 text-white p-1 rounded-full 
                opacity-0 group-hover:opacity-100 transition"
   >
     {loading ? "Loading..." : <MdDelete size={20} />}
-  </button>
+  </button> */}
 </div>
 
                         )}
@@ -363,7 +363,7 @@ const ProjectAdd = () => {
                                     alt="Banner Preview"
                                     className="w-full h-48 object-cover rounded-md border "
                                 />
-                                  <button
+                                  {/* <button
                                     type="button"
                                     onClick={() => HandleDeleteImages(instructorDetails?.list_image)}
                                      className="absolute top-2 right-2 bg-red-500 text-white p-1 rounded-full 
@@ -371,7 +371,7 @@ const ProjectAdd = () => {
                                 >
                                     {loading ? "Loading..." : <MdDelete size={20} />}
 
-                                </button>
+                                </button> */}
                            </>
                             )}
 
