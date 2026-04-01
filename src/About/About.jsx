@@ -142,7 +142,7 @@ function About() {
                 </div>
             </section>
 
-            <div className="clintSays bg-[#F8F6F2] py-[40px] md:py-[80px] lg:py-[100px] text-center px-4">
+          {/*   <div className="clintSays bg-[#F8F6F2] py-[40px] md:py-[80px] lg:py-[100px] text-center px-4">
                 <AnimatedHeading>
 
                     <h2 className="fontspring text-[25px] md:text-[40px] lg:text-[50px] text-[#000112]">
@@ -152,7 +152,7 @@ function About() {
                 </AnimatedHeading>
 
                 <TeamSlider />
-            </div>
+            </div> */}
             <section class="bg-[#94A393] py-[40px] md:py-[50px] lg:py-[90px] px-4">
                 <div class="max-w-[1320px] mx-auto ">
                     <AnimatedHeading>
