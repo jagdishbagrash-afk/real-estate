@@ -16,7 +16,6 @@ function Project() {
     const [loading, setLoading] = useState(false);
     const [listing, setListing] = useState([]);
 
-    console.log("listing", listing)
 
     // Fetch data
     const fetchMarketLists = async (searchQuery = "", page = 1, limit = 15) => {
