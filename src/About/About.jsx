@@ -1,7 +1,7 @@
 import "../App.css"
 import Header from '../component/Header';
 import Footer from "../component/Footer";
-import TeamSlider from "./TeamSlider";
+// import TeamSlider from "./TeamSlider";
 import Readybring from "../Home/ReadyBring";
 import Achivement from "./Achivement"
 import AnimatedHeading from "../component/AnimatedHeading";
@@ -30,17 +30,17 @@ function About() {
     ];
 
     return (<>
-      <Helmet>
-        <title>About Us | Cadmax Pro</title>
-        <meta
-          name="description"
-          content="Learn about Cadmax Pro — a leading architectural and interior design company known for creativity, innovation, and excellence in every project."
-        />
-        <meta
-          name="keywords"
-          content="Cadmax Pro about, architecture firm, interior design company, creative design, architectural excellence, design consultancy"
-        />
-      </Helmet>
+        <Helmet>
+            <title>Best Architecture Firm in Jaipur, Rajasthan 2026</title>
+            <meta
+                name="description"
+                content="The best architecture firm in Jaipur, Rajasthan for innovative home, office, and resort design. Custom plans, 3D visualization, and end-to-end project management."
+            />
+            <meta
+                name="keywords"
+                content="Cadmax Pro about, architecture firm, interior design company, creative design, architectural excellence, design consultancy"
+            />
+        </Helmet>
 
         <div className="min-h-screen ">
             <Header />
@@ -142,7 +142,7 @@ function About() {
                 </div>
             </section>
 
-          {/*   <div className="clintSays bg-[#F8F6F2] py-[40px] md:py-[80px] lg:py-[100px] text-center px-4">
+            {/*   <div className="clintSays bg-[#F8F6F2] py-[40px] md:py-[80px] lg:py-[100px] text-center px-4">
                 <AnimatedHeading>
 
                     <h2 className="fontspring text-[25px] md:text-[40px] lg:text-[50px] text-[#000112]">
