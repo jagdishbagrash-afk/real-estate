@@ -142,6 +142,7 @@ const ProjectAdd = () => {
             } else {
                 response = await main.ProjectAdds(formData);
             }
+            console.log("response"  ,response)
             if (response?.data) {
                 toast.success(response.data.message || "Operation successful");
                 if (!id) {

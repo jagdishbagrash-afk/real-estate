@@ -75,6 +75,12 @@ const ImageUploader = ({ images, setImages, setInstructorDetails, instructorDeta
         setImages(newImages);
     };
 
+    const instructorImages = Array.isArray(instructorDetails?.Image)
+  ? instructorDetails.Image
+  : instructorDetails?.Image
+  ? [instructorDetails.Image]
+  : [];
+
     return (
         <>
             <div className="mb-4">
@@ -139,7 +145,7 @@ const ImageUploader = ({ images, setImages, setInstructorDetails, instructorDeta
                     </div>
                 ))}
 
-                {instructorDetails?.Image?.map((image, index) => {
+                {instructorImages?.map((image, index) => {
                     // Check if image is a File or a string URL
                     const imageUrl =
                         typeof image === "string" ? image : URL.createObjectURL(image);

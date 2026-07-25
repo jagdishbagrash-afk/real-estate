@@ -29,10 +29,10 @@ const SliderWithFade = () => {
       slug: "shivam-magnus"
     },
     {
-      front: "https://cadmaxpro-buket.s3.ap-south-1.amazonaws.com/assets/work/Cadmax.jpg",
-      back: "https://cadmaxpro-buket.s3.ap-south-1.amazonaws.com/assets/work/Cadmax.jpg",
-      slug: "cadmax-group-headoffice",
-      title: "Cadmax Consultancy Pvt. Ltd. ; Jaipur",
+      front: "https://cadmaxpro-buket.s3.ap-south-1.amazonaws.com/assets/home/univers.webp",
+      back: "https://cadmaxpro-buket.s3.ap-south-1.amazonaws.com/assets/home/univers.webp",
+      slug: "universal-city-prime",
+      title: "Universal City , Delhi Road",
     },
     {
       front: "https://cadmaxpro-buket.s3.ap-south-1.amazonaws.com/assets/work/ravi.jpg",
