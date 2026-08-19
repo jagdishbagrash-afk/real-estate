@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-const API_URL =  process.env.REACT_BASE_URL  || "https://api.cadmaxpro.com/api";
+const API_URL = process.env.REACT_BASE_URL || "http://localhost:5000/api";
 
-// || "http://localhost:5000/api"
+// || "http://localhost:5000/api         //     https://api.cadmaxpro.com/api"
 function getToken() {
   if (typeof window !== 'undefined') {
     const data = localStorage.getItem('token');
@@ -33,13 +33,11 @@ Api.interceptors.request.use(
   }
 );
 
-let ApiallowFile = axios.create({
+const ApiallowFile = axios.create({
   baseURL: API_URL,
   headers: {
-    'Accept': 'application/json',
-    'Access-Control-Allow-Origin': '*',
-    "Content-Type": "multipart/form-data",
-  }
+    Accept: "application/json",
+  },
 });
 
 ApiallowFile.interceptors.request.use(

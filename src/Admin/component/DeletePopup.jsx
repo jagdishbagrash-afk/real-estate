@@ -40,7 +40,7 @@ const DeletePopup = ({ item, fetchTeamList, step = 1, type = "" }) => {
                 }
             } else if (step === 3) {
                 // Blog deletion
-                response = await main.BlogDelete({ _id: item._id });
+                response = await main.BlogDelete({ Id: item._id });
             } else if (step === 4) {
                 // Project deletion
                 response = await main.ProjectDelete({ _id: item._id });

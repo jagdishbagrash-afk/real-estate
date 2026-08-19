@@ -26,6 +26,7 @@ export default function Header() {
           <li><NavLink to="/services" className={navLinkClasses}>Services</NavLink></li>
           <li><NavLink to="/project" className={navLinkClasses}>Our Project</NavLink></li>
           <li><NavLink to="/career" className={navLinkClasses}>Careers</NavLink></li>
+          <li><NavLink to="/blog" className={navLinkClasses}>Blogs</NavLink></li>
           <li><NavLink to="/contact" className={navLinkClasses}>Contact</NavLink></li>
         </ul>
 
@@ -59,6 +60,7 @@ export default function Header() {
             <li><NavLink to="/services" className={navLinkClasses}>Services</NavLink></li>
             <li><NavLink to="/project" className={navLinkClasses}>Our Project</NavLink></li>
             <li><NavLink to="/career" className={navLinkClasses}>Career</NavLink></li>
+            <li><NavLink to="/blog" className={navLinkClasses}>Blogs</NavLink></li>
             <li><NavLink to="/contact" className={navLinkClasses}>Contact</NavLink></li>
           </ul>
         </div>

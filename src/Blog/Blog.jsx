@@ -1,109 +1,223 @@
-import "../App.css"
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import Listing from "../Admin/Apis/Listing";
 import Header from '../component/Header';
 import Footer from "../component/Footer";
-import TownshipSlider from "./TownshipSlider";
-import { Link } from "react-router-dom";
-import AnimatedHeading from "../component/AnimatedHeading";
+const Blog = () => {
+  const [blogs, setBlogs] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-const blogs = [
-  {
-    title: 'How Modern Urban Planning Is Reshaping Indian Cities',
-    image: "/blog/blogimg01.jpg",
-  },
-  {
-    title: 'The Role of Technology in Sustainable Urban Development',
-    image: "/blog/blogimg02.jpg",
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
 
-  },
-  {
-    title: 'Public Transportation: A Key to Smart City Success',
-    image: "/blog/blogimg03.jpg",
+  const fetchBlogs = async (page = 1) => {
+    try {
+      setLoading(true);
 
-  },
-  {
-    title: 'Green Spaces and Their Impact on Urban Life',
-    image: "/blog/blogimg04.jpg",
+      const listing = new Listing();
 
-  },
-  {
-    title: 'Affordable Housing Solutions for Growing Urban Populations',
-    image: "/blog/blogimg05.jpg",
+      const response = await listing.BlogGet("", page, 9);
 
-  },
-  {
-    title: 'Community Engagement in Urban Design Processes',
-    image: "/blog/blogimg06.jpg",
+      console.log("BLOG RESPONSE:", response?.data);
 
-  },
+      setBlogs(response?.data?.data || []);
 
-  {
-    title: 'Community Engagement in Urban Design Processes',
-    image: "/blog/blogimg07.jpg",
+      setCurrentPage(
+        response?.data?.currentPage || 1
+      );
 
-  },
+      setTotalPages(
+        response?.data?.totalPages || 1
+      );
+    } catch (error) {
+      console.error(
+        "BLOG GET ERROR:",
+        error?.response?.data || error
+      );
 
-  {
-    title: 'Community Engagement in Urban Design Processes',
-    image: "/blog/blogimg08.jpg",
+      setBlogs([]);
+    } finally {
+      setLoading(false);
+    }
+  };
 
-  },
+  useEffect(() => {
+    fetchBlogs(currentPage);
+  }, [currentPage]);
 
-  {
-    title: 'Community Engagement in Urban Design Processes',
-    image: "/blog/blogimg09.jpg",
+  const formatDate = (date) => {
+    if (!date) return "";
 
-  },
-];
+    return new Date(date).toLocaleDateString("en-IN", {
+      day: "2-digit",
+      month: "long",
+      year: "numeric",
+    });
+  };
 
+  if (loading) {
+    return (
+      <div className="min-h-[500px] flex items-center justify-center">
+        <p className="text-gray-600 text-lg">
+          Loading blogs...
+        </p>
+      </div>
+    );
+  }
 
-function Blog() {
-  return (<>
-    <div className="min-h-screen ">
+  return (
+    <div className="min-h-screen">
       <Header />
-      <div className="relative mt-[-150px] ">
-        <img src={"/home/exploreservicebg.jpg"} alt="Logo" className="object-cover min-h-[350px] md:min-h-[400px] lg:min-h-[450px] w-full" />
-        <AnimatedHeading>
-          <div className="max-w-[1320px] m-auto absolute left-[0] right-[0]  bottom-[30px] md:bottom-[50px] lg:bottom-[90px] z-[1] px-[15px]">
-            <h2 className="fontspring text-[20px] md:text-[40px] lg:text-[60px] xl:text-[80px] text-white  ">Blogs and Upcoming Project</h2>
-          </div>
-        </AnimatedHeading>
-      </div>
-      <div className="bg-[#F8F6F2] py-[40px] md:py-[50px] lg:py-[80px] xl:py-[100px]">
-        <AnimatedHeading>
 
-          <h2 className="fontspring text-[25px] text-[25px] md:text-[30px] lg:text-[40px] xl:text-[50px] leading-[30px] md:leading-[35px] lg:leading-[45px] xl:leading-[55px] mb-[40px] text-[#000112] text-center">What We Offer</h2>
-        </AnimatedHeading>
-        <TownshipSlider />
-      </div>
+      {/* ================= HERO ================= */}
 
+      <section className="bg-gray-900 py-16">
+        <div className="max-w-7xl mx-auto px-4">
 
-      <section className="py-12 px-4 md:px-8 lg:px-16 bg-white">
-        <AnimatedHeading>
+          <h1 className="text-3xl md:text-5xl font-bold text-white text-center">
+            Our Blogs
+          </h1>
 
-          <h2 className="mb-[25px] text-center fontspring text-[20px] md:text-[30px] lg:text-[40px] xl:text-[50px] text-[#000112]  ">Latest Blogs</h2>
-        </AnimatedHeading>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full md:max-w-[1320px] m-auto">
-          {blogs.map((blog, index) => (
-            <Link to="/blog/details" key={index} className="flex flex-col">
-              <img
-                src={blog.image}
-                alt={blog.title}
-                className="w-full h-[250px] md:h-[280px] lg:h-[320px] object-cover rounded"
-              />
-              <p className="mt-4 font-[12px] md:font-[14px] lg:font-[16px] font-[600] text-[#000112] uppercase tracking-wider">{blog.title.toUpperCase()}</p>
-            </Link>
-          ))}
-        </div>
-        <div className="flex justify-center mt-[40px] mb-[20px]">
-          <button className="px-[10px] py-[10px] min-w-[200px] text-[14px] font-[600] text-[#94A393] border-[1px] border-[#94A393] hover:bg-[#94A393] hover:text-white uppercase tracking-wider">Load More</button>
+          <p className="text-gray-300 text-center mt-4 max-w-2xl mx-auto">
+            Latest insights, news and updates from our team.
+          </p>
+
         </div>
       </section>
 
 
+      {/* ================= BLOG LIST ================= */}
+
+      <section className="py-14">
+
+        <div className="max-w-7xl mx-auto px-4">
+
+          {blogs.length > 0 ? (
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+              {blogs.map((blog) => (
+
+                <article
+                  key={blog._id}
+                  className="bg-white rounded-xl overflow-hidden shadow-sm border hover:shadow-lg transition duration-300"
+                >
+
+                  {/* IMAGE */}
+
+                  <Link to={`/blog/${blog.slug}`}>
+
+                    <img
+                      src={
+                        blog.image ||
+                        blog.Image ||
+                        "/work/Interior.png"
+                      }
+                      alt={blog.title}
+                      className="w-full h-[230px] object-cover"
+                      onError={(e) => {
+                        e.currentTarget.src =
+                          "/work/Interior.png";
+                      }}
+                    />
+
+                  </Link>
+
+
+                  {/* CONTENT */}
+
+                  <div className="p-6">
+
+                    <p className="text-sm text-gray-500 mb-3">
+                      {formatDate(blog.createdAt)}
+                    </p>
+
+
+                    <Link to={`/blog/${blog.slug}`}>
+
+                      <h2 className="text-xl font-bold text-gray-900 mb-3 hover:text-blue-600 transition line-clamp-2">
+                        {blog.title}
+                      </h2>
+
+                    </Link>
+
+
+                    <p className="text-gray-600 text-sm leading-6 line-clamp-3">
+                      {blog.short_content}
+                    </p>
+
+
+                    <Link
+                      to={`/blog/${blog.slug}`}
+                      className="inline-block mt-5 text-blue-600 font-semibold hover:text-blue-800"
+                    >
+                      Read More →
+                    </Link>
+
+                  </div>
+
+                </article>
+
+              ))}
+
+            </div>
+
+          ) : (
+
+            <div className="text-center py-20">
+
+              <h2 className="text-2xl font-semibold text-gray-800">
+                No blogs found
+              </h2>
+
+            </div>
+
+          )}
+
+
+          {/* ================= PAGINATION ================= */}
+
+          {totalPages > 1 && (
+
+            <div className="flex justify-center items-center gap-3 mt-12">
+
+              <button
+                disabled={currentPage === 1}
+                onClick={() =>
+                  setCurrentPage((prev) => prev - 1)
+                }
+                className="px-5 py-2 border rounded-lg disabled:opacity-40"
+              >
+                Previous
+              </button>
+
+
+              <span className="text-gray-700">
+                Page {currentPage} of {totalPages}
+              </span>
+
+
+              <button
+                disabled={currentPage === totalPages}
+                onClick={() =>
+                  setCurrentPage((prev) => prev + 1)
+                }
+                className="px-5 py-2 border rounded-lg disabled:opacity-40"
+              >
+                Next
+              </button>
+
+            </div>
+
+          )}
+
+        </div>
+
+      </section>
       <Footer />
     </div>
 
-  </>);
-}
+  );
+};
 
 export default Blog;

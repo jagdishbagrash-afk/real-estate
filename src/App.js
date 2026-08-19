@@ -30,44 +30,44 @@ import { AudioProvider } from './contexts/AudioContext';
 
 function App() {
   return (
-      <AudioProvider>
-    <Router>
-      <ScrollToTop />   {/* Scroll to top*/}
-      <Toaster position="top-right"
-        reverseOrder={false} />
-      <Routes>
-        <Route path="/" element={<Main />} />
-        <Route path="/services" element={<Services />} />
-        <Route path="/services/:slug" element={<ServicesDetails />} />
-        <Route path="/project" element={<Project />} />
-        <Route path="/project/:slug" element={<ProjectDetails />} />
-        {/* <Route path="/blog" element={<Blog />} /> */}
-        <Route path="/about" element={<About />} />
-        <Route path="/blog/details" element={<Details />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/career" element={<Career />} />
-        <Route path="/career/:slug" element={<CareerDetails />} />
-        {/* Admin Chnagement */}
-        <Route path="/admin/login" element={<Login />} />
-        <Route path="/admin/team" element={<ListTeam />} />
-        <Route path="/admin/dashboard" element={<Dashboard />} />
-        <Route path="/admin/contact-list" element={<ContactList />} />
-                <Route path="/admin/categories" element={<CategoryList />} />
-        <Route path="/admin/blog-list" element={<BlogView />} />
-        <Route path="/admin/blog-add" element={<AddBlog />} />
-        <Route path="/admin/blog-update/:Id" element={<AddBlog />} />
-        <Route path="/admin/job-list" element={<JobList />} />
-        <Route path="/admin/career-user-list" element={<CareerView />} />
-        <Route path="/admin/project-add" element={<ProjectAdd />} />
-        <Route path="/admin/project-edit/:id" element={<ProjectAdd />} />
+    <AudioProvider>
+      <Router>
+        <ScrollToTop />   {/* Scroll to top*/}
+        <Toaster position="top-right"
+          reverseOrder={false} />
+        <Routes>
+          <Route path="/" element={<Main />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/services/:slug" element={<ServicesDetails />} />
+          <Route path="/project" element={<Project />} />
+          <Route path="/project/:slug" element={<ProjectDetails />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/blog/:slug" element={<Details />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/career" element={<Career />} />
+          <Route path="/career/:slug" element={<CareerDetails />} />
+          {/* Admin Chnagement */}
+          <Route path="/admin/login" element={<Login />} />
+          <Route path="/admin/team" element={<ListTeam />} />
+          <Route path="/admin/dashboard" element={<Dashboard />} />
+          <Route path="/admin/contact-list" element={<ContactList />} />
+          <Route path="/admin/categories" element={<CategoryList />} />
+          <Route path="/admin/blog-list" element={<BlogView />} />
+          <Route path="/admin/blog-add" element={<AddBlog />} />
+          <Route path="/admin/blog-update/:Id" element={<AddBlog />} />
+          <Route path="/admin/job-list" element={<JobList />} />
+          <Route path="/admin/career-user-list" element={<CareerView />} />
+          <Route path="/admin/project-add" element={<ProjectAdd />} />
+          <Route path="/admin/project-edit/:id" element={<ProjectAdd />} />
 
-        <Route path="/admin/project-list" element={<ProjectList />} />
-        <Route path="/admin/project-details/:slug" element={<AdminProjectDetail />} />
+          <Route path="/admin/project-list" element={<ProjectList />} />
+          <Route path="/admin/project-details/:slug" element={<AdminProjectDetail />} />
 
-        <Route path="/admin/project-update/:Id" element={<ProjectAdd />} />
-        <Route path="/admin/settings" element={<Setting />} />
-      </Routes>
-    </Router>
+          <Route path="/admin/project-update/:Id" element={<ProjectAdd />} />
+          <Route path="/admin/settings" element={<Setting />} />
+        </Routes>
+      </Router>
     </AudioProvider>
   );
 }

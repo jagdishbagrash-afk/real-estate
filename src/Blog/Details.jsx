@@ -1,98 +1,247 @@
-import "../App.css"
-import Header from '../component/Header';
-import Footer from "../component/Footer";
+import React, { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
+import Listing from "../Admin/Apis/Listing";
+
+const BlogDetails = () => {
+  const { slug } = useParams();
+
+  const [blog, setBlog] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetchBlogDetails();
+  }, [slug]);
+
+  const fetchBlogDetails = async () => {
+    try {
+      setLoading(true);
+
+      const listing = new Listing();
+
+      const response =
+        await listing.BlogGetDetails(slug);
+
+      console.log(
+        "BLOG DETAILS:",
+        response?.data
+      );
+
+      const data = response?.data?.data;
+
+      setBlog(data || null);
+
+      if (data) {
+        setSEO(data);
+      }
+
+    } catch (error) {
+
+      console.error(
+        "BLOG DETAILS ERROR:",
+        error?.response?.data || error
+      );
+
+      setBlog(null);
+
+    } finally {
+      setLoading(false);
+    }
+  };
 
 
+  // ===========================================
+  // SEO
+  // ===========================================
 
-function Details() {
+  const setSEO = (data) => {
 
-  const relatedBlogs = [
-    {
-      title: 'The Role of Technology in Sustainable Urban Development',
-      image: "/home/relateblog02.jpg",
-    },
-    {
-      title: 'Affordable Housing Solutions for Growing Urban Populations',
-      image: "/home/relateblog02.jpg",
-    },
-    {
-      title: 'Green Spaces and Their Impact on Urban Life',
-      image: "/home/relateblog02.jpg",
-    },
-  ];
-  return (<>
-    <div className="min-h-screen ">
-      <Header />
-      <div className=" blogDetailBaneer ">
-        <img src={"/home/relateblog02.jpg"} alt="Logo" className="w-full" />
-        <div className="blogbannerCnt">
-          <h3 className="text-[18px] text-white mb-[15px]">Adam Sandler | 2min read</h3>
-          <h2 className=" ">How Modern Urban Planning is Reshaping Indian Cities</h2>
-        </div>
+    document.title =
+      data.meta_title ||
+      data.title ||
+      "Blog";
+
+
+    const setMeta = (name, content) => {
+
+      if (!content) return;
+
+      let element =
+        document.querySelector(
+          `meta[name="${name}"]`
+        );
+
+      if (!element) {
+
+        element =
+          document.createElement("meta");
+
+        element.setAttribute("name", name);
+
+        document.head.appendChild(element);
+      }
+
+      element.setAttribute(
+        "content",
+        content
+      );
+    };
+
+
+    setMeta(
+      "description",
+      data.meta_description ||
+      data.short_content
+    );
+
+
+    setMeta(
+      "keywords",
+      data.meta_keyword || ""
+    );
+  };
+
+
+  const formatDate = (date) => {
+
+    if (!date) return "";
+
+    return new Date(date).toLocaleDateString(
+      "en-IN",
+      {
+        day: "2-digit",
+        month: "long",
+        year: "numeric",
+      }
+    );
+  };
+
+
+  if (loading) {
+
+    return (
+      <div className="min-h-[500px] flex items-center justify-center">
+        <p className="text-lg text-gray-600">
+          Loading blog...
+        </p>
       </div>
+    );
+  }
 
-      <div className="blogDetails ">
 
-        {/* Left Main Blog Content */}
-        <div className="blogleftpannel">
-          <p className="mb-[15px] ">
-            As India steps boldly into the future, the landscape of its cities is transforming faster than ever before. From smart infrastructure and sustainable development to cutting-edge technology, urban planning has become the backbone of this evolution. <br /> <br />
-            At Cadmax Projects Pvt. Ltd., we’ve witnessed firsthand how progressive planning strategies are redefining not only how cities look but also how they feel, function, and flourish.
+  if (!blog) {
+
+    return (
+      <div className="min-h-[500px] flex flex-col items-center justify-center">
+
+        <h1 className="text-3xl font-bold">
+          Blog Not Found
+        </h1>
+
+        <Link
+          to="/blogs"
+          className="mt-4 text-blue-600"
+        >
+          Back to Blogs
+        </Link>
+
+      </div>
+    );
+  }
+
+
+  return (
+    <main className="bg-white">
+
+      {/* ================= HEADER ================= */}
+
+      <section className="bg-gray-900 py-14">
+
+        <div className="max-w-4xl mx-auto px-4">
+
+          <Link
+            to="/blogs"
+            className="text-blue-400 text-sm"
+          >
+            ← Back to Blogs
+          </Link>
+
+
+          <h1 className="text-3xl md:text-5xl text-white font-bold leading-tight mt-5">
+
+            {blog.title}
+
+          </h1>
+
+
+          <p className="text-gray-400 mt-5">
+
+            {formatDate(blog.createdAt)}
+
           </p>
 
-          <h2 className="fontspring mb-[20px] text-[22px] md:text-[25px] lg:text-[30px] text-[#000112] mb-4">The Need for a New Approach</h2>
-
-          <p className="">
-            For decades, rapid urbanization in India has posed unique challenges: overcrowding, inefficient infrastructure...
-          </p>
-          <ul className="list-disc ">
-            <li>Smart technology</li>
-            <li>Inclusive design principles</li>
-            <li>Environmental stewardship</li>
-            <li>Data-driven decision-making</li>
-          </ul>
-          <p className="text-gray-700 mb-8">
-            The goal is simple yet profound: to create cities that are livable, resilient, and prepared for tomorrow.
-          </p>
-
-          <h2 className="fontspring mb-[20px] text-[22px] md:text-[25px] lg:text-[30px] text-[#000112] mb-4">Key Trends Transforming Indian Urban Spaces</h2>
-          <p className="">
-            Here are some of the most significant trends we see driving change across the country:
-          </p>
-
-          <h3 className="">1. Sustainable Development and Green Cities</h3>
-          <p className="">
-            Urban planning is no longer just about concrete and roads—it’s about balancing growth with ecological sensitivity...
-          </p>
-          <ul className="">
-            <li>Preserving green spaces and creating urban forests</li>
-            <li>Rainwater harvesting and waste recycling</li>
-            <li>Reducing energy footprints through smart building designs</li>
-            <li>Promoting walkability and non-motorized transport</li>
-          </ul>
         </div>
 
-        {/* Right Sticky Related Blogs */}
-        <aside className="blogsidebar ">
-          <h3 className="fontspring ">Related Blogs</h3>
-          <div className="sidebarimgbx">
-            {relatedBlogs.map((blog, idx) => (
-              <div key={idx}>
-                <img
-                  src={blog.image}
-                  alt={blog.title}
-                  className="w-full h-40 object-cover rounded mb-2"
-                />
-                <p className="text-[16px] text-[#000112ab] font-[600] uppercase tracking-wider">{blog.title}</p>
-              </div>
-            ))}
-          </div>
-        </aside>
-      </div>
+      </section>
 
-      <Footer />
-    </div>
-  </>);
-}
 
-export default Details;
+      {/* ================= CONTENT ================= */}
+
+      <section className="py-12">
+
+        <div className="max-w-4xl mx-auto px-4">
+
+
+          {/* IMAGE */}
+
+          {(blog.image || blog.Image) && (
+
+            <img
+              src={
+                blog.image ||
+                blog.Image
+              }
+              alt={blog.title}
+              className="w-full max-h-[550px] object-cover rounded-xl mb-10"
+            />
+
+          )}
+
+
+          {/* SHORT DESCRIPTION */}
+
+          {blog.short_content && (
+
+            <p className="text-xl text-gray-600 leading-8 font-medium mb-8">
+
+              {blog.short_content}
+
+            </p>
+
+          )}
+
+
+          {/* QUILL HTML CONTENT */}
+
+          <div
+            className="
+              blog-content
+              text-gray-800
+              text-base
+              md:text-lg
+              leading-8
+            "
+            dangerouslySetInnerHTML={{
+              __html: blog.content || "",
+            }}
+          />
+
+
+        </div>
+
+      </section>
+
+    </main>
+  );
+};
+
+export default BlogDetails;

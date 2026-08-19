@@ -84,15 +84,15 @@ function SideBarAdmin() {
                             Contact List
                         </Link>
                     </li>
-                    {/* <li className="mb-1">
-  <Link
-    to="/admin/categories"
-    className="flex items-center py-3 px-6 text-gray-700 hover:bg-gray-100 hover:text-gray-900 rounded-lg"
-  >
-    <MdContacts className="mr-3" />
-    <span className="font-medium">Categories</span>
-  </Link>
-</li> */}
+                    <li className="mb-1">
+                        <Link
+                            to="/admin/blog-list"
+                            className="flex items-center py-3 px-6 text-gray-700 hover:bg-gray-100 hover:text-gray-900 rounded-lg"
+                        >
+                            <MdContacts className="mr-3" />
+                            <span className="font-medium">Blogs</span>
+                        </Link>
+                    </li>
                     <li>
                         <Link
                             to="/admin/job-list"

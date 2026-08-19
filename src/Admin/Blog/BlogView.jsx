@@ -88,9 +88,9 @@ const BlogView = () => {
                     <div className="bg-white border rounded-lg shadow-sm overflow-hidden" key={index}>
                       <Link to={`/blog-details/${blog._id}`}>
                         <Image
-                          className="w-full object-cover"
+                          className="w-full h-52 object-cover"
                           alt={blog.title || "Blog Image"}
-                          src={blog.Image || "/work/Interior.png"}
+                          src={blog.image || "/work/Interior.png"}
                         />
                       </Link>
 
