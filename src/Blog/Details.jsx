@@ -1,111 +1,202 @@
-import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import React, {
+  useEffect,
+  useState,
+} from "react";
+
+import {
+  Link,
+  useParams,
+} from "react-router-dom";
+
 import Listing from "../Admin/Apis/Listing";
 
 const BlogDetails = () => {
+
+  // URL: /blog/my-blog
+  // slug = my-blog
   const { slug } = useParams();
 
   const [blog, setBlog] = useState(null);
-  const [loading, setLoading] = useState(true);
+
+  const [loading, setLoading] =
+    useState(true);
+
+  const [error, setError] =
+    useState("");
+
+
+  // ==========================================
+  // FETCH BLOG
+  // ==========================================
 
   useEffect(() => {
-    fetchBlogDetails();
+
+    if (slug) {
+      fetchBlogDetails();
+    }
+
   }, [slug]);
 
-  const fetchBlogDetails = async () => {
-    try {
-      setLoading(true);
 
-      const listing = new Listing();
+  const fetchBlogDetails = async () => {
+
+    try {
+
+      setLoading(true);
+      setError("");
+
+      console.log(
+        "URL SLUG:",
+        slug
+      );
+
+      const listing =
+        new Listing();
 
       const response =
         await listing.BlogGetDetails(slug);
 
       console.log(
-        "BLOG DETAILS:",
+        "BLOG API RESPONSE:",
         response?.data
       );
 
-      const data = response?.data?.data;
+      if (
+        response?.data?.status === true &&
+        response?.data?.data
+      ) {
 
-      setBlog(data || null);
+        const blogData =
+          response.data.data;
 
-      if (data) {
-        setSEO(data);
+        setBlog(blogData);
+
+        updateSEO(blogData);
+
+      } else {
+
+        setBlog(null);
+
+        setError(
+          "Blog not found."
+        );
       }
 
     } catch (error) {
 
       console.error(
         "BLOG DETAILS ERROR:",
-        error?.response?.data || error
+        error
+      );
+
+      console.error(
+        "SERVER RESPONSE:",
+        error?.response?.data
       );
 
       setBlog(null);
 
+      setError(
+        error?.response?.data?.message ||
+        "Unable to load blog."
+      );
+
     } finally {
+
       setLoading(false);
+
     }
   };
 
 
-  // ===========================================
+  // ==========================================
   // SEO
-  // ===========================================
+  // ==========================================
 
-  const setSEO = (data) => {
+  const updateSEO = (data) => {
 
     document.title =
-      data.meta_title ||
-      data.title ||
+      data?.meta_title ||
+      data?.title ||
       "Blog";
 
 
-    const setMeta = (name, content) => {
-
-      if (!content) return;
-
-      let element =
-        document.querySelector(
-          `meta[name="${name}"]`
-        );
-
-      if (!element) {
-
-        element =
-          document.createElement("meta");
-
-        element.setAttribute("name", name);
-
-        document.head.appendChild(element);
-      }
-
-      element.setAttribute(
-        "content",
-        content
-      );
-    };
-
-
-    setMeta(
+    updateMetaTag(
       "description",
-      data.meta_description ||
-      data.short_content
+      data?.meta_description ||
+      data?.short_content ||
+      ""
     );
 
 
-    setMeta(
+    updateMetaTag(
       "keywords",
-      data.meta_keyword || ""
+      data?.meta_keyword || ""
     );
+
   };
 
+
+  const updateMetaTag = (
+    name,
+    content
+  ) => {
+
+    if (!content) return;
+
+    let meta =
+      document.querySelector(
+        `meta[name="${name}"]`
+      );
+
+
+    if (!meta) {
+
+      meta =
+        document.createElement(
+          "meta"
+        );
+
+      meta.setAttribute(
+        "name",
+        name
+      );
+
+      document.head.appendChild(
+        meta
+      );
+
+    }
+
+
+    meta.setAttribute(
+      "content",
+      content
+    );
+
+  };
+
+
+  // ==========================================
+  // DATE
+  // ==========================================
 
   const formatDate = (date) => {
 
     if (!date) return "";
 
-    return new Date(date).toLocaleDateString(
+    const parsedDate =
+      new Date(date);
+
+    if (
+      Number.isNaN(
+        parsedDate.getTime()
+      )
+    ) {
+      return "";
+    }
+
+    return parsedDate.toLocaleDateString(
       "en-IN",
       {
         day: "2-digit",
@@ -116,10 +207,21 @@ const BlogDetails = () => {
   };
 
 
+  // ==========================================
+  // LOADING
+  // ==========================================
+
   if (loading) {
 
     return (
-      <div className="min-h-[500px] flex items-center justify-center">
+      <div
+        className="
+          min-h-[500px]
+          flex
+          items-center
+          justify-center
+        "
+      >
         <p className="text-lg text-gray-600">
           Loading blog...
         </p>
@@ -128,20 +230,46 @@ const BlogDetails = () => {
   }
 
 
-  if (!blog) {
+  // ==========================================
+  // ERROR
+  // ==========================================
+
+  if (error || !blog) {
 
     return (
-      <div className="min-h-[500px] flex flex-col items-center justify-center">
+      <div
+        className="
+          min-h-[500px]
+          flex
+          flex-col
+          items-center
+          justify-center
+        "
+      >
 
-        <h1 className="text-3xl font-bold">
+        <h1
+          className="
+            text-3xl
+            font-bold
+            text-gray-900
+          "
+        >
           Blog Not Found
         </h1>
 
+        <p className="mt-3 text-gray-500">
+          {error}
+        </p>
+
         <Link
-          to="/blogs"
-          className="mt-4 text-blue-600"
+          to="/blog"
+          className="
+            mt-5
+            text-blue-600
+            hover:underline
+          "
         >
-          Back to Blogs
+          ← Back to Blogs
         </Link>
 
       </div>
@@ -149,92 +277,190 @@ const BlogDetails = () => {
   }
 
 
+  // ==========================================
+  // IMAGE
+  // ==========================================
+
+  const blogImage =
+    blog?.image ||
+    blog?.Image ||
+    "";
+
+
+  // ==========================================
+  // UI
+  // ==========================================
+
   return (
+
     <main className="bg-white">
 
       {/* ================= HEADER ================= */}
 
-      <section className="bg-gray-900 py-14">
+      <section
+        className="
+          bg-[#111827]
+          py-16
+          md:py-20
+        "
+      >
 
-        <div className="max-w-4xl mx-auto px-4">
+        <div
+          className="
+            max-w-5xl
+            mx-auto
+            px-4
+            sm:px-6
+          "
+        >
 
           <Link
-            to="/blogs"
-            className="text-blue-400 text-sm"
+            to="/blog"
+            className="
+              text-gray-300
+              hover:text-white
+              transition
+              text-sm
+            "
           >
             ← Back to Blogs
           </Link>
 
 
-          <h1 className="text-3xl md:text-5xl text-white font-bold leading-tight mt-5">
-
+          <h1
+            className="
+              text-3xl
+              sm:text-4xl
+              md:text-5xl
+              lg:text-6xl
+              text-white
+              font-bold
+              leading-tight
+              mt-6
+            "
+          >
             {blog.title}
-
           </h1>
 
 
-          <p className="text-gray-400 mt-5">
+          {blog.createdAt && (
 
-            {formatDate(blog.createdAt)}
+            <p
+              className="
+                text-gray-400
+                mt-5
+                text-sm
+              "
+            >
+              {formatDate(
+                blog.createdAt
+              )}
+            </p>
 
-          </p>
+          )}
 
         </div>
 
       </section>
 
 
-      {/* ================= CONTENT ================= */}
+      {/* ================= BLOG CONTENT ================= */}
 
-      <section className="py-12">
+      <section
+        className="
+          py-10
+          md:py-16
+        "
+      >
 
-        <div className="max-w-4xl mx-auto px-4">
+        <div
+          className="
+            max-w-5xl
+            mx-auto
+            px-4
+            sm:px-6
+          "
+        >
 
 
-          {/* IMAGE */}
+          {/* BLOG IMAGE */}
 
-          {(blog.image || blog.Image) && (
+          {blogImage && (
 
-            <img
-              src={
-                blog.image ||
-                blog.Image
-              }
-              alt={blog.title}
-              className="w-full max-h-[550px] object-cover rounded-xl mb-10"
-            />
+            <div className="mb-10">
+
+              <img
+                src={blogImage}
+                alt={
+                  blog.title ||
+                  "Blog"
+                }
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
+                className="
+                  w-full
+                  max-h-[600px]
+                  object-cover
+                  rounded-xl
+                "
+                onError={(e) => {
+
+                  console.log(
+                    "IMAGE LOAD ERROR:",
+                    blogImage
+                  );
+
+                  e.currentTarget.style.display =
+                    "none";
+
+                }}
+              />
+
+            </div>
 
           )}
 
 
-          {/* SHORT DESCRIPTION */}
+          {/* SHORT CONTENT */}
 
           {blog.short_content && (
 
-            <p className="text-xl text-gray-600 leading-8 font-medium mb-8">
-
+            <p
+              className="
+                text-lg
+                md:text-xl
+                text-gray-600
+                leading-8
+                font-medium
+                mb-10
+              "
+            >
               {blog.short_content}
-
             </p>
 
           )}
 
 
-          {/* QUILL HTML CONTENT */}
+          {/* FULL CONTENT */}
 
-          <div
-            className="
-              blog-content
-              text-gray-800
-              text-base
-              md:text-lg
-              leading-8
-            "
-            dangerouslySetInnerHTML={{
-              __html: blog.content || "",
-            }}
-          />
+          {blog.content && (
 
+            <div
+              className="
+                blog-content
+                text-gray-800
+                text-base
+                md:text-lg
+                leading-8
+              "
+              dangerouslySetInnerHTML={{
+                __html:
+                  blog.content,
+              }}
+            />
+
+          )}
 
         </div>
 

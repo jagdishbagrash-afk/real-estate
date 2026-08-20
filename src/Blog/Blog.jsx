@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Listing from "../Admin/Apis/Listing";
 import Header from '../component/Header';
 import Footer from "../component/Footer";
+import Banner from "../component/Banner";
 const Blog = () => {
   const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -70,21 +71,7 @@ const Blog = () => {
       <Header />
 
       {/* ================= HERO ================= */}
-
-      <section className="bg-gray-900 py-16">
-        <div className="max-w-7xl mx-auto px-4">
-
-          <h1 className="text-3xl md:text-5xl font-bold text-white text-center">
-            Our Blogs
-          </h1>
-
-          <p className="text-gray-300 text-center mt-4 max-w-2xl mx-auto">
-            Latest insights, news and updates from our team.
-          </p>
-
-        </div>
-      </section>
-
+      <Banner image={"https://cadmaxpro-buket.s3.ap-south-1.amazonaws.com/assets/home/blog_bg.png"} title={"Blogs"} overlay={true} />
 
       {/* ================= BLOG LIST ================= */}
 

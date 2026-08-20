@@ -26,7 +26,9 @@ class Listing extends Component {
     async BlogDelete(data) {
         return Api.post("/blog/delete", data);
     }
-
+    async BlogGetDetails(slug) {
+        return Api.get(`/blog/details/${encodeURIComponent(slug)}`);
+    }
     // ==============================
     // PROJECT
     // ==============================
