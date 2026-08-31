@@ -57,43 +57,47 @@ function Career() {
         }
     ]
 
-     const [jobs, setJobs] = useState([]);
-  const [loading, setLoading] = useState(true);
+    const [jobs, setJobs] = useState([]);
+    const [loading, setLoading] = useState(true);
 
-  const fetchJobList = async () => {
-    try {
-      setLoading(true);
-      const api = new Listing();
-      const response = await api.JobGet();
-      console.log("API response:", response);
-      // Adjust according to your API structure
-      setJobs(response?.data?.data || []); 
-    } catch (error) {
-      console.error("Error fetching job list:", error);
-      setJobs([]);
-    } finally {
-      setLoading(false);
-    }
-  };
+    const fetchJobList = async () => {
+        try {
+            setLoading(true);
+            const api = new Listing();
+            const response = await api.JobGet();
+            console.log("API response:", response);
+            // Adjust according to your API structure
+            setJobs(response?.data?.data || []);
+        } catch (error) {
+            console.error("Error fetching job list:", error);
+            setJobs([]);
+        } finally {
+            setLoading(false);
+        }
+    };
 
-  useEffect(() => {
-    fetchJobList();
-  }, []);
+    useEffect(() => {
+        fetchJobList();
+    }, []);
 
 
 
     return (<>
-     <Helmet>
-        <title>Careers at Cadmax Pro | Join Our Creative Team</title>
-        <meta
-          name="description"
-          content="Looking to build your career in architecture and design? Join Cadmax Pro’s team of creative professionals shaping the future of design excellence."
-        />
-        <meta
-          name="keywords"
-          content="Cadmax Pro careers, architecture jobs, interior design jobs, creative team, hiring designers, work at Cadmax Pro"
-        />
-      </Helmet>
+        <Helmet>
+            <title>Careers at Cadmax Pro | Join Our Creative Team</title>
+            <meta
+                name="description"
+                content="Looking to build your career in architecture and design? Join Cadmax Pro’s team of creative professionals shaping the future of design excellence."
+            />
+            <meta
+                name="keywords"
+                content="Cadmax Pro careers, architecture jobs, interior design jobs, creative team, hiring designers, work at Cadmax Pro"
+            />
+            <link
+                rel="canonical"
+                href="https://cadmaxpro.com/career"
+            />
+        </Helmet>
         <div className="min-h-screen ">
             <Header />
 

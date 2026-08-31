@@ -32,20 +32,20 @@ function Contact() {
             setLoading(false);
             return;
         }
-          const phoneRegex = /^[0-9]{10}$/;
-    if (!phoneRegex.test(Regs.phone_number)) {
-        toast.error("Phone number must be exactly 10 digits.");
-        setLoading(false);
-        return;
-    }
+        const phoneRegex = /^[0-9]{10}$/;
+        if (!phoneRegex.test(Regs.phone_number)) {
+            toast.error("Phone number must be exactly 10 digits.");
+            setLoading(false);
+            return;
+        }
 
-    // 3️⃣ Email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(Regs.email)) {
-        toast.error("Please enter a valid email address.");
-        setLoading(false);
-        return;
-    }
+        // 3️⃣ Email validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(Regs.email)) {
+            toast.error("Please enter a valid email address.");
+            setLoading(false);
+            return;
+        }
         const main = new Listing();
         try {
             const updatedRegs = {
@@ -61,7 +61,7 @@ function Contact() {
                     message: "",
                     subject: "",
                     phone_number: "",
-                    services:""
+                    services: ""
                 });
             } else {
                 toast.error(response.data.message);
@@ -75,39 +75,43 @@ function Contact() {
     };
 
     return (<>
-      <Helmet>
-        <title>Contact Us | Cadmax Pro</title>
-        <meta
-          name="description"
-          content="Get in touch with Cadmax Pro for architectural and interior design consultations. We’re here to discuss your dream project."
-        />
-        <meta
-          name="keywords"
-          content="contact Cadmax Pro, architecture consultation, design enquiry, interior design contact, Cadmax office"
-        />
-      </Helmet>
+        <Helmet>
+            <title>Contact Us | Cadmax Pro</title>
+            <meta
+                name="description"
+                content="Get in touch with Cadmax Pro for architectural and interior design consultations. We’re here to discuss your dream project."
+            />
+            <meta
+                name="keywords"
+                content="contact Cadmax Pro, architecture consultation, design enquiry, interior design contact, Cadmax office"
+            />
+            <link
+                rel="canonical"
+                href="https://cadmaxpro.com/contact"
+            />
+        </Helmet>
         <div className="min-h-screen">
             <Header />
 
             <div className={`relative md:mt-[-150px]`}>
-                        {/* Background Image */}
+                {/* Background Image */}
                 <img
                     src={"https://cadmaxpro-buket.s3.ap-south-1.amazonaws.com/assets/home/contact-us-image.jpg"}
                     alt="Logo"
                     className="w-full h-[300px] sm:h-[400px] md:h-[600px] xl:h-[800px] object-cover "
                 />
-                        {/* Overlay */}
-                        {/* <div className="absolute inset-0 bg-black/50"></div> */}
-            
-                        {/* Content */}
-                        <div className="max-w-[1320px] m-auto absolute left-0 right-0 bottom-4 sm:bottom-6 md:bottom-[50px] lg:bottom-[90px] z-[10] px-4">
-                            <AnimatedHeading>
-                                <h2 className="fontspring text-[24px] sm:text-[28px] md:text-[40px] lg:text-[60px] xl:text-[80px] text-white leading-tight">
-                                    {"Contact us"}
-                                </h2>
-                            </AnimatedHeading>
-                        </div>
-                    </div>
+                {/* Overlay */}
+                {/* <div className="absolute inset-0 bg-black/50"></div> */}
+
+                {/* Content */}
+                <div className="max-w-[1320px] m-auto absolute left-0 right-0 bottom-4 sm:bottom-6 md:bottom-[50px] lg:bottom-[90px] z-[10] px-4">
+                    <AnimatedHeading>
+                        <h2 className="fontspring text-[24px] sm:text-[28px] md:text-[40px] lg:text-[60px] xl:text-[80px] text-white leading-tight">
+                            {"Contact us"}
+                        </h2>
+                    </AnimatedHeading>
+                </div>
+            </div>
             <div className="bg-[#fff] px-[15px] py-[30px] md:py-[50px] lgpy-[70px] ">
                 {/* Top Contact Info */}
                 <div className="max-w-[1320px] mx-auto flex flex-wrap md:flex-nowrap gap-6 text-center">

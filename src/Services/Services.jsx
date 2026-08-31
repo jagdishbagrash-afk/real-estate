@@ -35,6 +35,10 @@ function Services() {
           name="keywords"
           content="architectural services, interior design, construction, project management, turnkey projects, design consultancy"
         />
+        <link
+          rel="canonical"
+          href="https://cadmaxpro.com/services"
+        />
       </Helmet>
       <div className="min-h-screen">
         <Header />

@@ -43,17 +43,21 @@ function Project() {
 
     return (
         <>
-         <Helmet>
-        <title>Our Projects | Cadmax Pro</title>
-        <meta
-          name="description"
-          content="Explore Cadmax Pro’s portfolio showcasing remarkable architectural and interior design projects, blending creativity, precision, and luxury."
-        />
-        <meta
-          name="keywords"
-          content="Cadmax Pro projects, architectural portfolio, interior design projects, luxury design, construction works, modern buildings"
-        />
-      </Helmet>
+            <Helmet>
+                <title>Our Projects | Cadmax Pro</title>
+                <meta
+                    name="description"
+                    content="Explore Cadmax Pro’s portfolio showcasing remarkable architectural and interior design projects, blending creativity, precision, and luxury."
+                />
+                <meta
+                    name="keywords"
+                    content="Cadmax Pro projects, architectural portfolio, interior design projects, luxury design, construction works, modern buildings"
+                />
+                <link
+                    rel="canonical"
+                    href="https://cadmaxpro.com/project"
+                />
+            </Helmet>
             <div className="min-h-screen">
                 <Header />
                 <Banner

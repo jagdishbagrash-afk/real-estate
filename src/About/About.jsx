@@ -40,6 +40,10 @@ function About() {
                 name="keywords"
                 content="Cadmax Pro about, architecture firm, interior design company, creative design, architectural excellence, design consultancy"
             />
+            <link
+                rel="canonical"
+                href="https://cadmaxpro.com/about"
+            />
         </Helmet>
 
         <div className="min-h-screen ">

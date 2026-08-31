@@ -14,7 +14,7 @@ const Footer = () => {
             <Link to="https://www.facebook.com/CadMaxProjectsJPR" className="hover:text-gray-400" target="_blank" rel="noopener noreferrer">
               <FaFacebookF />
             </Link>
-            <Link to="https://www.instagram.com/cadmaxconsultancy/" className="hover:text-gray-400" target="_blank" rel="noopener noreferrer">
+            <Link to="https://www.instagram.com/cadmax_projects?igsi=aHdwOGlzN3N3bzR3" className="hover:text-gray-400" target="_blank" rel="noopener noreferrer">
               <FaInstagram />
             </Link>
             <Link to="https://www.linkedin.com/company/cadmax-projects-pvt-ltd/" className="hover:text-gray-400" target="_blank" rel="noopener noreferrer">
@@ -39,7 +39,7 @@ const Footer = () => {
 
         {/* Bottom Copyright */}
         <div className="border-t border-gray-700 mt-6 pt-4 pb-[15px] text-center text-sm text-[#ffffff9c]">
-         © Copyright - 2025 All Rights Reserved
+          © Copyright - 2025 All Rights Reserved
         </div>
       </div>
     </footer>
