@@ -76,7 +76,7 @@ function About() {
     };
     const stats = [
         {
-            number: "20+",
+            number: "25+",
             title: "Years of Excellence",
         },
         {
@@ -84,11 +84,11 @@ function About() {
             title: "Projects Completed",
         },
         {
-            number: "15+",
+            number: "10+",
             title: "Awards & Recognitions",
         },
         {
-            number: "98%",
+            number: "99%",
             title: "Client Satisfaction",
         },
     ];
@@ -215,7 +215,7 @@ function About() {
                                 <span>
                                     CADMAX{" "}
                                     <span className="text-[#D29A4A]">
-                                        Pro
+                                        Projects
                                     </span>
                                 </span>
                             </h1>
@@ -232,7 +232,7 @@ function About() {
           mb-[20px]
         "
                             >
-                                Architecture. Urban Planning. Infrastructure.
+                                Urban Planning. Architecture. Infrastructure.
                                 <br />
                                 Designing Excellence, Building Futures.
                             </p>
@@ -281,7 +281,7 @@ function About() {
                                 </span>
 
                                 <span className="text-[#D29A4A]">
-                                    About CADMAX Pro
+                                    About CADMAX Projects
                                 </span>
                             </div>
                         </div>
